@@ -18,5 +18,5 @@ fields:
   name: hero
   label: hero
 pages:
-- content/blog-posts/here-s-a-post-with-no-author.md
 - content/blog-posts/test-with-no-image.md
+- content/blog-posts/here-s-a-post-with-no-author.md
