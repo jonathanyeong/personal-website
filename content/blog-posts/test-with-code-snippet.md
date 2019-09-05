@@ -24,7 +24,7 @@ Next create the file `spec/support/factory_girl.rb` and paste in:
 
     # spec/support/factory_girl.rbRSpec.configure do |config|  config.include FactoryGirl::Syntax::Methodsend
 
-This makes method calls less verbose. For example instead of`FactoryGirl.build` you can now use `build`.
+This makes method calls less verbose. For example instead of `FactoryGirl.build` you can now use `build`.
 
 Next, uncomment the following line in `spec/rails_helper.rb` to autoload files in the `support/` directory.
 
