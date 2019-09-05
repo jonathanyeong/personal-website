@@ -17,6 +17,3 @@ fields:
 - type: file
   name: hero
   label: hero
-pages:
-- content/blog-posts/test-with-code-snippet.md
-- content/blog-posts/test-with-no-image.md
