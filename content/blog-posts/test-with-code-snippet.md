@@ -18,15 +18,15 @@ Next run:
 
     $ bundle install$ rails generate rspec:install
 
-This will generate a `spec/` folder inside your application. You can remove the `test/` folder if it exists.
+This will generate a `spec/`  folder inside your application. You can remove the `test/`  folder if it exists.
 
-Next create the file `spec/support/factory_girl.rb` and paste in:
+Next create the file `spec/support/factory_girl.rb`  and paste in:
 
     # spec/support/factory_girl.rbRSpec.configure do |config|  config.include FactoryGirl::Syntax::Methodsend
 
-This makes method calls less verbose. For example instead of `FactoryGirl.build` you can now use `build`.
+This makes method calls less verbose. For example instead of `FactoryGirl.build`  you can now use `build`.
 
-Next, uncomment the following line in `spec/rails_helper.rb` to autoload files in the `support/` directory.
+Next, uncomment the following line in `spec/rails_helper.rb`  to autoload files in the `support/`  directory.
 
     Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
