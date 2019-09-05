@@ -1,7 +1,5 @@
-<figure class="post-hero">
-
-  {{- if .Params.Hero }}
-      <img src={{ .Params.Hero }}></img>
-  {{- end }}
- 
-</figure>
+{{- if .Params.Hero }}
+  <figure class="post-hero">
+    <img src={{ .Params.Hero }}></img>
+  </figure>
+{{- end }}
