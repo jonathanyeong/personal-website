@@ -32,7 +32,7 @@ I explored four different solutions for this:
    * **Con**: Every app will need to have this rake task. Depending on the team, rake tasks could start becoming unique. Hard to guarantee consistency on how brands handle pulling in protobufs. Pretty low-level to write. You will need to do a lot of file manipulation when writing your rake task.
 4. Rake task with submodule in your folder
    * **Pro**: Submodules were made for a situation like this. It could be coupled with a rake task to pull the latest proto before auto-generating the files. 
-   * **Cons**: Submodules can also be very confusing for people. It introduces a whole new set of commands that we don’t use on a day to day basis at Enova e.g. `{{< highlight bash >}} `git submodule update` {{< /highlight >}}`. Same cons as the Rake task con above.
+   * **Cons**: Submodules can also be very confusing for people. It introduces a whole new set of commands that we don’t use on a day to day basis at Enova e.g. \`git submodule update\`. Same cons as the Rake task con above.
 
 **_Solution that I ended up doing._**
 
