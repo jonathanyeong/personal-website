@@ -36,4 +36,6 @@ I explored four different solutions for this:
 
 **_Solution that I ended up doing._**
 
+In the end, the solution that made the most sense was to package the protobufs into a gem. 
+
 **_What did I need to do to build out that solution - challenges, design decisions faced._**
