@@ -1,7 +1,5 @@
+{{- if .Params.Hero }}
 <figure class="catalogue-hero">
-
-    {{- if .Params.Hero }}
-        <img src={{ .Params.Hero }}></img>
-    {{- end }}
-   
-  </figure>
+    <img src={{ .Params.Hero }}></img>
+</figure>
+{{- end }}
