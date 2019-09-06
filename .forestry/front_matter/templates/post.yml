@@ -18,4 +18,5 @@ fields:
   name: hero
   label: hero
 pages:
+- content/blog-posts/db-to-store-json.md
 - content/blog-posts/using-protocol-buffers-in-your-ruby-on-rails-app.md
