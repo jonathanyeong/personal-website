@@ -17,3 +17,5 @@ fields:
 - type: file
   name: hero
   label: hero
+pages:
+- content/blog-posts/using-protocol-buffers-in-your-ruby-on-rails-app.md
