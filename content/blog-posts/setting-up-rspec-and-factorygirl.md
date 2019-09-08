@@ -12,17 +12,24 @@ Not another RSpec tutorial! I know, there’s plenty of well written tutorials o
 
 First of all we need to add [rspec-rails](https://github.com/rspec/rspec-rails) and [factory_girl_rails](https://github.com/thoughtbot/factory_girl_rails) to the Gemfile.
 
-    group :development, :test do  gem 'rspec-rails', '~> 3.5'  gem 'factory_girl_rails'end
+    group :development, :test do  
+      gem 'rspec-rails', '~> 3.5'  
+      gem 'factory_girl_rails'
+    end
 
 Next run:
 
-    $ bundle install$ rails generate rspec:install
+    $ bundle install
+    $ rails generate rspec:install
 
 This will generate a `spec/`  folder inside your application. You can remove the `test/`  folder if it exists.
 
 Next create the file `spec/support/factory_girl.rb`  and paste in:
 
-    # spec/support/factory_girl.rbRSpec.configure do |config|  config.include FactoryGirl::Syntax::Methodsend
+    # spec/support/factory_girl.rb
+    RSpec.configure do |config|  
+      config.include FactoryGirl::Syntax::Methods
+    end
 
 This makes method calls less verbose. For example instead of `FactoryGirl.build`  you can now use `build`.
 
@@ -44,7 +51,17 @@ _Fun fact: with Factory Girl installed, a factory will also be generated when yo
 
 Here are the files created when running the above RSpec generator. This should also generate a Factory Girl file `spec/factories/widgets.rb`.
 
-    # spec/models/widget_spec.rbrequire 'rails_helper'RSpec.describe Widget, type: :model do  pending "add some examples to (or delete) #{__FILE__}"end# spec/factories/widgets.rbFactoryGirl.define do  factory :widget do      endend
+    # spec/models/widget_spec.rb
+    require 'rails_helper'
+    RSpec.describe Widget, type: :model do  
+      pending "add some examples to (or delete) #{__FILE__}"
+    end
+    
+    # spec/factories/widgets.rb
+    FactoryGirl.define do  
+      factory :widget do      
+      end
+    end
 
 To run the test:
 
