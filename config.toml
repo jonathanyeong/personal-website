@@ -2,3 +2,5 @@ baseURL = "/"
 languageCode = "en-us"
 theme = "tale-theme"
 title = "Jonathan Yeong"
+pygmentsUseClassic = true
+pygmentsCodeFences = true
