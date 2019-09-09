@@ -64,19 +64,18 @@ namespace :protobufs do
 end
 ```
 
-Let's make sure this works, we'll want to build the gem and install it on our system.
+Let's make sure this works, an easy way to do this is to make an example project that contains a gemfile that points to the gem.
 
 ```
-$ gem build protobuf_generator.gemspec
+gem 'protobuf_generator', path: '<path to gem>'
+```
 
-#  Successfully built RubyGem
-#  Name: protobuf_generator
-#  Version: 0.0.1
-#  File: protobuf_generator-0.0.1.gem
+In this example project we'll also add in a Rakefile that loads the gem's rake task:
 
-$ gem install protobuf_generator
+```
+require 'enova_protobuf_generator'
 
-# 1 gem installed
+load 'enova_protobuf_generator/task/gen_protos.rake'
 ```
 
 How do we load this in Rails?
