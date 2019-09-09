@@ -86,7 +86,7 @@ $ bundle exec rake enova_protobufs:generate
 # Hello World
 ```
 
-Let's pass arguments and download the tar file:
+Let's pass arguments and download the tar file (we can refactor this a little later):
 
 ```
 # frozen_string_literal: true
