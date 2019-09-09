@@ -193,8 +193,24 @@ end
 
 This means we won't have random tars that we can't open living in the tmp folder.
 
-Now we want to extract the tars and place the extracted files in the tmp folder.
+Now we want to extract the tars and place the extracted files in the tmp folder. There's a bug in the gzip code above. This should be the download_tar method:
 
+```
+def download_tar(dest_folder, download_url)
+  begin
+    Zlib::GzipWriter.open(dest_folder) do |local_file|
+      open(download_url) do |remote_file|
+        puts "Downloading TAR: #{download_url}"
+        local_file.write(Zlib::GzipReader.new(remote_file).read)
+      end
+    end
+  rescue OpenURI::HTTPError => e
+    File.delete(dest_folder)
+    abort "Error: downloading tar with this URL: #{download_url} caused this error: #{e}"
+  end
+  puts "Succesfully download the TAR file found here: #{dest_folder}"
+end
+```
 
 
 How do we load this in Rails?
