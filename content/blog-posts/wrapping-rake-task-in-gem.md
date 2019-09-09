@@ -140,6 +140,56 @@ A couple of things here:
 - We want to do a couple of checks. First we create the `tmp` directory if it doesn't exist. Then we also gracefully handle the error if the URL doesn't exist. 
 - Help text to help us show the usage of the rake task.
 
+Unfortunately this will always save a file even if you fail to read from the URL. To fix this, we need to introduce the cleanup outside of the `open` block:
+
+```
+# frozen_string_literal: true
+require 'open-uri'
+
+TAR_EXT = '.tar.gz'.freeze
+DEFAULT_ARCHIVE_URL = 'https://git.enova.com/brazil/schema_registry/archive/'.freeze
+DEFAULT_OUTPUT_DIR = 'app/messages'.freeze
+DEFAULT_DOWNLOAD_DIR = 'tmp/'
+
+namespace :enova_protobufs do
+
+  desc 'Generate the Protos'
+  task :generate, [:release, :github_archive_url, :output_dir] do |task, args|
+    args.with_defaults(:github_archive_url => DEFAULT_ARCHIVE_URL)
+    args.with_defaults(:output_dir => DEFAULT_OUTPUT_DIR)
+
+    abort("Error: No Release Specified\n\n" + help_text) if args[:release].nil?
+
+    Dir.mkdir(DEFAULT_DOWNLOAD_DIR) unless Dir.exist?(DEFAULT_DOWNLOAD_DIR)
+    download_tar(DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT, args[:github_archive_url] + args[:release] + TAR_EXT)
+
+
+  end
+end
+
+def help_text
+  <<~HEREDOC
+    Usage: rake enova_protobufs:generate[release, github_archive_url, output_dir]
+    github_archive_url (default) -> #{DEFAULT_ARCHIVE_URL}
+    output_dir (default) -> #{DEFAULT_OUTPUT_DIR}
+  HEREDOC
+end
+
+def download_tar(dest_folder, download_url)
+  begin
+    open(dest_folder, 'w') do |local_file|
+      open(download_url) do |remote_file|
+        puts "Downloading TAR: #{download_url}"
+        local_file.write(Zlib::GzipReader.new(remote_file).read)
+      end
+    end
+  rescue OpenURI::HTTPError => e
+    File.delete(dest_folder)
+    abort "Error: downloading tar with this URL: #{download_url} caused this error: #{e}"
+  end
+  puts "Succesfully download the TAR file found here: #{dest_folder}"
+end
+```
 
 
 How do we load this in Rails?
