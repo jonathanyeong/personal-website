@@ -138,6 +138,7 @@ A couple of things here:
 - We want to default the github url and the output dir. This should be the same for most applications if we're sharing a protobuf repo.
 - We require that the user specify the version to download. Otherwise the download won't work, and also ensures that we've tagged the protobuf repo correctly.
 - We want to do a couple of checks. First we create the `tmp` directory if it doesn't exist. Then we also gracefully handle the error if the URL doesn't exist. 
+- Help text to help us show the usage of the rake task.
 
 
 
