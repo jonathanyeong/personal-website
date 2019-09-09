@@ -62,7 +62,21 @@ namespace :protobufs do
     puts 'Hello World'
   end
 end
+```
 
+Let's make sure this works, we'll want to build the gem and install it on our system.
+
+```
+$ gem build protobuf_generator.gemspec
+
+#  Successfully built RubyGem
+#  Name: protobuf_generator
+#  Version: 0.0.1
+#  File: protobuf_generator-0.0.1.gem
+
+$ gem install protobuf_generator
+
+# 1 gem installed
 ```
 
 How do we load this in Rails?
