@@ -193,6 +193,10 @@ end
 
 This means we won't have random tars that we can't open living in the tmp folder.
 
+Now we want to extract the tars and place the extracted files in the tmp folder.
+
+
+
 How do we load this in Rails?
 
 What can we do next with this?
