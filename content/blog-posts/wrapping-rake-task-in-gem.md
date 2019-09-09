@@ -212,6 +212,86 @@ def download_tar(dest_folder, download_url)
 end
 ```
 
+This code will unzip the file:
+
+```
+# frozen_string_literal: true
+require 'open-uri'
+require 'rubygems/package'
+require 'zlib'
+
+TAR_LONGLINK = '././@LongLink'  # http://dracoater.blogspot.com/2013/10/extracting-files-from-targz-with-ruby.html
+TAR_EXT = '.tar.gz'.freeze
+DEFAULT_ARCHIVE_URL = 'https://git.enova.com/brazil/schema_registry/archive/'.freeze
+DEFAULT_OUTPUT_DIR = 'app/messages/'.freeze
+DEFAULT_DOWNLOAD_DIR = 'tmp/'
+
+namespace :enova_protobufs do
+
+  desc 'Generate the Protos'
+  task :generate, [:release, :github_archive_url, :output_dir] do |task, args|
+    args.with_defaults(:github_archive_url => DEFAULT_ARCHIVE_URL)
+    args.with_defaults(:output_dir => DEFAULT_OUTPUT_DIR)
+
+    abort("Error: No Release Specified\n\n" + help_text) if args[:release].nil?
+    Dir.mkdir(DEFAULT_DOWNLOAD_DIR) unless Dir.exist?(DEFAULT_DOWNLOAD_DIR)
+    download_tar(DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT, args[:github_archive_url] + args[:release] + TAR_EXT)
+    unzip_tar(DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT)
+  end
+end
+
+def help_text
+  <<~HEREDOC
+    Usage: rake enova_protobufs:generate[release, github_archive_url, output_dir]
+    github_archive_url (default) -> #{DEFAULT_ARCHIVE_URL}
+    output_dir (default) -> #{DEFAULT_OUTPUT_DIR}
+  HEREDOC
+end
+
+def download_tar(dest_folder, download_url)
+  begin
+    Zlib::GzipWriter.open(dest_folder) do |local_file|
+      open(download_url) do |remote_file|
+        puts "Downloading TAR: #{download_url}"
+        local_file.write(Zlib::GzipReader.new(remote_file).read)
+      end
+    end
+  rescue OpenURI::HTTPError => e
+    File.delete(dest_folder)
+    abort "Error: downloading tar with this URL: #{download_url} caused this error: #{e}"
+  end
+  puts "Succesfully download the TAR file found here: #{dest_folder}"
+end
+
+def unzip_tar(tar_path)
+  puts "Unzipping tar at #{tar_path}"
+  Gem::Package::TarReader.new( Zlib::GzipReader.open(DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT)) do |tar|
+    dest = nil
+    tar.each do |entry|
+      if entry.full_name == TAR_LONGLINK
+        dest = File.join(DEFAULT_DOWNLOAD_DIR, entry.read.strip)
+        next
+      end
+      dest ||= File.join DEFAULT_DOWNLOAD_DIR, entry.full_name
+      if entry.directory?
+        FileUtils.rm_rf dest unless File.directory? dest
+        FileUtils.mkdir_p dest, :mode => entry.header.mode, :verbose => false
+      elsif entry.file?
+        FileUtils.rm_rf dest unless File.file? dest
+        File.open dest, "wb" do |f|
+          f.print entry.read
+        end
+        FileUtils.chmod entry.header.mode, dest, :verbose => false
+      elsif entry.header.typeflag == '2' #Symlink!
+        File.symlink entry.header.linkname, dest
+      end
+      dest = nil
+    end
+  end
+end
+```
+
+Now that we've unzipped the tar we can start generating the protobuf files. Let's install the ruby protobuf gem
 
 How do we load this in Rails?
 
