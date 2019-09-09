@@ -191,6 +191,7 @@ def download_tar(dest_folder, download_url)
 end
 ```
 
+This means we won't have random tars that we can't open living in the tmp folder.
 
 How do we load this in Rails?
 
