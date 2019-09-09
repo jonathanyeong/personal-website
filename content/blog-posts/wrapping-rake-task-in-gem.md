@@ -20,6 +20,39 @@ Setup gem like this:
     protobuf_generator.gemspec
     README.md
 
+The version.rb file will look like:
+
+```
+# lib/protobuf_generator/version.rb
+module ProtobufGenerator
+  VERSION = '0.0.1'
+end
+```
+
+Your gemspec will look like:
+
+```
+# protobuf_generator.gemspec
+require_relative 'lib/enova_protobuf_generator/version'
+
+Gem::Specification.new do |s|
+  s.name        = 'enova_protobuf_generator'
+  s.version     = EnovaProtobufGenerator::VERSION
+  s.date        = '2019-09-09'
+  s.summary     = 'A protobuf generator for Enova protobufs'
+  s.description = 'Exposes a rake task that easily imports protobufs into your Rails apps'
+  s.authors     = ["Jonathan Yeong"]
+  s.email       = 'jyeong@enova.com'
+  s.files       = ["lib/enova_protobuf_generator.rb"]
+
+  s.require_paths = ['lib']
+
+  s.required_ruby_version = '~> 2.6'
+
+  s.add_dependency 'rake'
+end
+```
+
 What does the rake task look like?
 
 How do we load this in Rails?
