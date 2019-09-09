@@ -49,7 +49,21 @@ Your gemspec will look like:
       s.add_dependency 'rake'
     end
 
-What does the rake task look like?
+Let's start with a hello world rake task
+
+```
+# lib/task/gen_protos.rake
+# frozen_string_literal: true
+
+namespace :protobufs do
+
+  desc 'Generate the Protos'
+  task :generate do
+    puts 'Hello World'
+  end
+end
+
+```
 
 How do we load this in Rails?
 
