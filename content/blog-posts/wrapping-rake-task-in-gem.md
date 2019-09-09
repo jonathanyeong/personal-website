@@ -291,7 +291,9 @@ def unzip_tar(tar_path)
 end
 ```
 
-Now that we've unzipped the tar we can start generating the protobuf files. Let's install the ruby protobuf gem
+Now that we've unzipped the tar we can start generating the protobuf files. We're just going to use the system `protoc` call.
+
+However, we're missing one piece of data. How do we know the folder name that we just unzipped?
 
 How do we load this in Rails?
 
