@@ -11,13 +11,19 @@ I want to unpack and auto-generate protobufs with a shared rake task between mul
 
 Setup gem like this:
 
-```
-lib/
-  protobuf_generator/
-    version.rb
-  task/
-    gen_protos.rake
-  protobuf_generator.rb
-protobuf_generator.gemspec
-README.md
-```
+    lib/
+      protobuf_generator/
+        version.rb
+      task/
+        gen_protos.rake
+      protobuf_generator.rb
+    protobuf_generator.gemspec
+    README.md
+
+What does the rake task look like?
+
+How do we load this in Rails?
+
+What can we do next with this?
+
+Link to Open Source project.
