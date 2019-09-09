@@ -86,6 +86,54 @@ $ bundle exec rake enova_protobufs:generate
 # Hello World
 ```
 
+Let's pass arguments and download the tar file:
+
+```
+# frozen_string_literal: true
+require 'open-uri'
+
+TAR_EXT = '.tar.gz'.freeze
+DEFAULT_ARCHIVE_URL = 'https://git.enova.com/brazil/schema_registry/archive/'.freeze
+DEFAULT_OUTPUT_DIR = 'app/messages'.freeze
+DEFAULT_DOWNLOAD_DIR = 'tmp/'
+
+namespace :enova_protobufs do
+
+  desc 'Generate the Protos'
+  task :generate, [:release, :github_archive_url, :output_dir] do |task, args|
+    args.with_defaults(:github_archive_url => DEFAULT_ARCHIVE_URL)
+    args.with_defaults(:output_dir => DEFAULT_OUTPUT_DIR)
+
+    abort("Error: No Release Specified\n\n" + help_text) if args[:release].nil?
+
+    filename = DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT
+
+    open(filename, 'w') do |local_file|
+      begin
+        open(args[:github_archive_url] + filename) do |remote_file|
+          puts "Downloading TAR: #{args[:github_archive_url] + filename}"
+          local_file.write(Zlib::GzipReader.new(remote_file).read)
+        end
+      rescue OpenURI::HTTPError => e
+        abort("Error: downloading tar with this URL: #{args[:github_archive_url] + filename} caused this error: #{e}")
+      end
+    end
+
+    puts "Succesfully download the TAR file found here: #{filename}"
+  end
+end
+
+def help_text
+  <<~HEREDOC
+    Usage: rake enova_protobufs:generate[release, github_archive_url, output_dir]
+    github_archive_url (default) -> #{DEFAULT_ARCHIVE_URL}
+    output_dir (default) -> #{DEFAULT_OUTPUT_DIR}
+  HEREDOC
+end
+```
+
+
+
 How do we load this in Rails?
 
 What can we do next with this?
