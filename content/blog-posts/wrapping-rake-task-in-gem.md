@@ -106,9 +106,10 @@ namespace :enova_protobufs do
 
     abort("Error: No Release Specified\n\n" + help_text) if args[:release].nil?
 
-    filename = DEFAULT_DOWNLOAD_DIR + args[:release] + TAR_EXT
+    Dir.mkdir(DEFAULT_DOWNLOAD_DIR) unless Dir.exist?(DEFAULT_DOWNLOAD_DIR)
+    filename = args[:release] + TAR_EXT
 
-    open(filename, 'w') do |local_file|
+    open(DEFAULT_DOWNLOAD_DIR + filename, 'w') do |local_file|
       begin
         open(args[:github_archive_url] + filename) do |remote_file|
           puts "Downloading TAR: #{args[:github_archive_url] + filename}"
@@ -119,7 +120,7 @@ namespace :enova_protobufs do
       end
     end
 
-    puts "Succesfully download the TAR file found here: #{filename}"
+    puts "Succesfully download the TAR file found here: #{DEFAULT_DOWNLOAD_DIR + filename}"
   end
 end
 
