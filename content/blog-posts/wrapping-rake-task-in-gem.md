@@ -49,7 +49,7 @@ Your gemspec will look like:
       s.add_dependency 'rake'
     end
 
-Let's start with a hello world rake task
+Let's start with a hello world rake task:
 
 ```
 # lib/task/gen_protos.rake
@@ -76,6 +76,14 @@ In this example project we'll also add in a Rakefile that loads the gem's rake t
 require 'enova_protobuf_generator'
 
 load 'enova_protobuf_generator/task/gen_protos.rake'
+```
+
+Now we can run:
+
+```
+$ bundle exec rake enova_protobufs:generate
+
+# Hello World
 ```
 
 How do we load this in Rails?
