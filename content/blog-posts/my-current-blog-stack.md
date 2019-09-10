@@ -3,10 +3,12 @@ author = ""
 date = "2019-09-10T05:00:00+00:00"
 draft = true
 hero = ""
-title = "My current blog stack"
+title = "2019 blog refresh"
 type = ""
 
 +++
+I like to refresh my blog every couple of years. Partly because I want to update the UI but mostly because I forget how I built it in the first place. 
+
 Forestry as the static site CMS. It's free. Easy to hook up. Forestry works by connecting to your site on Github. It will make commits to your repo. So whenever you make a post that post will be saved to github. 
 
 What's the real power behind forestry? Hooks into front matter.
