@@ -1,7 +1,6 @@
 +++
 author = ""
 date = "2019-09-10T05:00:00+00:00"
-draft = true
 hero = "/uploads/blog-stack-2.jpg"
 title = "2019 blog refresh"
 type = ""
