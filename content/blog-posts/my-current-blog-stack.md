@@ -17,8 +17,15 @@ This blog is a static site that runs on [Hugo](https://gohugo.io/). I love stati
 * Simple to write content for. Writing in markdown is gold.
 * Theme-able. 
 * You treat it like any other Github project.
+* Really easy to get started.
 
 Here's where my blog lives on [Github]().
+
+Next, is [Forestry](https://forestry.io/), the "static CMS that commits". First of all, Forestry is free but you can pay for more users. Forestry works by connecting to your site on Github. From then on any posts you make or edit will show up as commits on your Github repo. Here's an example of what that looks like:
+
+![Forestry Commit history](/uploads/Screen Shot 2019-09-10 at 6.57.55 AM.png)
+
+Yes the commit history is ugly. Am I going to write an angry letter to Forestry, probably not.
 
 Forestry as the static site CMS. It's free. Easy to hook up. Forestry works by connecting to your site on Github. It will make commits to your repo. So whenever you make a post that post will be saved to github. 
 
