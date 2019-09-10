@@ -7,7 +7,18 @@ title = "2019 blog refresh"
 type = ""
 
 +++
-I like to refresh my blog every couple of years. Partly because I want to update the UI but mostly because I forget how I built it in the first place. 
+I like to refresh my blog every now and then. Partly because I want to update the UI but mostly because I forget how I built it in the first place. I've just finished my refresh this week and it's about time I wrote something. Judging by the age of my previous blog posts, it's been quite a long time since I've done anything with my blog.
+
+For future me and those that are interested, here's my blog stack and some decisions I made along the way. 
+
+This blog is a static site that runs on [Hugo](https://gohugo.io/). I love static sites for a few reasons:
+
+* They're very fast - both load and build time.
+* Simple to write content for. Writing in markdown is gold.
+* Theme-able. 
+* You treat it like any other Github project.
+
+Here's where my blog lives on [Github]().
 
 Forestry as the static site CMS. It's free. Easy to hook up. Forestry works by connecting to your site on Github. It will make commits to your repo. So whenever you make a post that post will be saved to github. 
 
