@@ -18,6 +18,7 @@ fields:
   name: hero
   label: hero
 pages:
+- content/blog-posts/my-current-blog-stack.md
 - content/blog-posts/api-s-with-go.md
 - content/blog-posts/wrapping-rake-task-in-gem.md
 - content/blog-posts/db-to-store-json.md
