@@ -25,17 +25,15 @@ Next, is [Forestry](https://forestry.io/), the "static CMS that commits". First 
 
 {{< figure src="/uploads/Screen Shot 2019-09-10 at 6.57.55 AM.png" title="Yes the commit history is ugly. Am I going to write an angry letter to Forestry, probably not." alt="Forestry Commit history">}}
 
-Forestry also has a nice text editor with both WYSIWYG and markdown support. You can also add "snippets" which is basically code for [Hugo shortcodes](https://gohugo.io/content-management/shortcodes/). The real power behind forestry is its customizability. It can hook into front matter templates meaning you can setup any type of post. If you wanted to post a page instead of a blog post Forestry can do that for you. If you wanted to load up configs and edit them in your CMS, Forestry can do that for you too. Overall, I'm a big fan.
+Forestry also has a nice text editor with both WYSIWYG and markdown support. You can also add "snippets" which is basically code for [Hugo shortcodes](https://gohugo.io/content-management/shortcodes/). The real power behind Forestry is its customizability. It can hook into front matter templates meaning you can setup any type of post. If you wanted to post a page instead of a blog post Forestry can do that for you. If you wanted to load up configs and edit them in your CMS, Forestry can do that for you too. Overall I'm a big fan.
 
-It's also has some starter templates that you can use to setup a site.To serve my site I use netlify. It's also free! I changed my nameservers on my domain host to point to Netlify's name servers. Then it also connects to the github repo to track any commits that go to master. When something is pushed to master it will run a deploy script and update the site. You don't need cloudlfare with netlify.
+I actually used one of Forestry's starter templates to get started quickly. I didn't want to play with the UI this time around. Trying to build out a custom theme was the part that always took the most time. And with my design skills, it was rarely worth it. In the end, I used the [Brevifolia Hugo theme](https://github.com/emilkovacs/brevifolia-hugo-forestry).
 
-Having this setup is great for a few reasons
+Finally, to serve my site I use [Netlify](https://www.netlify.com/). It's also free! This is another app that connects to the blog's Github repo. It tracks any commits that go onto master. When a commit is pushed it will run a deploy script that will build and publish the site. It's a great tool to help you build and deploy static sites. It has a ton of features such as A/B testing, easy HTTPS support, analytics (paid). Netlify supposedly also has a pretty robust CDN according to this [blog post](https://www.netlify.com/blog/2017/03/28/why-you-dont-need-cloudflare-with-netlify/). So I know that my site can handle load, if it ever gets to that point.
 
-* The only cost is paying for the domain name.
-* Static sites are fast.
-* Set it and forget it.
+That's it! Having a static site has definitely made my life easy in terms of infrastructure. The benefits to this stack are:
 
-What are some of the things I could improve on.
-
-* I wish forestry had auto save.
-* You're at the whims of Netlify. That's totally fine with me, but if you wanted more control over how your site is built and hosted you could probably roll your own
+* The only cost is paying for the domain name. Everything else is free!
+* The site loads very fast.
+* Going with someone else's theme has taken a load off my mind. Whilst I've made a few customizations, the site looks good out of the box.
+* This whole stack is about setting and forgetting (until I need to refresh again).
