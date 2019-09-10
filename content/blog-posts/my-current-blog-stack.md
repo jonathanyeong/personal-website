@@ -9,13 +9,13 @@ type = ""
 +++
 I like to refresh my blog every now and then. Partly because I want to update the UI but mostly because I forget how I built it in the first place. I've just finished my refresh this week and it's about time I wrote something. Judging by the age of my previous blog posts, it's been quite a long time since I've done anything with my blog.
 
-For future me and those that are interested, here's my blog stack and some decisions I made along the way. 
+For future me and those that are interested, here's my blog stack and some decisions I made along the way.
 
 This blog is a static site that runs on [Hugo](https://gohugo.io/). I love static sites for a few reasons:
 
 * They're very fast - both load and build time.
 * Simple to write content for. Writing in markdown is gold.
-* Theme-able. 
+* Theme-able.
 * You treat it like any other Github project.
 * Really easy to get started.
 
@@ -25,15 +25,9 @@ Next, is [Forestry](https://forestry.io/), the "static CMS that commits". First 
 
 {{< figure src="/uploads/Screen Shot 2019-09-10 at 6.57.55 AM.png" title="Yes the commit history is ugly. Am I going to write an angry letter to Forestry, probably not." alt="Forestry Commit history">}}
 
+Forestry also has a nice text editor with both WYSIWYG and markdown support. You can also add "snippets" which is basically code for [Hugo shortcodes](https://gohugo.io/content-management/shortcodes/). The real power behind forestry is its customizability. It can hook into front matter templates meaning you can setup any type of post. If you wanted to post a page instead of a blog post Forestry can do that for you. If you wanted to load up configs and edit them in your CMS, Forestry can do that for you too. Overall, I'm a big fan.
 
-
-Forestry as the static site CMS. It's free. Easy to hook up. Forestry works by connecting to your site on Github. It will make commits to your repo. So whenever you make a post that post will be saved to github. 
-
-What's the real power behind forestry? Hooks into front matter.
-
-It's also has some starter templates that you can use to setup a site.
-
-To serve my site I use netlify. It's also free! I changed my nameservers on my domain host to point to Netlify's name servers. Then it also connects to the github repo to track any commits that go to master. When something is pushed to master it will run a deploy script and update the site. You don't need cloudlfare with netlify. 
+It's also has some starter templates that you can use to setup a site.To serve my site I use netlify. It's also free! I changed my nameservers on my domain host to point to Netlify's name servers. Then it also connects to the github repo to track any commits that go to master. When something is pushed to master it will run a deploy script and update the site. You don't need cloudlfare with netlify.
 
 Having this setup is great for a few reasons
 
@@ -43,5 +37,5 @@ Having this setup is great for a few reasons
 
 What are some of the things I could improve on.
 
-* I wish forestry had auto save. 
+* I wish forestry had auto save.
 * You're at the whims of Netlify. That's totally fine with me, but if you wanted more control over how your site is built and hosted you could probably roll your own
