@@ -1,7 +1,7 @@
 +++
 author = ""
 date = "2019-09-10T05:00:00+00:00"
-hero = "/uploads/blog-stack-2.jpg"
+hero = "/uploads/blog-stack-3.jpg"
 title = "2019 blog refresh"
 type = ""
 
