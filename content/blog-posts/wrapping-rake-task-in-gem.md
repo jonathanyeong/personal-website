@@ -385,6 +385,27 @@ This will succesfully generate the protos in the app/messages folder.
 
 How do we load this in Rails?
 
-What can we do next with this?
+We'll need to use Railtie - what is it?
+
+```
+# lib/enova_protobuf_generator/railtie.rb
+module EnovaProtobufGenerator
+  class Railtie < Rails::Railtie
+    railtie_name :enova_protobuf_generator
+
+    rake_tasks do
+      path = File.expand_path(__dir__)
+      Dir.glob("#{path}/task/**/*.rake").each { |f| load f }
+    end
+  end
+end
+```
+
+Then I added this to my requires
+
+```
+# lib/enova_protobuf_generator.rb
+require 'enova_protobuf_generator/railtie' if defined?(Rails)
+```
 
 Link to Open Source project.
