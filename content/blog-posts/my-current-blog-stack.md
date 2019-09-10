@@ -13,7 +13,7 @@ What's the real power behind forestry? Hooks into front matter.
 
 It's also has some starter templates that you can use to setup a site.
 
-To serve my site I use netlify. It's also free! I changed my nameservers on my domain host to point to Netlify's name servers. Then it also connects to the github repo to track any commits that go to master. When something is pushed to master it will run a deploy script and update the site.
+To serve my site I use netlify. It's also free! I changed my nameservers on my domain host to point to Netlify's name servers. Then it also connects to the github repo to track any commits that go to master. When something is pushed to master it will run a deploy script and update the site. You don't need cloudlfare with netlify. 
 
 Having this setup is great for a few reasons
 
@@ -24,4 +24,4 @@ Having this setup is great for a few reasons
 What are some of the things I could improve on.
 
 * I wish forestry had auto save. 
-* I don't know how Netlify handles scaling. If you start hitting a cap 
+* You're at the whims of Netlify. That's totally fine with me, but if you wanted more control over how your site is built and hosted you could probably roll your own
