@@ -2,7 +2,7 @@
 author = ""
 date = "2019-09-10T05:00:00+00:00"
 draft = true
-hero = "/uploads/blog-stack-1.jpg"
+hero = "/uploads/smaller-blog-stack.jpg"
 title = "2019 blog refresh"
 type = ""
 
