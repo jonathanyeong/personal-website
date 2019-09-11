@@ -7,6 +7,8 @@ title = "Wrapping Rake Task in Gem"
 type = ""
 
 +++
+At work I've been using 
+
 I want to unpack and auto-generate protobufs with a shared rake task between multiple applications. This is going to be great when we're sharing the domain model between multiple Rails apps.
 
 Setup gem like this:
