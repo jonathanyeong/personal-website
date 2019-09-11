@@ -183,4 +183,7 @@ namespace :ruby_proto_compiler do
 end
 ```
 
-If you want to look at the gem in it's entirety, here's the github project.
+## Usage
+
+
+For more usage information checkout the Github project.
