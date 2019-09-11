@@ -18,7 +18,6 @@ Rather than committing the entire Protobuf repo, why don't we only commit the co
 This gem contains a rake task that will pull down a versioned Protobuf repository, unpack it, and compile the files. Here's what it looks like.
 
 ## Download Tar
-
 ```ruby
   task :download_tar, [:dest_folder, :download_url] do |t, args|
     begin
