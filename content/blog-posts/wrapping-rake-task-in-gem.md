@@ -3,7 +3,7 @@ author = ""
 date = "2019-09-09T05:00:00+00:00"
 draft = true
 hero = ""
-title = "Writing the Ruby Proto Compiler task"
+title = "Writing Ruby Proto Compiler gem"
 type = ""
 
 +++
