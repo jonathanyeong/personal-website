@@ -185,5 +185,4 @@ end
 
 ## Usage
 
-
-For more usage information checkout the Github project.
+For more usage information checkout the [Github project](https://github.com/jonathanyeong/ruby_proto_compiler).
