@@ -9,14 +9,10 @@
             {{ partial "header.html" . }}
             {{ block "main" . }}{{ end }}
         </body>
-        <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
-        <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
     {{ else }}
         <body >
             {{ partial "header.html" . }}
             {{ block "main" . }}{{ end }}
         </body>
-        <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
-        <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
-    {{ end }}
+   {{ end }}
 </html>
