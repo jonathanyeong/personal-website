@@ -8,7 +8,7 @@ sections:
   label: Content
 - type: directory
   path: content
-  label: Content DIr
+  label: Content Dir
   create: all
   match: "**/*"
 - type: document
