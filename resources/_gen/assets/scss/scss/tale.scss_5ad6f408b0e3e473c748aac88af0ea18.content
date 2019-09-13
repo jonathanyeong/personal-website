@@ -764,7 +764,8 @@ pre code {
   flex-direction: column;
   justify-content: center; }
   .post__body a {
-    padding-bottom: 1.5rem; }
+    padding-bottom: 1.5rem;
+    font-weight: 600; }
   .post__body :last-child {
     margin-bottom: 0; }
   .post__body h1, .post__body h2, .post__body h3, .post__body h4, .post__body h5, .post__body h6 {
