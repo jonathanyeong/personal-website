@@ -2,6 +2,7 @@
 author = ""
 date = "2019-09-12T00:00:00-05:00"
 hero = ""
+tags = ["protobuf", "ruby", "gem"]
 title = "Building the Ruby Proto Compiler gem"
 type = ""
 
