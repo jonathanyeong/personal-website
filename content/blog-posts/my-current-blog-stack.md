@@ -2,6 +2,7 @@
 author = ""
 date = "2019-09-10T05:00:00+00:00"
 hero = ""
+tags = ["blog", "hugo", "forestry", "netlify"]
 title = "2019 blog refresh"
 type = ""
 
