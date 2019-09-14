@@ -6,7 +6,7 @@ title = "2019 blog refresh"
 type = ""
 
 +++
-I like to refresh my blog now and then. Partly because I want to update the UI but mostly because I forget how I built it in the first place. I've  finished my refresh this week and it's about time I wrote something. Judging by the age of my previous blog posts, it's been quite a long time since I've done anything with my blog.
+I like to refresh my blog now and then. Partly because I want to update the UI but mostly because I forget how I built it in the first place. I've finished my refresh this week and it's about time I wrote something. Judging by the age of my previous blog posts, it's been quite a long time since I've done anything with my blog.
 
 For future me and those that are interested, here's my blog stack and some decisions I made along the way.
 
