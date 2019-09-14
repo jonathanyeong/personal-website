@@ -2,6 +2,7 @@
 author = ""
 date = "2017-01-04T06:00:00+00:00"
 hero = ""
+tags = ["rspec", "rails", "technical skills"]
 title = "Setting Up RSpec and FactoryGirl"
 type = ""
 
