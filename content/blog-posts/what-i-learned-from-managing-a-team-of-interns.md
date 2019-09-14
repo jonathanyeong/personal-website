@@ -7,6 +7,8 @@ title = "What I learned from managing a team of interns"
 type = ""
 
 +++
+Over the summer I lead a team of interns. This 
+
 Outline
 
 The situation I was in
@@ -27,7 +29,7 @@ How did I solve them
 What would I improve on next time.
 
 * Timing of feedback.
-* Making sure the person I'm giving feedback to understands it. Get them to say it back to me. 
+* Making sure the person I'm giving feedback to understands it. Get them to say it back to me.
 * Finding a better balance between code writing and being a manager. Could have blocked off larger chunks of time on my calendar to code. Or maybe communicated to product what the limit of my responsibilities were. I felt pretty stretched thin.
 
 Conclude with the advice from my managers. And what you want to continue doing.
