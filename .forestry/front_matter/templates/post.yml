@@ -18,6 +18,7 @@ fields:
   name: hero
   label: hero
 pages:
+- content/blog-posts/what-i-learned-from-managing-a-team-of-interns.md
 - content/blog-posts/my-current-blog-stack.md
 - content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/writing-ruby-proto-compiler.md
