@@ -23,6 +23,7 @@ fields:
   label: Tags
   description: Categorize your post with tags.
 pages:
+- content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/setting-up-rspec-and-factorygirl.md
 - content/blog-posts/writing-ruby-proto-compiler.md
 - content/blog-posts/my-current-blog-stack.md
@@ -30,7 +31,6 @@ pages:
 - content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/connecting-your-go-app-to-aws-document-db.md
 - content/blog-posts/what-i-learned-from-managing-a-team-of-interns.md
-- content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/what-i-learned-from-managing-a-team-of-interns.md
 - content/blog-posts/connecting-your-go-app-to-aws-document-db.md
 - content/blog-posts/my-current-blog-stack.md
