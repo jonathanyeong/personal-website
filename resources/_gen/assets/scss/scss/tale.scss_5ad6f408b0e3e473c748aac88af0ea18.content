@@ -601,8 +601,7 @@ code:before,
 code:after,
 tt:before,
 tt:after {
-  letter-spacing: -0.2em;
-  content: " "; }
+  letter-spacing: -0.2em; }
 
 pre code:before,
 pre code:after,
@@ -704,7 +703,8 @@ code {
   padding: .25em .5em; }
 
 pre {
-  margin: 0 0 1rem; }
+  margin: 0 0 1rem;
+  padding: 1rem 0 0 0; }
 
 pre code {
   background-color: transparent;
@@ -727,6 +727,11 @@ pre code {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none; }
+
+@media (min-width: 768px) {
+  pre {
+    margin: 0 0 1rem;
+    padding: 1rem 1rem 0 1rem; } }
 
 .post h1 {
   margin-bottom: 0.7rem; }
@@ -765,12 +770,11 @@ pre code {
   justify-content: center; }
   .post__body a {
     padding-bottom: 1.5rem;
-    font-weight: 600; }
+    font-weight: 600;
+    text-decoration: underline; }
   .post__body :last-child {
     margin-bottom: 0; }
   .post__body h1, .post__body h2, .post__body h3, .post__body h4, .post__body h5, .post__body h6 {
-    padding: 1.5rem;
-    margin-bottom: 1.45rem;
     line-height: 1.2; }
   .post__body h3 {
     font-size: 1.3rem;
@@ -821,7 +825,7 @@ pre code {
     text-align: center;
     padding: 2rem 0; }
     .post__all-info h1 {
-      max-width: 500px;
+      max-width: 700px;
       margin: 0 auto 0.66rem auto; }
   .post-hero {
     min-height: 600px;
@@ -856,6 +860,10 @@ pre code {
     margin-bottom: 1rem; }
   .info__post ul li h2 a {
     line-height: 0; }
+  .info__post ul li {
+    font-size: 1.3rem; }
+  .info__post a {
+    text-decoration: underline; }
 
 @media (min-width: 768px) {
   .info__post {
@@ -1175,14 +1183,16 @@ pre code {
 .nav {
   border-bottom: 1px solid #EBEBEB;
   padding: 1.5rem 1.25rem; }
-  .nav h1 {
+  .nav h1:not(.nav-title) {
+    font-size: 1.5rem;
     margin-bottom: 0; }
   .nav-container {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center; }
-  .nav-title {
-    margin: 0; }
+  .nav .nav-title {
+    margin-bottom: 1rem; }
 
 @media (min-width: 768px) {
   .nav {
@@ -1191,7 +1201,7 @@ pre code {
     left: 0;
     top: 0;
     padding: 2rem;
-    width: 30%;
+    width: 25%;
     border-right: 1px solid #EBEBEB;
     border-bottom: none;
     flex-direction: column;
@@ -1201,8 +1211,8 @@ pre code {
       flex-direction: column;
       align-items: flex-start; }
   main {
-    width: 70%;
-    margin-left: 30%; } }
+    width: 75%;
+    margin-left: 25%; } }
 
 .pagination span {
   color: #353535;

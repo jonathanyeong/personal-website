@@ -4,3 +4,5 @@ theme = "tale-theme"
 title = "Jonathan Yeong"
 pygmentsUseClassic = true
 pygmentsCodeFences = true
+[taxonomies]
+   tag = "tags"
