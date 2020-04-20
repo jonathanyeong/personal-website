@@ -1,7 +1,7 @@
 +++
 author = ""
-date = "2019-01-09T00:00:00-06:00"
-hero = "/uploads/dmitry-ratushny-O33IVNPb0RI-unsplash.jpg"
+date = 2019-01-09T06:00:00Z
+hero = ""
 tags = ["learning", "technologies"]
 title = "Things that I don't know about (2019 edition)"
 type = ""
