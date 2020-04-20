@@ -623,7 +623,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
   color: #000; }
@@ -632,7 +632,7 @@ body {
   -webkit-text-size-adjust: 100%; }
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif; }
+  font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif; }
 
 h1, h2 {
   font-weight: 500; }
@@ -1177,6 +1177,8 @@ pre code {
   width: 80%; }
 
 .nav {
+  color: white;
+  background-color: #7E8989;
   border-bottom: 1px solid #EBEBEB;
   padding: 1.5rem 1.25rem; }
   .nav h1:not(.nav-title) {
@@ -1230,7 +1232,7 @@ pre code {
   -moz-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   color: #000;
-  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1.1rem;
   opacity: .6; }
   .pagination .top:hover {
