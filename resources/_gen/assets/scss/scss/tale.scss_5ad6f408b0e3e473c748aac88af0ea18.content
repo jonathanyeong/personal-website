@@ -715,8 +715,7 @@ pre code {
 .highlight {
   border-radius: 3px;
   line-height: 1.4;
-  margin: 0 0 1rem;
-  padding: 1rem; }
+  margin: 0 0 1rem; }
   .highlight pre {
     margin-bottom: 0;
     overflow-x: auto; }
@@ -1186,10 +1185,17 @@ pre code {
   .nav-container {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center; }
-  .nav .nav-title {
-    margin-bottom: 1rem; }
+
+.nav-title {
+  margin-bottom: 0; }
+
+.mobile {
+  display: block; }
+
+.desktop {
+  display: none; }
 
 @media (min-width: 768px) {
   .nav {
@@ -1209,7 +1215,11 @@ pre code {
       align-items: flex-start; }
   main {
     width: 75%;
-    margin-left: 25%; } }
+    margin-left: 25%; }
+  .desktop {
+    display: block; }
+  .mobile {
+    display: none; } }
 
 .pagination span {
   color: #353535;
