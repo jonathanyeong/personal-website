@@ -654,7 +654,7 @@ h3 {
   color: #A0A0A0;
   font-weight: normal; }
 
-p {
+p, li {
   font-size: 1.2rem;
   letter-spacing: -.5px;
   line-height: 1.5;
@@ -855,15 +855,12 @@ pre code {
 .info__post {
   max-width: 800px;
   padding: 1.5rem 1.25rem; }
-  .info__post h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem; }
-  .info__post ul li h2 a {
-    line-height: 0; }
-  .info__post ul li {
-    font-size: 1.3rem; }
+  .info__post p, .info__post li {
+    color: white; }
   .info__post a {
     text-decoration: underline; }
+  .info__post h2 {
+    font-size: 1.7rem; }
 
 @media (min-width: 768px) {
   .info__post {

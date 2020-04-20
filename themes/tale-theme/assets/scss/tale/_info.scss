@@ -1,24 +1,17 @@
 .info__post {
   max-width: 800px;
   padding: 1.5rem 1.25rem;
-  h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-  }
-  ul {
-    li h2 {
-      a  {
-        line-height: 0;
-      }
-    }
 
-    li {
-      font-size: 1.3rem;
-    }
+  p, li {
+    color: white;
   }
 
   a {
     text-decoration: underline;
+  }
+
+  h2 {
+    font-size: 1.7rem;
   }
 }
 

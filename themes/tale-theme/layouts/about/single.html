@@ -5,21 +5,20 @@
 		{{ .Content }}
 		<ul>
 				<li>
-					<h2>
-						<a href="mailto:{{.Params.contact_info.email}}">Email: {{ .Params.contact_info.email }}</a>
-					</h2>
+				Email: <a href="mailto:{{.Params.contact_info.email}}">{{ .Params.contact_info.email }}</a>
 				</li>
 				<li>
-					<h2>
-						<a href="https://twitter.com/{{.Params.contact_info.twitter_handle}}">
-							Twitter: @{{.Params.contact_info.twitter_handle}}
-						</a>
-					</h2>
+					Twitter: <a href="https://twitter.com/{{.Params.contact_info.twitter_handle}}">
+						@{{.Params.contact_info.twitter_handle}}
+					</a>
 				</li>
 				<li>
-					<h2>
-						<a href="https://github.com/{{.Params.contact_info.github_handle }}">Github: {{.Params.contact_info.github_handle }}</a>
-					</h2>
+				 Github: <a href="https://github.com/{{.Params.contact_info.github_handle }}">{{.Params.contact_info.github_handle }}</a>
+				</li>
+				<li>
+					LinkedIn: <a href="{{.Params.contact_info.linked_in_url}}">
+						{{.Params.contact_info.linked_in_handle}}
+					</a>
 				</li>
 			</ul>
 	</div>
