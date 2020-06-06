@@ -32,4 +32,6 @@ I plan through note-taking apps (I use [Roam Research](https://roamresearch.com/
 
 No one works in a vacuum and no one knows everything. One way I help give context to future code reviews is to offer documentation to my peers. I do this before I even have a pull request open. An example where this has helped is when I present my documentation to QA. Getting QA looped in early means they know what to expect when my PR lands. And it gives them a place to voice concerns which further reduces back and forths.
 
+***
+
 Documentation seems like a straightforward solution. But it takes work to draw diagrams or to take notes. By the time you finish your feature, the documentation may be out of date or ready to be thrown away. Taking the time to do this documentation work ahead of time was a significant paradigm shift for me. My mindset in the past has always been write code first, document after. However, through some humbling experiences, I've realized it's better to spend time planning upfront. And avoid having to pay back that time (with interest) in the future.
