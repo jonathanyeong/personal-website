@@ -1,6 +1,6 @@
 +++
 author = ""
-date = ""
+date = 2020-06-06T07:00:00Z
 hero = ""
 tags = []
 title = "Documentation Driven Design"
