@@ -1,7 +1,6 @@
 +++
 author = ""
 date = ""
-draft = true
 hero = ""
 tags = []
 title = "Documentation Driven Design"
