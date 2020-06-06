@@ -14,17 +14,19 @@ One of the ways I try to prove why I was hired and overcome my imposter syndrome
 
 After taking time off work, I realized I had to do something different. I wanted to try something different. My theory was that writing documentation could help drive development. Okay, this might seem obvious to some, but I always thought documentation comes after development.
 
+> Writing documentation could help drive development
+
 Documentation is what you give to others to help onboard or to fix problems in the future. However, I started treating it as a way to plan my development. Here are the three ways I used documentation.
 
 **Use diagrams to understand the code flow**
 
-I try and build a flowchart of how the code flows from one method to another. I use pen and paper or tools such as lucidchart or [draw.io](http://draw.io/) to do this. Usually, I'm itching to dive right into the code. Building a mental model this way works for small codebases. However, working with large codebases makes it almost impossible for me to keep a working mental model in my head. In the end, I completely lose track of where I am and how I got here.
+I try and build a flowchart of how the code flows from one method to another. I use pen and paper or tools such as [lucidchart](https://www.lucidchart.com/pages/ "Lucid Chart") or [draw.io](http://draw.io/) to do this. Usually, I'm itching to dive right into the code. Building a mental model this way works for small codebases. However, working with large codebases makes it almost impossible for me to keep a working mental model in my head. In the end, I completely lose track of where I am and how I got here.
 
 **Documentation as a plan**
 
 There have been many times when I've just started writing code, not knowing what I wanted to build. Sometimes this has happened while I was still investigating how the code works! More often than not, coding this way has always caused me headaches in the future.
 
-I plan through note-taking apps (I use Roam Research). By adding code comments to parts of the codebase I understand. Or through Test-Driven Development (TDD) if I feel like I have a good grasp of the codebase. Planning out a feature like this has resulted in less throwaway code. It's also helped highlight potential unknowns before I start.
+I plan through note-taking apps (I use [Roam Research](https://roamresearch.com/ "Roam Research")). By adding code comments to parts of the codebase I understand. Or through Test-Driven Development (TDD) if I feel like I have a good grasp of the codebase. Planning out a feature like this has resulted in less throwaway code. It's also helped highlight potential unknowns before I start.
 
 **Soliciting feedback with documentation**
 
