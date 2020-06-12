@@ -3,7 +3,7 @@
 <main>
 	<div class="catalogue">
 		{{ $aboutTitle := "About" }}
-			{{ range .Pages }}
+			{{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 				{{if not (eq .Title $aboutTitle) }}
 					{{ .Render "summary" }}
 				{{end}}
