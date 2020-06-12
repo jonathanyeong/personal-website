@@ -793,15 +793,18 @@ pre code {
     margin-bottom: 0; }
 
 .post__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1.5rem 1.25rem;
   width: 100%;
   max-width: 800px;
   margin: 0 auto; }
-  .post__footer--social-sharing {
-    cursor: pointer; }
+  .post__footer h2 {
+    margin-bottom: 0; }
+  .post__footer .twitter-icon {
+    color: #17a1f6; }
+  .post__footer .social-media-share {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 2rem; }
 
 .post img.emoji {
   display: inline-block;
@@ -812,6 +815,10 @@ pre code {
   vertical-align: text-top;
   padding: 0;
   margin: 0; }
+
+.post hr.end-of-post {
+  width: 30%;
+  margin: 0 auto; }
 
 @media (min-width: 768px) {
   .post__all-info {

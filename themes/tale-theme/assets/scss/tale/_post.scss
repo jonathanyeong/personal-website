@@ -74,16 +74,23 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1.5rem 1.25rem;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 
-    &--social-sharing {
-      cursor: pointer;
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .twitter-icon {
+      color: rgb(23, 161, 246);
+    }
+
+    .social-media-share {
+      display: flex;
+      justify-content: flex-start;
+      font-size: 2rem;
     }
   }
 
@@ -97,6 +104,11 @@
     vertical-align: text-top;
     padding: 0;
     margin: 0;
+  }
+
+  hr.end-of-post {
+    width: 30%;
+    margin: 0 auto;
   }
 }
 

@@ -7,11 +7,20 @@
 			{{ partial "single/title.html" . }}
 			{{ partial "single/post-info.html" . }}
 		</div>
-		<div class="post__body">{{ .Content }}</div>
+		<div class="post__body">
+			{{ .Content }}
+			<hr class="end-of-post"/>
+		</div>
 		<div class="post__footer">
-			<a href="https://twitter.com/intent/tweet?text=%22{{ .Title }}%22%20by%20@jonoyeong&url={{ .Permalink | absURL }}" title="{{ .Title }}" target="_blank">
-				Tweet
-			</a>
+			<h2>Share This:</h2>
+			<div class="social-media-share">
+				<a class="twitter-icon"
+					href="https://twitter.com/intent/tweet?text=%22{{ .Title }}%22%20by%20@jonoyeong&url={{ .Permalink | absURL }}"
+					title="{{ .Title }}" target="_blank">
+					<i class="fab fa-twitter-square"></i>
+				</a>
+			</div>
+
 		</div>
 	</div>
 </main>
