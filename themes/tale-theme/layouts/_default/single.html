@@ -9,12 +9,9 @@
 		</div>
 		<div class="post__body">{{ .Content }}</div>
 		<div class="post__footer">
-				{{- if .Params.Author }}
-					<h2>
-						<span>{{ i18n "writtenBy" }}:</span>
-								{{ .Params.Author }}
-					</h2>
-				{{- end }}
+			<a href="https://twitter.com/intent/tweet?text=%22{{ .Title }}%22%20by%20@jonoyeong&url={{ .Permalink | absURL }}" title="{{ .Title }}" target="_blank">
+				Tweet
+			</a>
 		</div>
 	</div>
 </main>
