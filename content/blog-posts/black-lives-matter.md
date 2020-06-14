@@ -1,7 +1,6 @@
 +++
 author = ""
 date = 2020-06-13T07:00:00Z
-draft = true
 hero = "/uploads/instagram-edit-2.jpg"
 tags = []
 title = "Black Lives Matter"
