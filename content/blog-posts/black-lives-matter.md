@@ -19,7 +19,7 @@ I am trying to educate myself about how deep this racial inequality runs. I want
 
 ***
 
-_If there are more organizations I should add, feel free to email me, or find me on twitter._
+_If there are more organizations I should add, feel free to_ [_email me_](mailto:hello@jonathanyeong.com "Email Jonathan Yeong")_, or find me on_ [_twitter_](https://twitter.com/JonoYeong "Twitter Jonoyeong")_._
 
 ### Organizations affecting change
 
