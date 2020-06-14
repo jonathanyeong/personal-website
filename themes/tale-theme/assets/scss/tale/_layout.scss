@@ -23,6 +23,19 @@
   }
 }
 
+.nav-end {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .nav-connect-icons {
+    padding-right: 15px;
+    a {
+      margin-right: 7px;
+    }
+  }
+}
+
 .nav-title {
   margin-bottom: 0;
 }
@@ -72,6 +85,20 @@
       align-items: flex-start
     }
   }
+
+  .nav-end {
+    align-items: flex-start;
+    flex-direction: column;
+
+    .nav-connect-icons {
+      padding-right: 0;
+      a {
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }
+    }
+  }
+
 
   main {
     width: 75%;

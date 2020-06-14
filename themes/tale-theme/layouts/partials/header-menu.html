@@ -1,8 +1,16 @@
-<ul>
+<div class="nav-end">
+    <div class="nav-connect-icons">
+        <a href="https://twitter.com/JonoYeong" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://github.com/jonathanyeong" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
     {{ $aboutTitle := "About" }}
     {{if (eq .Title $aboutTitle) }}
         <h1><a href="{{ "/" | relURL }}">close</a></h1>
     {{ else }}
         <h1><a href="{{ "about/info" | relURL }}">{{ i18n "about" }}</a></h1>
     {{end}}
-</ul>
+</div>

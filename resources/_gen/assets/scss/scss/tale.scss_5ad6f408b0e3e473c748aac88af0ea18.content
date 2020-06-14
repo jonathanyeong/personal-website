@@ -1191,6 +1191,15 @@ pre code {
     font-size: 1.5rem;
     margin-bottom: 0; }
 
+.nav-end {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .nav-end .nav-connect-icons {
+    padding-right: 15px; }
+    .nav-end .nav-connect-icons a {
+      margin-right: 7px; }
+
 .nav-title {
   margin-bottom: 0; }
 
@@ -1231,6 +1240,14 @@ pre code {
       height: 100%;
       flex-direction: column;
       align-items: flex-start; }
+  .nav-end {
+    align-items: flex-start;
+    flex-direction: column; }
+    .nav-end .nav-connect-icons {
+      padding-right: 0; }
+      .nav-end .nav-connect-icons a {
+        font-size: 1.2rem;
+        margin-right: 10px; }
   main {
     width: 75%;
     margin-left: 25%; }
