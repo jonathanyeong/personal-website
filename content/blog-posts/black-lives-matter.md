@@ -1,7 +1,7 @@
 +++
 author = ""
 date = 2020-06-14T05:00:00Z
-hero = "/uploads/instagram-edit-2.jpg"
+hero = "/uploads/dscf0579.jpg"
 tags = []
 title = "Black Lives Matter"
 type = ""
