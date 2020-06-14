@@ -1182,14 +1182,14 @@ pre code {
   background-color: #7E8989;
   border-bottom: 1px solid #EBEBEB;
   padding: 1.5rem 1.25rem; }
-  .nav h1:not(.nav-title) {
-    font-size: 1.5rem;
-    margin-bottom: 0; }
   .nav-container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center; }
+  .nav h1:not(.nav-title) {
+    font-size: 1.5rem;
+    margin-bottom: 0; }
 
 .nav-title {
   margin-bottom: 0; }
@@ -1201,6 +1201,21 @@ pre code {
   display: none; }
 
 @media (min-width: 768px) {
+  .nav-branding {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .nav-profile-pic {
+    width: 150px;
+    height: 150px;
+    background: black;
+    background-image: url("/images/profile_pic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem; }
   .nav {
     height: 100vh;
     position: fixed;

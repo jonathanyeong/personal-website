@@ -10,16 +10,16 @@
   border-bottom: 1px solid $white-2;
   padding: 1.5rem 1.25rem;
 
-  h1:not(.nav-title) {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-  }
-
   &-container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+  }
+
+  h1:not(.nav-title) {
+    font-size: 1.5rem;
+    margin-bottom: 0;
   }
 }
 
@@ -36,6 +36,24 @@
 }
 
 @media (min-width: 768px) {
+  .nav-branding {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-profile-pic {
+    width: 150px;
+    height: 150px;
+    background: black;
+    background-image: url("/images/profile_pic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+
   .nav {
     height: 100vh;
     position: fixed;

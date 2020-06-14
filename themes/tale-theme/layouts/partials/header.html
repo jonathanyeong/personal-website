@@ -1,9 +1,12 @@
 		<nav class="nav">
 			<div class="nav-container">
-				<a href="{{ "/" | relURL }}">
-					<h1 class="nav-title desktop">{{ .Site.Title }}</h1>
-					<h1 class="nav-title mobile">JY</h1>
-				</a>
+				<div class="nav-branding">
+					<div class="nav-profile-pic"></div>
+					<a href="{{ "/" | relURL }}">
+						<h1 class="nav-title desktop">{{ .Site.Title }}</h1>
+						<h1 class="nav-title mobile">JY</h1>
+					</a>
+				</div>
 				{{ partial "header-menu.html" . }}
 			</div>
 		</nav>
