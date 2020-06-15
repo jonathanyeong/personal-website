@@ -6,3 +6,8 @@ pygmentsUseClassic = true
 pygmentsCodeFences = true
 [taxonomies]
    tag = "tags"
+[staticman]
+  endpoint = "https://personal-site-comments.herokuapp.com/v2/entry/"
+  username = "jonathanyeong"
+  repository = "personal-site"
+  branch = "master"

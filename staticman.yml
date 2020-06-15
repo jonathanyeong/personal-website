@@ -1,0 +1,38 @@
+comments:
+  allowedFields: ["name", "email", "url", "message"]
+  branch: "master"
+  commitMessage: "Add Staticman comment"
+  filename: "entry{@timestamp}"
+  format: "yaml"
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp-seconds"
+  moderation: true
+  name: "jonathanyeong.com"
+  reCaptcha:
+    enabled: true
+    siteKey: 6LcJzKQZAAAAANGly9elsyB1FDu_xwmO5YEw_kv4
+    secret: If/ntJad2WAml0SuRuQUzKZIN20CbYKXE6Xs/CxRjKH51TCNOIZXnR6BCjWQYbVyRJpJhY8cxdK6i+9SSogB5RD8hRnr/F1l3ZsRGhxifOjjnSRUJTklMBGHRP/LP5Wstn1OARpfeU9IgP1VxOoudK2Qx81Dxjh1BaFvJHn89no/LPu12BoIU1Y2I5X49PoGvSYDf1/lIVryGnuVIUsO/XBOqU3wgWjJ50aCRSnJUU0VsXVztR2bdNgbDf5ook75Jt3sUZlU4Ak0HB7+AuEdf+gvyBPPfDdeZ8Hy+2UYDluAARpt8/PGlB2DEl3iSRBHqJuriFBNFfDpm0KQvX4dngB6OFX60VaCMpPZQZ4rIgNauD32bVAG+lodNNitUITtlxs/VJThl2BwUGZ3s0hJQlWZInUUXfB5v5zxGEzmFKKxSc+VuTJp1fHTrStMeHdnDpI3IfOgIekfzwEu/wq3QlWX4bJKqlAyZ0N4lUsBCBPQJb9+DBS3QOoyK/7EgQnIa7QZzyS1BGr09YOHSDZTjM3HzXei8lV2BGOzkR0bSskb7wivd0cBY+g+0NENBwBcLchryCU1gV5tso/kbih4T8vomW0vwi3Vdp6beDQQz+ADm+HPDMWJpkSZDnpCFT6x1yXAUVQmOURake7W1K/xPa+q5kDAC2EMIVPP7Gz/LuA=
+
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  #notifications:
+    # Enable notifications
+    #enabled: true
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun API key
+    #apiKey: "1q2w3e4r"
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun domain (encrypted)
+    #domain: "4r3e2w1q"
+  path: "_data/comments/{options.slug}"
+  requiredFields: ["name", "email", "message"]
+  transforms:
+    email: md5
