@@ -1,10 +1,9 @@
 +++
 author = ""
 date = 2020-06-19T07:00:00Z
-draft = true
 hero = ""
 tags = []
-title = "Publishing to Dev.to via RSS"
+title = "Publishing RSS feed to Dev.to"
 type = ""
 
 +++
