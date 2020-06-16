@@ -1,0 +1,45 @@
++++
+author = ""
+date = 2020-06-19T07:00:00Z
+draft = true
+hero = ""
+tags = []
+title = "Publishing to Dev.to via RSS"
+type = ""
+
++++
+I enjoy publishing to [Dev.to](http://dev.to/). It has some significant features that my site doesn't have, like commenting (I'm working on it!). In the past, I copied and pasted posts from my site to Devto. This process was not ideal and really bad for SEO to my site. Thankfully there's a handy feature that lets you publish from RSS in Devto (found in settings → Publishing from RSS). In this tutorial, I'll show how I got this feature working with my Hugo RSS feed.
+
+***
+
+**TL;DR** - copy and paste this file ([https://github.com/jonathanyeong/personal-website/blob/master/themes/tale-theme/layouts/_default/rss.xml](https://github.com/jonathanyeong/personal-website/blob/master/themes/tale-theme/layouts/_default/rss.xml "https://github.com/jonathanyeong/personal-website/blob/master/themes/tale-theme/layouts/_default/rss.xml")) under `layouts/_default/rss.xml`
+
+***
+
+The first step was to add my RSS feed to Devto. Hugo ships with a default RSS feed (read more about [Hugo RSS templates](https://gohugo.io/templates/rss/)), which you can find if you go to `https://<your-site>/index.xml`. In my Devto "Publishing from RSS" settings I pasted the above URL. Unfortunately, my RSS feed was not able to be fetched by Devto. There were no errors with fetching (hooray!), but there were no posts on my dashboard either (boo!). Viewing my feed, I noticed two things. The URL's didn't have the full path (they looked like `/blog-posts/documentation-driven-design-1/` and the description only contained a summary of the post.
+
+To fix this, I needed a local copy of the RSS file. You can find the one Hugo ships with [here]( https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/rss.xml). I copied this file into `layouts/_default/rss.xml`.
+
+There was a bunch of variables found in the top of the file. These variables tell the RSS feed which posts to show and also whether to limit the number of posts to display on a page.
+
+    {{- $pctx := . -}}
+    {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+    {{- $pages := slice -}}
+    {{- if or $.IsHome $.IsSection -}}
+    {{- $pages = $pctx.RegularPages -}}
+    {{- else -}}
+    {{- $pages = $pctx.Pages -}}
+    {{- end -}}
+    {{- $limit := .Site.Config.Services.RSS.Limit -}}
+    {{- if ge $limit 1 -}}
+    {{- $pages = $pages | first $limit -}}
+    {{- end -}}
+    
+
+I didn't need `$limit`, and I only had one type of page that I wanted to show. So I removed all of these and replaced them with `{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}`.
+
+Next, I needed to fix all the links. I changed the links from `{{ .Permalink }}` to `{{ .Permalink | absURL }}` (read more about the absURL function [here](https://gohugo.io/functions/absurl/)). If the URL in your feed looks like this `//localhost:1313/blog-posts/documentation-driven-design-1` then you also need to set your `baseURL` in the Hugo config. Finally, in `<description>` I changed `{{ .Summary | html }}` to `{{ .Content | html }}`.
+
+Going back to Devto, I fetched the feed and voila! My dashboard was being populated from my personal site posts!
+
+![](/uploads/syndicated-posts-dashboard.png)
