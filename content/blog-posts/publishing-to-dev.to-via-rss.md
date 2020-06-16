@@ -1,7 +1,7 @@
 +++
 author = ""
 date = 2020-06-19T07:00:00Z
-hero = ""
+hero = "/uploads/publishing-to-rss-feed-to-dev-to-1.png"
 tags = []
 title = "Publishing RSS feed to Dev.to"
 type = ""
