@@ -42,7 +42,7 @@ Going back to Devto, I fetched the feed and voila! My dashboard was being popula
 
 ![](/uploads/syndicated-posts-dashboard.png)
 
-I could also see that my Devto post is setting a canonical URL. 
+I could also see that my Devto post is setting a canonical URL.
 
 ![](/uploads/canonical-url.png)
 
