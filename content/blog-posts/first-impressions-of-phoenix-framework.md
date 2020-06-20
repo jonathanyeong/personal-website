@@ -1,7 +1,6 @@
 +++
 author = ""
 date = 2020-06-23T07:00:00Z
-draft = true
 hero = ""
 tags = []
 title = "First impressions of Phoenix Framework"
