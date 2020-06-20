@@ -15,9 +15,7 @@ type: ''
 ---
 # About
 
-Senior Software Engineer currently based in Seattle, WA. Started with Ruby (and Rails) and haven't strayed too far from the Ruby world. I'm continually looking for ways to improve as an engineer and to be more productive in life. More often than not, the [procrastination monkey](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjRsoyim_boAhVCuZ4KHbBeDZgQyCkwAHoECAsQBA&url=https%3A%2F%2Fwww.ted.com%2Ftalks%2Ftim_urban_inside_the_mind_of_a_master_procrastinator%3Flanguage%3Den&usg=AOvVaw1qGJXMP6N-hWJk6SeIq54i) is in the drivers seat.
-
-This blog is a way for me to connect with others who are just starting out or in an intermediate role in their software development career. Hopefully, my writing is coherent, entertaining and most of all, helpful.
+Senior software engineer currently based in Seattle, WA, originally from Sydney, Australia. My developer journey started in 2014 as an iOS developer, but soon after, I found Ruby on Rails. Since then, I've built apps with Golang and scratched the surface with Clojure and Elixir. I love architecting solutions to technical challenges, exploring new languages and frameworks, and mentoring others.
 
 ## Talks
 
