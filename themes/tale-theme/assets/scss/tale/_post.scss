@@ -94,6 +94,19 @@
     }
   }
 
+  .post__newsletter {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 15px;
+
+    .newsletter-signup {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+
   // CSS for making emoji inline
   img.emoji {
     display: inline-block;
@@ -143,6 +156,21 @@
     }
     &__footer {
       padding: 2.25rem;
+    }
+
+    .post__newsletter {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      margin-top: 30px;
+
+      .newsletter-cta {
+        width: 70%;
+      }
+
+      .newsletter-signup {
+        margin-top: 0;
+      }
     }
   }
 }
