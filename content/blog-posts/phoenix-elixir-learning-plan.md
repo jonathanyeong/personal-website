@@ -18,7 +18,6 @@ I'm also working through this plan, which means I'll be continually updating it.
 
 ![](/uploads/phoenix-elixir-learning-plan.png)
 
-## <a href="#phase0"> Phase 0: Get setup with Phoenix & Elixir</a>
 ## Phase 0: Get setup with Phoenix & Elixir
 
 The [Phoenix installation page](https://hexdocs.pm/phoenix/installation.html#content) has a great guide on getting Phoenix and Elixir setup. You will also need to setup Postgres. I set up Postgres via [docker](https://hub.docker.com/_/postgres).
