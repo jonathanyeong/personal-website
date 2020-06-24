@@ -115,6 +115,7 @@ The only thing I know about Live View is that it lets me write server-side code 
 * [Alchemist Camp - More Videos on Elixir](https://alchemist.camp/episodes)
 * [Elixir School - Guide on learning Elixir](https://elixirschool.com/en/)
 * [Elixir Koans - for practicing Elixir](https://github.com/elixirkoans/elixir-koans)
+* [Phoenix Cheatsheets - if you need to copy and paste some code.](https://devhints.io/phoenix)
 
 ***
 
