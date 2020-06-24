@@ -1,7 +1,6 @@
 +++
 author = ""
-date = ""
-draft = true
+date = 2020-06-25T07:00:00Z
 hero = ""
 tags = []
 title = "Phoenix & Elixir Learning Plan"
