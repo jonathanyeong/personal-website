@@ -46,6 +46,7 @@ Some examples of CRUD apps are: a todo list, a blog, twitter clone. Ideally anyt
 * [Phoenix guide - From directory structure to ecto.](https://hexdocs.pm/phoenix/directory_structure.html)
 * [Elixir Cast - Learn Elixir videos](https://elixircasts.io/series/learn-elixir).
 * [Elixir School chapter 1 to 7](https://elixirschool.com/en/lessons/basics/basics/).
+* [Using forms with changeset data]()
 
 ## Phase 1b: Deploy app to Heroku
 
