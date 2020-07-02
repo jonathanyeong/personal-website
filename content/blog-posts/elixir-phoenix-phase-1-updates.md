@@ -46,6 +46,8 @@ Here are more resources that helped me during this phase:
 
 Now an update on my progress. I started with building a blog in Phoenix. There's like a billion CMS's and static sites out there already. So why re-invent the wheel? Well, firstly, I'm not very creative. But also, a blog is a well-defined domain, so I know how everything should fit together. Here's what I've learnt so far.
 
+### Pipe Operator
+
 Don't be afraid of the pipe operator! I'm a huge fan of this Elixir syntax. The pipe operator replaces the need to nest methods. For example, in Elixir I could write something like this:
 
     changeset = Post.changeset(Repo.get!(Post, id), %{})
@@ -58,9 +60,13 @@ Pipes make it look much cleaner and easier to read. From the [docs](https://hexd
 
 > The |> operator is mostly useful when there is a desire to execute a series of operations resembling a pipeline
 
+### Pattern Matching
+
 Another aha moment was understanding pattern matching. In Elixir, pattern matching is more than `x = 1`. You can do some fancy assignments like this line from the [Elixir docs](https://elixir-lang.org/getting-started/keywords-and-maps.html#maps) `%{:a => a} = %{:a => 1, 2 => :b}`. Or take the example of the edit route below.
 
     def edit(conn, %{"id" => id} = _params) do
+
+### Parallels between Phoenix and Rails
 
 Finally, I started seeing parallels between Phoenix and Rails. Yes the underlying language of the two frameworks is different. However, there are also parallels between Ruby and Elixir. Using the patterns I learnt from Rails, I was able to start getting some of the conventions in Phoenix. For example, when making a new form in Phoenix:
 
