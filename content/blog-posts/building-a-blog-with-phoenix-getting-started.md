@@ -93,7 +93,7 @@ All of these routes point to a nonexistent Post Controller. Lets create one and 
       end
     end
 
-_Jump to_ [_Post View & Templates_](#add-post-view-&-templates)_._
+_Jump to_ [_Post View & Templates_](#add-post-view-templates)_._
 
 ### Breakdown
 
