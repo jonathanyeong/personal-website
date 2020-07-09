@@ -1,7 +1,6 @@
 +++
 author = ""
 date = 2020-07-09T07:00:00Z
-draft = true
 hero = ""
 tags = []
 title = "Building a blog with Phoenix: Getting started"
