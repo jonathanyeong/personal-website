@@ -14,7 +14,7 @@ Today, I want to show you how to start building a blog using Phoenix. You can fi
 * [Migrations](#generate-migration)
 * [Routes](#add-routes)
 * [The Post Controller - index, new, and create](#add-the-post-controller)
-* [Post Views & Templates](#add-post-view--templates)
+* [Post Views & Templates](#add-post-view-templates)
 
 ***
 
