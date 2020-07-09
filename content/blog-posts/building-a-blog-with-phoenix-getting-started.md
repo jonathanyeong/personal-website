@@ -11,10 +11,12 @@ type = ""
 Today, I want to show you how to start building a blog using Phoenix. You can find the source code here: [https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1](https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1 "https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1"). We are using Phoenix version 1.5.3 and Elixir version 1.10.3. We will cover:
 
 * [Project setup](#project-setup)
-* \[Migrations\](#generate-migration)
-* \[Routes\](#add-routes)
-* \[The Post Controller - index, new, and create\](#add-the-post-controller)
-* \[Post Views & Templates\](#add-post-view-&-templates)
+* [Migrations](#generate-migration)
+* [Routes](#add-routes)
+* [The Post Controller - index, new, and create](#add-the-post-controller)
+* [Post Views & Templates](#add-post-view-&-templates)
+
+***
 
 ## Project Setup
 
@@ -90,6 +92,8 @@ All of these routes point to a nonexistent Post Controller. Lets create one and 
     	end
       end
     end
+
+_Jump to_ [_Post View & Templates_](#add-post-view-&-templates)_._
 
 ### Breakdown
 
