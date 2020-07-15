@@ -30,6 +30,6 @@ I had initially wanted to talk about the ability to work from anywhere. But it's
 
 Thank god for GIFs. That is all.
 
-!\[Office Gif\]([https://gph.is/2bcGfQj](https://gph.is/2bcGfQj "https://gph.is/2bcGfQj"))
+![Office Dance Party](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif "Dance party gif")
 
 I enjoy being a developer not because of the code. But because of the experiences around it. To this day, I feel like I need to prove that I'm passionate about writing code. It is and should be, totally fine to be happy with a paycheck and be able to use that to find fulfillment in other parts of life. But when I stop and think about my life as a developer. I realize that I'm happy with everything it's given me. I hope this list has brightened your day!
