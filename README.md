@@ -1,5 +1,3 @@
-![Elixir CI](https://github.com/jonathanyeong/phoenix_blog/workflows/Elixir%20CI/badge.svg)
-
 # Personal Website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d6e74da5-c5f3-480b-8ae7-c7706679401c/deploy-status)](https://app.netlify.com/sites/elastic-engelbart-26e6d9/deploys)
