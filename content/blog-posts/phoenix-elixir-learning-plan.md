@@ -7,6 +7,8 @@ title = "Phoenix & Elixir Learning Plan"
 type = ""
 
 +++
+**Updated: July 17, 2020 - Added another resource**
+
 I recently wrote about my experience ([here](https://www.jonathanyeong.com/blog-posts/first-impressions-of-phoenix-framework/)) playing around with Phoenix and Elixir for the first time. Looking back on that experience, I copied a lot of code without fully understanding how things worked. Not knowing how things work is less than ideal. Because of this, I want to go back and take a more structured approach with learning Phoenix and Elixir. Which led me to make this learning plan! Below is what I think will be a good flow to help guide self-learning. I want to have achieved three things by the end of this plan:
 
 * Have a good grasp on Elixir and Functional programming fundamentals.
@@ -119,6 +121,7 @@ The only thing I know about Live View is that it lets me write server-side code 
 * [Elixir School - Guide on learning Elixir](https://elixirschool.com/en/)
 * [Elixir Koans - for practicing Elixir](https://github.com/elixirkoans/elixir-koans)
 * [Phoenix Cheatsheets - if you need to copy and paste some code.](https://devhints.io/phoenix)
+* [Fullstack Phoenix - More tutorials on Phoenix, also has boilerplate commands to get your Phoenix app running with tailwind, live view, and more!](https://fullstackphoenix.com/)
 
 ***
 
