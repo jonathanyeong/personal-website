@@ -832,7 +832,7 @@ pre code {
 
 .newsletter-cta {
   background: #7E8989;
-  border-radius: 5px;
+  border-radius: 3px;
   color: white;
   padding: 1rem;
   margin-top: 1rem; }
