@@ -7,18 +7,15 @@ sections:
 - type: heading
   label: Content
 - type: directory
-  path: content/about
-  label: Pages
-  create: all
-  match: "*"
-- type: document
-  path: content/about/*
-  label: About Page
-- type: directory
   path: content/blog-posts
   label: Posts
   create: all
   match: "**/*"
+- type: directory
+  path: content/about
+  label: Pages
+  create: all
+  match: "*"
 upload_dir: static/uploads
 public_path: "/uploads"
 front_matter_path: ''
