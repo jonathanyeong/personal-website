@@ -24,12 +24,9 @@ fields:
   description: Categorize your post with tags.
 pages:
 - content/blog-posts/api-s-with-go.md
-- content/blog-posts/api-s-with-go.md
 - content/blog-posts/black-lives-matter.md
 - content/blog-posts/building-a-blog-with-phoenix-getting-started.md
 - content/blog-posts/connecting-your-go-app-to-aws-document-db.md
-- content/blog-posts/connecting-your-go-app-to-aws-document-db.md
-- content/blog-posts/db-to-store-json.md
 - content/blog-posts/db-to-store-json.md
 - content/blog-posts/documentation-driven-design-1.md
 - content/blog-posts/documentation-driven-design.md
@@ -37,15 +34,11 @@ pages:
 - content/blog-posts/first-impressions-of-phoenix-framework.md
 - content/blog-posts/how-to-setup-ci-with-phoenix-github-actions.md
 - content/blog-posts/my-current-blog-stack.md
-- content/blog-posts/my-current-blog-stack.md
 - content/blog-posts/phoenix-elixir-learning-plan.md
 - content/blog-posts/publishing-to-dev.to-via-rss.md
 - content/blog-posts/setting-up-rspec-and-factorygirl.md
 - content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
-- content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/use-yarn-in-your-phoenix-app.md
 - content/blog-posts/what-brings-my-joy-as-a-developer.md
 - content/blog-posts/what-i-learned-from-managing-a-team-of-interns.md
-- content/blog-posts/what-i-learned-from-managing-a-team-of-interns.md
-- content/blog-posts/writing-ruby-proto-compiler.md
 - content/blog-posts/writing-ruby-proto-compiler.md
