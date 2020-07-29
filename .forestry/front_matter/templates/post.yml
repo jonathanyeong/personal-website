@@ -15,11 +15,6 @@ fields:
 - type: file
   name: hero
   label: hero
-- name: tags
-  type: tag_list
-  default: []
-  label: Tags
-  description: Categorize your post with tags.
 pages:
 - content/blog-posts/api-s-with-go.md
 - content/blog-posts/black-lives-matter.md
