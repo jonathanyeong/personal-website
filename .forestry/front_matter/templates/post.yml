@@ -11,9 +11,6 @@ fields:
 - type: text
   name: type
   label: type
-- type: text
-  name: author
-  label: author
 - type: file
   name: hero
   label: hero
