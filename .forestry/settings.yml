@@ -16,7 +16,7 @@ sections:
   label: Pages
   create: all
   match: "*"
-upload_dir: ''
+upload_dir: personal-blog
 public_path: ''
 front_matter_path: ''
 use_front_matter_path: 
