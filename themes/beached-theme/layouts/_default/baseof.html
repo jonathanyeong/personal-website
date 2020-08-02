@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="monetization" content="$ilp.uphold.com/4b4L76Wb4jE9">
+  <meta property="og:site_name" content="Jonathan Yeong">
+  <title>
+    {{- if .IsHome }}
+    {{ .Site.Title }}
+    {{- else }}
+    {{ .Title }} &middot; {{ .Site.Title }}
+    {{- end }}
+  </title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/ico" sizes="32x32" href="{{ "images/favicon.ico" | relURL }}">
+
+  <!-- Stylesheet -->
+  {{- $inServerMode	:= .Site.IsServer }}
+  {{- $cssTarget		:= "css/style.css" }}
+  {{- $cssOptions		:= cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
+  {{ $style := resources.Get "scss/beached.scss" | toCSS $cssOptions }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+  <!-- RSS -->
+  <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml"
+    title="{{ .Site.Title }}" />
+
+  {{ if not .Site.IsServer }}
+    <!-- Analytics -->
+    <script async defer data-domain="jonathanyeong.com" src="https://plausible.io/js/plausible.js"></script>
+  {{ end }}
+</head>
+<body>
+  {{ block "main" . }}
+
+  {{ end }}
+
+</body>
+</html>
