@@ -1,15 +1,19 @@
-{{ define "main" }}
-<h1>Default Home Page template</h1>
-<ul>
-  {{ $aboutTitle := "About" }}
-  {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-  {{if not (eq .Title $aboutTitle) }}
-  <li>
-    <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-
-  </li>
-  {{end}}
-  {{ end }}
-</ul>
-
+{{ define "hero" }}
+<div class="hero__callout">
+  <h1>Jonathan Yeong</h1>
+</div>
 {{end}}
+
+{{ define "main" }}
+  <ul>
+    {{ $aboutTitle := "About" }}
+    {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{if not (eq .Title $aboutTitle) }}
+    <li>
+      <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+
+    </li>
+    {{end}}
+    {{ end }}
+  </ul>
+{{ end }}

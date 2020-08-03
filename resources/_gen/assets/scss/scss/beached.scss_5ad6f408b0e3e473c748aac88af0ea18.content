@@ -303,9 +303,13 @@ template {
 [hidden] {
   display: none; }
 
+:root {
+  --main-bg-colour: #F0E6DA;
+  --primary-colour: #16697A;
+  --light-font-colour: #F8FAFA; }
+
 .navbar {
   display: flex;
-  padding: 1rem 0.7rem;
   justify-content: space-between; }
 
 .navbar__logo-img {
@@ -318,5 +322,14 @@ template {
 
 .navbar__item {
   padding: 5px 10px; }
+
+.hero-container {
+  background: var(--main-bg-colour);
+  padding: 0 2rem 4rem 2rem; }
+
+.hero__callout {
+  background: var(--primary-colour);
+  color: var(--light-font-colour);
+  padding: 1rem 2rem; }
 
 /*# sourceMappingURL=style.css.map */
