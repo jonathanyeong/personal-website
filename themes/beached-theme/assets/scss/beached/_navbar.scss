@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  padding: 1rem 0.7rem;
+  justify-content: space-between;
+}
+
+.navbar__logo-img {
+  display: inline;
+  max-width: 4rem;
+}
+
+.navbar__items {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar__item {
+  padding: 5px 10px;
+}
