@@ -1,0 +1,15 @@
+.posts-container {
+  padding: 1rem;
+}
+
+.post {
+  text-decoration: none;
+}
+
+.post__card {
+  background: white;
+  border-radius: 3px;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
+  margin: 1.6rem 0;
+  padding: 1rem;
+}

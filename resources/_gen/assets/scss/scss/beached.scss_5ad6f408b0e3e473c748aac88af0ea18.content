@@ -306,7 +306,10 @@ template {
 :root {
   --main-bg-colour: #F0E6DA;
   --primary-colour: #16697A;
-  --light-font-colour: #F8FAFA; }
+  --light-grey: #F8FAFA; }
+
+html {
+  background: var(--light-grey); }
 
 .navbar {
   display: flex;
@@ -329,7 +332,20 @@ template {
 
 .hero__callout {
   background: var(--primary-colour);
-  color: var(--light-font-colour);
+  color: var(--light-grey);
   padding: 1rem 2rem; }
+
+.posts-container {
+  padding: 1rem; }
+
+.post {
+  text-decoration: none; }
+
+.post__card {
+  background: white;
+  border-radius: 3px;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
+  margin: 1.6rem 0;
+  padding: 1rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,15 +5,23 @@
 {{end}}
 
 {{ define "main" }}
-  <ul>
-    {{ $aboutTitle := "About" }}
-    {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-    {{if not (eq .Title $aboutTitle) }}
-    <li>
-      <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+<div class="posts-container">
+  {{ $aboutTitle := "About" }}
+  {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{if not (eq .Title $aboutTitle) }}
+  <a class="post" href="{{.Permalink}}">
+    <div class="post__card">
+      <span>{{.Date.Format "2 Jan, 2006"}}</span>
+      <h2>{{.Title}}</h2>
+      <p>
+        {{ .Content | safeHTML | truncate 220}}
+        <span>Read More</span>
+      </p>
+    </div>
+  </a>
 
-    </li>
-    {{end}}
-    {{ end }}
-  </ul>
+  {{end}}
+  {{ end }}
+</div>
+
 {{ end }}
