@@ -306,10 +306,19 @@ template {
 :root {
   --main-bg-colour: #F0E6DA;
   --primary-colour: #16697A;
-  --light-grey: #F8FAFA; }
+  --light-grey: #F8FAFA;
+  --dark-grey: #364F4A; }
 
 html {
   background: var(--light-grey); }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0; }
 
 .navbar {
   display: flex;
@@ -339,7 +348,8 @@ html {
   padding: 1rem; }
 
 .post {
-  text-decoration: none; }
+  text-decoration: none;
+  color: var(--dark-grey); }
 
 .post__card {
   background: white;
@@ -347,5 +357,13 @@ html {
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
   margin: 1.6rem 0;
   padding: 1rem; }
+
+.footer {
+  background: var(--main-bg-colour);
+  padding: 4rem 1rem 1rem; }
+
+.footer__copyright {
+  text-align: center;
+  margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

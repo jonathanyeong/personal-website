@@ -2,8 +2,18 @@
   --main-bg-colour: #F0E6DA;
   --primary-colour: #16697A;
   --light-grey: #F8FAFA;
+  --dark-grey: #364F4A;
 }
 
 html {
   background: var(--light-grey);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
 }
