@@ -1,7 +1,6 @@
 +++
 author = ""
 date = 2020-08-06T07:00:00Z
-draft = true
 hero = ""
 tags = []
 title = "What brings my joy as a developer"
