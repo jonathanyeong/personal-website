@@ -1,6 +1,6 @@
 +++
 author = ""
-date = 2020-08-06
+date = 2020-08-06T00:00:00Z
 hero = ""
 tags = []
 title = "What brings my joy as a developer"
