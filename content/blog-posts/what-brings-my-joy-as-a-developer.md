@@ -8,7 +8,7 @@ title = "What brings my joy as a developer"
 type = ""
 
 +++
-I've been thinking about joy lately. Which seems like a sad sentence to write. But I promise it's not that bad! It's more of a yearning for something new. I have all these questions in my head like, am I in the right career? Should I move back to Australia? Am I even a good programmer? Am I having an early-to-mid life crisis? Maybe it's time to invest all my savings into bitcoin? 
+I've been thinking about joy lately. Which seems like a sad sentence to write. But I promise it's not that bad! It's more of a yearning for something new. I have all these questions in my head like, am I in the right career? Should I move back to Australia? Am I even a good programmer? Am I having an early-to-mid life crisis? Maybe it's time to invest all my savings into bitcoin?
 
 Whenever I have these existential crises, I try to focus on what I really enjoy in life. And even though I question my career choices. I really enjoy being a developer. In this post, I wanted to share why I love being a developer. If you're having a bad day or a similar existential crises I hope this post sparks some joy for you!
 
