@@ -10,11 +10,11 @@ type = ""
 +++
 I've been thinking about joy lately. Which seems like a sad sentence to write. But I promise it's not that bad! It's more of a yearning for something new. I have all these questions in my head like, am I in the right career? Should I move back to Australia? Am I even a good programmer? Am I having an early-to-mid life crisis? Maybe it's time to invest all my savings into bitcoin?
 
-Whenever I have these existential crises, I try to focus on what I really enjoy in life. And even though I question my career choices. I really enjoy being a developer. In this post, I wanted to share why I love being a developer. If you're having a bad day or a similar existential crises I hope this post sparks some joy for you!
+Whenever I have these existential crises, I try to focus on what I really enjoy in life. And even though I question my career choices. I really enjoy being a developer. If you're looking to make the switch into technology or are having similar existential crises I hope this post sparks some joy for you!
 
 ## Community
 
-Community is one of the biggest reasons I'm a developer. Being able to share experiences with people all over the world is incredible. If I wasn't in this industry, I don't know what my tribe would be. When I first started, it was only until I found [CodeNewbie](https://www.codenewbie.org/) that I felt like I made the right career choice. Another amazing group of people is the [DEV](https://dev.to/) community. It's inspiring to see people from around the world talk about their experiences with programming. The encouragement I get on that platform is what keeps pushing me to write about my experiences. Having a community that includes people from all over the world, in all different disciplines makes me so happy.
+The community is one of the biggest reasons why I'm a developer. Being able to share experiences with people all over the world is incredible. If I wasn't in this industry, I don't know what my tribe would be. When I first started, it was only until I found [CodeNewbie](https://www.codenewbie.org/) that I felt like I made the right career choice. Another amazing group of people is the [DEV](https://dev.to/) community. It's inspiring to see people from around the world talk about their experiences with programming. The encouragement I get on that platform is what keeps pushing me to write about my experiences. It was through my local Ruby meetup that got me a job as a Ruby on Rails engineer. Which helped propel me to a career in the States. Having a community that includes people from all over the world, in all different disciplines makes me so happy.
 
 ## The AHA Moments
 
@@ -26,7 +26,7 @@ How cool is it to take an idea and turn it into something tangible? Now add in t
 
 ## Privilege of Choice
 
-I had initially wanted to talk about the ability to work from anywhere. But it's really about the privilege of choice. Being a developer grants you a lot of privileges that others don't. Lately, I've started trying to figure out how to help others with my privilege. To be transparent, DE&I is something I've only started thinking about when I moved to the States. Before that time I still felt like I was too new to be able to make a difference. And even now, I know there's a lot more that I can do. What I can do is to affect change to hiring processes within my company. I can be an active ally that speaks up to racial injustices. And be able to reassure others who are just starting out that they too have a voice. Having privilege as a developer and choosing to use that to help others is something I never want to stop doing.
+I had initially wanted to talk about the ability to work from anywhere. But it's really about the privilege of choice. Being a developer grants you a lot of privileges. Lately, I've started trying to figure out how to help others with my privilege. To be transparent, DE&I is something I've only started thinking about when I moved to the States. Before that time I felt like I was too new to be able to make a difference. And even now, I know there's a lot more that I can do. But what I can do is affect change to hiring processes within my company. I can be an active ally that speaks up to racial injustices. And be able to reassure others who are just starting out that they too have a voice. Having privilege as a developer and choosing to use that to help others is something I never want to stop doing.
 
 ## GIFS
 
@@ -36,4 +36,4 @@ Thank god for GIFs. That is all.
 
 ***
 
-I enjoy being a developer not because of the code. But because of the experiences around it. To this day, I feel like I need to prove that I'm passionate about writing code. Honestly, I don't think I'd ever be a good code monkey. I'm glad to have found amazing opportunities at work, I've met brilliant people, and been able to solve some interesting problems. If you're looking at switching careers into technology and want to chat about what that journey looks like, please reach out to me on [Twitter](https://twitter.com/jonoyeong) or shoot me an [email](mailto:hello@jonathanyeong.com).
+I enjoy being a developer not because of the code. But because of the experiences around it. To this day, I feel like I need to prove that I'm passionate about writing code. Honestly, I don't think I'd ever be a good code monkey. And I'm glad I don't have to be. Because of the community I've had amazing opportunities, I've met brilliant people, and been able to solve some interesting problems. If you're looking at switching careers into technology and want to chat about what that journey looks like, please reach out to me on [Twitter](https://twitter.com/jonoyeong) or shoot me an [email](mailto:hello@jonathanyeong.com).
