@@ -32,7 +32,7 @@ I had initially wanted to talk about the ability to work from anywhere. But it's
 
 Thank god for GIFs. That is all.
 
-![Office Dance Party](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif "Dance party gif")
+![Goat Gif!](https://media.giphy.com/media/3PAL5bChWnak0WJ32x/giphy.gif "Goat Gif!")
 
 ***
 
