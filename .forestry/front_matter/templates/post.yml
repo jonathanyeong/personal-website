@@ -31,6 +31,7 @@ pages:
 - content/blog-posts/my-current-blog-stack.md
 - content/blog-posts/phoenix-elixir-learning-plan.md
 - content/blog-posts/setting-up-rspec-and-factorygirl.md
+- content/blog-posts/test-post-for-netlify.md
 - content/blog-posts/things-that-i-don-t-know-about-2019-edition.md
 - content/blog-posts/tips-for-developers-starting-out-with-web-design.md
 - content/blog-posts/use-yarn-in-your-phoenix-app.md
