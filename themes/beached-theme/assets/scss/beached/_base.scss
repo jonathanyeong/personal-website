@@ -3,10 +3,14 @@
   --primary-colour: #16697A;
   --light-grey: #F8FAFA;
   --dark-grey: #364F4A;
+  --font-400: AvenirLTPro-Book;
+  --font-600: AvenirLTPro-Medium;
+  --font-800: AvenirLTPro-Heavy;
 }
 
 html {
   background: var(--light-grey);
+  font-family: sans-serif; /* fall back font */
 }
 
 h1,
@@ -16,4 +20,20 @@ h4,
 h5,
 p {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-800);
+}
+
+p {
+  font-family: var(--font-400);
+}
+
+a {
+  font-family: var(--font-600);
 }

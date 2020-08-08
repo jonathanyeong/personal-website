@@ -1,3 +1,42 @@
+@charset "UTF-8";
+/**
+ * @license
+ * MyFonts Webfont Build ID 3933608, 2020-08-08T14:11:13-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: AvenirLTPro-Book by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-45-book/
+ * 
+ * Webfont: AvenirLTPro-Medium by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-65-medium/
+ * 
+ * Webfont: AvenirLTPro-Heavy by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-85-heavy/
+ * 
+ * 
+ * Webfonts copyright: Copyright &amp;#x00A9; 2014 Monotype GmbH. All rights reserved.
+ * 
+ * © 2020 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3c05a8");
+@font-face {
+  font-family: 'AvenirLTPro-Heavy';
+  src: url("webFonts/AvenirLTPro-Heavy/font.woff2") format("woff2"), url("webFonts/AvenirLTPro-Heavy/font.woff") format("woff"); }
+
+@font-face {
+  font-family: 'AvenirLTPro-Medium';
+  src: url("webFonts/AvenirLTPro-Medium/font.woff2") format("woff2"), url("webFonts/AvenirLTPro-Medium/font.woff") format("woff"); }
+
+@font-face {
+  font-family: 'AvenirLTPro-Book';
+  src: url("webFonts/AvenirLTPro-Book/font.woff2") format("woff2"), url("webFonts/AvenirLTPro-Book/font.woff") format("woff"); }
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -307,10 +346,15 @@ template {
   --main-bg-colour: #F0E6DA;
   --primary-colour: #16697A;
   --light-grey: #F8FAFA;
-  --dark-grey: #364F4A; }
+  --dark-grey: #364F4A;
+  --font-400: AvenirLTPro-Book;
+  --font-600: AvenirLTPro-Medium;
+  --font-800: AvenirLTPro-Heavy; }
 
 html {
-  background: var(--light-grey); }
+  background: var(--light-grey);
+  font-family: sans-serif;
+  /* fall back font */ }
 
 h1,
 h2,
@@ -319,6 +363,19 @@ h4,
 h5,
 p {
   margin: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-800); }
+
+p {
+  font-family: var(--font-400); }
+
+a {
+  font-family: var(--font-600); }
 
 .navbar {
   display: flex;

@@ -1,0 +1,42 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3933608, 2020-08-08T14:11:13-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: AvenirLTPro-Book by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-45-book/
+ * 
+ * Webfont: AvenirLTPro-Medium by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-65-medium/
+ * 
+ * Webfont: AvenirLTPro-Heavy by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/avenir/pro-85-heavy/
+ * 
+ * 
+ * Webfonts copyright: Copyright &amp;#x00A9; 2014 Monotype GmbH. All rights reserved.
+ * 
+ * © 2020 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3c05a8");
+  
+@font-face {
+  font-family: 'AvenirLTPro-Heavy';
+  src: url('webFonts/AvenirLTPro-Heavy/font.woff2') format('woff2'), url('webFonts/AvenirLTPro-Heavy/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'AvenirLTPro-Medium';
+  src: url('webFonts/AvenirLTPro-Medium/font.woff2') format('woff2'), url('webFonts/AvenirLTPro-Medium/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'AvenirLTPro-Book';
+  src: url('webFonts/AvenirLTPro-Book/font.woff2') format('woff2'), url('webFonts/AvenirLTPro-Book/font.woff') format('woff');
+}
+
