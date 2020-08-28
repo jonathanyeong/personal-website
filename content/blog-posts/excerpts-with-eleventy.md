@@ -9,7 +9,11 @@ I 100% struggled with getting excerpts in [Eleventy](https://www.11ty.dev/) (11t
 
 I had two issues. Firstly, I got excerpts working using [11ty’s custom frontmatter data](https://www.11ty.dev/docs/data-frontmatter-customize/#example-parse-excerpts-from-content), unfortunately the excerpt did not render markdown. Which resulted in something that looked like this:
 
+![](https://res.cloudinary.com/jonathan-yeong/image/upload/v1598592524/personal-blog/Screen_Shot_2020-08-27_at_9.32.53_PM_eq15uh.png)
+
 Secondly, I found a great blog post: [Creating a blog with Eleventy](https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/) that detailed how to create an excerpt shortcode. This shortcode defaulted to taking the first paragraph as an excerpt. Or whatever custom excerpt tag you wanted. However, the shortcode ended up rendering the HTML tags. The opposite problem to 11ty’s excerpt. Rendering HTML resulted in some weird looking excerpts:
+
+![](https://res.cloudinary.com/jonathan-yeong/image/upload/v1598592542/personal-blog/Screen_Shot_2020-08-27_at_12.50.24_AM_nzvnwt.png)
 
 I could not find a happy medium! Here’s what I really wanted out of an excerpt:
 
@@ -70,6 +74,8 @@ module.exports = function(eleventyConfig) {
 ```
 
 Finally, we can see our results.
+
+![](https://res.cloudinary.com/jonathan-yeong/image/upload/v1598592567/personal-blog/Screen_Shot_2020-08-27_at_1.00.25_AM_rmwf9a.png)
 
 Hooray! Nothing looks too off. I do see `Addendum #` which is caused by `markdownIt` adding an anchor permalink to the header. I can live with it though.
 
