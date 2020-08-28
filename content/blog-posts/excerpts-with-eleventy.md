@@ -1,6 +1,5 @@
 +++
 date = 2020-08-28T05:24:13Z
-draft = true
 hero = ""
 title = "Excerpts with Eleventy"
 
