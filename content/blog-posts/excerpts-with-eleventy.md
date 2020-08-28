@@ -29,13 +29,15 @@ Thankfully, the blog post above gave me all the code I needed. I just had to mak
 First, install [striptags](https://www.npmjs.com/package/striptags). We will be using this library to get rid of the HTML tags:
 
 ```bash
-    npm install striptags
+npm install striptags
+
 ```
 
 Now, we want to require `striptags` in `.eleventy.js`. At the top of the file:
 
 ```js
 const striptags = require("striptags");
+
 ```
 
 Next, add the `extractExcerpt` method at the bottom of the `.eleventy.js` file. This method is a modified version from the blog post to fit the criteria I wanted:
@@ -59,6 +61,7 @@ function extractExcerpt(article) {
     .concat("...");
   return excerpt;
 }
+
 ```
 
 Add this line in the `eleventyConfig` block. This step is also from the blog post:
@@ -71,6 +74,7 @@ module.exports = function(eleventyConfig) {
   ...
 
 }
+  
 ```
 
 Finally, we can see our results.
