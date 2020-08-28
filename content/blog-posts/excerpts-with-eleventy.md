@@ -7,9 +7,9 @@ title = "Excerpts with Eleventy"
 +++
 I 100% struggled with getting excerpts in [Eleventy](https://www.11ty.dev/) (11ty). It seems so simple, but I couldn’t figure it out.
 
-I had two issues. Firstly, I got excerpts working using \[11ty’s custom frontmatter data\], unfortunately the excerpt did not render markdown. Which resulted in something that looked like this:
+I had two issues. Firstly, I got excerpts working using [11ty’s custom frontmatter data](https://www.11ty.dev/docs/data-frontmatter-customize/#example-parse-excerpts-from-content), unfortunately the excerpt did not render markdown. Which resulted in something that looked like this:
 
-Secondly, I found a great blog post: \[Creating a blog with Eleventy\] that detailed how to create an excerpt shortcode. This shortcode defaulted to taking the first paragraph as an excerpt. Or whatever custom excerpt tag you wanted. However, the shortcode ended up rendering the HTML tags. The opposite problem to 11ty’s excerpt. Rendering HTML resulted in some weird looking excerpts:
+Secondly, I found a great blog post: [Creating a blog with Eleventy](https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/) that detailed how to create an excerpt shortcode. This shortcode defaulted to taking the first paragraph as an excerpt. Or whatever custom excerpt tag you wanted. However, the shortcode ended up rendering the HTML tags. The opposite problem to 11ty’s excerpt. Rendering HTML resulted in some weird looking excerpts:
 
 I could not find a happy medium! Here’s what I really wanted out of an excerpt:
 
@@ -22,13 +22,13 @@ Thankfully, the blog post above gave me all the code I needed. I just had to mak
 
 ## The modifications to extractExcerpt
 
-First, install \[striptags\]. We will be using this library to get rid of the HTML tags:
+First, install [striptags](https://www.npmjs.com/package/striptags). We will be using this library to get rid of the HTML tags:
 
-```
-npm install striptags
+```bash
+    npm install striptags
 ```
 
-Now, we want to require \`striptags\` in \`.eleventy.js\`. At the top of the file:
+Now, we want to require `striptags` in `.eleventy.js`. At the top of the file:
 
 ```js
 const striptags = require("striptags");
@@ -70,8 +70,6 @@ module.exports = function(eleventyConfig) {
 ```
 
 Finally, we can see our results.
-
-
 
 Hooray! Nothing looks too off. I do see \`Addendum #\` which is caused by markdownIt adding an anchor permalink to the header. I can live with it though.
 
