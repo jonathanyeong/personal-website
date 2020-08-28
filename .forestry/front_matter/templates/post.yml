@@ -26,6 +26,7 @@ pages:
 - content/blog-posts/documentation-driven-design-1.md
 - content/blog-posts/documentation-driven-design.md
 - content/blog-posts/elixir-phoenix-phase-1-updates.md
+- content/blog-posts/excerpts-with-eleventy.md
 - content/blog-posts/first-impressions-of-phoenix-framework.md
 - content/blog-posts/how-to-setup-ci-with-phoenix-github-actions.md
 - content/blog-posts/my-current-blog-stack.md
