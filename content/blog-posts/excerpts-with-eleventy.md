@@ -34,7 +34,7 @@ Now, we want to require `striptags` in `.eleventy.js`. At the top of the file:
 const striptags = require("striptags");
 ```
 
-Next, add the \`extractExcerpt\` method at the bottom of the \`.eleventy.js\` file. This method is a modified version from the blog post to fit the criteria I wanted:
+Next, add the `extractExcerpt` method at the bottom of the `.eleventy.js` file. This method is a modified version from the blog post to fit the criteria I wanted:
 
 ```js
 function extractExcerpt(article) {
@@ -57,7 +57,7 @@ function extractExcerpt(article) {
 }
 ```
 
-Add this line in the \`eleventyConfig\` block. This step is also from the blog post:
+Add this line in the `eleventyConfig` block. This step is also from the blog post:
 
 ```js
 module.exports = function(eleventyConfig) {
@@ -71,6 +71,6 @@ module.exports = function(eleventyConfig) {
 
 Finally, we can see our results.
 
-Hooray! Nothing looks too off. I do see \`Addendum #\` which is caused by markdownIt adding an anchor permalink to the header. I can live with it though.
+Hooray! Nothing looks too off. I do see `Addendum #` which is caused by `markdownIt` adding an anchor permalink to the header. I can live with it though.
 
 Looking back on this problem, the solution seems so easy. But I spent almost a week trying to figure out how to do this properly. I think it’s a combination of being stubborn with wanting the 11ty custom frontmatter solution to work, and my inability to Google. Really need to Google or ask for help sooner. I don’t know about you, but knowing when to ask for help is an endless struggle for me. Bar this one issue, I’m loving 11ty so far! Hopefully, this post will solve your excerpt woes.
