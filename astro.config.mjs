@@ -8,5 +8,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.jonathanyeong.com',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [mdx(), sitemap(), tailwind()],
+  markdown: {
+    drafts: false,
+    shikiConfig: {
+      theme: 'nord',
+    }
+  }
 });

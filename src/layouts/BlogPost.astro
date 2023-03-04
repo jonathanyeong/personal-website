@@ -13,6 +13,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+		<link href="/code_styles.css" rel="stylesheet" />
 		<style>
 			.title {
 				font-size: 2em;
@@ -31,7 +32,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<body>
 		<Header />
 		<main>
-			<article>
+			<article class="prose">
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				<h1 class="title">{title}</h1>
 				<FormattedDate date={pubDate} />
