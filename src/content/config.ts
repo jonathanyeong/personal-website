@@ -12,11 +12,15 @@ const blog = defineCollection({
 			.transform((val) => new Date(val)),
 		updatedDate: z
 			.string()
+			.or(z.date())
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
 		heroImage: z.string().optional(),
 		draft: z.boolean(),
-		featured: z.boolean()
+		featured: z.boolean(),
+		tags: z
+			.array(z.string())
+			.optional()
 	}),
 });
 
