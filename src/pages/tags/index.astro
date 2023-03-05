@@ -1,0 +1,38 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import showDraftPosts from '../../utilities/showDraftPosts';
+
+const posts = (await getCollection('blog')).
+  filter((post) => showDraftPosts(post));
+
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+        <h1> Tags </h1>
+				<ul>
+					{
+						tags.map((tag) => (
+							<li>
+                <a href={`/tags/${tag}`}>{tag}</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
