@@ -12,7 +12,7 @@ export default defineConfig({
   markdown: {
     drafts: false,
     shikiConfig: {
-      theme: 'nord',
+      theme: 'rose-pine-moon',
     }
   }
 });

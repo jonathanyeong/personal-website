@@ -1,8 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { CollectionEntry, getCollection } from 'astro:content';
 import showDraftPosts from '../utilities/showDraftPosts';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -13,25 +10,15 @@ const posts = (await getCollection('blog')).sort(
 ).filter((post) => showDraftPosts(post));
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/${post.slug}/`}>{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+	<ul>
+			{
+				posts.map((post) => (
+					<li>
+						<FormattedDate date={post.data.pubDate} />
+						<a href={`/${post.slug}/`}>{post.data.title}</a>
+					</li>
+				))
+			}
+		</ul>
+</BaseLayout>
