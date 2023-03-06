@@ -1,10 +1,7 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import showDraftPosts from '../../utilities/showDraftPosts';
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
@@ -23,25 +20,15 @@ const tagPosts = (await getCollection('blog')).
     filter((post) => showDraftPosts(post) && (tag && post.data.tags.includes(tag)));
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<ul>
-					{
-						tagPosts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/${post.slug}/`}>{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+  <ul>
+    {
+      tagPosts.map((post) => (
+        <li>
+          <FormattedDate date={post.data.pubDate} />
+          <a href={`/${post.slug}/`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
