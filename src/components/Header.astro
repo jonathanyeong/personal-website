@@ -3,10 +3,12 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
+<header class="flex items-center justify-between py-3">
+	<a href="/">
+		<object type="image/svg+xml" data="/logo3.svg" class="pointer-events-none">
+			JY
+		</object>
+	</a>
 	<nav>
 		<HeaderLink href="/">Home</HeaderLink>
 		<HeaderLink href="/featured/">Featured</HeaderLink>
