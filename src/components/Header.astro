@@ -1,9 +1,8 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
-<header class="flex items-center justify-between py-3">
+<header class="flex items-center justify-between py-3 mb-6">
 	<a href="/">
 		<object type="image/svg+xml" data="/logo3.svg" class="pointer-events-none">
 			JY
@@ -11,8 +10,8 @@ import { SITE_TITLE } from '../consts';
 	</a>
 	<nav class="flex gap-x-2">
 		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/featured/">Featured</HeaderLink>
-		<HeaderLink href="/tags/">Tags</HeaderLink>
+		<!-- <HeaderLink href="/featured/">Featured</HeaderLink> -->
+		<!-- <HeaderLink href="/tags/">Tags</HeaderLink> -->
 		<HeaderLink href="/about/">About</HeaderLink>
 		<HeaderLink href="/rss.xml">RSS</HeaderLink>
 	</nav>

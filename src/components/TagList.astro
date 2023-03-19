@@ -1,0 +1,19 @@
+---
+const { tags } = Astro.props;
+
+const readableTags = (tags: string[]) => {
+  const hashTags = tags.map((tag: string) => {
+    return `#${tag}`
+  })
+  return hashTags.join(', ');
+}
+---
+
+<p>
+  Filed under:
+  {
+    readableTags(tags)
+  }
+
+</p>
+
