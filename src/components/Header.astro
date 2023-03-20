@@ -1,12 +1,12 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import { Icon } from 'astro-icon';
 ---
 
 <header class="flex items-center justify-between py-3 mb-6">
-	<a href="/">
-		<object type="image/svg+xml" data="/logo3.svg" class="pointer-events-none">
-			JY
-		</object>
+	<a href="/" class="w-11 logo-icon hover:animate-rattle">
+		<span class="sr-only">JY Logo</span>
+		<Icon name="logo" />
 	</a>
 	<nav class="flex gap-x-4">
 		<HeaderLink href="/">Home</HeaderLink>

@@ -5,7 +5,11 @@ module.exports = {
 		fontFamily: {
 			sans: ["Sofia Pro", "system-ui", "sans-serif"]
 		},
-		extend: {},
+		extend: {
+			animation: {
+        'rattle': 'rattle 400ms ease-in-out 1',
+      }
+		},
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
