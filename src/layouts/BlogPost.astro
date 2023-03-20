@@ -11,17 +11,17 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 
 <BaseLayout title={title} description={description}>
     <article class="prose prose-slate text-lg dark:prose-invert prose-img:rounded-md prose-a:no-underline prose-a:font-semibold prose-a:text-teal-700 hover:prose-a:opacity-50 mb-8">
-			<h1 class="mb-2">{title}</h1>
-			<div class="text-slate-400 mb-2">
-				<FormattedDate date={pubDate} />
+			<div class="text-base text-slate-500 mb-1">
+				Published <FormattedDate date={pubDate} />
 				{
 					updatedDate && (
 						<span>
-							| Last updated on <FormattedDate date={updatedDate} />
+							| Updated <FormattedDate date={updatedDate} />
 						</span>
 					)
 				}
 			</div>
+			<h1 class="mb-2 font-black">{title}</h1>
 			<slot />
 			<hr />
 			<!-- {tags && <TagList tags={tags} />} -->
