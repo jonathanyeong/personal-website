@@ -10,7 +10,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 ---
 
 <BaseLayout title={title} description={description}>
-    <article class="prose prose-slate dark:prose-invert prose-img:rounded-md prose-a:no-underline prose-a:text-teal-700 hover:prose-a:opacity-50 mb-8">
+    <article class="prose prose-slate dark:prose-invert prose-img:rounded-md prose-a:no-underline prose-a:font-semibold prose-a:text-teal-700 hover:prose-a:opacity-50 mb-8">
 			<h1 class="mb-2">{title}</h1>
 			<div class="text-slate-400 mb-2">
 				<FormattedDate date={pubDate} />
