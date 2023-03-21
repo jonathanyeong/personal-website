@@ -1,3 +1,5 @@
+@tailwind components;
+
 @font-face{
 		font-family:"Sofia Pro";
 		src:url("/fonts/6080398/4a6cb1fb-207c-45f0-b957-12530e1c9444.woff2") format("woff2"),url("fonts/6080398/9cf72f98-dafd-4b8a-ae89-de91ad1e9c63.woff") format("woff");
@@ -61,4 +63,14 @@ html {
 	visibility: visible;
 	opacity: 1;
 	font-family: Sofia Pro, system-ui, sans-serif;
+}
+
+@layer components {
+  .text-link {
+    @apply no-underline font-semibold dark:text-teal-500 text-logo-green before:bg-teal-700 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 relative;
+  }
+
+	.prose-text-link {
+		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-teal-700 hover:prose-a:opacity-50
+	}
 }
