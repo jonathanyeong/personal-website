@@ -14,16 +14,16 @@ const posts = (await getCollection('blog')).sort(
     <p class="mb-16">
         Hey there, I'm Jonathan Yeong 👋. But you can call me Jono! If you're new here, I write about all the things that excite me.
         Topics like how we work, ways to level up as a developer, and random tech learnings. If you want to stay up to date,
-        subscribe to my <a href="/rss.xml" class="no-underline font-semibold text-teal-700 before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">RSS</a>. If you want to hear more from me find me on
-        <a href="https://hachyderm.io/@jonathanyeong" class="no-underline font-semibold text-teal-700 before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">Mastadon</a> or
-        <a href="https://www.youtube.com/channel/UClb6km0HLkGUOEjHlp5WdPA" class="no-underline font-semibold text-teal-700 before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">Youtube</a>.
+        subscribe to my <a href="/rss.xml" class="no-underline font-semibold text-logo-green before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">RSS</a>. If you want to hear more from me find me on
+        <a href="https://hachyderm.io/@jonathanyeong" class="no-underline font-semibold text-logo-green before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">Mastadon</a> or
+        <a href="https://www.youtube.com/channel/UClb6km0HLkGUOEjHlp5WdPA" class="no-underline font-semibold text-logo-green before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">Youtube</a>.
     </p>
 
 	<ul class="flex flex-col gap-y-8">
 		{
 			posts.map((post) => (
 				<li class="flex justify-between">
-					<a href={`/${post.slug}/`} class="no-underline font-semibold text-teal-700 before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">{post.data.title}</a>
+					<a href={`/${post.slug}/`} class="no-underline font-semibold text-logo-green before:bg-teal-700 before:rounded-lg hover:before:opacity-100 hover:opacity-50 relative">{post.data.title}</a>
 					<FormattedDate date={post.data.pubDate} />
 				</li>
 			))
