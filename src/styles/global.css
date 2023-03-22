@@ -75,7 +75,6 @@ a:before {
 	transition: opacity 0.1s ease-in-out;
 }
 
-
 @layer components {
   .text-link {
     @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-700 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 relative;
