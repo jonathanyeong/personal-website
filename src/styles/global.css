@@ -65,12 +65,23 @@ html {
 	font-family: Sofia Pro, system-ui, sans-serif;
 }
 
+a:before {
+	content: '';
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	bottom: -3px;
+	opacity: 0;
+	transition: opacity 0.1s ease-in-out;
+}
+
+
 @layer components {
   .text-link {
-    @apply no-underline font-semibold dark:text-teal-500 text-logo-green before:bg-teal-700 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 relative;
+    @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-700 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 relative;
   }
 
 	.prose-text-link {
-		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-teal-700 hover:prose-a:opacity-50
+		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-logo-green dark:prose-a:text-teal-400 hover:dark:prose-a:text-teal-300 hover:before:prose-a:opacity-100 prose-a:relative before:bg-teal-700 before:dark:prose-a:bg-teal-300 before:prose-a:rounded-lg hover:before:prose-a:opacity-100
 	}
 }
