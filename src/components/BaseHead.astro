@@ -35,7 +35,7 @@ const { title, description, pubDate, image = '/placeholder-social.jpg' } = Astro
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(`og-image?title=${encodeURIComponent(title)}`, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
