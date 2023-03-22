@@ -6,7 +6,7 @@ export default async function handler(req: Request) {
   const url = new URL(req.url);
   const params = new URLSearchParams(url.search);
   const title = params.get("title") ?? "Created with Netlify edge functions";
-  const pubDate = params.get("pubDate") ?? new Date().toISOString();
+  // const pubDate = params.get("pubDate") ?? new Date().toISOString();
 
   // Generate the open graph image
   return new ImageResponse((
@@ -23,7 +23,6 @@ export default async function handler(req: Request) {
     }}
     >
       <div>{title}</div>
-      <div>{pubDate}</div>
     </div>
   ));
 }
