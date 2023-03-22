@@ -34,6 +34,7 @@ import { Icon } from 'astro-icon';
 
   const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
   themeToggle && themeToggle.addEventListener("click", handleToggleClick);
+
 </script>
 
 <header class="flex items-center justify-between py-3 mb-6">
@@ -45,7 +46,7 @@ import { Icon } from 'astro-icon';
 		<HeaderLink href="/">Home</HeaderLink>
 		<!-- <HeaderLink href="/featured/">Featured</HeaderLink> -->
 		<!-- <HeaderLink href="/tags/">Tags</HeaderLink> -->
-		<HeaderLink href="/about/">About</HeaderLink>
+		<!-- <HeaderLink href="/about/">About</HeaderLink> -->
 		<HeaderLink href="/rss.xml">RSS</HeaderLink>
 		<button id="themeToggle" class="w-5 pt-0.5 hover:dark:brightness-125 hover:brightness-50" type="button">
 			<Icon name="lightThemeIcon" className="dark:fill-teal-400 fill-logo-green" />
