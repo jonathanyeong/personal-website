@@ -75,9 +75,33 @@ a:before {
 	transition: opacity 0.1s ease-in-out;
 }
 
+@keyframes rattle {
+  20% {
+    transform-origin: center;
+    transform: rotate(10deg);
+  }
+  40% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+  60% {
+    transform-origin: center;
+    transform: rotate(16deg);
+  }
+  80% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+}
+
+.logo-icon:hover {
+  animation: rattle 400ms ease-in-out 1;
+}
+
+
 @layer components {
   .text-link {
-    @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-700 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 relative;
+    @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-600 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 hover:text-teal-600 relative;
   }
 
 	.prose-text-link {

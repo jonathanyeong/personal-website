@@ -7,9 +7,6 @@ module.exports = {
 			sans: ["Sofia Pro", "system-ui", "sans-serif"]
 		},
 		extend: {
-			animation: {
-        'rattle': 'rattle 400ms ease-in-out 1',
-      },
 			colors: {
         'logo-green': '#16697A',
       },
