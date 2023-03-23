@@ -18,7 +18,7 @@ export default async function handler(req: Request) {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#fff',
+      backgroundColor: '#16697A',
       fontSize: 32,
     }}
     >
