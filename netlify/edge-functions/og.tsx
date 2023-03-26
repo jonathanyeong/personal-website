@@ -11,7 +11,7 @@ export default async function handler(req: Request) {
   const url = new URL(req.url);
   const params = new URLSearchParams(url.search);
   const title = params.get("title") ?? "How did you get here?";
-  const pubDate = params.get("pubDate") ?? new Date().toISOString();;
+  const pubDate = params.get("pubDate") ?? new Date().toISOString();
 
    // Generate the open graph image
   return new ImageResponse(

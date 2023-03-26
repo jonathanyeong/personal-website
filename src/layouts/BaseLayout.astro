@@ -3,15 +3,16 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-const { title, description } = Astro.props;
+const { title, description, pubDate } = Astro.props;
 
 const headTitle = title || SITE_TITLE;
 const headDescription = description || SITE_DESCRIPTION;
+const headPubDate = pubDate || new Date().toISOString();
 ---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={headTitle} description={headDescription} />
+		<BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
 	</head>
 	<body class="flex flex-col h-screen max-w-prose dark:bg-slate-800 bg-slate-50 mx-auto text-lg overflow-x-hidden">
 		<Header />
