@@ -13,6 +13,9 @@ export default async function handler(req: Request) {
   const title = params.get("title") ?? "How did you get here?";
   const pubDate = params.get("pubDate") ?? new Date().toISOString();
 
+  const parsedDate = new Date(Date.parse(pubDate));
+
+  const formattedDate = parsedDate.toLocaleString('en-US', { month: "long", day: "numeric", year: "numeric"})
    // Generate the open graph image
   return new ImageResponse(
     (<div
@@ -21,17 +24,28 @@ export default async function handler(req: Request) {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
-        fontSize: 80,
         fontFamily: 'Sofia Pro',
-        color: '#F8FAFC',
-        backgroundColor: '#325164',
-        backgroundImage: 'linear-gradient(62deg, #325164 0%, #409289 100%)',
+        backgroundColor: '#1e293b',
+        // backgroundImage: 'linear-gradient(62deg, #325164 0%, #409289 100%)',
+        paddingLeft: 80,
+        paddingRight: 30
       }}
       >
-        <div>{title.toUpperCase()}</div>
-        <div>{pubDate}</div>
+        <div
+          style={{
+            fontSize: 26,
+            paddingLeft: 10,
+            color: '#f1f5f9',
+          }}>{formattedDate}</div>
+        <h1
+          style={{
+            fontSize: 80,
+            background: 'linear-gradient(62deg, #4d7c99 0%, #409289 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}>{title.toUpperCase()}</h1>
       </div>),
     {
       fonts: [
