@@ -27,22 +27,21 @@ export default async function handler(req: Request) {
         alignItems: 'flex-start',
         justifyContent: 'center',
         fontFamily: 'Sofia Pro',
-        backgroundColor: '#1e293b',
-        // backgroundImage: 'linear-gradient(62deg, #325164 0%, #409289 100%)',
+        backgroundColor: '#0f172a',
         paddingLeft: 80,
         paddingRight: 30
       }}
       >
         <div
           style={{
-            fontSize: 26,
+            fontSize: 20,
             paddingLeft: 10,
             color: '#f1f5f9',
-          }}>{formattedDate}</div>
+          }}>{`${formattedDate}  •  Jonathan Yeong`}</div>
         <h1
           style={{
-            fontSize: 80,
-            background: 'linear-gradient(62deg, #4d7c99 0%, #409289 100%)',
+            fontSize: 68,
+            background: 'linear-gradient(62deg, #07edaf 0%, #409289 100%)',
             backgroundClip: 'text',
             color: 'transparent',
           }}>{title.toUpperCase()}</h1>
