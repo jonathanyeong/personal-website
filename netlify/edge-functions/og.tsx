@@ -1,12 +1,12 @@
 import React from "https://esm.sh/react@18.2.0";
 import { ImageResponse } from "https://deno.land/x/og_edge@0.0.2/mod.ts";
 
-const font = fetch(new URL('../../public/fonts/6080425/6d628111-6a1c-4841-8452-76889dfe2ca2.woff', import.meta.url)).then(res =>
-  res.arrayBuffer()
-);
+// const font = fetch(new URL('../../public/fonts/6080425/6d628111-6a1c-4841-8452-76889dfe2ca2.woff', import.meta.url)).then(res =>
+//   res.arrayBuffer()
+// );
 
 export default async function handler(req: Request) {
-  const fontData = await font;
+  // const fontData = await font;
   // const logo = await svg;
   const url = new URL(req.url);
   const params = new URLSearchParams(url.search);
@@ -26,7 +26,7 @@ export default async function handler(req: Request) {
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        fontFamily: 'Sofia Pro',
+        // fontFamily: 'Sofia Pro',
         backgroundColor: '#0f172a',
         paddingLeft: 80,
         paddingRight: 30
@@ -47,14 +47,14 @@ export default async function handler(req: Request) {
           }}>{title.toUpperCase()}</h1>
       </div>),
     {
-      fonts: [
-        {
-          name: 'Sofia Pro',
-          data: fontData,
-          style: 'normal',
-          weight: 900
-        }
-      ]
+      // fonts: [
+      //   {
+      //     name: 'Sofia Pro',
+      //     data: fontData,
+      //     style: 'normal',
+      //     weight: 900
+      //   }
+      // ]
     }
   );
 }
