@@ -1,7 +1,8 @@
 ---
-pubDat: 2020-07-09
+pubDate: 2020-07-09
 title: "Building a blog with Phoenix: Getting started"
 description: "The first installment of a tutorial to get a blog up and running with Phoenix. Inspired by the Ruby on Rails tutorails on getting a blog running"
+featured: false
 ---
 Today, I want to show you how to start building a blog using Phoenix. You can find the source code here: [https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1](https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1 "https://github.com/jonathanyeong/phoenix_blog/tree/v0.0.1"). We are using Phoenix version 1.5.3 and Elixir version 1.10.3. We will cover:
 
