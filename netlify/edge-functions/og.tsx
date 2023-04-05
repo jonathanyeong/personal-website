@@ -5,8 +5,13 @@ import { ImageResponse } from "https://deno.land/x/og_edge@0.0.2/mod.ts";
 //   res.arrayBuffer()
 // );
 
+const font = fetch("https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedA.woff")
+  .then(
+    (res) => res.arrayBuffer(),
+  );
+
 export default async function handler(req: Request) {
-  // const fontData = await font;
+  const fontData = await font;
   // const logo = await svg;
   const url = new URL(req.url);
   const params = new URLSearchParams(url.search);
@@ -26,7 +31,7 @@ export default async function handler(req: Request) {
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        // fontFamily: 'Sofia Pro',
+        fontFamily: 'Poppins',
         backgroundColor: '#0f172a',
         paddingLeft: 80,
         paddingRight: 30
@@ -44,17 +49,17 @@ export default async function handler(req: Request) {
             background: 'linear-gradient(62deg, #07edaf 0%, #409289 100%)',
             backgroundClip: 'text',
             color: 'transparent',
-          }}>{title.toUpperCase()}</h1>
+          }}>{title}</h1>
       </div>),
     {
-      // fonts: [
-      //   {
-      //     name: 'Sofia Pro',
-      //     data: fontData,
-      //     style: 'normal',
-      //     weight: 900
-      //   }
-      // ]
+      fonts: [
+        {
+          name: 'Poppins',
+          data: fontData,
+          style: 'normal',
+          weight: 900
+        }
+      ],
     }
   );
 }
