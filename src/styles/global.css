@@ -105,6 +105,6 @@ a:before {
   }
 
 	.prose-text-link {
-		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-logo-green dark:prose-a:text-teal-400 hover:dark:prose-a:text-teal-300 hover:before:prose-a:opacity-100 prose-a:relative before:bg-teal-700 before:dark:prose-a:bg-teal-300 before:prose-a:rounded-lg hover:before:prose-a:opacity-100
+		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-logo-green dark:prose-a:text-teal-400 hover:prose-a:text-teal-600 hover:dark:prose-a:text-teal-300 hover:before:prose-a:opacity-100 prose-a:relative before:prose-a:bg-teal-700 before:dark:prose-a:bg-teal-300 before:prose-a:rounded-lg
 	}
 }

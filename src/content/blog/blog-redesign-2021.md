@@ -69,7 +69,7 @@ I have a tendency to get distracted by shiny things. And this blog is no excepti
 
 If you're familiar with React and Next.js - SvelteKit offers similar sensibilities. It offers both server side and client side rendering. A built in router. Developer environment optimizations. And Svelte, which has been a joy to use.
 
-Styling is done using SCSS, a css preprocessor. Out of the box, styles in Svelte are scoped per component. Posts are processed using [Mdsvex](https://mdsvex.com/). This package is similar to [MDX](https://mdxjs.com/) for React. It lets me define components and import them into my markdown. ~For example, this alert box is a Svelte component!~ I just moved [my site to Astro](blog-redesign-2023.md) so this won't work anymore.
+Styling is done using SCSS, a css preprocessor. Out of the box, styles in Svelte are scoped per component. Posts are processed using [Mdsvex](https://mdsvex.com/). This package is similar to [MDX](https://mdxjs.com/) for React. It lets me define components and import them into my markdown. ~For example, this alert box is a Svelte component!~ I just moved [my site to Astro](/blog-redesign-2023.md) so this won't work anymore.
 
 
 I can then import the Alert box into any of my markdown files:

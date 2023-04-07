@@ -5,7 +5,7 @@ description: "Just gave my blog a fresh new look for 2023! Switching from Svelte
 featured: false
 draft: false
 ---
-If you've been here before you might have noticed a few things have changed. That's right, I blew up my blog and rebuilt it from ground up! Two years ago I wrote this line in a [previous blog redesign post](blog-redesign-2021):
+If you've been here before you might have noticed a few things have changed. That's right, I blew up my blog and rebuilt it from ground up! Two years ago I wrote this line in a [previous blog redesign post](/blog-redesign-2021):
 
 > I heard of this new Static site generator, Astro that looks very interesting…
 > Nope. Not going down that path.
