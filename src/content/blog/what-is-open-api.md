@@ -3,7 +3,7 @@ pubDate: 2022-04-05
 title: "Learning about Open API"
 description: "Learning note on what Open API is and what it's used for"
 featured: false
-draft: true
+draft: false
 tags: ["learning note"]
 ---
 
