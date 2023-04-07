@@ -7,8 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: 'https://www.jonathanyeong.com',
-  site: 'https://brilliant-moonbeam-1e2ea1.netlify.app',
+  site: 'https://www.jonathanyeong.com',
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
     drafts: false,
