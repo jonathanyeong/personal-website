@@ -16,7 +16,9 @@ I think of it like a restaurant. With API First you define exactly how the wait 
 
 In API design first, it's all about communication. While API first is more rigid in how the API is defined in the first place. In both examples, building and API was about defining a contract - there are overlaps between the two approaches.
 
-It feels like API first and API design first really go hand in hand. Building an API that interfaces with other teams means you need to discuss design even if you're building API first. One way to define the contract or to describe your API is through a specification like [OpenAPI](/what-is-open-api).
+It feels like API first and API design first really go hand in hand. Building an API that interfaces with other teams means you need to discuss design even if you're building API first. I would love some examples where this isn't the case!
+
+Finally, one way to describe your API/create a contract is through a specification language like [OpenAPI](/what-is-open-api).
 
 ## Resources
 - [API-First vs. API Design-First: A Comprehensive Guide by Spotlight](https://blog.stoplight.io/api-first-vs.-api-design-first-a-comprehensive-guide)
