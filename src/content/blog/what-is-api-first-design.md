@@ -4,6 +4,7 @@ title: "Learning about API First Design"
 description: "Learning note on what API First design is and why you'd use it"
 featured: false
 draft: false
+tags: ["learning note"]
 ---
 
 Building an API using an API first approach means that the API is the core deliverable. The API is treated like a core product that other products build on top of. Rather then products being built first then an API is slapped on top of them. There's another term - API design first which is focused on **how** you design your API. Whereas with API-first you focus on both design and building the API first.

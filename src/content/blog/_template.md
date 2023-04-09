@@ -5,4 +5,5 @@ title: "template"
 description: "A template"
 featured: false
 draft: true
+tags: ["learning note"]
 ---
