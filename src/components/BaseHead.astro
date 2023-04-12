@@ -45,4 +45,8 @@ const { title, description, pubDate } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(`og-image?title=${encodeURIComponent(title)}&pubDate=${pubDate}`, Astro.site)} />
 
+<!-- Analytics -->
 <script defer data-domain="jonathanyeong.com" src="https://plausible.io/js/script.js"></script>
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml">
