@@ -8,6 +8,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 ).filter((post) => showDraftPosts(post));
+
 ---
 
 <BaseLayout>
@@ -27,7 +28,7 @@ const posts = (await getCollection('blog')).sort(
 			posts.map((post) => (
 				<li class="flex justify-between gap-4">
 					<a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-					<FormattedDate date={post.data.pubDate} class="shrink-0" />
+					<FormattedDate date={post.data.updatedDate ? post.data.updatedDate : post.data.pubDate} class="shrink-0" />
 				</li>
 			))
 		}
