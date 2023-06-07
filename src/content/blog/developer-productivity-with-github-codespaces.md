@@ -7,7 +7,7 @@ featured: false
 draft: false
 ---
 
-During my time at Shopify, I had the opportunity to work with a cloud development environment - and I was sold. Since then, I set out trying to recreate a similar experience for my personal development. Enter, Github Codespaces. I'd like to share my thoughts on using Codespaces and why I believe it will greatly benefit developer productivity.
+During my time at Shopify, I had the opportunity to work with a cloud development environment - and I was sold. Since then, I set out trying to recreate a similar experience for my personal development. Enter, [Github Codespaces](https://github.com/features/codespaces). I'd like to share my thoughts on using Codespaces and why I believe it will greatly benefit developer productivity.
 
 ## Exploring Codespaces: My Motivations
 
@@ -20,6 +20,7 @@ There are a couple of reasons why I decided to explore GitHub Codespaces:
 Firstly, install the Github CLI tool. Being able to use the terminal over the browser has significantly streamlined my experience. Once authenticated with the Github CLI, my workflow is as follows:
 
 1. **Creating a Codespace:** Initially, I needed to create a Codespace. Note that if you cloned a project and you're in that folder, the Github CLI tool will use that project as the default
+
 ```bash
 gh codespace create
 ```
@@ -45,13 +46,15 @@ gh codespace logs
 ```
 
 ## Initial Considerations
+
 Based on my early experience, here are a few considerations regarding Codespaces:
 
 - **Overkill for Simple Projects**: Codespaces is overkill for simple projects like my Astro blog. Given the minimal version dependencies and longer startup time compared to setting up my Astro project directly, it doesn't give that much benefit.
 - **Treat Codespaces as Ephemeral**: It's important to treat Codespaces as ephemeral environments. That means commit often! Any uncommitted changes will be lost when the Codespace is destroyed (which occurs by default every 30 days).
 
 ## The Untapped Potential
-I'm totally bought into the idea of cloud development environments. Github Codespace is one option there's also others such as Gitpod.
+
+I'm totally bought into the idea of cloud development environments. Github Codespace is one option there's also others such as [Gitpod](https://www.gitpod.io/).
 
 Imagine this situation, you're starting a new job, excitedly setting up a fresh codebase, only to encounter a mysterious, undocumented error. You turn to your onboarding buddy for help. They speak the dreaded words, "weird - works on my machine". A response that leaves you navigating a labyrinth of debugging all by your lonesome. Okay I'm being a little dramatic, but we've all experienced these "works on my machine" moments that can send you spiraling.
 
