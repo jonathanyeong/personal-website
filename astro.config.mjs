@@ -7,6 +7,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://www.jonathanyeong.com',
   integrations: [mdx(), sitemap(), tailwind()],
+  experimental: {
+    assets: true
+  },
   markdown: {
     drafts: false,
     shikiConfig: {
