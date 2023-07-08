@@ -11,20 +11,21 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
     <article class="prose prose-slate prose-lg dark:prose-invert prose-img:rounded-md mb-8 prose-text-link">
-			<div class="text-base text-slate-500 dark:text-slate-300 mb-1">
-				Published <FormattedDate date={pubDate} />
-				{
-					updatedDate && (
-						<span>
-							| Updated <FormattedDate date={updatedDate} />
-						</span>
-					)
-				}
-			</div>
-			<h1 class="mb-2 font-black">{title}</h1>
-			<slot />
-			<hr />
-			<!-- {tags && <TagList tags={tags} />} -->
+            <div class="text-base text-slate-500 dark:text-slate-300 mb-1">
+                Published <FormattedDate date={pubDate} />
+                {
+                    updatedDate && (
+                        <span>
+                            | Updated <FormattedDate date={updatedDate} />
+                        </span>
+                    )
+                }
+            </div>
+            <h1 class="mb-2 font-black">{title}</h1>
+            {tags && <TagList tags={tags} />}
+            <hr />
+            <slot />
+            <hr />
     </article>
     <script src="https://giscus.app/client.js"
             data-repo="jonathanyeong/personal-website"
