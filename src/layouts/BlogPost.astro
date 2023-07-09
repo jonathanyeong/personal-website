@@ -22,7 +22,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
                 }
             </div>
             <h1 class="mb-2 font-black">{title}</h1>
-            {tags && <TagList tags={tags} />}
+            {tags && tags.length > 0 && <TagList tags={tags} />}
             <hr class="mt-2" />
             <slot />
             <hr />
