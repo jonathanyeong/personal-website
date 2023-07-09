@@ -2,10 +2,9 @@
 const { tags } = Astro.props;
 ---
 
-<p>
-  Filed under:
+<p class="flex space-x-3">
   {tags.map((tag: string) => (
-    <a href={`/tags/${tag}`}>#{tag}</a>
+    <a href={`/topics/${tag}`}>{tag}</a>
   ))}
 </p>
 

@@ -6,17 +6,17 @@ import showDraftPosts from '../../utilities/showDraftPosts';
 const posts = (await getCollection('blog')).
   filter((post) => showDraftPosts(post));
 
-const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+const topics = [...new Set(posts.map((post) => post.data.tags).flat())];
 ---
 
 <BaseLayout>
-	<section>
-		<h1> Tags </h1>
+	<section class="prose">
+		<h1>Topics I write about</h1>
 		<ul>
 			{
-				tags.map((tag) => (
+				topics.map((topic) => (
 					<li>
-						<a href={`/tags/${tag}`}>{tag}</a>
+						<a href={`/topics/${topic}`}>{topic}</a>
 					</li>
 				))
 			}
