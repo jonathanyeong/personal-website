@@ -18,7 +18,7 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		draft: z.boolean().default(false),
 		featured: z.boolean(),
-		tags: z
+		topics: z
 			.array(z.string())
 			.optional()
 			.default([])

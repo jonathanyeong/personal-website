@@ -6,18 +6,18 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).
-    filter((post) => showDraftPosts(post));;
+    filter((post) => showDraftPosts(post));
 
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
-	return tags.map((tag) => ({
-		params: { topic: tag }
+  const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+	return topics.map((topic) => ({
+		params: { topic }
 	}));
 }
 
 const { topic } = Astro.params;
 
-const tagPosts = (await getCollection('blog')).
-    filter((post) => showDraftPosts(post) && (topic && post.data.tags.includes(topic)));
+const postsInTopic = (await getCollection('blog')).
+    filter((post) => showDraftPosts(post) && (topic && post.data.topics.includes(topic)));
 ---
 
 <BaseLayout>
@@ -25,7 +25,7 @@ const tagPosts = (await getCollection('blog')).
     <h1>Posts about {topic}</h1>
     <ul>
       {
-        tagPosts.map((post) => (
+        postsInTopic.map((post) => (
           <li>
             <FormattedDate date={post.data.pubDate} />
             <a href={`/${post.slug}/`}>{post.data.title}</a>
