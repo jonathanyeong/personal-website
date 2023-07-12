@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.params;
 
-const tagPosts = (await getCollection('blog')).
+const postsInTopic = (await getCollection('blog')).
     filter((post) => showDraftPosts(post) && (topic && post.data.topics.includes(topic)));
 ---
 
@@ -25,7 +25,7 @@ const tagPosts = (await getCollection('blog')).
     <h1>Posts about {topic}</h1>
     <ul>
       {
-        tagPosts.map((post) => (
+        postsInTopic.map((post) => (
           <li>
             <FormattedDate date={post.data.pubDate} />
             <a href={`/${post.slug}/`}>{post.data.title}</a>
