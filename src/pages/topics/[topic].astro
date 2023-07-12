@@ -6,18 +6,18 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).
-    filter((post) => showDraftPosts(post));;
+    filter((post) => showDraftPosts(post));
 
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
-	return tags.map((tag) => ({
-		params: { topic: tag }
+  const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+	return topics.map((topic) => ({
+		params: { topic }
 	}));
 }
 
 const { topic } = Astro.params;
 
 const tagPosts = (await getCollection('blog')).
-    filter((post) => showDraftPosts(post) && (topic && post.data.tags.includes(topic)));
+    filter((post) => showDraftPosts(post) && (topic && post.data.topics.includes(topic)));
 ---
 
 <BaseLayout>

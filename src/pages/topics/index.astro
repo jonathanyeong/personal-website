@@ -6,7 +6,7 @@ import showDraftPosts from '../../utilities/showDraftPosts';
 const posts = (await getCollection('blog')).
   filter((post) => showDraftPosts(post));
 
-const topics = [...new Set(posts.map((post) => post.data.tags).flat())];
+const topics = [...new Set(posts.map((post) => post.data.topics).flat())];
 ---
 
 <BaseLayout>

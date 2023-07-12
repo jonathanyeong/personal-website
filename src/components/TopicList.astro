@@ -1,0 +1,10 @@
+---
+const { topics } = Astro.props;
+---
+
+<p class="flex space-x-3">
+  {topics.map((topic: string) => (
+    <a href={`/topics/${topic}`}>{topic}</a>
+  ))}
+</p>
+
