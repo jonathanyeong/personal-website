@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from 'astro:assets';
+import profilePic from "../../assets/profile_pic.jpg";
+---
+
+<BaseLayout title="About Me">
+  <h1 class="text-5xl mb-8">About Me</h1>
+  <div class="flex gap-6 flex-col sm:flex-row">
+    <div>
+      <p class="mb-6">
+        Hiya, my name is Jonathan Yeong 👋.
+      </p>
+
+      <p class="mb-6">
+        I'm a Staff Software Engineer at Flexport, previously, Shopify.
+        I've worked with Ruby and Typescript across both microservices and monoliths.
+        I have lukewarm opinions on architecture but strong opinions on developer experience.
+        My passion lies with mentoring and coaching others.
+      </p>
+      <p class="mb-6">
+        I've been a mentor at
+        <a href="https://the-collab-lab.codes/" class="text-link">The Collab Lab</a>,
+        and frequent the <a href="https://virtualcoffee.io/" class="text-link">Virtual Coffee community</a>.
+        I also spent a year stint as a manager.
+        Where I realized how much more I could help those around me. I also found out the hard way
+        how easy it was to burn out - a story for another time!
+      </p>
+
+      <p class="mb-6">
+        I also tinker with a
+        <a href="https://www.youtube.com/c/jonathanyeong" class="text-link">Youtube channel</a>, build in public on <a href="https://github.com/jonathanyeong" class="text-link">Github</a>, and
+        infrequently post on
+        <a href="https://bsky.app/profile/jonathanyeong.bsky.social" class="text-link">Bluesky</a>,
+        <a href="https://hachyderm.io/@jonathanyeong" class="text-link">Mastodon</a>,
+        and <a href="https://twitter.com/JonoYeong" class="text-link">Twitter</a>. If you're interested
+        in working with me, or chatting about anything developer you can DM me on socials or
+        email me at hey[@]jonathanyeong.com.
+      </p>
+
+      <p>
+        <b>Fun fact:</b> It's taken me 32 years but I finally know how to keep plants alive 🌿.
+      </p>
+    </div>
+
+    <div>
+      <Image src={profilePic} alt="Jonathan Yeong's face." class="rounded-xl max-w-full w-40 m-auto sm:max-w-fit sm:w-64" />
+    </div>
+
+  </div>
+
+
+
+</BaseLayout>
