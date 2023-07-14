@@ -1,14 +1,18 @@
 ---
 const { date, class: className } = Astro.props;
 
+const formatDate = (date: Date) => {
+	const dateParts = date.toUTCString().split(" ");
+	const monthIndex = 2;
+	const dayIndex = 1;
+	const yearIndex = 3;
+
+	return `${dateParts[monthIndex]} ${dateParts[dayIndex]}, ${dateParts[yearIndex]}`
+}
 ---
 
 <time datetime={date.toISOString()} class:list={[className]}>
 	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
+		formatDate(date)
 	}
 </time>

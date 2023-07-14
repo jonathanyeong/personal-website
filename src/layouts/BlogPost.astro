@@ -7,6 +7,10 @@ import TopicList from '../components/TopicList.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, topics } = Astro.props;
+
+const showUpdatedDate = () => {
+    return updatedDate && updatedDate.getTime() !== pubDate.getTime()
+}
 ---
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
@@ -14,7 +18,7 @@ const { title, description, pubDate, updatedDate, heroImage, topics } = Astro.pr
             <div class="text-base text-slate-500 dark:text-slate-300 mb-1">
                 Published <FormattedDate date={pubDate} />
                 {
-                    updatedDate && (
+                    showUpdatedDate() && (
                         <span>
                             | Updated <FormattedDate date={updatedDate} />
                         </span>

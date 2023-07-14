@@ -20,7 +20,16 @@ export default async function handler(req: Request) {
 
   const parsedDate = new Date(Date.parse(pubDate));
 
-  const formattedDate = parsedDate.toLocaleString('en-US', { month: "long", day: "numeric", year: "numeric"})
+  const formatDate = (date: Date) => {
+    const dateParts = date.toUTCString().split(" ");
+    const monthIndex = 2;
+    const dayIndex = 1;
+    const yearIndex = 3;
+
+    return `${dateParts[monthIndex]} ${dateParts[dayIndex]}, ${dateParts[yearIndex]}`
+  }
+
+  const formattedDate = formatDate(parsedDate)
    // Generate the open graph image
   return new ImageResponse(
     (<div
