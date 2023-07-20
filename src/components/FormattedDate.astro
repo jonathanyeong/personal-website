@@ -1,13 +1,9 @@
 ---
 const { date, class: className } = Astro.props;
+import { formatInTimeZone } from 'date-fns-tz'
 
 const formatDate = (date: Date) => {
-	const dateParts = date.toUTCString().split(" ");
-	const monthIndex = 2;
-	const dayIndex = 1;
-	const yearIndex = 3;
-
-	return `${dateParts[monthIndex]} ${dateParts[dayIndex]}, ${dateParts[yearIndex]}`
+	return formatInTimeZone(date, 'Etc/UTC', 'MMM dd, yyyy');
 }
 ---
 
