@@ -8,7 +8,8 @@ export default defineConfig({
   site: 'https://www.jonathanyeong.com',
   integrations: [mdx(), sitemap(), tailwind()],
   experimental: {
-    assets: true
+    assets: true,
+    viewTransitions: true
   },
   markdown: {
     drafts: false,
