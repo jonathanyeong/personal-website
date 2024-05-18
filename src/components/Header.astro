@@ -1,6 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
 <script is:inline>
@@ -48,7 +48,7 @@ import { Icon } from 'astro-icon';
 		<HeaderLink href="/about/">About</HeaderLink>
 		<HeaderLink href="/rss.xml">RSS</HeaderLink>
 		<button id="themeToggle" class="w-5 pt-0.5 hover:dark:brightness-125 hover:brightness-50" aria-label="Toggle Light/Dark Theme" type="button">
-			<Icon name="lightThemeIcon" className="dark:fill-teal-400 fill-logo-green" />
+			<Icon name="lightThemeIcon" class="dark:fill-teal-400 fill-logo-green" />
     </button>
 	</nav>
 </header>

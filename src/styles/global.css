@@ -94,6 +94,11 @@ a:before {
   }
 }
 
+.logo-icon svg {
+    height: inherit;
+    width: inherit;
+}
+
 .logo-icon:hover {
   animation: rattle 400ms ease-in-out 1;
 }
