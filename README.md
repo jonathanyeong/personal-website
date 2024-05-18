@@ -4,6 +4,14 @@
 
 Jono's personal website running on Astro, & Tailwind.
 
+### Deploying content changes
+
+After pushing content to the submodule `/content` folder. We will need to pull the changes into this repo:
+
+```bash
+git submodule update --recursive --remote
+```
+
 ![current system design](https://github.com/jonathanyeong/personal-website/assets/3861088/55838772-f679-413d-ab1e-453bbc5c3f14)
 
 ## License
