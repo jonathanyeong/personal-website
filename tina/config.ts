@@ -13,7 +13,7 @@ export default defineConfig({
   clientId: process.env.TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
-  localContentPath: "../personal-website-content",
+  localContentPath: "../../personal-website-content",
   build: {
     outputFolder: "admin",
     publicFolder: "public",
