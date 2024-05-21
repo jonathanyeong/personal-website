@@ -30,7 +30,15 @@ export default defineConfig({
       {
         name: "post",
         label: "Posts",
-        path: "",
+        path: "blog",
+        ui: {
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.title?.toLowerCase().replace(/ /g, '-')}`
+            },
+          },
+        },
         fields: [
           {
             type: "string",
