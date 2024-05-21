@@ -1,3 +1,0 @@
-[submodule "src/content/blog"]
-	path = src/content/blog
-	url = git@github.com:jonathanyeong/personal-website-content.git
