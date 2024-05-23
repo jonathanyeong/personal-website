@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "tinacms dev -c \"astro dev --host\"",
 		"start": "astro dev",
-		"build": "tinacms build && astro build",
+		"build": "tinacms build && rimraf src/content/blog/tina/ && astro build",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -21,7 +21,8 @@
 		"tinacms": "^1.6.3"
 	},
 	"devDependencies": {
-	  "@astrojs/check": "^0.7.0",
+	  "rimraf": "^5.0.7",
+		"@astrojs/check": "^0.7.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@tinacms/cli": "^1.5.45",
 		"@types/node": "^20.12.12",
