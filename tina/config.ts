@@ -30,7 +30,7 @@ export default defineConfig({
       {
         name: "post",
         label: "Posts",
-        path: "blog",
+        path: "",
         ui: {
           filename: {
             readonly: true,
