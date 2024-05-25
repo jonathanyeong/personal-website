@@ -4,9 +4,10 @@ import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import TopicList from '../components/TopicList.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
-const { title, description, pubDate, updatedDate, heroImage, topics } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead } = Astro.props;
+
 
 const showUpdatedDate = () => {
     return updatedDate && updatedDate.getTime() !== pubDate.getTime()
@@ -23,9 +24,10 @@ const showUpdatedDate = () => {
                             | Updated <FormattedDate date={updatedDate} />
                         </span>
                     )
-                }
+                } <span>| {minutesRead}</span>
             </div>
             <h1 class="mb-2 font-black">{title}</h1>
+
             {topics && topics.length > 0 && <TopicList topics={topics} />}
             <hr class="mt-2" />
             <slot />
