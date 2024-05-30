@@ -3,9 +3,9 @@
 	"type": "module",
 	"version": "0.1.0",
 	"scripts": {
-		"dev": "tinacms dev -c \"astro dev --host\"",
+		"dev": "astro dev --host",
 		"start": "astro dev",
-		"build": "tinacms build && rimraf src/content/blog/tina/ && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
