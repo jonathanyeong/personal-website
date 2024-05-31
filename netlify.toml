@@ -1,3 +1,5 @@
 [[edge_functions]]
   function = "og"
   path = "/og-image"
+[build.environment]
+  TZ="America/Toronto"
