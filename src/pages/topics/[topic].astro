@@ -15,8 +15,8 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.params;
 
-const postsInTopic = (await getCollection('blog')).
-    filter((post) => showDraftPosts(post) && (topic && post.data.topics.includes(topic)));
+const postsInTopic = filterPublishedPosts(await getCollection('blog')).
+    filter((post) => (topic && post.data.topics.includes(topic)));
 ---
 
 <BaseLayout>
