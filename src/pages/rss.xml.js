@@ -3,11 +3,11 @@ import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
-import filteredPosts from '../utilities/filteredPosts';
+import filterPublishedPosts from '../utilities/filterPublishedPosts';
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-	const posts = filteredPosts(await getCollection('blog'));
+	const posts = filterPublishedPosts(await getCollection('blog'));
 
 	return rss({
 		title: SITE_TITLE,

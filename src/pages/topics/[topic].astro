@@ -2,10 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import filteredPosts from '../../utilities/filteredPosts';
+import filterPublishedPosts from '../../utilities/filterPublishedPosts';
 
 export async function getStaticPaths() {
-  const posts = filteredPosts(await getCollection('blog'));
+  const posts = filterPublishedPosts(await getCollection('blog'));
 
   const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 	return topics.map((topic) => ({

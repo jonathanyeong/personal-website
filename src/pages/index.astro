@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
-import filteredPosts from '../utilities/filteredPosts';
+import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
-const posts = filteredPosts(await getCollection('blog'));
+const posts = filterPublishedPosts(await getCollection('blog'));
 
 ---
 
