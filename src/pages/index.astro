@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import showDraftPosts from '../utilities/showDraftPosts';
-import showScheduledPosts from '../utilities/showScheduledPosts';
 import FormattedDate from '../components/FormattedDate.astro';
-
+import showDraftPosts from '../utilities/showDraftPosts'
+import showScheduledPosts from '../utilities/showScheduledPosts'
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).filter((post) => showDraftPosts(post) && showScheduledPosts(post));
+).filter((post) => {
+	console.log(`for title: ${post.data.title}. isDraft: ${showDraftPosts(post)} showScheduledPost: ${showScheduledPosts(post)}`)
+	return showDraftPosts(post) && showScheduledPosts(post)
+});
 
 ---
 

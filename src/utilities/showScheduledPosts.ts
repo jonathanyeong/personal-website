@@ -8,7 +8,7 @@ const formatDate = (date: Date): string => {
 const hasPubDatePassed = (pubDate: Date): boolean => {
   let todaysDate = new Date()
   todaysDate.setHours(0,0,0,0)
-  return formatDate(pubDate) <= formatDate(todaysDate);
+  return formatDate(todaysDate) >= formatDate(pubDate);
 }
 
 const showScheduledPosts = (post: CollectionEntry<"blog">) => {
