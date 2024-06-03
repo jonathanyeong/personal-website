@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import showDraftPosts from '../../utilities/showDraftPosts';
+import filteredPosts from '../../utilities/filteredPosts';
 
-const posts = (await getCollection('blog')).
-  filter((post) => showDraftPosts(post));
-
+const posts = filteredPosts(await getCollection('blog'));
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 ---
 

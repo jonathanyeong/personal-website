@@ -2,12 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
-import showDraftPosts from '../utilities/showDraftPosts'
-import showScheduledPosts from '../utilities/showScheduledPosts'
+import filteredPosts from '../utilities/filteredPosts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).filter((post) => showDraftPosts(post) && showScheduledPosts(post));
+const posts = filteredPosts(await getCollection('blog'));
 
 ---
 
