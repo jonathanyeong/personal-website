@@ -1,8 +1,7 @@
 name: "Scheduled Build"
 on:
   schedule:
-      - cron: "0 1 * * *"
-  workflow_dispatch:
+    - cron: "0 6 * * *"
 jobs:
   trigger_netlify_build:
     name: trigger_netlify_build

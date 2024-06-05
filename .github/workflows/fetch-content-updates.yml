@@ -15,10 +15,10 @@ jobs:
           git pull --recurse-submodules
           git submodule update --init --recursive --remote
       - name: Push changes
-        run: |        
+        run: |
           git config --global user.email "hey@jonathanyeong.com"
           git config --global user.name "Jonathan Yeong"
           git add .
           git commit -m "[Workflow] Updating website content"
           git push
-    
+
