@@ -20,7 +20,7 @@ const posts = filterPublishedPosts(await getCollection('blog'));
 			posts.map((post) => (
 				<li class="flex justify-between gap-4">
 					<a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-					<FormattedDate date={post.data.updatedDate ? post.data.updatedDate : post.data.pubDate} class="shrink-0" />
+					<FormattedDate date={post.data.pubDate} class="shrink-0" />
 				</li>
 			))
 		}
