@@ -14,7 +14,7 @@ const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 			{
 				topics.map((topic) => (
 					<li>
-						<a href={`/topics/${topic}`}>{topic}</a>
+						<a href={`/topics/${topic}/`}>{topic}</a>
 					</li>
 				))
 			}
