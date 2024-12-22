@@ -13,6 +13,14 @@ const headPubDate = pubDate || new Date().toISOString();
 <html lang="en">
 	<head>
 		<BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
+		<link
+                  rel="alternate"
+                  type="application/rss+xml"
+                  title={SITE_TITLE}
+                  href={new URL("rss.xml", Astro.site)}
+                />
+
+
 	</head>
 	<body class="flex flex-col h-screen max-w-prose px-4 lg:px-0 dark:bg-slate-800 bg-slate-50 mx-auto text-lg">
 		<Header />
