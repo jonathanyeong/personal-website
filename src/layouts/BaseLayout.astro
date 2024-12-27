@@ -11,9 +11,9 @@ const headPubDate = pubDate || new Date().toISOString();
 ---
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
-		<link
+  <head>
+    <BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
+    <link
                   rel="alternate"
                   type="application/rss+xml"
                   title={SITE_TITLE}
@@ -21,12 +21,12 @@ const headPubDate = pubDate || new Date().toISOString();
                 />
 
 
-	</head>
-	<body class="flex flex-col h-screen max-w-prose px-4 lg:px-0 dark:bg-slate-800 bg-slate-50 mx-auto text-lg">
-		<Header />
-		<main class="flex-grow dark:text-slate-200">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
