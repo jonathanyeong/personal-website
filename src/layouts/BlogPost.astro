@@ -15,7 +15,7 @@ const showUpdatedDate = () => {
 ---
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
-    <div class="text-base text-slate-500 dark:text-slate-300 mb-1">
+    <div>
         Published <FormattedDate date={pubDate} />
         {
             showUpdatedDate() && (
@@ -25,11 +25,11 @@ const showUpdatedDate = () => {
             )
         } <span>| {minutesRead}</span>
     </div>
-    <h1 class="font-black mb-4 text-5xl">{title}</h1>
+    <h1>{title}</h1>
     {topics && topics.length > 0 && <TopicList topics={topics} />}
     <hr class="my-8" />
 
-    <article class="prose prose-slate prose-lg dark:prose-invert prose-img:rounded-md mb-8 prose-text-link">
+    <article>
             <slot />
             <hr />
     </article>
