@@ -4,18 +4,22 @@ import ArticleCard from '../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
+import Button from '../components/Button.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 
-const posts = filterPublishedPosts(await getCollection('blog'));
-
+const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
+// const notes get top 5.
 ---
 
 <BaseLayout>
-    <p>
-        Welcome 👋! My name's Jono Yeong, I'm a Staff Software Engineer from Australia currently based in Canada.
-        This blog is a collection of notes on topics that I find interesting and exciting.
-        If you want to stay up to date, subscribe to my <a href="/rss.xml/" class="text-link">RSS</a>.
-    </p>
+  <h1>Hi, I’m Jono!</h1>
+  <p>
+    I’m a staff dev building better developer tooling. I primarily focus on backend, but I’m
+    learning to craft delightful frontends. On this site, I write about tech, life, and everything in between.
+  </p>
 
+  <h2>Articles</h2>
+  <p>Tutorials, evergreen articles, polished thoughts</p>
   <ul>
     {
       posts.map((post) => (
@@ -25,4 +29,20 @@ const posts = filterPublishedPosts(await getCollection('blog'));
       ))
     }
   </ul>
+
+  <h2>Notes</h2>
+  <p>Reflections, learnings, random thoughts</p>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href=`/${post.slug}`>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <Button link="/writing" text="see all writing" />
+  <h2>Projects</h2>
+  <p>What I’ve been working on</p>
+  <ProjectCard title="DX Dissected Newsletter" description="A newsletter I’m writing, decoding exceptional developer experiences, one concept at a time." url="https://dxdissected.com/" />
 </BaseLayout>
