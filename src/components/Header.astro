@@ -37,18 +37,18 @@ import { Icon } from 'astro-icon/components';
 
 </script>
 
-<header class="flex items-center justify-between py-3 mb-6 relative">
-	<a href="/" class="w-11 logo-icon">
-		<span class="sr-only">JY Logo</span>
-		<Icon name="logo" />
-	</a>
-	<nav class="flex gap-x-6 lg:gap-x-4">
-		<HeaderLink href="/">Home</HeaderLink>
-		<!-- <HeaderLink href="/featured/">Featured</HeaderLink> -->
-		<HeaderLink href="/about/">About</HeaderLink>
-		<HeaderLink href="/rss.xml/">RSS</HeaderLink>
-		<button id="themeToggle" class="w-5 pt-0.5 hover:dark:brightness-125 hover:brightness-50" aria-label="Toggle Light/Dark Theme" type="button">
-			<Icon name="lightThemeIcon" class="text-logo-green dark:text-teal-400" />
+<header>
+  <a href="/" class="w-11 logo-icon">
+    <span class="sr-only">JY Logo</span>
+    <Icon name="logo" />
+  </a>
+  <nav>
+    <HeaderLink href="/">Home</HeaderLink>
+    <!-- <HeaderLink href="/featured/">Featured</HeaderLink> -->
+    <HeaderLink href="/about/">About</HeaderLink>
+    <HeaderLink href="/rss.xml/">RSS</HeaderLink>
+    <button id="themeToggle" class="w-5 pt-0.5 hover:dark:brightness-125 hover:brightness-50" aria-label="Toggle Light/Dark Theme" type="button">
+      <Icon name="lightThemeIcon" class="text-logo-green dark:text-teal-400" />
     </button>
-	</nav>
+  </nav>
 </header>
