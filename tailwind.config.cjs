@@ -11,8 +11,5 @@ module.exports = {
         'logo-green': '#16697A',
       },
     },
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  }
 }

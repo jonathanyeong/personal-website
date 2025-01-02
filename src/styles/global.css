@@ -1,5 +1,3 @@
-@tailwind components;
-
 @font-face{
 		font-family:"Sofia Pro";
 		src:url("/fonts/6080398/4a6cb1fb-207c-45f0-b957-12530e1c9444.woff2") format("woff2"),url("fonts/6080398/9cf72f98-dafd-4b8a-ae89-de91ad1e9c63.woff") format("woff");
@@ -101,15 +99,4 @@ a:before {
 
 .logo-icon:hover {
   animation: rattle 400ms ease-in-out 1;
-}
-
-
-@layer components {
-  .text-link {
-    @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-600 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 hover:text-teal-600 relative;
-  }
-
-	.prose-text-link {
-		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-logo-green dark:prose-a:text-teal-400 hover:prose-a:text-teal-600 hover:dark:prose-a:text-teal-300 hover:before:prose-a:opacity-100 prose-a:relative before:prose-a:bg-teal-700 before:dark:prose-a:bg-teal-300 before:prose-a:rounded-lg
-	}
 }
