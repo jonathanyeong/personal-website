@@ -1,0 +1,46 @@
+html {
+  visibility: visible;
+  opacity: 1;
+  font-family: Sofia Pro, system-ui, sans-serif;
+}
+
+a:before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: -3px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+@keyframes rattle {
+  20% {
+    transform-origin: center;
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+
+  60% {
+    transform-origin: center;
+    transform: rotate(16deg);
+  }
+
+  80% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+}
+
+.logo-icon svg {
+  height: inherit;
+  width: inherit;
+}
+
+.logo-icon:hover {
+  animation: rattle 400ms ease-in-out 1;
+}
