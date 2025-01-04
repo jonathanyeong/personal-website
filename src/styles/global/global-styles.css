@@ -1,11 +1,44 @@
-html {
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--size-step-0);
   font-family: var(--font-base);
+  line-height: var(--leading-standard);
+  font-size-adjust: from-font;
+  margin: 0;
+}
+
+:is(h1, h2, h3, h4) {
+  line-height: var(--leading-fine);
+  font-family: var(--font-heading);
+  font-weight: var(--font-normal);
+  text-wrap: balance;
 }
 
 h1 {
-  font-family: var(--font-heading);
+  font-size: var(--size-step-7);
+  max-width: 20ch;
 }
 
+h2 {
+  font-size: var(--size-step-6);
+  max-width: 35ch;
+}
+
+h3 {
+  font-size: var(--size-step-5);
+  max-width: 35ch;
+}
+
+:is(h4, h5, h6) {
+  font-size: var(--size-step-4);
+}
+
+small {
+  font-size: var(--size-step-00);
+}
+
+/* For the icon */
 @keyframes rattle {
   20% {
     transform-origin: center;
