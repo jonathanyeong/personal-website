@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
 	title: string;
@@ -15,7 +15,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, pubDate } = Astro.props;
 ---
 
-<!-- <style is:global>html{visibility: hidden;opacity:0;}</style> -->
+<link
+	rel="preload"
+	href="/fonts/6080398/4a6cb1fb-207c-45f0-b957-12530e1c9444.woff2"
+	as="font"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	rel="preload"
+	href="/fonts/6080404/60418191-4098-46b7-99c6-d3a89c7cf073.woff2"
+	as="font"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+
+<link
+	rel="preload"
+	href="/fonts/6080413/c215b44e-39cd-4bbf-ac84-7880a134e680.woff2"
+	as="font"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	rel="preload"
+	href="/fonts/moranga/Moranga-Black.woff2"
+	as="font"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -36,17 +64,32 @@ const { title, description, pubDate } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(`og-image?title=${encodeURIComponent(title)}&pubDate=${pubDate}`, Astro.site)} />
+<meta
+	property="og:image"
+	content={new URL(
+		`og-image?title=${encodeURIComponent(title)}&pubDate=${pubDate}`,
+		Astro.site,
+	)}
+/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(`og-image?title=${encodeURIComponent(title)}&pubDate=${pubDate}`, Astro.site)} />
+<meta
+	property="twitter:image"
+	content={new URL(
+		`og-image?title=${encodeURIComponent(title)}&pubDate=${pubDate}`,
+		Astro.site,
+	)}
+/>
 
 <!-- Analytics -->
-<script defer data-domain="jonathanyeong.com" src="https://plausible.io/js/script.js"></script>
+<script
+	defer
+	data-domain="jonathanyeong.com"
+	src="https://plausible.io/js/script.js"></script>
 
 <!-- Sitemap -->
-<link rel="sitemap" href="/sitemap-index.xml">
+<link rel="sitemap" href="/sitemap-index.xml" />
