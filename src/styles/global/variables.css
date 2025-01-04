@@ -1,4 +1,10 @@
-
+@import 'variables/colors.css';
+@import 'variables/fonts.css';
+@import 'variables/text-size.css';
+@import 'variables/text-weight.css';
+@import 'variables/text-leading.css';
+@import 'variables/spacing.css';
+@import 'variables/viewports.css';
 
 :root {
   --gutter: var(--space-m-1);

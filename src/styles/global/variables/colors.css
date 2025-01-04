@@ -1,0 +1,34 @@
+/* Theme Colors */
+:root {
+  --teal-100: #F2FCFA;
+  --teal-200: #AFE8E7;
+  --teal-300: #378F9F;
+  --teal-400: #2A6D79;
+  --teal-500: #135E6C;
+  --teal-600: #21555F;
+  --teal-700: #173D45;
+  --teal-800: #112C31;
+
+  --grayscale-100: #FFFFFF;
+  --grayscale-200: #CFD3D3;
+  --grayscale-300: #636D6D;
+  --grayscale-400: #12201F;
+}
+
+:root {
+  --color-primary: var(--teal-100);
+  --color-secondary: var(--teal-500);
+  --color-accent: var(--teal-200);
+  --color-bg: var(--grayscale-100);
+  --color-text: var(--grayscale-400);
+  --color-subtext: var(--grayscale-300);
+}
+
+:root.dark {
+  --color-primary: var(--teal-400);
+  --color-secondary: var(--teal-300);
+  --color-accent: var(--teal-600);
+  --color-bg: var(--teal-800);
+  --color-text: var(--grayscale-100);
+  --color-subtext: var(--grayscale-200);
+}

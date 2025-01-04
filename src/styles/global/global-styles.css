@@ -1,5 +1,9 @@
 html {
-  font-family: Sofia Pro, system-ui, sans-serif;
+  font-family: var(--font-base);
+}
+
+h1 {
+  font-family: var(--font-heading);;
 }
 
 @keyframes rattle {

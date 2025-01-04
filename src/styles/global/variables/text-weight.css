@@ -1,0 +1,7 @@
+/* Text weight */
+:root {
+  --font-normal: 400;
+  --font-medium: 600;
+  --font-bold: 700;
+  --font-black: 800;
+}

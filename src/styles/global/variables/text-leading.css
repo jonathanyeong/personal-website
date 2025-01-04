@@ -1,0 +1,8 @@
+/* Leading */
+:root {
+  --leading-micro: 0.85;
+  --leading-flat: 1;
+  --leading-fine: 1.2;
+  --leading-standard: 1.4;
+  --ledaing-loose: 1.7;
+}
