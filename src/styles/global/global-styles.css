@@ -38,6 +38,20 @@ small {
   font-size: var(--size-step-00);
 }
 
+:is(code, kbd, samp) {
+  font-family: var(--font-mono);
+  padding: 0.2em 0.2em 0.05em 0.2em;
+  hyphens: none;
+  tab-size: 2;
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  /* if element breaks on to multiple lines, presentational styles
+  like bg, padding, border radius carry over nicely */
+  box-decoration-break: clone;
+}
+
 /* For the icon */
 @keyframes rattle {
   20% {
