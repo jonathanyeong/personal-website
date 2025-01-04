@@ -1,0 +1,38 @@
+html {
+  font-family: var(--font-base);
+}
+
+h1 {
+  font-family: var(--font-heading);
+}
+
+@keyframes rattle {
+  20% {
+    transform-origin: center;
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+
+  60% {
+    transform-origin: center;
+    transform: rotate(16deg);
+  }
+
+  80% {
+    transform-origin: center;
+    transform: rotate(-9deg);
+  }
+}
+
+.logo-icon svg {
+  height: inherit;
+  width: inherit;
+}
+
+.logo-icon:hover {
+  animation: rattle 400ms ease-in-out 1;
+}

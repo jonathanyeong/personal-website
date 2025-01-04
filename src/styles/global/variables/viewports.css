@@ -1,0 +1,7 @@
+/* Viewports */
+:root {
+  --min: 355;
+  --mid: 760;
+  --large: 1036;
+  --max: 1350;
+}

@@ -1,0 +1,16 @@
+/* Spacing */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,9,2,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  --space-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem); /* 8 - 10 */
+  --space-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem); /* 12 - 15 */
+  --space-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem); /* 16 - 20 */
+  --space-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem); /* 24 - 30 */
+  --space-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem); /* 32 - 40 */
+  --space-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem); /* 48 - 60 */
+  --space-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem); /* 64 - 80 */
+  --space-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem); /* 96 - 120 */
+
+  --space-2xs-l: clamp(0.5rem, -0.1957rem + 3.4783vw, 2.5rem); /* 8 - 40 */
+  --space-m-l: clamp(1.5rem, 1.1522rem + 1.7391vw, 2.5rem); /* 24 - 40 */
+  --space-xl-3xl: clamp(3rem, 1.4348rem + 7.8261vw, 7.5rem); /* 48 - 120 */
+}

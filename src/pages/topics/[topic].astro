@@ -20,14 +20,14 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
 ---
 
 <BaseLayout>
-  <section class="prose prose-slate prose-lg dark:prose-invert prose-img:rounded-md mb-8 prose-text-link">
+  <section>
     <h1>#{topic.toLowerCase()}</h1>
-    <ul class="not-prose flex flex-col gap-y-8 p-0">
+    <ul>
       {
         postsInTopic.map((post) => (
-          <li class="flex justify-between gap-4">
-            <a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-            <FormattedDate date={post.data.pubDate} class="shrink-0" />
+          <li>
+            <a href={`/${post.slug}/`}>{post.data.title}</a>
+            <FormattedDate date={post.data.pubDate} />
           </li>
         ))
       }
