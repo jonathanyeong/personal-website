@@ -1,16 +1,16 @@
 /* Text sizes */
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,9,2,&s=0.75|0.5|0.25|0.1,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,18,1.25,9,2,&s=0.75|0.5|0.25|0.1,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
-  --size-step-000: clamp(0.6944rem, 0.6577rem + 0.1836vw, 0.8rem); /* 11.11 - 12.80 */
-  --size-step-00: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem); /* 13.33 - 16.00 */
-  --size-step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem); /* 16.00 - 20.00 */
-  --size-step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem); /* 19.20 - 25.00 */
-  --size-step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem); /* 23.04 - 31.25 */
-  --size-step-3: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem); /* 27.65 - 39.06 */
-  --size-step-4: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem); /* 33.18 - 48.83 */
-  --size-step-5: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem); /* 39.81 - 61.04 */
-  --size-step-6: clamp(2.986rem, 2.366rem + 3.0998vw, 4.7684rem); /* 47.78 - 76.29 */
-  --size-step-7: clamp(3.5832rem, 2.7563rem + 4.1344vw, 5.9605rem); /* 57.33 - 95.37 */
-  --size-step-8: clamp(4.2998rem, 3.2039rem + 5.4796vw, 7.4506rem); /* 68.80 - 119.21 */
-  --size-step-9: clamp(5.1598rem, 3.7151rem + 7.2234vw, 9.3132rem); /* 82.56 - 149.01 */
+  --size-step-000: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+  --size-step-00: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
+  --size-step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+  --size-step-1: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
+  --size-step-2: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
+  --size-step-3: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
+  --size-step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
+  --size-step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
+  --size-step-6: clamp(2.986rem, 2.5319rem + 2.2705vw, 4.2915rem);
+  --size-step-7: clamp(3.5832rem, 2.9636rem + 3.0978vw, 5.3644rem);
+  --size-step-8: clamp(4.2998rem, 3.463rem + 4.1838vw, 6.7055rem);
+  --size-step-9: clamp(5.1598rem, 4.039rem + 5.6037vw, 8.3819rem);
 }

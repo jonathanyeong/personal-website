@@ -16,22 +16,22 @@ body {
 }
 
 h1 {
-  font-size: var(--size-step-7);
+  font-size: var(--size-step-6);
   max-width: 20ch;
 }
 
 h2 {
-  font-size: var(--size-step-6);
-  max-width: 35ch;
-}
-
-h3 {
   font-size: var(--size-step-5);
   max-width: 35ch;
 }
 
-:is(h4, h5, h6) {
+h3 {
   font-size: var(--size-step-4);
+  max-width: 35ch;
+}
+
+:is(h4, h5, h6) {
+  font-size: var(--size-step-3);
 }
 
 small {
