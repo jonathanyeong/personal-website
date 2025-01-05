@@ -21,6 +21,8 @@
   --color-accent: var(--teal-200);
   --color-bg: var(--grayscale-100);
   --color-text: var(--grayscale-400);
+  --color-inverted-text: var(--grayscale-100); /*used for highlights. Could we use invert filter instead?*/
+  --color-highlight: var(--teal-600);
   --color-subtext: var(--grayscale-300);
   --color-hero-grd: radial-gradient(circle, rgba(170, 231, 234, 1) 0%, rgba(187, 237, 224, 1) 56%, rgba(255, 255, 255, 1) 100%);
 }
@@ -31,6 +33,8 @@
   --color-accent: var(--teal-600);
   --color-bg: var(--teal-800);
   --color-text: var(--grayscale-100);
+  --color-inverted-text: var(--grayscale-400); /*used for highlights*/
+  --color-highlight: var(--teal-200);
   --color-subtext: var(--grayscale-200);
   --color-hero-grd: radial-gradient(circle, rgba(33, 82, 95, 1) 0%, rgba(18, 43, 48, 1) 100%);
 }

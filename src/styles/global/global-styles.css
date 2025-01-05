@@ -38,6 +38,7 @@ small {
   font-size: var(--size-step-00);
 }
 
+/* This might be covered by shiki */
 :is(code, kbd, samp) {
   font-family: var(--font-mono);
   padding: 0.2em 0.2em 0.05em 0.2em;
@@ -50,6 +51,326 @@ small {
   /* if element breaks on to multiple lines, presentational styles
   like bg, padding, border radius carry over nicely */
   box-decoration-break: clone;
+}
+
+@supports not (font-size-adjust: from-font) {
+  :is(code, kbd, samp) {
+    font-size: 0.8em;
+  }
+}
+
+/* This rule prevents code blocks from wrapping. */
+pre:has(code) {
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* these are rarely used html elements. But just in case */
+kbd {
+  border: 1px solid;
+  padding-block-end: 0.1em;
+}
+
+var {
+  font-style: normal;
+  font-weight: var(--font-medium);
+}
+
+q {
+  font-style: italic;
+}
+
+/* If a list has a class it's usually indicative that it needs
+to be treate differently than the standard list */
+ul:not([class]),
+ol:not([class]) {
+  padding-inline-start: 1.7ch;
+}
+
+ul:not([class]) {
+  list-style-type: disc;
+}
+
+ol:not([class]) {
+  list-style-type: decimal;
+}
+
+ol:not([class]) ol:not([class]) {
+  list-style-type: lower-alpha;
+}
+
+ol:not([class]) ol:not([class]) ol:not([class]) {
+  list-style-type: lower-roman;
+}
+
+ul:not([class])>li,
+ol:not([class])>li {
+  padding-inline-start: var(--space-4xs);
+}
+
+ul ::marker {
+  font-size: 0.6lh;
+}
+
+ol ::marker {
+  font-size: 1em;
+}
+
+[role='list'][class],
+[role='tablist'][class] {
+  margin-block: 0;
+  padding: 0;
+}
+
+dt {
+  font-weight: var(--font-medium);
+}
+
+dt+dd {
+  margin-block-start: var(--space-2xs);
+}
+
+dd+dt {
+  margin-block-start: var(--space-xs);
+}
+
+dd {
+  margin-inline-start: 1.5ch;
+}
+
+blockquote {
+  margin-inline: 0;
+  color: var(--color-subtext);
+}
+
+blockquote footer {
+  margin-block-start: var(--space-s);
+  color: var(--color-subtext);
+  font-size: var(--size-step-00);
+}
+
+blockquote q {
+  font-style: normal;
+}
+
+:is(video, iframe[src*='youtube'], iframe[src*='vimeo']) {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-m);
+}
+
+figcaption {
+  padding-block-start: 0.5em;
+  font-size: var(--size-step-0);
+}
+
+table {
+  border: var(--stroke);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: var(--font-bold);
+  line-height: var(--leading-fine);
+}
+
+thead th {
+  padding-block: var(--space-s);
+}
+
+td,
+th {
+  padding: var(--space-xs) var(--space-s);
+}
+
+th:not(:only-of-type) {
+  border-block-end: var(--stroke);
+}
+
+th:only-of-type {
+  border-inline-end: var(--stroke);
+}
+
+:is(th, td)~ :is(th, td) {
+  border-inline-start: var(--stroke);
+}
+
+tr+tr :is(th, td) {
+  border-block-start: var(--stroke);
+}
+
+caption {
+  caption-side: bottom;
+  margin-block-start: var(--space-s);
+}
+
+a:not([class]) {
+  text-underline-offset: 0.1lh;
+}
+
+a:not([class]):hover {
+  text-underline-offset: 0.2lh;
+}
+
+/* 1ex is equal to the height of your font’s x character */
+:is(h1, h2, h3, h4) a:not([class]) {
+  text-decoration-thickness: 0.1ex;
+  text-underline-offset: 0.2ex;
+}
+
+:is(h1, h2, h3, h4) a:not([class]):hover {
+  text-underline-offset: 0.3ex;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-color, currentColor);
+  outline-offset: var(--focus-offset, 0.1lh);
+}
+
+/* Firefox is the only browser that doesn't outline the whole element
+unless you make it display: inline-block. That in itself causes multiple
+flow issues so we can detect it, using its own vendor prefix and reduce
+focus offset */
+@supports (-moz-appearance: none) {
+  :root {
+    --focus-offset: 0.08em;
+  }
+}
+
+:target {
+  scroll-margin-block: 51h;
+}
+
+/* TODO: play around with these colours */
+::selection {
+  color: var(--color-inverted-text);
+  background: var(--color-highlight);
+}
+
+hr {
+  border: none;
+  border-block-start: var(--hr-stroke, var(--stroke-solid));
+  margin-block: var(--flow-space, var(--space-xl));
+}
+
+svg:not([class]) {
+  width: auto;
+  height: 1lh;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+svg[role='img'][width][height] {
+  width: revert;
+  height: revert;
+  background: var(--color-light);
+  padding: var(--space-xs);
+}
+
+/* There's a .flow composition, but this prevents forms
+from having to have that applied where markup is harder
+to control in certain systems. It still uses the --flow-space
+variables though to make managing space easier */
+form > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+/* Relatively new feature, that lets you change color of checkboxes
+and radio buttons */
+:is(input, select, textarea) {
+  accent-color: var(--color-secondary);
+}
+
+:is(input:not([type='checkbox'], [type='radio'], [type='color']), select, textarea) {
+  /* Em allows the padding to scale with the text size */
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius-s);
+  border: var(--stroke-solid);
+  background: var(--color-bg);
+  color: var(--color-text);
+  width: 100%;
+
+  &::placeholder {
+    /* TODO: This should probably be a step lighter */
+    color: var(--color-subtext);
+    opacity: 1;
+  }
+}
+
+label {
+  line-height: var(--leading-fine);
+  font-weight: var(--font-medium);
+}
+
+label::after {
+  content: '\A';
+  white-space: pre;
+}
+
+/* Usually label wraps checkbox and radio buttons, so we give
+ourselves more layout and text-flow control with flex */
+label:has(input) {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  font-weight: var(--font-normal);
+}
+
+label:has(input)+label:has(input) {
+  --flow-space: var(--space-s-m);
+}
+
+input:disabled {
+  /* TODO: Hardcoded L value - kinda gross */
+  background: hsl(from var(--color-subtext) h s 85%);
+}
+
+input:disabled,
+label input:disabled + * {
+  cursor: not-allowed;
+}
+
+fieldset {
+  border: var(--stroke);
+  padding: var(--space-s);
+  border-radius: var(--radius-s);
+}
+
+legend {
+  font-weight: var(--font-medium);
+  padding-inline: var(--space-xs);
+}
+
+summary {
+  font-weight: var(--font-bold);
+  cursor: pointer;
+}
+
+details[open] summary {
+  margin-block-end: var(--space-s);
 }
 
 /* For the icon */

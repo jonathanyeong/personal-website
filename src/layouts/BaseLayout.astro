@@ -26,10 +26,12 @@ const headPubDate = pubDate || new Date().toISOString();
     />
   </head>
   <body>
-    <Navbar />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="container">
+      <Navbar />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
