@@ -38,7 +38,7 @@ small {
   font-size: var(--size-step-00);
 }
 
-/* This might be covered by shiki */
+/* TODO: This might be covered by shiki */
 :is(code, kbd, samp) {
   font-family: var(--font-mono);
   padding: 0.2em 0.2em 0.05em 0.2em;

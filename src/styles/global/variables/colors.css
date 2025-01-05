@@ -15,6 +15,7 @@
   --grayscale-400: #12201F;
 }
 
+/* TODO: We need to think of a better way to handle colors for dark/light themes */
 :root {
   --color-primary: var(--teal-100);
   --color-secondary: var(--teal-500);
