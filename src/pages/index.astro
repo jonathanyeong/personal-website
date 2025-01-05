@@ -6,9 +6,10 @@ import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-
+import { Image } from 'astro:assets';
+import profilePic from "../assets/profile_pic_2.jpg";
 const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
-// const notes get top 5.
+
 ---
 
 <BaseLayout>
@@ -17,6 +18,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
     I’m a staff dev building better developer tooling. I primarily focus on backend, but I’m
     learning to craft delightful frontends. On this site, I write about tech, life, and everything in between.
   </p>
+  <Image src={profilePic} alt="A profile pic of Jono Yeong" />
 
   <h2>Articles</h2>
   <p>Tutorials, evergreen articles, polished thoughts</p>
