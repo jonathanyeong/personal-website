@@ -6,20 +6,13 @@ import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { Image } from 'astro:assets';
-import profilePic from "../assets/profile_pic_2.jpg";
+import Hero from '../components/Hero.astro';
 const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
 
 ---
 
 <BaseLayout>
-  <h1>Hi, I’m Jono!</h1>
-  <p>
-    I’m a staff dev building better developer tooling. I primarily focus on backend, but I’m
-    learning to craft delightful frontends. On this site, I write about tech, life, and everything in between.
-  </p>
-  <Image src={profilePic} alt="A profile pic of Jono Yeong" />
-
+  <Hero />
   <h2>Articles</h2>
   <p>Tutorials, evergreen articles, polished thoughts</p>
   <ul>

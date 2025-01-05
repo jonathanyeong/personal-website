@@ -4,3 +4,6 @@
 @import 'global/global-styles.css';
 
 @import 'compositions/container.css';
+@import 'compositions/repel.css';
+
+@import 'blocks/hero.css';

@@ -1,0 +1,17 @@
+.hero {
+  overflow: hidden;
+  position: relative;
+}
+/* TODO: the 66% magic number is not ideal */
+.hero__text {
+  max-width: 66%;
+  align-self: flex-start;
+}
+
+.hero__img {
+  max-width: 30%;
+  /* TODO: This is also a magic number */
+  padding-top: 1rem;
+  /* To flip image, may need to remove if image changes */
+  transform: scaleX(-1);
+}

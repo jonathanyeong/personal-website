@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import profilePic from "../assets/profile_pic_2.jpg";
+
+---
+<div class="hero repel">
+  <div class="hero__text">
+    <h1>Hi, I'm Jono!</h1>
+    <p>
+      I'm a staff dev building better developer tooling. I primarily focus on backend, but I'm
+      learning to craft delightful frontends. On this site, I write about tech, life, and everything in between.
+    </p>
+  </div>
+  <div class="hero__img">
+    <Image src={profilePic} alt="A profile pic of Jono Yeong" />
+  </div>
+</div>
