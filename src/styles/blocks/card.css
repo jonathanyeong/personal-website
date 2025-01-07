@@ -14,12 +14,8 @@ li:has(> .card) {
   list-style-type: none;
 }
 
-ul:has(li:has(> .card)) {
-  padding-inline-start: 0;
-}
-
 .card__article {
   --card-bg: var(--color-primary);
   border-left: solid 10px var(--color-accent);
+  max-width: 50ch;
 }
-

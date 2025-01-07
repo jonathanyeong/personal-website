@@ -13,23 +13,27 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
 
 <BaseLayout>
   <Hero />
-  <div>
-    <h2>Articles</h2>
-    <p>Tutorials, evergreen articles, polished thoughts</p>
-    <ArticleList posts={posts} />
+  <div class="grid" data-layout="50-50">
+    <div>
+      <h2>Articles</h2>
+      <p>Tutorials, evergreen articles, polished thoughts</p>
+      <ArticleList posts={posts} />
+    </div>
 
-    <h2>Notes</h2>
-    <p>Reflections, learnings, random thoughts</p>
-    <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href=`/${post.slug}`>{post.data.title}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <Button link="/writing" text="see all writing" />
+    <div>
+      <h2>Notes</h2>
+      <p>Reflections, learnings, random thoughts</p>
+      <ul>
+        {
+          posts.map((post) => (
+            <li>
+              <a href=`/${post.slug}`>{post.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <Button link="/writing" text="see all writing" />
+    </div>
   </div>
 
   <ProjectCard title="DX Dissected Newsletter" description="A newsletter I’m writing, decoding exceptional developer experiences, one concept at a time." url="https://dxdissected.com/" />

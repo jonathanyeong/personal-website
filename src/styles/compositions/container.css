@@ -1,7 +1,7 @@
 .container {
   margin-inline: auto;
   max-width: var(--container-max-width, var(--screen-large));
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
   position: relative;
+  container-type: inline-size;
+  container-name: container;
 }
