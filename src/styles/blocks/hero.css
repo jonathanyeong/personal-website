@@ -1,3 +1,16 @@
+.bg-splash {
+  /* TODO: Height is a magic number */
+  height: 70vh;
+  left: 0px;
+  top: 0px;
+  content: '';
+  display: block;
+  position: absolute;
+  background: var(--color-hero-grd);
+  width: 100%;
+  z-index: -1;
+}
+
 .hero {
   overflow: hidden;
   position: relative;
