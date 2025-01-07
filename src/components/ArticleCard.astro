@@ -3,9 +3,9 @@ const { title, description, slug } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
-<article>
-  <h3>{title}</h3>
-  <p class="card-description">{description}</p>
+<article class="card card__article">
+  <h3 class="card__heading">{title}</h3>
+  <p>{description}</p>
   <a href={`/${slug}`}>
     Read More <Icon name="arrow-right" />
   </a>

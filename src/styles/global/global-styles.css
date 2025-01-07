@@ -87,6 +87,11 @@ q {
   font-style: italic;
 }
 
+ul:has([class]),
+ol:has([class]) {
+  padding-inline-start: 0;
+}
+
 /* If a list has a class it's usually indicative that it needs
 to be treate differently than the standard list */
 ul:not([class]),

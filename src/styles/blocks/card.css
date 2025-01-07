@@ -1,0 +1,24 @@
+.card {
+  background: var(--card-bg);
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+}
+
+.card__heading {
+  font-family: var(--font-base);
+  font-size: var(--size-step-1);
+  font-weight: var(--font-bold);
+}
+
+li:has(> .card) {
+  list-style-type: none;
+}
+
+ul:has(li:has(> .card)) {
+  padding-inline-start: 0;
+}
+
+.card__article {
+  --card-bg: var(--color-primary)
+}
+

@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+import ArticleCard from '../components/ArticleCard.astro';
+---
+<ul class="flow">
+  {
+    posts.map((post) => (
+      <li>
+        <ArticleCard title={post.data.title} description={post.data.description} slug={post.slug} />
+      </li>
+    ))
+  }
+</ul>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
+import ArticleList from '../components/ArticleList.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
@@ -13,31 +13,24 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
 
 <BaseLayout>
   <Hero />
-  <h2>Articles</h2>
-  <p>Tutorials, evergreen articles, polished thoughts</p>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <ArticleCard title={post.data.title} description={post.data.description} slug={post.slug} />
-        </li>
-      ))
-    }
-  </ul>
+  <div>
+    <h2>Articles</h2>
+    <p>Tutorials, evergreen articles, polished thoughts</p>
+    <ArticleList posts={posts} />
 
-  <h2>Notes</h2>
-  <p>Reflections, learnings, random thoughts</p>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <a href=`/${post.slug}`>{post.data.title}</a>
-        </li>
-      ))
-    }
-  </ul>
-  <Button link="/writing" text="see all writing" />
-  <h2>Projects</h2>
-  <p>What I’ve been working on</p>
+    <h2>Notes</h2>
+    <p>Reflections, learnings, random thoughts</p>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href=`/${post.slug}`>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <Button link="/writing" text="see all writing" />
+  </div>
+
   <ProjectCard title="DX Dissected Newsletter" description="A newsletter I’m writing, decoding exceptional developer experiences, one concept at a time." url="https://dxdissected.com/" />
 </BaseLayout>
