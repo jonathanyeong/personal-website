@@ -17,5 +17,9 @@ li:has(> .card) {
 .card__article {
   --card-bg: var(--color-primary);
   border-left: solid 10px var(--color-accent);
-  max-width: 50ch;
+  /* max-width: 50ch; */
+}
+
+.sidebar__notes {
+  --sidebar-target-width: 25rem;
 }

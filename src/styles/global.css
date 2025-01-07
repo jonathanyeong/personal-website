@@ -7,6 +7,7 @@
 @import 'compositions/container.css';
 @import 'compositions/repel.css';
 @import 'compositions/grid.css';
+@import 'compositions/sidebar.css';
 
 @import 'blocks/hero.css';
 @import 'blocks/card.css';
