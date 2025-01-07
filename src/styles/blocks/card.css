@@ -1,7 +1,7 @@
 .card {
   background: var(--card-bg);
   padding: var(--space-l);
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-s);
 }
 
 .card__heading {
@@ -19,6 +19,7 @@ ul:has(li:has(> .card)) {
 }
 
 .card__article {
-  --card-bg: var(--color-primary)
+  --card-bg: var(--color-primary);
+  border-left: solid 10px var(--color-accent);
 }
 
