@@ -1,10 +1,23 @@
 ---
-import Button from './Button.astro';
+import { Image } from 'astro:assets';
+import newsletterImg from "../assets/albie_dog.jpeg";
 ---
-
-<div>
-  <h2>Do you want even more?</h2>
-  <p>Sign up to my newsletter for random, unhinged, and downright ludicrous emails.</p>
-
-  <Button link="test" text="Subscribe" />
+<div class="newsletter">
+  <div>
+    <Image src={newsletterImg} alt="A pic of my dog Albie staring directly into your soul" />
+  </div>
+  <div>
+    <h2>Do you want even more?</h2>
+    <p>Sign up to my newsletter for random, unhinged, and downright ludicrous emails.</p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/jonoyeong"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/jonoyeong', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+      <input type="email" name="email" id="bd-email" />
+      <input type="submit" value="Subscribe" class="button" />
+    </form>
+  </div>
 </div>

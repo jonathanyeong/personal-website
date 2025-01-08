@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 import Button from '../components/Button.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Newsletter from "../components/Newsletter.astro"
 import Hero from '../components/Hero.astro';
 const articles = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
 const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 9);
@@ -35,4 +35,5 @@ const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 9);
       <Button link="/writing" text="see all writing" />
     </div>
   </div>
+  <Newsletter />
 </BaseLayout>
