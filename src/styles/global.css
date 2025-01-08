@@ -8,6 +8,8 @@
 @import 'compositions/repel.css';
 @import 'compositions/grid.css';
 @import 'compositions/sidebar.css';
+@import 'compositions/stack.css';
 
 @import 'blocks/hero.css';
 @import 'blocks/card.css';
+@import 'blocks/footer.css';

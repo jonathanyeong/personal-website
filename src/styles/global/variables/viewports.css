@@ -1,7 +1,7 @@
 /* Viewports */
 :root {
-  --screen-min: 355px;
+  --screen-min: 360px;
   --screen-mid: 760px;
-  --screen-large: 1036px;
+  --screen-large: 1100px;
   --screen-max: 1350px;
 }
