@@ -18,3 +18,15 @@ li:has(> .card) {
   --card-bg: var(--color-primary);
   border-left: solid 10px var(--color-accent);
 }
+
+.card__read-more {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text);
+  gap: var(--space-3xs);
+}
+
+.card__read-more svg {
+  font-size: var(--size-step-00);
+  transform: translateY(0.3ex);
+}
