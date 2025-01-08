@@ -16,7 +16,7 @@
 }
 
 .site-foot__content > div {
-  --space: var(--space-xs);
+  --space: var(--space-4xs);
   flex-grow: 1;
 }
 
