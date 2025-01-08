@@ -7,8 +7,8 @@ import filterPublishedPosts from '../utilities/filterPublishedPosts';
 import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Hero from '../components/Hero.astro';
-const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
-
+const articles = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
+const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 9);
 ---
 
 <BaseLayout>
@@ -17,15 +17,15 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
     <div>
       <h2>Articles</h2>
       <p>Tutorials, evergreen articles, polished thoughts</p>
-      <ArticleList posts={posts} />
+      <ArticleList posts={articles} />
     </div>
 
     <div class="sidebar__notes">
       <h2>Notes</h2>
-      <p>Reflections, learnings, random thoughts</p>
-      <ul>
+      <p>Reflections, learnings, seeds of ideas</p>
+      <ul class="note-list flow">
         {
-          posts.map((post) => (
+          notes.map((post) => (
             <li>
               <a href=`/${post.slug}`>{post.data.title}</a>
             </li>

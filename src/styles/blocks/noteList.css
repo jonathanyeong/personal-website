@@ -1,0 +1,14 @@
+
+.sidebar__notes {
+  --sidebar-target-width: 25rem;
+}
+
+.note-list {
+  --flow-space: var(--space-m);
+  padding-inline-start: 0;
+}
+
+.note-list a {
+  text-decoration: none;
+  font-weight: var(--font-bold);
+}
