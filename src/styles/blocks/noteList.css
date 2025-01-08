@@ -4,7 +4,7 @@
 }
 
 .note-list {
-  --flow-space: var(--space-m);
+  --flow-space: var(--space-s-m);
   padding-inline-start: 0;
 }
 
