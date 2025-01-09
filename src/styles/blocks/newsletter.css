@@ -1,4 +1,5 @@
 .newsletter {
+  margin-block-start: var(--space-3xl);
   background-color: var(--color-bg);
   padding: var(--space-l-xl);
   box-shadow: 0px 2px 3px 2px rgba(35, 65, 72, 0.3);
@@ -17,6 +18,10 @@
   object-fit: cover;
 }
 
-.newsletter p {
-  --flow-space: 0.2em;
+.newsletter__form.flow {
+  --flow-space: var(--space-m);
+}
+
+.newsletter__form > form > * + * {
+  --flow-space: var(--space-2xs);
 }
