@@ -6,8 +6,8 @@ import newsletterImg from "../assets/albie_dog.jpeg";
   <div class="newsletter__pic">
     <Image src={newsletterImg} alt="A pic of my dog Albie staring directly into your soul" />
   </div>
-  <div>
-    <h2>Do you want even more?</h2>
+  <div class="flow">
+    <h3>Do you want even more?</h3>
     <p>Sign up to my newsletter for random, unhinged, and downright ludicrous emails.</p>
     <form
       action="https://buttondown.com/api/emails/embed-subscribe/jonoyeong"
@@ -16,7 +16,7 @@ import newsletterImg from "../assets/albie_dog.jpeg";
       onsubmit="window.open('https://buttondown.com/jonoyeong', 'popupwindow')"
       class="embeddable-buttondown-form"
     >
-      <input type="email" name="email" id="bd-email" />
+      <input type="email" name="email" id="bd-email" placeholder="Email Address" />
       <input type="submit" value="Subscribe" class="button" />
     </form>
   </div>
