@@ -40,7 +40,7 @@ EXCEPTIONS
 }
 
 .sidebar[data-direction='rtl'] > :last-child {
-  flex-basis: var(--sidebar-target-width, 20rem);
+  /* flex-basis: var(--sidebar-target-width, 20rem); */
   flex-grow: 1;
 }
 

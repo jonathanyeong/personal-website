@@ -24,9 +24,8 @@
   overflow: hidden;
   position: relative;
 }
-/* TODO: the 66% magic number is not ideal */
+
 .hero__text {
-  /* max-width: 66%; */
   align-self: flex-start;
 }
 
@@ -41,6 +40,5 @@
 }
 
 .hero__img img {
-  max-width: 60%;
-  margin-left: auto;
+  max-width: 8cm;
 }
