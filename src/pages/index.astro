@@ -8,31 +8,35 @@ import Button from '../components/Button.astro';
 import Newsletter from "../components/Newsletter.astro"
 import Hero from '../components/Hero.astro';
 const articles = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
-const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 9);
+const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 11);
 ---
 
 <BaseLayout>
   <Hero />
   <div class="writing sidebar" data-direction="rtl">
-    <div>
+    <div class="sidebar__articles">
       <h2>Articles</h2>
       <p>Tutorials, evergreen articles, polished thoughts</p>
       <ArticleList posts={articles} />
     </div>
 
     <div class="sidebar__notes">
-      <h2>Notes</h2>
-      <p>Reflections, learnings, seeds of ideas</p>
-      <ul class="note-list flow">
-        {
-          notes.map((post) => (
-            <li>
-              <a href=`/${post.slug}`>{post.data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <Button link="/writing" text="see all writing" />
+      <div>
+        <h2>Notes</h2>
+        <p>Reflections, learnings, seeds of ideas</p>
+        <ul class="note-list flow">
+          {
+            notes.map((post) => (
+              <li>
+                <a href=`/${post.slug}`>{post.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="sidebar__notes-see-all">
+        <Button link="/writing" text="see all writing" />
+      </div>
     </div>
   </div>
   <Newsletter />

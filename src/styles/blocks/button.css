@@ -1,0 +1,28 @@
+.button {
+  --button-bg: var(--color-bg);
+  --button-text: var(--color-text);
+  --button-x-padding: 1.7em;
+  --button-y-padding: 0.9em;
+  --button-gutter: 0.5ch;
+  --focus-color: var(--color-primary);
+
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  display: inline-flex;
+  gap: var(--button-gutter);
+  align-items: center;
+  line-height: var(--leading-flat);
+  position: relative;
+  border: var(--stroke-solid);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: var(--button-y-padding) var(--button-x-padding);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: var(--size-step-0);
+}
+
+.button a {
+  text-decoration: none;
+}

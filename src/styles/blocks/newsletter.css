@@ -22,6 +22,15 @@
   --flow-space: var(--space-m);
 }
 
+.newsletter__form > form {
+  text-align: right;
+}
+
 .newsletter__form > form > * + * {
   --flow-space: var(--space-2xs);
+}
+
+.newsletter__form > form > .button {
+  width: 11rem;
+  padding: var(--button-y-padding) var(--button-x-padding);
 }

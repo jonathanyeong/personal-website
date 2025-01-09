@@ -5,18 +5,11 @@
   flex-wrap: wrap-reverse;
   gap: var(--gutter, var(--space-s-l));
   margin-bottom: var(--space-s-l);
+  justify-content: space-between;
 }
 
-.site-foot__content {
-  display: flex;
-  flex-direction: row;
-  gap: var(--gutter, var(--space-s-l));
-  flex-grow: 1;
-}
-
-.site-foot__content > div {
+.site-foot > div {
   --space: var(--space-4xs);
-  flex-grow: 1;
 }
 
 .site-foot__links {

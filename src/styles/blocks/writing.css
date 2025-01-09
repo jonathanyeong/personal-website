@@ -1,3 +1,17 @@
 .writing {
   margin-top: var(--space-3xl);
 }
+
+.sidebar__articles ul {
+  margin-block-end: 0;
+}
+
+.sidebar__notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar__notes-see-all {
+  text-align: right;
+}
