@@ -1,0 +1,44 @@
+.bg-splash {
+  /* TODO: Height is a magic number */
+  height: 70vh;
+  left: 0px;
+  top: 0px;
+  content: '';
+  display: block;
+  position: absolute;
+  background: var(--color-hero-grd);
+  width: 100%;
+  z-index: -1;
+}
+
+.bg-splash.footer {
+  /* TODO: Height is a magic number */
+  height: 40vh;
+  left: 0px;
+  bottom: 0px;
+  top: initial;
+  background: var(--color-primary);
+}
+
+.hero {
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__text {
+  align-self: flex-start;
+}
+
+.hero__img {
+  --sidebar-target-width: 25rem;
+  /* TODO: This is also a magic number */
+  padding-top: 1rem;
+  /* To flip image, may need to remove if image changes */
+  transform: scaleX(-1);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero__img img {
+  max-width: 8cm;
+}

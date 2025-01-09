@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__items {
+  display: flex;
+  gap: var(--space-s);
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.navbar__items a {
+  text-decoration: underline wavy var(--color-highlight);
+  text-decoration-thickness: 0.2ex;
+}
+
+.navbar__items a:hover {
+  text-decoration: underline wavy var(--color-highlight);
+  text-decoration-thickness: 0.2ex;
+}
+
+.navbar__items a:not(:hover):not([aria-current='page']) {
+  text-decoration: none;
+}
+
+.navbar__items-icons {
+  line-height: var(--leading-flat);
+  display: inline-flex;
+  gap: var(--space-2xs);
+  align-items: center;
+  font-size: var(--size-step-0);
+  transform: translateY(0.2ex);
+  transition: var(--transition-movement);
+  opacity: 1;
+}
+
+.navbar__items-icons a:hover {
+  transition: var(--transition-movement);
+  opacity: 0.7;
+}
+
+.navbar__items-icons button {
+  color: var(--color-text);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--size-step-0);
+  transition: var(--transition-movement);
+  opacity: 1;
+}
+
+.navbar__items-icons button:hover {
+  cursor: pointer;
+  transition: var(--transition-movement);
+  opacity: 0.7;
+}

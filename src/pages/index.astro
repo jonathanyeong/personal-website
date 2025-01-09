@@ -1,28 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleList from '../components/ArticleList.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
-
-const posts = filterPublishedPosts(await getCollection('blog'));
-
+import Button from '../components/Button.astro';
+import Newsletter from "../components/Newsletter.astro"
+import Hero from '../components/Hero.astro';
+const articles = filterPublishedPosts(await getCollection('blog')).slice(0, 3);
+const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 11);
 ---
 
 <BaseLayout>
-    <p class="mb-16">
-				Welcome 👋! My name's Jono Yeong, I'm a Staff Software Engineer from Australia currently based in Canada.
-				This blog is a collection of notes on topics that I find interesting and exciting.
-        If you want to stay up to date, subscribe to my <a href="/rss.xml/" class="text-link">RSS</a>.
-    </p>
+  <Hero />
+  <div class="writing sidebar" data-direction="rtl">
+    <div class="sidebar__articles">
+      <h2>Articles</h2>
+      <p>Tutorials, evergreen articles, polished thoughts</p>
+      <ArticleList posts={articles} />
+    </div>
 
-	<ul class="flex flex-col gap-y-8">
-		{
-			posts.map((post) => (
-				<li class="flex justify-between gap-4">
-					<a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-					<FormattedDate date={post.data.pubDate} class="shrink-0" />
-				</li>
-			))
-		}
-	</ul>
+    <div class="sidebar__notes">
+      <div>
+        <h2>Notes</h2>
+        <p>Reflections, learnings, seeds of ideas</p>
+        <ul class="note-list flow">
+          {
+            notes.map((post) => (
+              <li>
+                <a href=`/${post.slug}`>{post.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <Button link="/writing" text="see all writing" />
+    </div>
+  </div>
+  <Newsletter />
 </BaseLayout>

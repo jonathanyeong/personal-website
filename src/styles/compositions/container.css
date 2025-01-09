@@ -1,0 +1,9 @@
+.container {
+  margin-inline: auto;
+  max-width: var(--container-max-width, var(--screen-large));
+  position: relative;
+  container-type: inline-size;
+  container-name: container;
+  padding-left: var(--space-s-l);
+  padding-right: var(--space-s-l);
+}

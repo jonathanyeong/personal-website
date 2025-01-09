@@ -1,0 +1,37 @@
+.newsletter {
+  margin-block-start: var(--space-3xl);
+  background-color: var(--color-bg);
+  padding: var(--space-l-xl);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--radius-m);
+  display: flex;
+  gap: var(--space-xl);
+  position: relative;
+}
+
+.newsletter__pic {
+  width: 15rem;
+  display: flex;
+}
+
+.newsletter img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.newsletter__form.flow {
+  --flow-space: var(--space-m);
+}
+
+.newsletter__form > form {
+  text-align: right;
+}
+
+.newsletter__form > form > * + * {
+  --flow-space: var(--space-2xs);
+}
+
+.newsletter__form > form > .button {
+  padding: var(--button-y-padding) var(--button-x-padding);
+  border-color: var(--color-text);
+}
