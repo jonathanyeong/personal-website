@@ -402,6 +402,10 @@ details[open] summary {
   }
 }
 
+.logo-icon {
+  width: 3rem;
+}
+
 .logo-icon svg {
   height: inherit;
   width: inherit;

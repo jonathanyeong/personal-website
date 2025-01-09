@@ -37,23 +37,24 @@ import { Icon } from "astro-icon/components";
   themeToggle && themeToggle.addEventListener("click", handleToggleClick);
 </script>
 
-<header>
-  <a href="/" class="w-11 logo-icon">
+<header class="navbar">
+  <a href="/" class="logo-icon">
     <Icon name="logo" />
   </a>
-  <nav>
+  <nav class="navbar__items">
     <NavLink href="/">Home</NavLink>
-    <NavLink href="/">Writing</NavLink>
+    <NavLink href="/writing/">Writing</NavLink>
     <NavLink href="/about/">About</NavLink>
-    <NavLink href="/rss.xml/">RSS</NavLink>
-    <button type="button">
-      <Icon name="bluesky" />
-    </button>
-    <button type="button">
-      <Icon name="github" />
-    </button>
-    <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
-      <Icon name="lightThemeIcon" />
-    </button>
+    <div class="navbar__items-icons">
+      <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank">
+        <Icon name="bluesky" />
+      </a>
+      <a href="https://github.com/jonathanyeong/" rel="noopener noreferrer" target="_blank">
+        <Icon name="github" />
+      </a>
+      <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
+        <Icon name="lightThemeIcon" />
+      </button>
+    </div>
   </nav>
 </header>
