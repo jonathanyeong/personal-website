@@ -11,6 +11,15 @@
   z-index: -1;
 }
 
+.bg-splash.footer {
+  /* TODO: Height is a magic number */
+  height: 40vh;
+  left: 0px;
+  bottom: 0px;
+  top: initial;
+  background: var(--color-primary);
+}
+
 .hero {
   overflow: hidden;
   position: relative;

@@ -6,6 +6,7 @@ body {
   line-height: var(--leading-standard);
   font-size-adjust: from-font;
   margin: 0;
+  position: relative;
 }
 
 :is(h1, h2, h3, h4) {

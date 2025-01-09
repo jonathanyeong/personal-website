@@ -1,5 +1,4 @@
 .site-foot {
-  /* --grid-min-item-size: clamp(16rem, 25%, 25vw); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
@@ -12,7 +11,6 @@
   flex-direction: row;
   gap: var(--gutter, var(--space-s-l));
   flex-grow: 1;
-  /* flex-basis: 40vw; */
 }
 
 .site-foot__content > div {
