@@ -34,9 +34,7 @@ const notes = filterPublishedPosts(await getCollection('blog')).slice(0, 11);
           }
         </ul>
       </div>
-      <div class="sidebar__notes-see-all">
-        <Button link="/writing" text="see all writing" />
-      </div>
+      <Button link="/writing" text="see all writing" />
     </div>
   </div>
   <Newsletter />

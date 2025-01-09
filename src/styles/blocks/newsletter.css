@@ -2,10 +2,11 @@
   margin-block-start: var(--space-3xl);
   background-color: var(--color-bg);
   padding: var(--space-l-xl);
-  box-shadow: 0px 2px 3px 2px rgba(35, 65, 72, 0.3);
+  box-shadow: var(--box-shadow);
   border-radius: var(--radius-m);
   display: flex;
   gap: var(--space-xl);
+  position: relative;
 }
 
 .newsletter__pic {
@@ -31,6 +32,6 @@
 }
 
 .newsletter__form > form > .button {
-  width: 11rem;
   padding: var(--button-y-padding) var(--button-x-padding);
+  border-color: var(--color-text);
 }

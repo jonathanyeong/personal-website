@@ -228,11 +228,13 @@ caption {
 }
 
 a:not([class]) {
-  text-underline-offset: 0.1lh;
+  text-underline-offset: 0.2lh;
+  text-decoration: none;
 }
 
 a:not([class]):hover {
   text-underline-offset: 0.2lh;
+  text-decoration: underline;
 }
 
 /* 1ex is equal to the height of your font’s x character */
@@ -315,6 +317,7 @@ and radio buttons */
   padding: 0.5em 0.8em;
   border-radius: var(--radius-s);
   border: var(--stroke-solid);
+  border-color: var(--color-subtext);
   background: var(--color-bg);
   color: var(--color-text);
   width: 100%;

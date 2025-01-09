@@ -12,10 +12,13 @@
 }
 
 .navbar__items a {
-  text-decoration-style: wavy;
+  text-decoration: underline wavy var(--color-highlight);
   text-decoration-thickness: 0.2ex;
-  text-underline-offset: 0.5ex;
-  text-decoration-color: var(--color-highlight);
+}
+
+.navbar__items a:hover {
+  text-decoration: underline wavy var(--color-highlight);
+  text-decoration-thickness: 0.2ex;
 }
 
 .navbar__items a:not(:hover):not([aria-current='page']) {
@@ -29,6 +32,13 @@
   align-items: center;
   font-size: var(--size-step-0);
   transform: translateY(0.2ex);
+  transition: var(--transition-movement);
+  opacity: 1;
+}
+
+.navbar__items-icons a:hover {
+  transition: var(--transition-movement);
+  opacity: 0.7;
 }
 
 .navbar__items-icons button {
@@ -37,8 +47,12 @@
   border: none;
   padding: 0;
   font-size: var(--size-step-0);
+  transition: var(--transition-movement);
+  opacity: 1;
 }
 
 .navbar__items-icons button:hover {
   cursor: pointer;
+  transition: var(--transition-movement);
+  opacity: 0.7;
 }

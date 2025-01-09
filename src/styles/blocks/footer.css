@@ -14,10 +14,21 @@
 
 .site-foot__links {
   padding-inline-start: 0;
+  --flow-space: 0.1lh;
 }
 
 .site-foot__social {
   display: flex;
   flex-direction: row;
   gap: var(--space-s);
+}
+
+.site-foot__social a {
+  transition: var(--transition-movement);
+  opacity: 1;
+}
+
+.site-foot__social a:hover {
+  transition: var(--transition-movement);
+  opacity: 0.7;
 }
