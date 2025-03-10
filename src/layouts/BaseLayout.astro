@@ -22,11 +22,27 @@ const headPubDate = pubDate || new Date().toISOString();
 
 
 	</head>
-	<body class="flex flex-col h-screen max-w-prose px-4 lg:px-0 dark:bg-slate-800 bg-slate-50 mx-auto text-lg">
-		<Header />
-		<main class="flex-grow dark:text-slate-200">
-			<slot />
-		</main>
-		<Footer />
+	<body>
+		<div class="container">
+			<Header />
+			<!-- <main class="flex-grow dark:text-slate-200">
+				<slot />
+			</main>
+			<Footer /> -->
+		</div>
 	</body>
 </html>
+
+<style>
+	.container {
+		max-width: 100vw;
+		margin: 0 auto;
+	}
+
+  /* min-width(760px) did not render but it did not throw an error  */
+	@media screen and (min-width: 760px) {
+		.container {
+			max-width: 50vw;
+		}
+	}
+</style>
