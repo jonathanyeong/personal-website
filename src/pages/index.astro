@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import Hero from '@components/Hero.astro';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
 const posts = filterPublishedPosts(await getCollection('blog'));
@@ -9,20 +10,5 @@ const posts = filterPublishedPosts(await getCollection('blog'));
 ---
 
 <BaseLayout>
-    <p class="mb-16">
-				Welcome 👋! My name's Jono Yeong, I'm a Staff Software Engineer from Australia currently based in Canada.
-				This blog is a collection of notes on topics that I find interesting and exciting.
-        If you want to stay up to date, subscribe to my <a href="/rss.xml/" class="text-link">RSS</a>.
-    </p>
-
-	<ul class="flex flex-col gap-y-8">
-		{
-			posts.map((post) => (
-				<li class="flex justify-between gap-4">
-					<a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-					<FormattedDate date={post.data.pubDate} class="shrink-0" />
-				</li>
-			))
-		}
-	</ul>
+	<Hero />
 </BaseLayout>

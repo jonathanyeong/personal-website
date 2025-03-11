@@ -58,6 +58,14 @@
   font-style: italic;
 }
 
+
+@font-face{
+  font-family:"Poppins";
+  src:url("/fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
   --font-step--2: clamp(0.6944rem, 0.6871rem + 0.0365vw, 0.72rem);

@@ -1,0 +1,87 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="hero">
+  <h1>JONO YEONG</h1>
+  <div class="hero__info">
+    <div class="hero__info-subtitle">
+      <span>Staff Dev</span>
+      <span>Builder</span>
+      <span>Designer*</span>
+    </div>
+    <div class="hero__info-vertical-line"></div>
+    <div class="hero__info-socials">
+      <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank"><Icon name="bluesky" /></a>
+      <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank"><Icon name="github" /></a>
+      <a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank"><Icon name="youtube" /></a>
+    </div>
+  </div>
+</div>
+
+<style>
+  h1 {
+    font-family: Poppins, var(--font-base);
+    font-size: clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem);
+    margin: 0;
+    line-height: calc(clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem) * 0.85);
+    text-box-edge: cap alphabetic;
+    text-box-trim: trim-both;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .hero__info-subtitle {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-step-1);
+    font-weight: bold;
+  }
+
+  .hero__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-s);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__info-socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-2xs);
+  }
+
+  .hero__info-socials [data-icon] {
+    width: calc(var(--space-s) * 1.2);
+    height: calc(var(--space-s) * 1.2);
+  }
+
+  .hero__info-vertical-line {
+    width: 2px;
+    background-color: light-dark(var(--color-dark-text), var(--color-light-text));
+    align-self: center;
+    flex: 1 1 0;
+  }
+
+  @media screen and (min-width: 760px) {
+		.hero {
+			flex-direction: row;
+		}
+
+    .hero__info-subtitle {
+      flex-direction: column;
+    }
+
+    .hero__info {
+      flex-direction: column;
+    }
+	}
+</style>
