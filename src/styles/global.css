@@ -2,6 +2,14 @@
 @import "./typography.css";
 @import "./color.css";
 
+[data-theme="light"] {
+	color-scheme: light;
+}
+
+[data-theme="dark"] {
+	color-scheme: dark;
+}
+
 body {
   background: light-dark(var(--color-light-bg), var(--color-dark-bg));
   color: light-dark(var(--color-dark-text), var(--color-light-text));

@@ -9,6 +9,16 @@ const headTitle = title || SITE_TITLE;
 const headDescription = description || SITE_DESCRIPTION;
 const headPubDate = pubDate || new Date().toISOString();
 ---
+
+<script>
+	const theme = localStorage.getItem('theme')
+	if (theme) {
+		// If the user has chosen a theme we should respect their choice
+		document.body.setAttribute('data-theme', theme);
+		// Otherwise, we fall back to prefers-color-scheme.
+	}
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
