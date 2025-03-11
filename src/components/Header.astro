@@ -4,19 +4,56 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <script>
-  const preferColorScheme = (() => {
+  const preferredColorScheme = (() => {
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	});
 
+  const updateIconVisibility = (theme: string) => {
+    const sunIcon = document.querySelector('[data-icon="sun"]');
+    const moonIcon = document.querySelector('[data-icon="moon"]');
+
+    if (theme === 'dark') {
+      sunIcon?.classList.remove('display-icon');
+      moonIcon?.classList.add('display-icon');
+    } else {
+      moonIcon?.classList.remove('display-icon');
+      sunIcon?.classList.add('display-icon');
+    }
+  }
+
+  const handleColorSchemeChange = (event: MediaQueryListEvent) => {
+    if (localStorage.getItem('theme')) {
+      return;
+    }
+    const preferredTheme = event.matches ? 'dark' : 'light'
+    updateIconVisibility(preferredTheme);
+  }
+
+
+  const initialThemeIconState = () => {
+    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
+    updateIconVisibility(currentTheme);
+  }
+
   const handleToggleClick = () => {
-    const currentTheme = localStorage.getItem('theme') || preferColorScheme()
+    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+    updateIconVisibility(newTheme);
     document.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
   }
 
-  const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
-  themeToggle && themeToggle.addEventListener("click", handleToggleClick);
+  const setupEventListeners = () => {
+    const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    colorSchemeMediaQuery.addEventListener('change', handleColorSchemeChange)
+
+    const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
+    themeToggle && themeToggle.addEventListener("click", handleToggleClick);
+  }
+
+  initialThemeIconState()
+  setupEventListeners()
 </script>
 
 <header>
@@ -27,6 +64,7 @@ import { Icon } from 'astro-icon/components';
   <div class="menu-container">
     <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
       <Icon name="sun" />
+      <Icon name="moon" />
     </button>
 
 	  <Icon name="menu" />
@@ -50,6 +88,15 @@ import { Icon } from 'astro-icon/components';
   [data-icon] {
     width: var(--space-m);
     height: var(--space-m);
+  }
+
+  [data-icon="sun"],
+  [data-icon="moon"] {
+    display: none;
+  }
+
+  .display-icon {
+    display: block;
   }
 
   button {
