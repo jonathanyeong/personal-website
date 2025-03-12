@@ -3,12 +3,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import Hero from '@components/Hero.astro';
+import ArticleList from '@components/ArticleList.astro'
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
-const posts = filterPublishedPosts(await getCollection('blog'));
+const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
 
 ---
 
 <BaseLayout>
-	<Hero />
+  <Hero />
+  <div class="article-list">
+    <div>
+      <h2>Articles</h2>
+      <ArticleList posts={posts} />
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .article-list {
+    margin-top: var(--space-3xl);
+  }
+
+  .article-list h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<span class="article-card">
+  <a href={`writing/${post.slug}/`}>{post.data.title}</a>
+  <hr />
+  <span>{post.data.topics.join(', ')}</span>
+</span>
+
+<style>
+  .article-card {
+    display: flex;
+    gap: var(--space-s)
+  }
+
+  a {
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: var(--font-step-1);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+  }
+
+  hr {
+    flex: 1 1 0;
+    border: 1px solid var(--color-text);
+    align-self: center;
+    flex: 1 1 0;
+    padding: 0;
+    margin: 0;
+  }
+</style>
