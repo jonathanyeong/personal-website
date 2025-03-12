@@ -8,14 +8,14 @@ import { Icon } from "astro-icon/components";
       <span class="hero-fill-text__display">JONO <br />YEONG</span>
     </span>
     <span class="hero-fill-text__reference" aria-hidden="true">JONO <br />YEONG</span>
-  </h2>
+  </h1>
   <div class="hero__info">
     <div class="hero__info-subtitle">
       <span>Staff Dev</span>
       <span>Builder</span>
       <span>Designer*</span>
     </div>
-    <div class="hero__info-vertical-line"></div>
+    <hr class="hero__info-vertical-line" />
     <div class="hero__info-socials">
       <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank"><Icon name="bluesky" /></a>
       <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank"><Icon name="github" /></a>
@@ -29,6 +29,18 @@ import { Icon } from "astro-icon/components";
     syntax: '<length>';
     initial-value: 0px;
     inherits: true;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    justify-content: space-between;
+    margin-top: var(--space-xl);
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+    }
   }
 
   .hero-fill-text {
@@ -79,15 +91,23 @@ import { Icon } from "astro-icon/components";
     font-size: clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem);
     line-height: 80%;
     /* The initial fallback value for no support now becomes our minimum clamp value */
-    font-size: clamp(
+    /* font-size: clamp(
       clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem),
+      1em * var(--container-fill-text-ratio),
+      var(--container-fill-text-max-font-size, infinity * 1px)
+    ); */
+    font-size: clamp(
+      var(--font-step-4),
       1em * var(--container-fill-text-ratio),
       var(--container-fill-text-max-font-size, infinity * 1px)
     );
   }
 
-  p {
-    margin: 0;
+  .hero__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-xs-m);
   }
 
   .hero__info-subtitle {
@@ -95,53 +115,61 @@ import { Icon } from "astro-icon/components";
     flex-direction: row;
     font-size: var(--font-step-1);
     font-weight: bold;
-  }
+    gap: var(--space-2xs);
+    align-self: center;
 
-  .hero__info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: var(--space-m);
-  }
-
-  .hero {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-    justify-content: space-between;
-    padding-top: var(--space-xl);
+    @media screen and (min-width: 760px) {
+      font-size: var(--font-step-1);
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
   .hero__info-socials {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: var(--space-2xs);
+    gap: var(--space-xs-s);
   }
 
-  .hero__info-socials [data-icon] {
-    width: calc(var(--space-s) * 1.2);
-    height: calc(var(--space-s) * 1.2);
+  [data-icon] {
+    width: var(--space-m);
+    height: var(--space-m);
+    color: var(--color-text);
+    opacity: 1;
+
+    @media screen and (min-width: 760px) {
+      width: calc(var(--space-s) * 1.2);
+      height: calc(var(--space-s) * 1.2);
+    }
+  }
+
+  [data-icon="youtube"] {
+    width: calc(var(--space-m) * 1.2);
+    height: calc(var(--space-m) * 1.2);
+
+    @media screen and (min-width: 760px) {
+      width: calc(var(--space-s) * 1.4);
+      height: calc(var(--space-s) * 1.4);
+    }
+  }
+
+  [data-icon]:hover {
+    opacity: 0.8;
   }
 
   .hero__info-vertical-line {
-    width: 1px;
-    background-color: light-dark(var(--color-dark-text), var(--color-light-text));
-    align-self: center;
-    flex: 1 1 0;
+    display: none;
+
+    @media screen and (min-width: 760px) {
+      display: block;
+      width: 1px;
+      background-color: var(--color-text);
+      align-self: center;
+      flex: 1 1 0;
+      padding: 0;
+      margin: 0;
+    }
   }
-
-  @media screen and (min-width: 760px) {
-		.hero {
-			flex-direction: row;
-		}
-
-    .hero__info-subtitle {
-      flex-direction: column;
-    }
-
-    .hero__info {
-      flex-direction: column;
-    }
-	}
 </style>

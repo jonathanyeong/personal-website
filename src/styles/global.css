@@ -11,8 +11,8 @@
 }
 
 body {
-  background: light-dark(var(--color-light-bg), var(--color-dark-bg));
-  color: light-dark(var(--color-dark-text), var(--color-light-text));
+  background: var(--color-bg);
+  color: var(--color-text);
   font-size: var(--font-step-0);
   font-family: var(--font-base);
   font-size-adjust: from-font;

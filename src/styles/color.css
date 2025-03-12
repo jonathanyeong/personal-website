@@ -9,4 +9,6 @@
   --color-light-accent: #A3E0CA;
   --color-logo-light: #BBB791;
   --color-logo-dark: #A3E0CA;
+  --color-text: light-dark(var(--color-dark-text), var(--color-light-text));
+  --color-bg: light-dark(var(--color-light-bg), var(--color-dark-bg));
 }

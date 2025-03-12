@@ -23,4 +23,5 @@
 
   /* Custom pairs */
   --space-s-l: clamp(1rem, 0.6429rem + 1.7857vw, 2.25rem);
+  --space-xs-m: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.6875rem);
 }
