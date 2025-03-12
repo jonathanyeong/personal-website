@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import { Icon } from "astro-icon/components";
 import Hero from '@components/Hero.astro';
 import ArticleList from '@components/ArticleList.astro'
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
@@ -13,10 +14,9 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
 <BaseLayout>
   <Hero />
   <div class="article-list">
-    <div>
-      <h2>Featured</h2>
-      <ArticleList posts={posts} />
-    </div>
+    <h2>Featured</h2>
+    <ArticleList posts={posts} />
+    <a href="/">view all writing <Icon name="arrow-right" /></a>
   </div>
 </BaseLayout>
 
@@ -30,5 +30,30 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: -0.03em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: var(--font-step-0);
+    text-decoration: none;
+    font-weight: 800;
+    color: var(--color-text);
+    gap: var(--space-xs);
+    letter-spacing: -0.03em;
+    margin-top: var(--space-m);
+  }
+
+  a:hover {
+    color: var(--color-hover-text);
+  }
+
+  [data-icon] {
+    font-size: var(--font-step-1);
   }
 </style>
