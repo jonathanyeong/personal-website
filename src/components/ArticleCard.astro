@@ -20,14 +20,21 @@ const { post } = Astro.props;
     flex-direction: column-reverse;
     gap: var(--space-3xs);
     font-size: var(--font-step-0);
-    border-bottom: 1px solid color-mix(in srgb, var(--color-text), transparent 80%);
+    /* border-bottom: 1px solid color-mix(in srgb, var(--color-text), transparent 80%); */
+    border-bottom: 2px solid var(--color-text);
     padding-bottom: var(--space-m);
 
     @media screen and (min-width: 760px) {
       flex-direction: row;
       gap: var(--space-s);
       border-bottom: none;
+      padding-bottom: 0;
     }
+  }
+
+  .article-card:hover,
+  .article-card:hover > a {
+    color: var(--color-hover-text);
   }
 
   a {

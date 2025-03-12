@@ -11,4 +11,5 @@
   --color-logo-dark: #A3E0CA;
   --color-text: light-dark(var(--color-dark-text), var(--color-light-text));
   --color-bg: light-dark(var(--color-light-bg), var(--color-dark-bg));
+  --color-hover-text: light-dark(var(--color-dark-accent), var(--color-light-accent));
 }

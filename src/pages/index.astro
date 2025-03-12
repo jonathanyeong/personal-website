@@ -14,7 +14,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   <Hero />
   <div class="article-list">
     <div>
-      <h2>Articles</h2>
+      <h2>Featured</h2>
       <ArticleList posts={posts} />
     </div>
   </div>
@@ -26,6 +26,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   }
 
   .article-list h2 {
+    font-size: var(--font-step-3);
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: -0.03em;
