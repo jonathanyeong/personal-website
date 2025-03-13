@@ -1,23 +1,65 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
 import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import ArticleList from '@components/ArticleList.astro'
+import profilePic from "../assets/profile_pic_2.jpeg";
+
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
+
 
 const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
 
 ---
 
 <BaseLayout>
-  <Hero />
-  <div class="article-list">
-    <h2>Featured</h2>
-    <ArticleList posts={posts} />
-    <a href="/">view all writing <Icon name="arrow-right" /></a>
-  </div>
+  <main class="flow">
+    <Hero />
+    <div class="article-list">
+      <h2>Featured</h2>
+      <ArticleList posts={posts} />
+      <a class="article-list__view-more" href="/">view all writing <Icon name="arrow-right" /></a>
+    </div>
+    <div class="about__breakout">
+      <div class="about__container">
+        <h2>About</h2>
+        <div class="about__sidebar">
+          <div class="about__text flow">
+            <p>
+              I'm a Staff Developer at StackAdapt working on the Developer Experience team, previously Shopify.
+            </p>
+            <p>
+              Primarily a backend dev, I've worked with Ruby, Typescript, and Golang.
+              Recently, I've started learning how to make apps pretty.
+            </p>
+            <p>
+              Building fun, silly, little side projects bring me joy.
+            </p>
+            <p>
+              Outside of coding, I'm either walking my dog, Albie. O
+              r bothering my cats, Indie & Nami, while they're sleeping. I climb, and play Ultimate.
+              Pottery has become my most recent obsession
+            </p>
+            <p>
+              Based in Toronto, Canada. Originally from Australia 🇦🇺.
+            </p>
+            <p>
+              Read more about what <a href="/now">I'm currently up to</a>.
+              <br />
+              Shoot me an <a href="mailto:hey@jonathanyeong.com">email</a> to get in touch.
+            </p>
+          </div>
+          <div class="about__profile-pic">
+            <Image src={profilePic} alt="Jono Yeong's face. I'm smiling and wearing a hat, with a grey-blue t-shirt." />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </BaseLayout>
 
 <style>
@@ -25,35 +67,83 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     margin-top: var(--space-3xl);
   }
 
-  .article-list h2 {
+  h2 {
     font-size: var(--font-step-3);
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: -0.03em;
     display: flex;
     flex-direction: column;
+    margin-top: 0;
+    margin-bottom: var(--space-l);
   }
 
   a {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    align-items: center;
-    text-transform: uppercase;
     font-size: var(--font-step-0);
-    text-decoration: none;
     font-weight: 800;
+    text-decoration: none;
     color: var(--color-text);
-    gap: var(--space-xs);
-    letter-spacing: -0.03em;
-    margin-top: var(--space-m);
   }
 
   a:hover {
     color: var(--color-hover-text);
   }
 
+  .article-list__view-more {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    gap: var(--space-xs);
+    letter-spacing: -0.03em;
+    margin-top: var(--space-m);
+  }
+
   [data-icon] {
     font-size: var(--font-step-1);
+  }
+
+  .about__container {
+    padding: var(--space-3xl);
+    max-width: 50vw; /* Same as parent .container */
+    margin: 0 auto;
+  }
+
+  .about__sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m)
+  }
+
+  .about__breakout {
+    --flow-space: var(--space-3xl);
+
+    background-color: var(--color-about-bg);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .about__text {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 50%;
+  }
+
+  .about__text > * {
+    margin-top: 0;
+  }
+
+  .about__profile-pic {
+    flex-basis: 13rem; /* 1/6 of width */
+    flex-grow: 1;
+  }
+
+  .about__profile-pic img {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
   }
 </style>
