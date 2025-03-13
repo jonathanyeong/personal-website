@@ -6,6 +6,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import ArticleList from '@components/ArticleList.astro'
+import Newsletter from '@components/Newsletter.astro'
 import profilePic from "../assets/profile_pic_2.jpeg";
 
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
@@ -58,6 +59,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
         </div>
       </div>
     </div>
+    <Newsletter />
   </main>
 
 </BaseLayout>
@@ -105,9 +107,13 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   }
 
   .about__container {
-    padding: var(--space-3xl);
-    max-width: 50vw; /* Same as parent .container */
+    padding: var(--space-3xl) var(--space-xl);
+    max-width: 100vw; /* Same as parent .container */
     margin: 0 auto;
+
+    @media screen and (min-width: 760px) {
+      max-width: 50vw; /* Same as parent .container */
+    }
   }
 
   .about__sidebar {
@@ -120,8 +126,13 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     --flow-space: var(--space-3xl);
 
     background-color: var(--color-about-bg);
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw - var(--space-s));
+    margin-right: calc(50% - 50vw - var(--space-s));
+
+    @media screen and (min-width: 760px) {
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
   }
 
   .about__text {
