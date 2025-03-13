@@ -17,6 +17,9 @@ export default defineConfig({
   },
   redirects: {
     "/about": "/#aboutme",
-    "/[slug]": "/writing/[...slug]"
+    "/:slug": {
+      status: 301,
+      destination: "/writing/:slug"
+    }
   }
 });
