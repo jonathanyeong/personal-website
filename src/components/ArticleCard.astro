@@ -7,9 +7,9 @@ interface Props {
 
 const { post } = Astro.props;
 ---
-
+<!-- writing/ -->
 <span class="article-card">
-  <a href={`writing/${post.slug}/`}>{post.data.title}</a>
+  <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
   <hr />
   <span class="article-card__topics">{post.data.topics.join(', ')}</span>
 </span>

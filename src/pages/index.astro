@@ -22,11 +22,11 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     <div class="article-list">
       <h2>Featured</h2>
       <ArticleList posts={posts} />
-      <a class="article-list__view-more" href="/">view all writing <Icon name="arrow-right" /></a>
+      <a class="article-list__view-more" href="/writing">view all writing <Icon name="arrow-right" /></a>
     </div>
     <div class="about__breakout">
       <div class="about__container">
-        <h2>About</h2>
+        <h2 id="aboutme">About</h2>
         <div class="about__sidebar">
           <div class="about__text flow">
             <p>

@@ -14,5 +14,9 @@ export default defineConfig({
       theme: 'rose-pine-moon'
     },
     remarkPlugins: [remarkReadingTime],
+  },
+  redirects: {
+    "/about": "/#aboutme",
+    "/[slug]": "/writing/[...slug]"
   }
 });

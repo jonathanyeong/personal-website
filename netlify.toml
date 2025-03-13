@@ -5,5 +5,5 @@
   TZ="America/Toronto"
 [[redirects]]
   from = "/garden/how-to-setup-ci-with-phoenix-github-actions/"
-  to = "/how-to-setup-ci-with-phoenix-github-actions"
+  to = "/writing/how-to-setup-ci-with-phoenix-github-actions"
   status = 301
