@@ -1,7 +1,132 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const today = new Date();
 ---
 
-<footer class="text-center mt-8 pb-4 dark:text-slate-200">
-	Made with <span class="text-logo-green dark:text-teal-400">&hearts;</span> &copy; {today.getFullYear()} Jonathan Yeong
+<footer>
+  <div class="footer__content">
+    <ul class="footer__nav">
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/writing">Blogroll</a></li>
+      <li><a href="/writing">Now</a></li>
+      <li><a href="/rss">Rss</a></li>
+    </ul>
+    <div class="footer__nav-sidebar">
+      <div class="footer__socials">
+        <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a>
+        <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a>
+        <a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a>
+      </div>
+      <a href="#" class="footer__top">
+        <Icon name="arrow-up" />
+        top
+      </a>
+    </div>
+  </div>
+  <div class="footer__copyright">
+    <a href="/">
+      <span class="screen-reader">JY Logo</span>
+      <Icon name="logo2" />
+    </a>
+    <span class="footer__copyright-text">&copy; {today.getFullYear()} Jonathan Yeong</span>
+  </div>
 </footer>
+
+
+<style>
+  footer {
+    --flow-space: var(--space-3xl);
+
+    margin-bottom: var(--space-l);
+  }
+
+  .footer__content {
+    display: flex;
+    gap: var(--space-2xl);
+    justify-content: space-between;
+  }
+
+  .footer__nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .footer__nav a {
+    text-decoration: none;
+    font-size: var(--font-step-2);
+    color: var(--color-text);;
+  }
+
+  .footer__nav li {
+    padding-top: var(--space-m);
+    padding-bottom: var(--space-m);
+    border-bottom: 1px solid hsla(60deg, 3%, 6%, 20%); /* #111110 with 20% opacirty */
+  }
+
+  [data-icon="logo2"] {
+    color: light-dark(var(--color-logo-light), var(--color-logo-dark));
+    display: block;
+    width: var(--space-m);
+    height: var(--space-m);
+  }
+
+  .footer__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin-top: var(--space-xl);
+  }
+
+  .footer__copyright-text {
+    font-size: var(--font-step--1);
+    opacity: 0.5;
+  }
+
+  .footer__nav-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: calc(var(--space-m) + 0.5cap); /* To align it with the text */
+  }
+
+  .footer__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  .footer__socials a {
+    color: var(--color-text);
+    font-size: var(--font-step-2);
+    opacity: 0.7;
+  }
+
+  .footer__socials a:hover {
+    opacity: 1;
+  }
+
+  .footer__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: var(--font-step--1);
+    text-decoration: none;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-weight: 800;
+  }
+
+  .footer__top [data-icon="arrow-up"] {
+    font-size: var(--font-step-1);
+  }
+
+  .footer__top:hover {
+    opacity: 1;
+  }
+</style>
