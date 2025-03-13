@@ -9,6 +9,8 @@
   --color-light-accent: #A3E0CA;
   --color-logo-light: #BBB791;
   --color-logo-dark: #A3E0CA;
+  --color-gray-0: #DEDED8;
+  --color-gray-1: #B6B6B1;
   --color-about-bg-light: hsla(54deg, 49%, 79%, 20%);
   --color-about-bg-dark: hsla(159deg, 17%, 35%, 20%);
   --color-text: light-dark(var(--color-dark-text), var(--color-light-text));

@@ -45,11 +45,12 @@ const headPubDate = pubDate || new Date().toISOString();
 		max-width: 100vw;
 		margin: 0 auto;
 		padding: 0 var(--space-s);
-	}
 
-  /* min-width(760px) did not render but it did not throw an error  */
-	@media screen and (min-width: 760px) {
-		.container {
+		@media screen and (min-width: 760px) {
+			max-width: 80vw;
+		}
+
+		@media screen and (min-width: 940px) {
 			max-width: 50vw;
 		}
 	}

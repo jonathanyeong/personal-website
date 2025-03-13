@@ -35,3 +35,7 @@ body {
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
 }
+
+:is(input, button) {
+	font-family: var(--font-base);
+}

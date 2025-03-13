@@ -112,8 +112,13 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     margin: 0 auto;
 
     @media screen and (min-width: 760px) {
-      max-width: 50vw; /* Same as parent .container */
-    }
+			max-width: 80vw;
+      padding: var(--space-3xl) 0;
+		}
+
+		@media screen and (min-width: 940px) {
+			max-width: 50vw;
+		}
   }
 
   .about__sidebar {
@@ -138,7 +143,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   .about__text {
     flex-basis: 0;
     flex-grow: 999;
-    min-width: 50%;
+    min-width: 60%;
   }
 
   .about__text > * {
