@@ -107,16 +107,13 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   }
 
   .about__container {
-    padding: var(--space-3xl) var(--space-xl);
+    /* Need to add padding here to override the negative padding in the breakout  */
+    padding: var(--space-3xl) var(--space-s);
     max-width: 100vw; /* Same as parent .container */
     margin: 0 auto;
 
-    @media screen and (min-width: 760px) {
-			max-width: 80vw;
-      padding: var(--space-3xl) 0;
-		}
-
 		@media screen and (min-width: 940px) {
+      padding: var(--space-3xl) 0;
 			max-width: 50vw;
 		}
   }
@@ -131,8 +128,8 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     --flow-space: var(--space-3xl);
 
     background-color: var(--color-about-bg);
-    margin-left: calc(50% - 50vw - var(--space-s));
-    margin-right: calc(50% - 50vw - var(--space-s));
+    margin-left: calc(var(--space-s) * -1);
+    margin-right: calc(var(--space-s) * -1);
 
     @media screen and (min-width: 760px) {
       margin-left: calc(50% - 50vw);
