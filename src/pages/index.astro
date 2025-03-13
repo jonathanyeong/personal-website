@@ -145,6 +145,17 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     margin-top: 0;
   }
 
+  .about__text a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+  }
+
+  .about__text p {
+    line-height: 150%;
+  }
+
   .about__profile-pic {
     flex-basis: 13rem; /* 1/6 of width */
     flex-grow: 1;
