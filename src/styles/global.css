@@ -105,13 +105,15 @@ img {
 }
 
 blockquote {
-  background-color: var(--color-about-bg);
-  border-left: 0.2em solid var(--color-text);
+  border: 0.1em dotted var(--color-hover-text);
+  border-radius: var(--space-3xs);
+  box-shadow: 0.4em 0.4em 0 0 var(--color-about-bg);
   margin: 0;
   margin-block-start: var(--space-m);
   margin-block-end: var(--space-m);
-  padding: var(--space-m) 0;
-  padding-left: var(--space-l);
+  padding: var(--space-m) var(--space-l);
+  font-size: var(--font-step-1);
+  font-style: italic;
 }
 
 pre {
