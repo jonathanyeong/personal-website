@@ -50,6 +50,11 @@ body {
   margin-block-start: var(--flow-space, 1em);
 }
 
+::selection {
+  color: var(--color-light-text);
+  background: var(--color-selection-bg);
+}
+
 :is(input, button) {
   font-family: var(--font-base);
 }
@@ -118,6 +123,10 @@ blockquote {
   padding: var(--space-m) var(--space-l);
   font-size: var(--font-step-1);
   font-style: italic;
+}
+
+blockquote p {
+  margin: 0;
 }
 
 pre {
