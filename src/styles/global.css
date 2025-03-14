@@ -58,6 +58,41 @@ body {
   letter-spacing: -0.01em;
 }
 
+article h1 {
+  font-size: var(--font-step-6);
+}
+
+article h2 {
+  font-size: var(--font-step-5);
+}
+
+article h3 {
+  font-size: var(--font-step-4);
+}
+
+article h4 {
+  font-size: var(--font-step-3);
+}
+
+article h5 {
+  font-size: var(--font-step-2);
+}
+
+article h6 {
+  font-size: var(--font-step-1);
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+figcaption {
+  padding-block-start: 0.5em;
+  font-size: var(--font-step-0);
+  font-style: italic;
+}
+
 p {
   line-height: 150%;
 }
@@ -93,6 +128,14 @@ pre code {
   border: none;
   background: none;
   padding: 0;
+}
+
+code {
+  /* TODO: Move these colours into a variable. Comes from evergreen theme */
+  background: light-dark(#fdf6e3, #2d353b);
+  color: light-dark(#5c6a72, #d3c6aa);
+  padding: 0.2rem;
+  border-radius: var(--space-3xs);
 }
 
 @media (prefers-color-scheme: dark) {
