@@ -130,7 +130,8 @@ blockquote p {
 }
 
 pre {
-  padding: var(--space-s);
+  position: relative;
+  padding: var(--space-l) var(--space-s);
   border-radius: var(--space-3xs);
 }
 
@@ -168,6 +169,24 @@ a:hover {
 
 article li {
   margin-bottom: var(--space-xs);
+}
+
+.copy-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: light-dark(var(--color-dark-bg), var(--color-light-bg));;
+  color: light-dark(var(--color-light-text), var(--color-dark-text));
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-step--1);
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.copy-code:hover {
+  opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -3,7 +3,6 @@ import type { CollectionEntry } from 'astro:content';
 import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import TopicList from '../components/TopicList.astro';
 
 type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
@@ -17,6 +16,45 @@ const showUpdatedDate = () => {
 const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
 ---
+
+<script>
+  // Thank you https://timneubauer.dev/blog/copy-code-button-in-astro/!
+  const copyButtonLabel = "Copy Code";
+  const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+
+    let copyButton = document.createElement("button");
+    copyButton.className = "copy-code";
+    copyButton.innerHTML = copyButtonLabel;
+
+    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.appendChild(copyButton);
+    // wrap codebock with relative parent element
+    codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
+    wrapper.appendChild(codeBlock);
+
+    copyButton.addEventListener("click", async () => {
+      await copyCode(codeBlock, copyButton);
+    });
+  }
+
+  async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
+    const code = block.querySelector("code");
+    const text = code?.innerText;
+
+    text && await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerText = "Copied!";{}
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 1000);
+  }
+</script>
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
     <h1 class="title">
