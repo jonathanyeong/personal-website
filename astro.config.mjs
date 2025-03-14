@@ -11,7 +11,10 @@ export default defineConfig({
   markdown: {
     drafts: false,
     shikiConfig: {
-      theme: 'rose-pine-moon'
+      themes: {
+        dark: 'everforest-dark',
+        light: 'everforest-light'
+      }
     },
     remarkPlugins: [remarkReadingTime],
   },
