@@ -6,7 +6,6 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import ArticleList from '@components/ArticleList.astro'
-import Newsletter from '@components/Newsletter.astro'
 import profilePic from "../assets/profile_pic_2.jpeg";
 
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
@@ -59,7 +58,6 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
         </div>
       </div>
     </div>
-    <Newsletter />
   </main>
 
 </BaseLayout>
@@ -112,10 +110,10 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     max-width: 100vw; /* Same as parent .container */
     margin: 0 auto;
 
-		@media screen and (min-width: 940px) {
+    @media screen and (min-width: 940px) {
       padding: var(--space-3xl) 0;
-			max-width: 50vw;
-		}
+      max-width: 50vw;
+    }
   }
 
   .about__sidebar {
@@ -166,8 +164,5 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
   .about__profile-pic img {
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    object-fit: contain;
-    width: 100%;
-    height: auto;
   }
 </style>

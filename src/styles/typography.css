@@ -66,6 +66,13 @@
   font-style: normal;
 }
 
+@font-face{
+  font-family:"Poppins";
+  src:url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
   --font-step--2: clamp(0.6944rem, 0.6871rem + 0.0365vw, 0.72rem);
@@ -76,5 +83,9 @@
   --font-step-3: clamp(1.728rem, 1.5939rem + 0.6704vw, 2.1973rem);
   --font-step-4: clamp(2.0736rem, 1.8813rem + 0.9614vw, 2.7466rem);
   --font-step-5: clamp(2.4883rem, 2.2183rem + 1.3499vw, 3.4332rem);
+  --font-step-6: clamp(2.986rem, 2.613rem + 1.8651vw, 4.2915rem);
+  --font-step-7: clamp(3.5832rem, 3.0743rem + 2.5446vw, 5.3644rem);
+  --font-step-8: clamp(4.2998rem, 3.6125rem + 3.4367vw, 6.7055rem);
+  --font-step-9: clamp(5.1598rem, 4.2392rem + 4.603vw, 8.3819rem);
   --font-base: Sofia Pro, system-ui, sans-serif;
 }

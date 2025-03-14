@@ -3,15 +3,15 @@
 @import "./color.css";
 
 [data-theme="light"] {
-	color-scheme: light;
+  color-scheme: light;
 }
 
 [data-theme="dark"] {
-	color-scheme: dark;
+  color-scheme: dark;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -25,15 +25,15 @@ body {
 
 /* https://gomakethings.com/hidden-content-for-better-a11y/ */
 .screen-reader {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .flow > * + * {
@@ -41,5 +41,30 @@ body {
 }
 
 :is(input, button) {
-	font-family: var(--font-base);
+  font-family: var(--font-base);
+}
+
+:is(h1, h2, h3, h4, h5) {
+  letter-spacing: -0.01em;
+}
+
+p {
+  line-height: 150%;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+blockquote {
+  background-color: var(--color-about-bg);
+  border-left: 0.2em solid var(--color-text);
+  margin: 0;
+  margin-block-start: var(--space-m);
+  margin-block-end: var(--space-m);
+  padding: var(--space-m) 0;
+  padding-left: var(--space-l);
 }

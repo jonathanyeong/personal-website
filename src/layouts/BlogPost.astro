@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import TopicList from '../components/TopicList.astro';
@@ -12,41 +13,67 @@ const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead
 const showUpdatedDate = () => {
     return updatedDate && updatedDate.getTime() !== pubDate.getTime()
 }
+
+const displayDate = showUpdatedDate() ? updatedDate : pubDate
+
 ---
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
-    <div class="text-base text-slate-500 dark:text-slate-300 mb-1">
-        Published <FormattedDate date={pubDate} />
-        {
-            showUpdatedDate() && (
-                <span>
-                    | Updated <FormattedDate date={updatedDate} />
-                </span>
-            )
-        } <span>| {minutesRead}</span>
-    </div>
-    <h1 class="font-black mb-4 text-5xl">{title}</h1>
-    {topics && topics.length > 0 && <TopicList topics={topics} />}
-    <hr class="my-8" />
+    <h1 class="title">
+        {title}
+    </h1>
+    <p class="metadata">
+        <FormattedDate date={displayDate} /> <Icon name="minus" /> {
+            topics.map((topic: string) => (
+                <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
+            ))
+        }
+    </p>
 
-    <article class="prose prose-slate prose-lg dark:prose-invert prose-img:rounded-md mb-8 prose-text-link">
-            <slot />
-            <hr />
+    <article>
+        <slot />
     </article>
-    <script src="https://giscus.app/client.js"
-            data-repo="jonathanyeong/personal-website"
-            data-repo-id="R_kgDOI3Bd_Q"
-            data-category="Blog Post Discussions"
-            data-category-id="DIC_kwDOI3Bd_c4CXaBQ"
-            data-mapping="title"
-            data-strict="1"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="light"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async>
-    </script>
 </BaseLayout>
+
+<style>
+  .title {
+    font-family: Poppins, var(--font-base);
+    font-weight: 700;
+    font-size: var(--font-step-7);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    margin-bottom: 0;
+    margin-top: var(--space-2xl);
+  }
+
+  .metadata {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: var(--space-xl);
+    font-weight: 700;
+    font-size: calc(var(--font-step-0) * 0.95);
+    gap: var(--space-2xs);
+    opacity: 1;
+  }
+
+  a,
+  article :global(a) {
+    color: var(--color-text);
+    font-weight: bold;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+  }
+
+  a:hover,
+  article :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  article :global(li) {
+    margin-bottom: var(--space-xs);
+  }
+</style>
