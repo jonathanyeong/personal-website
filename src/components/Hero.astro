@@ -23,6 +23,8 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
 </div>
+<span class="footnote">*aspiring</span>
+
 
 <style>
   @property --container-fill-text-captured-length {
@@ -172,5 +174,14 @@ import { Icon } from "astro-icon/components";
       padding: 0;
       margin: 0;
     }
+  }
+
+  .footnote {
+    display: block;
+    margin-block-start: var(--space-s);
+    text-align: right;
+    opacity: 0.7;
+    font-size: var(--font-step--1);
+    font-style: italic;
   }
 </style>
