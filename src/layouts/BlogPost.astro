@@ -44,18 +44,28 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
     letter-spacing: -0.03em;
     margin-bottom: 0;
     margin-top: var(--space-2xl);
+    text-align: center;
   }
 
   .metadata {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-top: 0;
     margin-bottom: var(--space-xl);
     font-weight: 700;
     font-size: calc(var(--font-step-0) * 0.95);
     gap: var(--space-2xs);
     opacity: 1;
+  }
+
+  article {
+    /* Revisit when I implement table of contents */
+    @media screen and (min-width: 940px) {
+        max-width: 80%;
+        margin: 0 auto;
+    }
   }
 
   a,
