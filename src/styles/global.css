@@ -58,6 +58,10 @@ body {
   letter-spacing: -0.01em;
 }
 
+:is(h1, h2, h3, h4, h5) > a {
+  text-decoration: none;
+}
+
 article h1 {
   font-size: var(--font-step-6);
 }
@@ -138,6 +142,23 @@ code {
   color: light-dark(#5c6a72, #d3c6aa);
   padding: 0.2rem;
   border-radius: var(--space-3xs);
+}
+
+a {
+  color: var(--color-text);
+  font-weight: bold;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4rem;
+  text-decoration-style: dotted;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+article li {
+  margin-bottom: var(--space-xs);
 }
 
 @media (prefers-color-scheme: dark) {
