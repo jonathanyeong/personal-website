@@ -61,6 +61,8 @@ body {
 
 :is(h1, h2, h3, h4, h5) {
   letter-spacing: -0.01em;
+  margin-block-end: var(--space-m);
+  margin-block-start: 0;;
 }
 
 :is(h1, h2, h3, h4, h5) > a {
@@ -175,6 +177,10 @@ li {
 ul {
   --flow-space: var(--space-m);
   padding: 0;
+}
+
+article ul {
+  padding-left: var(--space-l);
 }
 
 article li {

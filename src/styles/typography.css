@@ -77,7 +77,8 @@
 :root {
   --font-step--2: clamp(0.6944rem, 0.6871rem + 0.0365vw, 0.72rem);
   --font-step--1: clamp(0.8333rem, 0.8143rem + 0.0952vw, 0.9rem);
-  --font-step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+  /* --font-step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem); */
+  --font-step-0: clamp(1rem, 1.06073rem + 0.19646vw, 1.2rem);
   --font-step-1: clamp(1.2rem, 1.1411rem + 0.2946vw, 1.4063rem);
   --font-step-2: clamp(1.44rem, 1.3492rem + 0.454vw, 1.7578rem);
   --font-step-3: clamp(1.728rem, 1.5939rem + 0.6704vw, 2.1973rem);
