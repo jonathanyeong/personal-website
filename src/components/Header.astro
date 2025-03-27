@@ -77,6 +77,7 @@ import { Icon } from 'astro-icon/components';
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 0;
   }
 
   .menu-container {
@@ -96,12 +97,29 @@ import { Icon } from 'astro-icon/components';
     display: none;
   }
 
+  button {
+    opacity: 1;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
   [data-icon="logo2"] {
     color: light-dark(var(--color-logo-light), var(--color-logo-dark));
   }
 
   .display-icon {
     display: block;
+  }
+
+  [data-icon="menu"] {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  [data-icon="menu"]:hover {
+    opacity: 0.8;
   }
 
   button {
