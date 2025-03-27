@@ -107,9 +107,10 @@ p {
 }
 
 img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: auto;
+  max-height: 30rem;
   border-radius: 0.5rem;
 }
 
@@ -167,8 +168,18 @@ a:hover {
   opacity: 0.8;
 }
 
+li {
+  list-style: none;
+}
+
+ul {
+  --flow-space: var(--space-m);
+  padding: 0;
+}
+
 article li {
   margin-bottom: var(--space-xs);
+  list-style: initial;
 }
 
 .copy-code {

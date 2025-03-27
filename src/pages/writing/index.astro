@@ -1,1 +1,45 @@
-<h1>WIP</h1>
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageTitle from '@components/PageTitle.astro';
+import ArticleList from '@components/ArticleList.astro'
+import Newsletter from '@components/Newsletter.astro';
+
+import filterPublishedPosts from '@utilities/filterPublishedPosts';
+
+
+const posts = filterPublishedPosts(await getCollection('blog'))
+
+---
+
+<BaseLayout>
+  <main class="flow">
+    <div class="title-container">
+      <PageTitle title="Writing" />
+    </div>
+    <div class="article-list">
+      <ArticleList posts={posts} />
+    </div>
+    <Newsletter />
+  </main>
+
+</BaseLayout>
+
+
+<style>
+  main {
+    padding-top: var(--space-xl);
+  }
+
+  .title-container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .article-list {
+    --flow-space: var(--space-xl);
+  }
+
+</style>
