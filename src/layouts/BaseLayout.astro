@@ -2,6 +2,7 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import Menu from '@components/Menu.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 const { title, description, pubDate } = Astro.props;
 
@@ -33,6 +34,7 @@ const headPubDate = pubDate || new Date().toISOString();
 
 	</head>
 	<body>
+		<Menu />
 		<div class="container flow">
 			<Header />
 			<slot />
@@ -40,15 +42,3 @@ const headPubDate = pubDate || new Date().toISOString();
 		</div>
 	</body>
 </html>
-
-<style>
-	.container {
-		max-width: 100vw;
-		margin: 0 auto;
-		padding: var(--space-m) var(--space-s);
-
-		@media screen and (min-width: 940px) {
-			max-width: 50vw;
-		}
-	}
-</style>

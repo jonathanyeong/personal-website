@@ -1,0 +1,57 @@
+<script>
+  const closeNav = () => {
+    const nav = document.getElementById("myNav");
+
+    nav && (nav.style.display = "none");
+    document.body.classList.remove("no-scroll");
+  }
+
+  const menuToggle: HTMLElement | null = document.getElementById("closeNav");
+  menuToggle && menuToggle.addEventListener("click", closeNav);
+</script>
+
+<div id="myNav" class="overlay">
+  <div class="container">
+    <span id="closeNav">&times;</a>
+      <div class="overlay-content">
+        <a href="#">Writing</a>
+        <a href="#">Blogroll</a>
+        <a href="#">Now</a>
+        <a href="#">RSS</a>
+      </div>
+  </div>
+</div>
+
+<style>
+  .overlay {
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    /* border-radius: var(--space-s); */
+    /* background-color: var(--color-about-bg); */
+    background-color: #bbb791;
+    /* background: hsl(from #bbb791 h s l / 95%); */
+    /* backdrop-filter: blur(16px); */
+    z-index: 100;
+  }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: var(--font-step-4);
+    color: var(--color-text);
+    padding-top: var(--space-m);
+    padding-bottom: var(--space-m);
+    border-bottom: 1px solid var(--color-text-opacity);
+  }
+</style>

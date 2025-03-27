@@ -44,12 +44,22 @@ import { Icon } from 'astro-icon/components';
     localStorage.setItem('theme', newTheme);
   }
 
+  const handleMenuClick = () => {
+    const nav = document.getElementById("myNav");
+
+    nav && (nav.style.display = "block");
+    document.body.classList.add("no-scroll");
+  }
+
   const setupEventListeners = () => {
     const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     colorSchemeMediaQuery.addEventListener('change', handleColorSchemeChange)
 
     const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
     themeToggle && themeToggle.addEventListener("click", handleToggleClick);
+
+    const menuToggle: HTMLElement | null = document.getElementById("openMenu");
+    menuToggle && menuToggle.addEventListener("click", handleMenuClick);
   }
 
   initialThemeIconState()
@@ -67,7 +77,7 @@ import { Icon } from 'astro-icon/components';
       <Icon name="moon" />
     </button>
 
-	  <Icon name="menu" />
+    <span id="openMenu"><Icon name="menu" /></span>
   </div>
 </header>
 
