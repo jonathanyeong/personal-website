@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import icon from "astro-icon";
 import { remarkReadingTime } from './remark-reading-time.mjs';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,5 +25,6 @@ export default defineConfig({
       status: 301,
       destination: "/writing/:slug"
     }
-  }
+  },
+  adapter: netlify()
 });
