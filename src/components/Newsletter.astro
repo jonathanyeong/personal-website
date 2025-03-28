@@ -21,6 +21,10 @@
       const result = await response.json();
       if (result.message) {
         successMessage && successMessage.classList.remove('hidden');
+        const messageText = document.getElementById('messageText');
+        if (messageText) {
+          messageText.textContent = result.message || "Success! Check your email to confirm!";
+        }
 
         formElement.reset();
 
@@ -40,7 +44,7 @@
   <h1>Subscribe to my newsletter</h1>
   <p>A short weekly newsletter sharing what's on my mind. No agenda. Only vibes.</p>
   <div id="successMessage" class="newsletter__success hidden">
-    <p>Success! Be on the lookout for a welcome email!</p>
+    <p id="messageText">Success! Check your email to confirm!</p>
   </div>
   <form id="newsletterForm" class="newsletter__form">
     <label for="email" class="screen-reader">Email address</label>
