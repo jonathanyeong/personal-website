@@ -1,3 +1,7 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
 <script>
   const closeNav = () => {
     const nav = document.getElementById("myNav");
@@ -11,14 +15,22 @@
 </script>
 
 <div id="myNav" class="overlay">
-  <div class="container">
-    <span id="closeNav">&times;</a>
-      <div class="overlay-content">
-        <a href="#">Writing</a>
-        <a href="#">Blogroll</a>
-        <a href="#">Now</a>
-        <a href="#">RSS</a>
-      </div>
+  <div class="container flow">
+    <div class="close-row">
+      <span id="closeNav"><Icon name="close" /></span>
+    </div>
+    <ul class="menu-items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/blogroll">Blogroll</a></li>
+      <li><a href="/now">Now</a></li>
+      <li><a href="/rss.xml/">RSS</a></li>
+    </ul>
+    <div class="social-items">
+      <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a>
+      <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a>
+      <a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a>
+    </div>
   </div>
 </div>
 
@@ -39,19 +51,64 @@
     z-index: 100;
   }
 
-  .overlay-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xl);
-    justify-content: space-between;
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
   }
 
-  a {
-    text-decoration: none;
-    font-size: var(--font-step-4);
-    color: var(--color-text);
+  .menu-items li {
     padding-top: var(--space-m);
     padding-bottom: var(--space-m);
     border-bottom: 1px solid var(--color-text-opacity);
   }
+
+  .menu-items a {
+    text-decoration: none;
+    font-size: var(--font-step-4);
+    color: var(--color-dark-text);
+  }
+
+  span {
+    cursor: pointer;
+  }
+
+  [data-icon] {
+    width: var(--space-m);
+    height: var(--space-m);
+  }
+
+  .close-row {
+    text-align: right;
+  }
+
+  .social-items {
+    --flow-space: var(--space-l);
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-m);
+  }
+
+  .social-items a {
+    color: var(--color-text);
+    opacity: 1;
+  }
+
+  .social-items [data-icon] {
+    width: var(--space-m);
+    height: var(--space-m);
+  }
+
+  .social-items [data-icon="youtube"] {
+    width: calc(var(--space-m) * 1.2);
+    height: calc(var(--space-m) * 1.2);
+  }
+
+  .social-items a:hover {
+    opacity: 0.7;
+  }
+
 </style>
