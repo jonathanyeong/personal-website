@@ -132,13 +132,15 @@ import { Icon } from 'astro-icon/components';
   .icons-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-s);
   }
 
 
   .nav-list {
     margin: 0;
+    /* Visual styling - magic number by eye */
+    transform: translateY(-0.5ex)
   }
 
   .nav-list a {
