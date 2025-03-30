@@ -1,6 +1,10 @@
+@import "./reset.css";
 @import "./spacing.css";
 @import "./typography.css";
 @import "./color.css";
+
+@import "./compositions/wrapper.css";
+@import "./compositions/flow.css";
 
 [data-theme="light"] {
   color-scheme: light;
@@ -9,6 +13,7 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
+  /* TODO: I don't think this does what I think it should. I want to set these styles if data theme is dark */
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark) !important;
@@ -37,16 +42,6 @@ body.no-scroll {
   overflow: hidden;
 }
 
-.container {
-  max-width: 100vw;
-  margin: 0 auto;
-  padding: var(--space-m) var(--space-s);
-
-  @media screen and (min-width: 940px) {
-    max-width: 50vw;
-  }
-}
-
 /* https://gomakethings.com/hidden-content-for-better-a11y/ */
 .screen-reader {
   border: 0;
@@ -58,10 +53,6 @@ body.no-scroll {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.flow > * + * {
-  margin-block-start: var(--flow-space, 1em);
 }
 
 ::selection {
@@ -116,10 +107,6 @@ figcaption {
   padding-block-start: 0.5em;
   font-size: var(--font-step-0);
   font-style: italic;
-}
-
-p {
-  line-height: 150%;
 }
 
 img {
@@ -184,23 +171,14 @@ a:hover {
   opacity: 0.8;
 }
 
-li {
-  list-style: none;
-}
-
-ul {
-  --flow-space: var(--space-m);
-  padding: 0;
-}
-
-article ul {
+/* article ul {
   padding-left: var(--space-l);
 }
 
 article li {
   margin-bottom: var(--space-xs);
   list-style: initial;
-}
+} */
 
 .copy-code {
   position: absolute;

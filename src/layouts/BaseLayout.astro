@@ -35,10 +35,8 @@ const headPubDate = pubDate || new Date().toISOString();
 	</head>
 	<body>
 		<Menu />
-		<div class="container flow">
-			<Header />
-			<slot />
-			<Footer />
-		</div>
+		<Header />
+		<slot />
+		<Footer />
 	</body>
 </html>
