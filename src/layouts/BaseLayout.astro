@@ -1,6 +1,6 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
-import Header from '@components/Header.astro';
+import Navbar from '@components/Navbar.astro';
 import Footer from '@components/Footer.astro';
 import Menu from '@components/Menu.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -35,7 +35,7 @@ const headPubDate = pubDate || new Date().toISOString();
 	</head>
 	<body>
 		<Menu />
-		<Header />
+		<Navbar />
 		<slot />
 		<Footer />
 	</body>
