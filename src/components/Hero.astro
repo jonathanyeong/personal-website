@@ -1,187 +1,39 @@
----
-import { Icon } from "astro-icon/components";
----
-
 <div class="hero">
-  <h1 class="hero-fill-text">
-    <span class="hero-fill-text__container">
-      <span class="hero-fill-text__display">JONO <br />YEONG</span>
-    </span>
-    <span class="hero-fill-text__reference" aria-hidden="true">JONO <br />YEONG</span>
-  </h1>
-  <div class="hero__info">
-    <div class="hero__info-subtitle">
-      <span>Staff Dev</span>
-      <span>Builder</span>
-      <span>Designer*</span>
-    </div>
-    <hr class="hero__info-vertical-line" />
-    <div class="hero__info-socials">
-      <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a>
-      <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a>
-      <a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a>
-    </div>
-  </div>
+  <p class="wrapper">
+    Hey I’m Jono. I build delightful websites. Telling stories along the way. Obsessed about developer experience.
+    <br />
+    <span class="highlight">Nice to meet you!</span>
+  </p>
 </div>
-<span class="footnote">*aspiring</span>
-
 
 <style>
-  @property --container-fill-text-captured-length {
-    syntax: '<length>';
-    initial-value: 0px;
-    inherits: true;
-  }
-
   .hero {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-    justify-content: space-between;
-    margin-top: var(--space-2xl);
+    /* Vertically center text */
+    display: grid;
+    place-items: center;
 
-    @media screen and (min-width: 760px) {
-      flex-direction: row;
-      gap: 0;
-    }
+    background: var(--color-about-bg);
+    border-radius: var(--space-m);
+    margin-left: var(--space-m);
+    margin-right: var(--space-m);
+    padding-top: var(--space-l);
+    padding-bottom: var(--space-l);
+    min-height: 70vh;
+    height: auto;
   }
 
-  .hero-fill-text {
-    --container-fill-text-captured-length: initial;
+  .hero p {
+    --gutter: var(--space-m);
 
-    display: flex;
-    container-type: inline-size;
-    flex: 0 0 80%;
-
-    /* Overrides a global style on headings */
-    max-width: unset;
-
-    font-family: Poppins, var(--font-base);
-    margin: 0;
-    text-box-edge: cap alphabetic;
-    text-box-trim: trim-both;
+    font-family: var(--font-hero);
+    font-weight: 700;
+    font-size: var(--font-step-6);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-gray-3);
   }
 
-  .hero-fill-text__reference {
-    visibility: hidden;
-  }
-
-  .hero-fill-text__container {
-    --container-fill-text-captured-length: 100cqi;
-    --container-fill-text-available-space: var(--container-fill-text-captured-length);
-
-    flex-grow: 1;
-    container-type: inline-size;
-    text-box-edge: cap alphabetic;
-    text-box-trim: trim-both;
-  }
-
-  .hero-fill-text__display {
-    --container-fill-text-captured-length: 100cqi;
-    --container-fill-text-ratio: tan(
-      atan2(
-        var(--container-fill-text-available-space),
-        var(--container-fill-text-available-space) - var(--container-fill-text-captured-length)
-      )
-    );
-
-    display: block;
-
-    /* AKA, width */
-    inline-size: var(--container-fill-text-available-space);
-
-    /* Apply the calculated size with sensible fallbacks for no support */
-    font-size: clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem);
-    line-height: 80%;
-    /* The initial fallback value for no support now becomes our minimum clamp value */
-    /* font-size: clamp(
-      clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem),
-      1em * var(--container-fill-text-ratio),
-      var(--container-fill-text-max-font-size, infinity * 1px)
-    ); */
-    font-size: clamp(
-      var(--font-step-4),
-      1em * var(--container-fill-text-ratio),
-      var(--container-fill-text-max-font-size, infinity * 1px)
-    );
-  }
-
-  .hero__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--space-xs-m);
-  }
-
-  .hero__info-subtitle {
-    display: flex;
-    flex-direction: row;
-    font-size: var(--font-step-1);
-    font-weight: bold;
-    gap: var(--space-2xs);
-    align-self: center;
-
-    @media screen and (min-width: 760px) {
-      font-size: var(--font-step-1);
-      flex-direction: column;
-      gap: 0;
-    }
-  }
-
-  .hero__info-socials {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--space-xs-s);
-  }
-
-  [data-icon] {
-    width: var(--space-m);
-    height: var(--space-m);
-    color: var(--color-text);
-    opacity: 1;
-
-    @media screen and (min-width: 760px) {
-      width: calc(var(--space-s) * 1.2);
-      height: calc(var(--space-s) * 1.2);
-    }
-  }
-
-  [data-icon="youtube"] {
-    width: calc(var(--space-m) * 1.2);
-    height: calc(var(--space-m) * 1.2);
-
-    @media screen and (min-width: 760px) {
-      width: calc(var(--space-s) * 1.4);
-      height: calc(var(--space-s) * 1.4);
-    }
-  }
-
-  [data-icon]:hover {
-    opacity: 0.8;
-  }
-
-  .hero__info-vertical-line {
-    display: none;
-
-    @media screen and (min-width: 760px) {
-      display: block;
-      width: 1px;
-      background-color: var(--color-text);
-      align-self: center;
-      flex: 1 1 0;
-      padding: 0;
-      margin: 0;
-    }
-  }
-
-  .footnote {
-    display: block;
-    margin-block-start: var(--space-s);
-    text-align: right;
-    opacity: 0.7;
-    font-size: var(--font-step--1);
-    font-style: italic;
+  .highlight {
+    color: var(--color-green-1);
   }
 </style>

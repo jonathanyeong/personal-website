@@ -89,4 +89,5 @@
   --font-step-8: clamp(4.2998rem, 3.6125rem + 3.4367vw, 6.7055rem);
   --font-step-9: clamp(5.1598rem, 4.2392rem + 4.603vw, 8.3819rem);
   --font-base: Sofia Pro, system-ui, sans-serif;
+  --font-hero: Poppins, Sofia Pro, system-ui, sans-serif;
 }
