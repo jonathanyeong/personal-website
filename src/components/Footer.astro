@@ -4,20 +4,20 @@ import { Icon } from 'astro-icon/components';
 const today = new Date();
 ---
 
-<footer>
+<footer class="wrapper">
   <div class="footer__content">
     <ul class="footer__nav">
       <li><a href="/writing">Writing</a></li>
-      <li><a href="/blogroll">Blogroll</a></li>
+      <li><a href="/about">About</a></li>
       <li><a href="/now">Now</a></li>
       <li><a href="/rss.xml/">RSS</a></li>
     </ul>
     <div class="footer__nav-sidebar">
-      <div class="footer__socials">
-        <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a>
-        <a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a>
-        <a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a>
-      </div>
+      <ul class="footer__socials" role="list">
+        <li><a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a></li>
+        <li><a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a></li>
+        <li><a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a></li>
+      </ul>
       <a href="#" class="footer__top">
         <Icon name="arrow-up" />
         top
@@ -37,6 +37,7 @@ const today = new Date();
 <style>
   footer {
     --flow-space: var(--space-3xl);
+    --gutter: var(--space-m);
   }
 
   .footer__content {
@@ -101,11 +102,11 @@ const today = new Date();
   .footer__socials a {
     color: var(--color-text);
     font-size: var(--font-step-2);
-    opacity: 0.7;
+    opacity: 1;
   }
 
   .footer__socials a:hover {
-    opacity: 1;
+    opacity: 0.7;
   }
 
   .footer__top {
@@ -116,7 +117,7 @@ const today = new Date();
     font-size: var(--font-step--1);
     text-decoration: none;
     color: var(--color-text);
-    opacity: 0.7;
+    opacity: 1;
     font-weight: 800;
   }
 
@@ -125,6 +126,6 @@ const today = new Date();
   }
 
   .footer__top:hover {
-    opacity: 1;
+    opacity: 0.7;
   }
 </style>

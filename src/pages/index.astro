@@ -1,19 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import { Icon } from "astro-icon/components";
-import { Image } from 'astro:assets';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import ArticleList from '@components/ArticleList.astro'
-import profilePic from "../assets/profile_pic_2.jpeg";
 import Newsletter from '@components/Newsletter.astro';
 
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
-
 const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
-
 ---
 
 <BaseLayout>
@@ -23,41 +19,6 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
       <h2>Featured</h2>
       <ArticleList posts={posts} />
       <a class="article-list__view-more" href="/writing">view all writing <Icon name="arrow-right" /></a>
-    </div>
-    <div class="about__breakout">
-      <div class="about__container">
-        <h2 id="aboutme">About</h2>
-        <div class="about__sidebar">
-          <div class="about__text flow">
-            <p>
-              I'm a Staff Developer at StackAdapt working on the Developer Experience team, previously Shopify.
-            </p>
-            <p>
-              Primarily a backend dev, I've worked with Ruby, Typescript, and Golang.
-              Recently, I've started learning how to make apps pretty.
-            </p>
-            <p>
-              Building fun, silly, little side projects bring me ✨ joy ✨.
-            </p>
-            <p>
-              Outside of coding, I'm either walking my dog, Albie. O
-              r bothering my cats, Indie & Nami, while they're sleeping. I climb, and play Ultimate.
-              Pottery has become my most recent obsession
-            </p>
-            <p>
-              Based in Toronto, Canada. Originally from Australia 🇦🇺.
-            </p>
-            <p>
-              Read more about what <a href="/now">I'm currently up to</a>.
-              <br />
-              Shoot me an <a href="mailto:hey@jonathanyeong.com">email</a> to get in touch.
-            </p>
-          </div>
-          <div class="about__profile-pic">
-            <Image src={profilePic} alt="Jono Yeong's face. I'm smiling and wearing a hat, with a grey-blue t-shirt." />
-          </div>
-        </div>
-      </div>
     </div>
     <Newsletter />
   </main>
@@ -104,67 +65,5 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
 
   [data-icon] {
     font-size: var(--font-step-1);
-  }
-
-  .about__container {
-    /* Need to add padding here to override the negative padding in the breakout  */
-    padding: var(--space-3xl) var(--space-s);
-    max-width: 100vw; /* Same as parent .container */
-    margin: 0 auto;
-
-    @media screen and (min-width: 940px) {
-      padding: var(--space-3xl) 0;
-      max-width: 50vw;
-    }
-  }
-
-  .about__sidebar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-m)
-  }
-
-  .about__breakout {
-    --flow-space: var(--space-3xl);
-
-    background-color: var(--color-about-bg);
-    margin-left: calc(var(--space-s) * -1);
-    margin-right: calc(var(--space-s) * -1);
-
-    @media screen and (min-width: 760px) {
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-    }
-  }
-
-  .about__text {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: 60%;
-  }
-
-  .about__text > * {
-    margin-top: 0;
-  }
-
-  .about__text a {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.4rem;
-    text-decoration-style: dotted;
-  }
-
-  .about__text p {
-    line-height: 150%;
-  }
-
-  .about__profile-pic {
-    flex-basis: 13rem; /* 1/6 of width */
-    flex-grow: 1;
-  }
-
-  .about__profile-pic img {
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
   }
 </style>
