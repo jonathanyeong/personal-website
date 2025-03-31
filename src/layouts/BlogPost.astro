@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Newsletter from '@components/Newsletter.astro';
 
 type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
@@ -19,6 +20,7 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
 <script>
   // Thank you https://timneubauer.dev/blog/copy-code-button-in-astro/!
+  // TODO: Use a symbol instead of text
   const copyButtonLabel = "Copy Code";
   const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
@@ -68,21 +70,34 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
         }
     </p>
 
-    <article>
+    <article class="wrapper flow">
         <slot />
     </article>
+    <Newsletter />
 </BaseLayout>
 
 <style>
+  article {
+    --gutter: var(--space-m);
+    --wrapper-max-width: 70ch;
+
+    margin-bottom: var(--space-3xl);
+  }
+
   .title {
     font-family: Poppins, var(--font-base);
     font-weight: 700;
     font-size: var(--font-step-7);
     line-height: 100%;
     letter-spacing: -0.03em;
-    margin-bottom: 0;
+
+    margin-bottom: var(--space-xs);
     margin-top: var(--space-2xl);
+    margin-left: auto;
+    margin-right: auto;
+
     text-align: center;
+    max-width: 25ch;
   }
 
   .metadata {
