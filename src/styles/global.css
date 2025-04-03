@@ -6,6 +6,7 @@
 @import "./compositions/wrapper.css";
 @import "./compositions/flow.css";
 @import "./compositions/cluster.css";
+@import "./compositions/sidebar.css";
 
 [data-theme="light"] {
   color-scheme: light;

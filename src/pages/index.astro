@@ -17,7 +17,7 @@ const featuredPosts = posts.slice(0, 7)
 <BaseLayout>
   <main class="flow">
     <Hero />
-    <div class="article-list wrapper">
+    <div class="article-list wrapper sidebar">
       <div class="article-list__topics">
         <h2>Topics</h2>
         <ul class="topic-list" role="list">
@@ -45,6 +45,11 @@ const featuredPosts = posts.slice(0, 7)
   .article-list {
     --gutter: var(--space-m);
     margin-top: var(--space-3xl);
+    flex-direction: column-reverse;
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+    }
   }
 
   h2 {
@@ -95,5 +100,6 @@ const featuredPosts = posts.slice(0, 7)
     border: 2px solid var(--color-text);
     display: inline-block;
     padding: var(--space-3xs) var(--space-xs);
+    text-transform: capitalize;
   }
 </style>
