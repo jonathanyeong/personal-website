@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
-import ArticleList from '@components/ArticleList.astro'
+import FeaturedArticleList from '@components/FeaturedArticleList.astro'
 import Newsletter from '@components/Newsletter.astro';
 
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
@@ -17,7 +17,7 @@ const posts = filterPublishedPosts(await getCollection('blog')).slice(0, 7);
     <Hero />
     <div class="article-list">
       <h2>Featured</h2>
-      <ArticleList posts={posts} />
+      <FeaturedArticleList posts={posts} />
       <a class="article-list__view-more" href="/writing">view all writing <Icon name="arrow-right" /></a>
     </div>
     <Newsletter />
