@@ -23,7 +23,7 @@ const getTruncatedDescription = (post: CollectionEntry<'blog'>, maxLength: numbe
 
 const truncatedDescription = getTruncatedDescription(post);
 ---
-<div class="article-card">
+<div class="article-card flow">
   <span class="article-card__title">
     <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
     <span class="article-card__topics">{post.data.topics.join(', ')}</span>
@@ -36,6 +36,8 @@ const truncatedDescription = getTruncatedDescription(post);
 
 <style>
   .article-card {
+    --flow-space: var(--space-s);
+
     font-size: var(--font-step-0);
     padding-bottom: var(--space-m);
     border-bottom: 1px solid var(--color-gray-0);
@@ -62,12 +64,16 @@ const truncatedDescription = getTruncatedDescription(post);
     white-space: nowrap;
   }
 
+  a:hover {
+    color: var(--color-hover-text);
+  }
+
   .article-card__read-more {
     display: flex;
     font-size: var(--font-step-0);
     text-transform: uppercase;
     align-items: center;
-    gap: var(--space-3xs);
+    gap: var(--space-2xs);
     letter-spacing: 0;
   }
 
