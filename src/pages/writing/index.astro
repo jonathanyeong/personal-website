@@ -14,10 +14,8 @@ const posts = filterPublishedPosts(await getCollection('blog'))
 ---
 
 <BaseLayout>
-  <main class="flow">
-    <div class="title-container">
-      <PageTitle title="Writing" />
-    </div>
+  <main class="flow wrapper">
+    <h1 class="writing-header">Writing</h1>
     <div class="article-list">
       <ArticleList posts={posts} />
     </div>
@@ -29,13 +27,14 @@ const posts = filterPublishedPosts(await getCollection('blog'))
 
 <style>
   main {
+    --gutter: var(--space-m);
     padding-top: var(--space-xl);
   }
 
-  .title-container {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
+  .writing-header {
+    text-align: center;
+    font-size: var(--font-step-8);
+    font-family: var(--font-hero);
   }
 
   .article-list {
