@@ -50,9 +50,18 @@ const truncatedDescription = getTruncatedDescription(post);
 
   .article-card__title {
     display: flex;
-    flex-direction: row;
-    gap: var(--space-m);
-    align-items: center;
+    flex-direction: column-reverse;
+    gap: var(--space-xs-m);
+    align-items: start;
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .article-card__title a {
+    text-wrap: wrap;
   }
 
   a {
