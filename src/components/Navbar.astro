@@ -81,7 +81,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
           <li><a href="/writing">Writing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/now">Now</a></li>
-          <li><a href="https://newsletter.jonathanyeong.com/" target="_blank">Newsletter</a></li>
+          <li><a href="https://newsletter.jonathanyeong.com/" class="newsletter-link" target="_blank">Newsletter <Icon name="external-link" /></a></li>
         </ul>
       </nav>
     </div>
@@ -219,5 +219,22 @@ import OverlayMenu from '@components/OverlayMenu.astro';
 
   [data-icon="menu"]:hover {
     opacity: 0.8;
+  }
+
+  .newsletter-link {
+    display: inline-flex;
+    gap: var(--space-3xs);
+    align-items: center;
+  }
+
+  .newsletter-link:hover [data-icon="external-link"] {
+    display: inline-block;
+  }
+
+  .newsletter-link [data-icon="external-link"] {
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(0.08cap);
   }
 </style>
