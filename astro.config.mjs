@@ -20,7 +20,6 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime],
   },
   redirects: {
-    "/about": "/#aboutme",
     "/:slug": {
       status: 301,
       destination: "/writing/:slug"

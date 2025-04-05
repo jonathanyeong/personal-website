@@ -8,7 +8,7 @@ const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 ---
 
 <BaseLayout>
-	<section class="prose dark:prose-invert prose-text-link">
+	<section class="topic-list wrapper">
 		<h1>Topics I write about</h1>
 		<ul>
 			{
@@ -21,3 +21,9 @@ const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 		</ul>
 	</section>
 </BaseLayout>
+
+<style>
+	.topic-list {
+		--gutter: var(--space-m);
+	}
+</style>
