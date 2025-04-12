@@ -6,12 +6,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import FeaturedArticleList from '@components/FeaturedArticleList.astro'
 import Newsletter from '@components/Newsletter.astro';
+import TopicList from '@components/TopicList.astro';
 
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
 const posts = filterPublishedPosts(await getCollection('blog'));
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
-const featuredPosts = posts.slice(0, 7)
+const featuredPosts = posts.slice(0, 5)
 ---
 
 <BaseLayout>
@@ -20,15 +21,7 @@ const featuredPosts = posts.slice(0, 7)
     <div class="article-list wrapper sidebar">
       <div class="article-list__topics">
         <h2>Topics</h2>
-        <ul class="topic-list" role="list">
-          {
-            topics.map((topic) => (
-              <li class="topic-list__item">
-                <a href={`/topics/${topic}/`}>{topic}</a>
-              </li>
-            ))
-          }
-        </ul>
+        <TopicList topics={topics} />
       </div>
       <div class="article-list__featured">
         <h2>Featured</h2>
@@ -87,23 +80,5 @@ const featuredPosts = posts.slice(0, 7)
 
   [data-icon] {
     font-size: var(--font-step-1);
-  }
-
-  .topic-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xs);
-  }
-
-  .topic-list__item a {
-    border-radius: var(--space-3xs);
-    border: 2px solid var(--color-text);
-    display: inline-block;
-    padding: var(--space-3xs) var(--space-xs);
-    text-transform: capitalize;
-  }
-
-  .topic-list__item a:hover {
-    border-color: var(--color-hover-text);
   }
 </style>

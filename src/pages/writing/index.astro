@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ArticleList from '@components/ArticleList.astro'
 import Newsletter from '@components/Newsletter.astro';
+import TopicList from '@components/TopicList.astro';
 
 import filterPublishedPosts from '@utilities/filterPublishedPosts';
 
@@ -32,15 +33,7 @@ const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parse
     <div class="article-list flow">
       <div class="article-list__topics">
         <h2>Topics</h2>
-        <ul class="topic-list" role="list">
-          {
-            topics.map((topic) => (
-              <li class="topic-list__item">
-                <a href={`/topics/${topic}/`}>{topic}</a>
-              </li>
-            ))
-          }
-        </ul>
+        <TopicList topics={topics} />
       </div>
       <div class="article-list__all">
         {sortedYears.map(year => (
@@ -98,24 +91,4 @@ const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parse
       flex-direction: row;
     }
   }
-
-  .topic-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xs);
-  }
-
-  .topic-list__item a {
-    border-radius: var(--space-3xs);
-    border: 2px solid var(--color-text);
-    display: inline-block;
-    padding: var(--space-3xs) var(--space-xs);
-    text-transform: capitalize;
-    text-decoration: none;
-  }
-
-  .topic-list__item a:hover {
-    border-color: var(--color-hover-text);
-  }
-
 </style>

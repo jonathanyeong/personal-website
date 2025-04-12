@@ -182,6 +182,9 @@ a {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.4rem;
   text-decoration-style: dotted;
+  -webkit-transition: color 200ms ease;
+  -ms-transition: color 200ms ease;
+  transition: color 200ms ease;
 }
 
 a:hover {
