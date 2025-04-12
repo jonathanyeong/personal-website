@@ -38,6 +38,7 @@ const today = new Date();
   footer {
     --flow-space: var(--space-3xl);
     --gutter: var(--space-m);
+    margin-bottom: var(--space-l);
   }
 
   .footer__content {
@@ -57,6 +58,10 @@ const today = new Date();
     text-decoration: none;
     font-size: var(--font-step-2);
     color: var(--color-text);
+  }
+
+  .footer__nav a:hover {
+    color: var(--color-hover-text);
   }
 
   .footer__nav li {
@@ -82,7 +87,7 @@ const today = new Date();
 
   .footer__copyright-text {
     font-size: var(--font-step--1);
-    opacity: 0.5;
+    color: var(--color-hero-text);
   }
 
   .footer__nav-sidebar {
@@ -102,11 +107,10 @@ const today = new Date();
   .footer__socials a {
     color: var(--color-text);
     font-size: var(--font-step-2);
-    opacity: 1;
   }
 
   .footer__socials a:hover {
-    opacity: 0.7;
+    color: var(--color-hover-text);
   }
 
   .footer__top {
@@ -117,7 +121,6 @@ const today = new Date();
     font-size: var(--font-step--1);
     text-decoration: none;
     color: var(--color-text);
-    opacity: 1;
     font-weight: 800;
   }
 
@@ -126,6 +129,6 @@ const today = new Date();
   }
 
   .footer__top:hover {
-    opacity: 0.7;
+    color: var(--color-hover-text);
   }
 </style>

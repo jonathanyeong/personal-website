@@ -87,28 +87,32 @@ body.no-scroll {
   text-decoration: none;
 }
 
-article h1 {
-  font-size: var(--font-step-6);
+article :is(h1, h2, h3, h4, h5, p) {
+  text-wrap: pretty;
 }
 
-article h2 {
+article h1 {
   font-size: var(--font-step-5);
 }
 
-article h3 {
+article h2 {
   font-size: var(--font-step-4);
 }
 
-article h4 {
+article h3 {
   font-size: var(--font-step-3);
 }
 
-article h5 {
+article h4 {
   font-size: var(--font-step-2);
 }
 
-article h6 {
+article h5 {
   font-size: var(--font-step-1);
+}
+
+article h6 {
+  font-size: var(--font-step-0);
 }
 
 figure {
