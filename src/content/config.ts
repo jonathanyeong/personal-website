@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-// TEST CHANGE 1
+
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
