@@ -12,7 +12,7 @@ import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
 const posts = filterPublishedPosts(await getCollection('blog'));
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
-const featuredPosts = posts.slice(0, 5)
+const featuredPosts = posts.filter(post => post.data.featured === true).slice(0, 5)
 ---
 
 <BaseLayout>
