@@ -61,11 +61,25 @@ import { Icon } from 'astro-icon/components';
     text-decoration: none;
     font-size: var(--font-step-4);
     color: var(--color-text);
+    -webkit-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    transition: color 200ms ease;
+  }
+
+  .menu-items a:hover {
+    color: light-dark(var(--color-light-text), var(--color-light-accent));
   }
 
   span {
     cursor: pointer;
     color: var(--color-text);
+    -webkit-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    transition: color 200ms ease;
+  }
+
+  span:hover {
+    color: light-dark(var(--color-light-text), var(--color-light-accent));
   }
 
   [data-icon] {

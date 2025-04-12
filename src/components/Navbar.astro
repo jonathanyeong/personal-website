@@ -176,11 +176,14 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     background-color: transparent;
     cursor: pointer;
     padding: 0;
-    color: light-dark(var(--color-text-light), var(--color-text-dark));
+    color: var(--color-text);
+    -webkit-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    transition: color 200ms ease;
   }
 
   button:hover {
-    opacity: 0.8;
+    color: var(--color-hover-text);
   }
 
   [data-icon] {
@@ -215,10 +218,14 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   [data-icon="menu"] {
     cursor: pointer;
     opacity: 1;
+    -webkit-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    transition: color 200ms ease;
+    color: var(--color-text);
   }
 
   [data-icon="menu"]:hover {
-    opacity: 0.8;
+    color: var(--color-hover-text);
   }
 
   .newsletter-link {
