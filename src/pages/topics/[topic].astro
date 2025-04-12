@@ -22,7 +22,7 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
 
 <BaseLayout>
   <main class="wrapper">
-    <h1>Articles tagged with #{topic.toLowerCase()}</h1>
+    <h1>#{topic.toLowerCase()}</h1>
     <ul class="article-list flow">
       {
         postsInTopic.map((post) => (
@@ -47,7 +47,7 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
 
   h1 {
 		font-size: var(--font-step-7);
-    font-family: var(--font-hero);;
+    font-family: var(--font-hero);
     margin-bottom: var(--space-xl);
 	}
 
