@@ -7,21 +7,6 @@ interface Props {
 }
 
 const { post } = Astro.props;
-
-const getTruncatedDescription = (post: CollectionEntry<'blog'>, maxLength: number = 200): string => {
-  // Use description if available, otherwise use body text
-  const textToTruncate = post.data.description || post.body;
-
-  // If text is shorter than max length, return as is
-  if (!textToTruncate || textToTruncate.length <= maxLength) {
-    return textToTruncate || '';
-  }
-
-  // Truncate and add ellipsis
-  return `${textToTruncate.substring(0, maxLength)}...`;
-};
-
-const truncatedDescription = getTruncatedDescription(post);
 ---
 <div class="article-card flow">
   <span class="article-card__title">
@@ -29,7 +14,7 @@ const truncatedDescription = getTruncatedDescription(post);
     <span class="article-card__topics">{post.data.topics.join(', ')}</span>
   </span>
   <p>
-    {truncatedDescription}
+    {post.data.description}
   </p>
   <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
 </div>
