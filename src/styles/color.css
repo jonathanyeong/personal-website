@@ -20,6 +20,8 @@
   --color-hero-bg-dark: #22332C;
   --color-dark-text-opacity: hsla(60deg, 3%, 6%, 20%);
   --color-light-text-opacity: hsla(0deg, 0%, 98%, 20%);
+  --color-overlay-light: #bbb791;
+  --color-overlay-dark: #4a695e;
 
   --color-text: light-dark(var(--color-dark-text), var(--color-light-text));
   --color-bg: light-dark(var(--color-light-bg), var(--color-dark-bg));
@@ -29,4 +31,5 @@
   --color-hero-bg: light-dark(var(--color-hero-bg-light), var(--color-hero-bg-dark));
   --color-hero-text: light-dark(var(--color-gray-3), var(--color-gray-0));
   --color-hero-higlight: light-dark(var(--color-green-1), var(--color-logo-dark));
+  --color-overlay-bg: light-dark(var(--color-overlay-light), var(--color-overlay-dark));
 }

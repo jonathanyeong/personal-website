@@ -14,8 +14,8 @@ import { Icon } from 'astro-icon/components';
   menuToggle && menuToggle.addEventListener("click", closeNav);
 </script>
 
-<div id="myNav" class="overlay">
-  <div class="container flow">
+<div id="myNav" class="overlay-container">
+  <div class="overlay wrapper flow">
     <div class="close-row">
       <span id="closeNav"><Icon name="close" /></span>
     </div>
@@ -30,21 +30,18 @@ import { Icon } from 'astro-icon/components';
 </div>
 
 <style>
-  .overlay {
+  .overlay-container {
     display: none;
     position: absolute;
     height: 100vh;
     width: 100vw;
-    padding: var(--space-m);
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    /* border-radius: var(--space-s); */
-    /* background-color: var(--color-about-bg); */
-    background-color: #bbb791;
-    /* background: hsl(from #bbb791 h s l / 95%); */
-    /* backdrop-filter: blur(16px); */
+    background-color: var(--color-overlay-bg);
     z-index: 100;
+  }
+
+  .overlay {
+    --gutter: var(--space-m);
+    padding-top: var(--space-s);
   }
 
   .menu-items {
@@ -57,56 +54,28 @@ import { Icon } from 'astro-icon/components';
   .menu-items li {
     padding-top: var(--space-m);
     padding-bottom: var(--space-m);
-    border-bottom: 1px solid var(--color-dark-text-opacity);
+    border-bottom: 2px solid var(--color-text);
   }
 
   .menu-items a {
     text-decoration: none;
     font-size: var(--font-step-4);
-    color: var(--color-dark-text);
+    color: var(--color-text);
   }
 
   span {
     cursor: pointer;
-    color: var(--color-dark-text);
+    color: var(--color-text);
   }
 
   [data-icon] {
-    width: var(--space-m);
-    height: var(--space-m);
-
+    width: 1.5rem;
+    height: 1.5rem;
+    /* Visual Styling - TODO: Find a better way to position the X */
+    transform: translate(-0.7rem, 0.3rem);
   }
 
   .close-row {
     text-align: right;
   }
-
-  .social-items {
-    --flow-space: var(--space-l);
-
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-m);
-  }
-
-  .social-items a {
-    color: var(--color-dark-text);
-    opacity: 1;
-  }
-
-  .social-items [data-icon] {
-    width: var(--space-m);
-    height: var(--space-m);
-  }
-
-  .social-items [data-icon="youtube"] {
-    width: calc(var(--space-m) * 1.2);
-    height: calc(var(--space-m) * 1.2);
-  }
-
-  .social-items a:hover {
-    opacity: 0.7;
-  }
-
 </style>
