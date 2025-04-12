@@ -31,7 +31,7 @@ const truncatedDescription = getTruncatedDescription(post);
   <p>
     {truncatedDescription}
   </p>
-  <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <Icon name="arrow-right" /></a>
+  <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
 </div>
 
 <style>
