@@ -1,8 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-import filterPublishedPosts from '../../utilities/filterPublishedPosts';
+import FormattedDate from '@components/FormattedDate.astro';
+import Newsletter from '@components/Newsletter.astro'
+import filterPublishedPosts from '@utilities/filterPublishedPosts';
 
 export async function getStaticPaths() {
   const posts = filterPublishedPosts(await getCollection('blog'));
@@ -20,17 +21,45 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
 ---
 
 <BaseLayout>
-  <section class="prose prose-slate prose-lg dark:prose-invert prose-img:rounded-md mb-8 prose-text-link">
-    <h1>#{topic.toLowerCase()}</h1>
-    <ul class="not-prose flex flex-col gap-y-8 p-0">
+  <main class="wrapper">
+    <h1>Articles tagged with #{topic.toLowerCase()}</h1>
+    <ul class="article-list flow">
       {
         postsInTopic.map((post) => (
-          <li class="flex justify-between gap-4">
-            <a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-            <FormattedDate date={post.data.pubDate} class="shrink-0" />
+          <li class="article-list__item">
+            <a href={`/${post.slug}/`}>{post.data.title}</a>
+            <FormattedDate date={post.data.pubDate} />
           </li>
         ))
       }
     </ul>
-  </section>
+  </main>
+  <Newsletter />
+
 </BaseLayout>
+
+<style>
+  main {
+    --gutter: var(--space-m);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  h1 {
+		font-size: var(--font-step-7);
+    font-family: var(--font-hero);;
+    margin-bottom: var(--space-xl);
+	}
+
+  .article-list {
+    --flow-space: var(--space-l);
+    list-style: none;
+    padding: 0;
+  }
+
+  .article-list__item {
+    display: flex;
+    gap: var(--space-xs);
+    font-size: var(--font-step-1);
+  }
+</style>

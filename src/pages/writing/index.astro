@@ -45,7 +45,9 @@ const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parse
       <div class="article-list__all">
         {sortedYears.map(year => (
           <h2 class="year-heading">{year}</h2>
-          <ArticleList posts={groupedPosts[year]} />
+          <section>
+            <ArticleList posts={groupedPosts[year]} />
+          </section>
         ))}
       </div>
     </div>
@@ -62,8 +64,12 @@ const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parse
     padding-top: var(--space-xl);
   }
 
+  section {
+    margin-bottom: var(--space-2xl);
+  }
+
   .writing-header {
-    font-size: var(--font-step-8);
+    font-size: var(--font-step-7);
     font-family: var(--font-hero);
   }
 
