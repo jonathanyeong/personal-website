@@ -86,4 +86,16 @@ const { post } = Astro.props;
     font-style: italic;
     text-transform: capitalize;
   }
+
+  .article-card:has(.article-card__title a:hover) .article-card__read-more {
+    color: var(--color-hover-text);
+  }
+
+  .article-card:has(.article-card__title a:hover) [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
+  }
+
+  .article-card:has(.article-card__read-more:hover) .article-card__title a {
+    color: var(--color-hover-text);
+  }
 </style>
