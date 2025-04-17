@@ -1,8 +1,32 @@
+<script>
+  import { animate, createTimeline, stagger } from 'animejs';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const timeline = createTimeline();
+    timeline
+      .add('.anime-phrase', {
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 300,
+        delay: stagger(100)
+      })
+      .add('.anime-highlight', {
+        opacity: [0, 1],
+        translateX: [-30, 0],
+        duration: 300,
+        easing: 'easeOutQuint',
+      });
+  });
+</script>
+
 <div class="hero">
   <p class="wrapper">
-    Hey I’m Jono. I build delightful websites. Telling stories along the way. Obsessed about developer experience.
+    <span class="hero__text anime-phrase">Hey I'm Jono.</span>
+    <span class="hero__text anime-phrase">I build delightful websites.</span>
+    <span class="hero__text anime-phrase">Telling stories along the way.</span>
+    <span class="hero__text anime-phrase">Obsessed about developer experience.</span>
     <br />
-    <span class="highlight">Nice to meet you!</span>
+    <span class="highlight anime-highlight">Nice to meet you!</span>
   </p>
 </div>
 
@@ -35,5 +59,16 @@
 
   .highlight {
     color: var(--color-hero-higlight);
+  }
+
+  .anime-phrase {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .anime-highlight {
+    opacity: 0;
+    display: inline-block;
   }
 </style>
