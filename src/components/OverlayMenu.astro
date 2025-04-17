@@ -34,17 +34,17 @@ import { Icon } from 'astro-icon/components';
     display: block;
     position: fixed;
     top: 0;
-    right: -100%; /* Start off-screen to the left */
+    right: -100%;
     height: 100vh;
     width: 100vw;
     background-color: var(--color-overlay-bg);
     z-index: 100;
-    transition: right 0.3s ease; /* Transition for the slide effect */
-    overflow-y: auto; /* Allow scrolling if menu is tall */
+    transition: right 0.3s ease;
+    overflow-y: auto;
   }
 
   .overlay-container.active {
-    right: 0; /* Slide to visible position */
+    right: 0;
   }
 
   .overlay {
