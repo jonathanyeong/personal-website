@@ -151,7 +151,12 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   }
 
   .nav-list a {
-    text-decoration: none;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+    text-decoration-color: color-mix(in srgb, var(--color-text) 0%, transparent);
+    transition: text-decoration-color var(--transition-base);
   }
 
   /* TODO: This should be moved to a utility */
@@ -160,6 +165,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
     text-decoration-style: dotted;
+    text-decoration-color: color-mix(in srgb, var(--color-text) 100%, transparent);
   }
 
   .hamburger-nav-icon {
@@ -177,9 +183,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     cursor: pointer;
     padding: 0;
     color: var(--color-text);
-    -webkit-transition: color 200ms ease;
-    -ms-transition: color 200ms ease;
-    transition: color 200ms ease;
+    transition: color var(--transition-movement);
   }
 
   button:hover {
@@ -200,9 +204,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     width: 2rem;
     height: 2rem;
     transform: scale(1);
-    -webkit-transition: transform 250ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
-    -ms-transition: transform 250ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
-    transition: transform 250ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+    transition: transform var(--transition-bounce);
   }
 
   [data-icon="logo2"]:hover {
@@ -226,9 +228,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   [data-icon="menu"] {
     cursor: pointer;
     opacity: 1;
-    -webkit-transition: color 200ms ease;
-    -ms-transition: color 200ms ease;
-    transition: color 200ms ease;
+    transition: color var(--transition-base);
     color: var(--color-text);
   }
 

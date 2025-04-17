@@ -72,9 +72,14 @@ const { post } = Astro.props;
   }
 
   [data-icon="arrow-right"] {
-    transform: translateY(0.05cap);
+    transform: translateY(0.1cap);
     width: 1.5rem;
-    height: 1.5rem
+    height: 1.5rem;
+    transition: transform var(--transition-bounce);
+  }
+
+  .article-card__read-more:hover [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
   }
 
   .article-card__topics {

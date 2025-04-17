@@ -73,12 +73,19 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
     flex-direction: row;
     align-items: center;
     text-transform: uppercase;
-    gap: var(--space-xs);
+    gap: var(--space-2xs);
     letter-spacing: -0.03em;
     margin-top: var(--space-m);
   }
 
-  [data-icon] {
-    font-size: var(--font-step-1);
+  [data-icon="arrow-right"] {
+    transform: translateY(0.1cap);
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform var(--transition-bounce);
+  }
+
+  .article-list__view-more:hover [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
   }
 </style>
