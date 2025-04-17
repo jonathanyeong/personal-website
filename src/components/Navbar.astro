@@ -5,9 +5,21 @@ import OverlayMenu from '@components/OverlayMenu.astro';
 ---
 
 <script>
+  import { animate, stagger } from 'animejs';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animate('.icon', {
+      opacity: [0, 1],
+      translateY: ['1rem', 0],
+      duration: 300,
+      delay: stagger(50),
+    });
+  });
+
+
   const preferredColorScheme = (() => {
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	});
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   const updateIconVisibility = (theme: string) => {
     const sunIcon = document.querySelector('[data-icon="sun"]');
@@ -86,10 +98,10 @@ import OverlayMenu from '@components/OverlayMenu.astro';
 
     <div class="icons-container">
       <ul class="cluster" role="list">
-        <li><a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a></li>
-        <li><a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a></li>
-        <li><a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a></li>
-        <li>
+        <li class="icon"><a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a></li>
+        <li class="icon"><a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a></li>
+        <li class="icon"><a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a></li>
+        <li class="icon">
           <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
             <Icon name="sun" />
             <Icon name="moon" />
@@ -250,5 +262,10 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     width: 1rem;
     height: 1rem;
     transform: translateY(0.08cap);
+  }
+
+  .icon {
+    opacity: 0;
+    transform: translateY(1rem);
   }
 </style>

@@ -1,12 +1,12 @@
 <script>
-  import { animate, createTimeline, stagger } from 'animejs';
+  import { createTimeline, stagger } from 'animejs';
 
   document.addEventListener('DOMContentLoaded', () => {
     const timeline = createTimeline();
     timeline
       .add('.anime-phrase', {
         opacity: [0, 1],
-        translateY: [20, 0],
+        translateY: ['1.5rem', 0],
         duration: 300,
         delay: stagger(100)
       })
@@ -64,7 +64,7 @@
   .anime-phrase {
     display: inline-block;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.5rem);
   }
 
   .anime-highlight {
