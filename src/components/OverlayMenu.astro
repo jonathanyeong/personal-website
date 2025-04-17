@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon/components';
   const closeNav = () => {
     const nav = document.getElementById("myNav");
 
-    nav && (nav.style.display = "none");
+    nav && (nav.classList.remove('active'));
     document.body.classList.remove("no-scroll");
   }
 
@@ -31,12 +31,20 @@ import { Icon } from 'astro-icon/components';
 
 <style>
   .overlay-container {
-    display: none;
-    position: absolute;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen to the left */
     height: 100vh;
     width: 100vw;
     background-color: var(--color-overlay-bg);
     z-index: 100;
+    transition: right 0.3s ease; /* Transition for the slide effect */
+    overflow-y: auto; /* Allow scrolling if menu is tall */
+  }
+
+  .overlay-container.active {
+    right: 0; /* Slide to visible position */
   }
 
   .overlay {
@@ -52,9 +60,18 @@ import { Icon } from 'astro-icon/components';
   }
 
   .menu-items li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: calc(var(--item-index, 0) * 0.1s + 0.2s);
     padding-top: var(--space-m);
     padding-bottom: var(--space-m);
     border-bottom: 2px solid var(--color-text);
+  }
+
+  .overlay-container.active .menu-items li {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .menu-items a {
@@ -81,8 +98,6 @@ import { Icon } from 'astro-icon/components';
   [data-icon] {
     width: 1.5rem;
     height: 1.5rem;
-    /* Visual Styling - TODO: Find a better way to position the X */
-    transform: translate(-0.7rem, 0.3rem);
   }
 
   .close-row {

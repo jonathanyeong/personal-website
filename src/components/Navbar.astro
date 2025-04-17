@@ -48,7 +48,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   const handleMenuClick = () => {
     const nav = document.getElementById("myNav");
 
-    nav && (nav.style.display = "block");
+    nav && (nav.classList.add('active'));
     document.body.classList.add("no-scroll");
   }
 
@@ -66,8 +66,6 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   initialThemeIconState()
   setupEventListeners()
 </script>
-
-<OverlayMenu />
 
 <header class="wrapper">
   <div class="repel">
@@ -101,6 +99,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
       <span class="hamburger-nav-icon" id="openMenu"><Icon name="menu" /></span>
     </div>
   </div>
+  <OverlayMenu />
 </header>
 
 <style>
