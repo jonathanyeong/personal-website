@@ -7,6 +7,16 @@ import MarkdownIt from 'markdown-it';
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 const parser = new MarkdownIt();
 
+const RSS_ONLY_MESSAGE = `
+	<div>
+		<hr />
+		<p>
+			Thanks for subscribing to my RSS feed! You can always share any thoughts or feedback on this post via
+			<a href="mailto:hey@jonathanyeong.com">email</a> or <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank">Bluesky</a>.
+		</p>
+	</div>
+	`;
+
 export async function GET(context) {
 	const posts = filterPublishedPosts(await getCollection('blog'));
 
@@ -16,7 +26,7 @@ export async function GET(context) {
 		site: context.site,
 		items: posts.map((post) => ({
 			link: `/${post.slug}/`,
-			content: sanitizeHtml(parser.render(post.body)),
+			content: sanitizeHtml(parser.render(post.body)) + RSS_ONLY_MESSAGE,
 			...post.data,
 		})),
 		stylesheet: '/rss/styles.xsl',
