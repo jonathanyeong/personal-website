@@ -11,20 +11,20 @@ const headPubDate = pubDate || new Date().toISOString();
 ---
 
 <script>
-	const theme = localStorage.getItem('theme')
-	if (theme) {
-		// If the user has chosen a theme we should respect their choice
-		document.body.setAttribute('data-theme', theme);
-		// Otherwise, we fall back to prefers-color-scheme.
-	}
+  const theme = localStorage.getItem('theme')
+  if (theme) {
+    // If the user has chosen a theme we should respect their choice
+    document.body.setAttribute('data-theme', theme);
+    // Otherwise, we fall back to prefers-color-scheme.
+  }
 </script>
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link rel="preload" href="/fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
-		<BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
-		<link
+  <head>
+    <link rel="preload" href="/fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
+    <link
                   rel="alternate"
                   type="application/rss+xml"
                   title={SITE_TITLE}
@@ -32,18 +32,19 @@ const headPubDate = pubDate || new Date().toISOString();
                 />
 
 
-	</head>
-	<body>
-		<Navbar />
-		<slot />
-		<Footer />
-	</body>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	body {
-		display: grid;
+  body {
+    display: grid;
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
-	}
+    grid-template-columns: minmax(0, 1fr); /* This is the key addition */
+  }
 </style>

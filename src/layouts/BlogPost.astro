@@ -59,19 +59,19 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 </script>
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
-    <h1 class="title">
-        {title}
-    </h1>
-    <p class="metadata">
-        <FormattedDate date={displayDate} /> <Icon name="minus" /> {
-            topics.map((topic: string) => (
-                <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
-            ))
-        }
-    </p>
+  <article class="wrapper flow">
+      <h1 class="title">
+          {title}
+      </h1>
+      <p class="metadata">
+          <FormattedDate date={displayDate} /> <Icon name="minus" /> {
+              topics.map((topic: string) => (
+                  <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
+              ))
+          }
+      </p>
 
-    <article class="wrapper flow">
-        <slot />
+      <slot />
     </article>
     <Newsletter />
 </BaseLayout>
