@@ -10,8 +10,9 @@ const { post } = Astro.props;
 ---
 <div class="article-card flow">
   <span class="article-card__title">
-    <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
-    <span class="article-card__topics">{post.data.topics.join(', ')}</span>
+    <a href={`/writing/${post.slug}/`}>
+      {post.data.title}
+    </a>
   </span>
   <p>
     {post.data.description}
@@ -80,11 +81,6 @@ const { post } = Astro.props;
 
   .article-card__read-more:hover [data-icon="arrow-right"] {
     transform: translateY(0.1cap) translateX(0.2rem);
-  }
-
-  .article-card__topics {
-    font-style: italic;
-    text-transform: capitalize;
   }
 
   .article-card:has(.article-card__title a:hover) .article-card__read-more {
