@@ -19,11 +19,5 @@ export default defineConfig({
     },
     remarkPlugins: [remarkReadingTime],
   },
-  redirects: {
-    "/:slug": {
-      status: 301,
-      destination: "/writing/:slug"
-    }
-  },
   adapter: netlify()
 });
