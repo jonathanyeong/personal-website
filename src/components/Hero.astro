@@ -1,32 +1,11 @@
-<script>
-  import { createTimeline, stagger } from 'animejs';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const timeline = createTimeline();
-    timeline
-      .add('.anime-phrase', {
-        opacity: [0, 1],
-        translateY: ['1.5rem', 0],
-        duration: 300,
-        delay: stagger(100)
-      })
-      .add('.anime-highlight', {
-        opacity: [0, 1],
-        translateX: [-30, 0],
-        duration: 300,
-        easing: 'easeOutQuint',
-      });
-  });
-</script>
-
 <div class="hero">
-  <p class="wrapper">
-    <span class="hero__text anime-phrase">Hey I'm Jono.</span>
-    <span class="hero__text anime-phrase">I build delightful websites.</span>
-    <span class="hero__text anime-phrase">Telling stories along the way.</span>
-    <span class="hero__text anime-phrase">Obsessed about developer experience.</span>
+  <p class="hero__container wrapper">
+    <span class="hero__text animate-phrase">Hey I'm Jono.</span>
+    <span class="hero__text animate-phrase">I build delightful websites.</span>
+    <span class="hero__text animate-phrase">Telling stories along the way.</span>
+    <span class="hero__text animate-phrase">Obsessed about developer experience.</span>
     <br />
-    <span class="highlight anime-highlight">Nice to meet you!</span>
+    <span class="highlight animate-highlight">Nice to meet you!</span>
   </p>
 </div>
 
@@ -61,14 +40,59 @@
     color: var(--color-hero-higlight);
   }
 
-  .anime-phrase {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-phrase,
+    .animate-highlight {
+      display: inline-block;
+    }
 
-  .anime-highlight {
-    opacity: 0;
-    display: inline-block;
+    .animate-phrase {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .animate-highlight {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideRight {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-phrase:nth-child(1) {
+      animation: slideUp 300ms ease-out 0ms 1 forwards;
+    }
+    .animate-phrase:nth-child(2) {
+      animation: slideUp 300ms ease-out 100ms 1 forwards;
+    }
+    .animate-phrase:nth-child(3) {
+      animation: slideUp 300ms ease-out 200ms 1 forwards;
+    }
+    .animate-phrase:nth-child(4) {
+      animation: slideUp 300ms ease-out 300ms 1 forwards;
+    }
+
+    .animate-highlight {
+      animation: slideRight 300ms cubic-bezier(0.22, 1, 0.36, 1) 400ms 1 forwards;
+    }
   }
 </style>
