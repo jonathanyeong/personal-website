@@ -27,7 +27,7 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
       {
         postsInTopic.map((post) => (
           <li class="article-list__item">
-            <a href={`/${post.slug}/`}>{post.data.title}</a>
+            <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
             <FormattedDate date={post.data.pubDate} />
           </li>
         ))
