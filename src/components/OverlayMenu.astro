@@ -17,7 +17,10 @@ import { Icon } from 'astro-icon/components';
 <div id="myNav" class="overlay-container">
   <div class="overlay wrapper flow">
     <div class="close-row">
-      <span id="closeNav"><Icon name="close" /></span>
+      <span class="logo-hidden">
+        <Icon name="logo2" />
+      </span>
+      <span class="close-icon" id="closeNav"><Icon name="close" /></span>
     </div>
     <ul class="menu-items">
       <li><a href="/">Home</a></li>
@@ -85,22 +88,30 @@ import { Icon } from 'astro-icon/components';
     color: light-dark(var(--color-light-text), var(--color-light-accent));
   }
 
-  span {
+  .close-icon {
     cursor: pointer;
     color: var(--color-text);
     transition: color var(--transition-base);
   }
 
-  span:hover {
+  .close-icon:hover {
     color: light-dark(var(--color-light-text), var(--color-light-accent));
   }
 
   [data-icon] {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  [data-icon="logo2"] {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
   }
 
   .close-row {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
