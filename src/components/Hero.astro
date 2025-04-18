@@ -1,7 +1,8 @@
 <div class="hero">
   <p class="hero__container wrapper">
     <span class="hero__text animate-phrase">Hey I'm Jono.</span>
-    <span class="hero__text animate-phrase">I build delightful websites.</span>
+    <span class="hero__text animate-phrase">Backend developer.</span>
+    <span class="hero__text animate-phrase">Learning to build delightful websites.</span>
     <span class="hero__text animate-phrase">Telling stories along the way.</span>
     <span class="hero__text animate-phrase">Obsessed about developer experience.</span>
     <br />
@@ -48,7 +49,7 @@
 
     .animate-phrase {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(50px);
     }
 
     .animate-highlight {
@@ -59,7 +60,7 @@
     @keyframes slideUp {
       0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(50px);
       }
       100% {
         opacity: 1;
@@ -79,20 +80,23 @@
     }
 
     .animate-phrase:nth-child(1) {
-      animation: slideUp 300ms ease-out 0ms 1 forwards;
+      animation: slideUp 500ms ease-out 0ms 1 forwards;
     }
     .animate-phrase:nth-child(2) {
-      animation: slideUp 300ms ease-out 100ms 1 forwards;
+      animation: slideUp 500ms ease-out 100ms 1 forwards;
     }
     .animate-phrase:nth-child(3) {
-      animation: slideUp 300ms ease-out 200ms 1 forwards;
+      animation: slideUp 500ms ease-out 200ms 1 forwards;
     }
     .animate-phrase:nth-child(4) {
-      animation: slideUp 300ms ease-out 300ms 1 forwards;
+      animation: slideUp 500ms ease-out 300ms 1 forwards;
+    }
+    .animate-phrase:nth-child(5) {
+      animation: slideUp 500ms ease-out 400ms 1 forwards;
     }
 
     .animate-highlight {
-      animation: slideRight 300ms cubic-bezier(0.22, 1, 0.36, 1) 400ms 1 forwards;
+      animation: slideRight 500ms cubic-bezier(0.22, 1, 0.36, 1) 500ms 1 forwards;
     }
   }
 </style>
