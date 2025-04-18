@@ -42,7 +42,6 @@ import { Icon } from 'astro-icon/components';
     width: 100vw;
     background-color: var(--color-overlay-bg);
     z-index: 100;
-    transition: right 0.3s ease;
     overflow-y: auto;
   }
 
@@ -65,11 +64,20 @@ import { Icon } from 'astro-icon/components';
   .menu-items li {
     opacity: 0;
     transform: translateX(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transition-delay: calc(var(--item-index, 0) * 0.1s + 0.2s);
     padding-top: var(--space-m);
     padding-bottom: var(--space-m);
     border-bottom: 2px solid var(--color-text);
+  }
+
+  @media ( prefers-reduced-motion: no-preference ) {
+    .overlay-container {
+      transition: right 0.3s ease;
+    }
+
+    .menu-items li {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition-delay: calc(var(--item-index, 0) * 0.1s + 0.2s);
+    }
   }
 
   .overlay-container.active .menu-items li {
