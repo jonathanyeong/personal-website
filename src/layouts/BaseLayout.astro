@@ -3,6 +3,7 @@ import BaseHead from '@components/BaseHead.astro';
 import Navbar from '@components/Navbar.astro';
 import Footer from '@components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { ClientRouter } from "astro:transitions";
 const { title, description, pubDate } = Astro.props;
 
 const headTitle = title || SITE_TITLE;
@@ -24,6 +25,7 @@ const headPubDate = pubDate || new Date().toISOString();
   <head>
     <link rel="preload" href="/fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
     <BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
+    <ClientRouter />
     <link
                   rel="alternate"
                   type="application/rss+xml"

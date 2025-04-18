@@ -39,8 +39,10 @@ body[data-theme="dark"] .astro-code span {
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
