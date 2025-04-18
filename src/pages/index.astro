@@ -18,31 +18,25 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
 <BaseLayout>
   <main class="flow">
     <Hero />
-    <div class="article-list wrapper sidebar">
-      <div class="article-list__topics">
-        <h2>Topics</h2>
-        <TopicList topics={topics} />
-      </div>
+    <div class="article-list wrapper sidebar" data-direction="rtl">
       <div class="article-list__featured">
         <h2>Featured</h2>
         <FeaturedArticleList posts={featuredPosts} />
         <a class="article-list__view-more" href="/writing">view all writing <Icon name="arrow-right" /></a>
       </div>
+      <div class="article-list__topics">
+        <h2>Topics</h2>
+        <TopicList topics={topics} />
+      </div>
     </div>
     <Newsletter />
   </main>
-
 </BaseLayout>
 
 <style>
   .article-list {
     --gutter: var(--space-m);
     margin-top: var(--space-3xl);
-    flex-direction: column-reverse;
-
-    @media screen and (min-width: 760px) {
-      flex-direction: row;
-    }
   }
 
   h2 {

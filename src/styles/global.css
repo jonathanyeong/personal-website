@@ -178,7 +178,7 @@ code {
 
 a {
   color: var(--color-text);
-  font-weight: bold;
+  font-weight: 800;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.4rem;
