@@ -1,10 +1,41 @@
 ---
+interface Props {
+  topics: string[];
+}
+
 const { topics } = Astro.props;
 ---
 
-<p class="flex space-x-3">
-  {topics.map((topic: string) => (
-    <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
-  ))}
-</p>
+<ul class="topic-list" role="list">
+  {
+    topics.map((topic) => (
+      <li class="topic-list__item">
+        <a href={`/topics/${topic}/`}>{topic}</a>
+      </li>
+    ))
+  }
+</ul>
 
+<style>
+  .topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+  }
+
+  .topic-list__item a {
+    border-radius: var(--space-3xs);
+    border: 2px solid var(--color-text);
+    display: inline-block;
+    padding: var(--space-3xs) var(--space-xs);
+    text-transform: capitalize;
+    text-decoration: none;
+
+    transition: color var(--transition-base), border-color var(--transition-base);
+  }
+
+  .topic-list__item a:hover {
+    border-color: var(--color-hover-text);
+  }
+
+</style>

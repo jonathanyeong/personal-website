@@ -1,0 +1,78 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<h1 class="fill-text">
+  <span class="fill-text__container">
+    <span class="fill-text__display">{title}</span>
+  </span>
+  <span class="fill-text__reference" aria-hidden="true">{title}</span>
+</h1>
+
+<style>
+  @property --container-fill-text-captured-length {
+    syntax: '<length>';
+    initial-value: 0px;
+    inherits: true;
+  }
+
+  .fill-text {
+    --container-fill-text-captured-length: initial;
+
+    display: flex;
+    container-type: inline-size;
+    flex: 0 0 100%;
+
+    /* Overrides a global style on headings */
+    max-width: unset;
+
+    font-family: Poppins, var(--font-base);
+    margin: 0;
+  }
+
+  .fill-text__reference {
+    visibility: hidden;
+  }
+
+  .fill-text__container {
+    --container-fill-text-captured-length: 100cqi;
+    --container-fill-text-available-space: var(--container-fill-text-captured-length);
+
+    flex-grow: 1;
+    container-type: inline-size;
+  }
+
+  .fill-text__display {
+    --container-fill-text-captured-length: 100cqi;
+    --container-fill-text-ratio: tan(
+      atan2(
+        var(--container-fill-text-available-space),
+        var(--container-fill-text-available-space) - var(--container-fill-text-captured-length)
+      )
+    );
+
+    display: block;
+
+    /* AKA, width */
+    inline-size: var(--container-fill-text-available-space);
+
+    /* Apply the calculated size with sensible fallbacks for no support */
+    font-size: clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem);
+    line-height: 100%;
+    /* The initial fallback value for no support now becomes our minimum clamp value */
+    /* font-size: clamp(
+      clamp(5rem, 1.4096rem + 11.4894vw, 11.75rem),
+      1em * var(--container-fill-text-ratio),
+      var(--container-fill-text-max-font-size, infinity * 1px)
+    ); */
+    font-size: clamp(
+      var(--font-step-4),
+      1em * var(--container-fill-text-ratio),
+      var(--container-fill-text-max-font-size, infinity * 1px)
+    );
+  }
+</style>

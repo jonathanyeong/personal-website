@@ -1,0 +1,94 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ArticleList from '@components/ArticleList.astro'
+import Newsletter from '@components/Newsletter.astro';
+import TopicList from '@components/TopicList.astro';
+
+import filterPublishedPosts from '@utilities/filterPublishedPosts';
+
+
+const posts = filterPublishedPosts(await getCollection('blog'))
+const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+const groupedPosts: Record<string, CollectionEntry<'blog'>[]>= posts.reduce((acc, post) => {
+  const year = post.data.pubDate.getFullYear();
+
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+
+  acc[year].push(post);
+  return acc;
+}, {} as Record<string, CollectionEntry<'blog'>[]>);
+
+const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<BaseLayout>
+  <main class="flow wrapper">
+    <h1 class="writing-header">Writing</h1>
+    <p class="writing-subheader">Articles, Tutorials, Random thoughts I've had over the years. Subscribe to the <a href="http://localhost:4321/rss.xml/">RSS Feed</a>.</p>
+    <div class="article-list flow">
+      <div class="article-list__topics">
+        <h2>Topics</h2>
+        <TopicList topics={topics} />
+      </div>
+      <div class="article-list__all">
+        {sortedYears.map(year => (
+          <h2 class="year-heading">{year}</h2>
+          <section>
+            <ArticleList posts={groupedPosts[year]} />
+          </section>
+        ))}
+      </div>
+    </div>
+
+    <Newsletter />
+  </main>
+
+</BaseLayout>
+
+
+<style>
+  main {
+    --gutter: var(--space-m);
+    padding-top: var(--space-xl);
+  }
+
+  section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .writing-header {
+    font-size: var(--font-step-7);
+    font-family: var(--font-hero);
+  }
+
+  .writing-subheader {
+    font-size: var(--font-step-1);
+  }
+
+  h2 {
+    font-size: var(--font-step-3);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: var(--space-l);
+  }
+
+  .article-list {
+    --flow-space: var(--space-xl);
+    --gutter: var(--space-m);
+    margin-top: var(--space-3xl);
+    flex-direction: column-reverse;
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+    }
+  }
+</style>

@@ -1,54 +1,71 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import profilePic from "../../assets/profile_pic.jpg";
+import profilePic from "@assets/profile_pic_2.jpeg";
 ---
 
-<BaseLayout title="About Me">
-  <h1 class="text-5xl mb-8">About Me</h1>
-  <div class="flex gap-6 flex-col sm:flex-row">
-    <div>
-      <p class="mb-6">
-        Hiya, my name's Jono Yeong 👋.
-      </p>
-
-      <p class="mb-6">
-        I'm a Staff Software Engineer at StackAdapt, previously, Shopify. I'm an Aussie, based in Toronto, Canada.
-      </p>
-
-      <p class="mb-6">
-        I've worked with Ruby and Typescript across both microservices and monoliths.
-        I have lukewarm opinions on architecture but strong opinions on developer experience.
-        My passion lies with mentoring and coaching others.
-      </p>
-      <p class="mb-6">
-        I'm part of the <a href="https://virtualcoffee.io/" class="text-link">Virtual Coffee community</a>
-        and I've been a mentor at
-        <a href="https://the-collab-lab.codes/" class="text-link">The Collab Lab</a>.
-      </p>
-
-      <p class="mb-6">
-        <ul class="mb-6 list-disc">
-          <li><a href="https://github.com/jonathanyeong" class="text-link">Github</a></li>
-          <li><a href="https://www.youtube.com/c/jonathanyeong" class="text-link">Youtube</a></li>
-          <li><a href="https://hachyderm.io/@jonathanyeong" class="text-link" rel="me">Mastodon</a></li>
-          <li><a href="https://bsky.app/profile/jonathanyeong.bsky.social" class="text-link">Bluesky</a></li>
-          <li>hey[@]jonathanyeong.com</li>
-        </ul>
-      </p>
-
-      <p>
-        <b>Fun fact:</b> <s>It's taken me 32 years but I finally know how to keep plants alive 🌿</s>
-        <br /> Edit (May 2024): nevermind.
-      </p>
-    </div>
-
-    <div>
-      <Image src={profilePic} alt="Jonathan Yeong's face." class="rounded-xl max-w-full w-40 m-auto sm:max-w-fit sm:w-64" />
-    </div>
-
-  </div>
-
-
-
+<BaseLayout>
+  <main class="wrapper">
+    <h1>About Me</h1>
+    <div class="about sidebar" data-direction='rtl'>
+      <div class="about__text flow">
+        <p>
+          I'm a Staff Developer at StackAdapt working on the Developer Experience team, previously Shopify.
+        </p>
+        <p>
+          Primarily a backend dev, I've worked with Ruby, Typescript, and Golang.
+          Recently, I've started learning how to make apps pretty.
+        </p>
+        <p>
+          Building fun, silly, little side projects bring me ✨ joy ✨.
+        </p>
+        <p>
+          Outside of coding, I'm either walking my dog, Albie. Or bothering my cats, Indie & Nami,
+          while they're sleeping. I climb, play Ultimate, and pottery has become a recent obsession
+        </p>
+        <p>
+          Currently in Toronto, Canada. Originally from Australia 🇦🇺.
+        </p>
+        <p>
+          Shoot me an <a href="mailto:hey@jonathanyeong.com">email</a> or DM me on <a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank">Bluesky</a> to get in touch.
+        </p>
+      </div>
+      <div class="about__profile-pic">
+        <Image src={profilePic} alt="Jono Yeong's face. I'm smiling and wearing a hat, with a grey-blue t-shirt." />
+      </div>
+  </main>
 </BaseLayout>
+
+<style>
+  main {
+    --gutter: var(--space-m);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  h1 {
+    font-size: var(--font-step-7);
+    font-family: var(--font-hero);
+    margin-bottom: var(--space-xl);
+  }
+
+  .about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gutter, var(--space-s-l));
+  }
+
+  .about__profile-pic {
+    --sidebar-target-width: 20rem;
+
+    img {
+      max-width: var(--sidebar-target-width);
+      filter: brightness(110%)
+    }
+  }
+
+  .about__text {
+    text-wrap: pretty;
+  }
+</style>

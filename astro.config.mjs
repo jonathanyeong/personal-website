@@ -1,19 +1,26 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import { remarkReadingTime } from './remark-reading-time.mjs';
+import netlify from '@astrojs/netlify';
+import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.jonathanyeong.com',
-  integrations: [mdx(), sitemap(), tailwind(), icon()],
+  integrations: [mdx(), sitemap(), icon()],
   markdown: {
     drafts: false,
     shikiConfig: {
-      theme: 'rose-pine-moon'
+      themes: {
+        dark: 'everforest-dark',
+        light: 'everforest-light',
+      },
+      defaultColor: false
     },
     remarkPlugins: [remarkReadingTime],
-  }
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]]
+  },
+  adapter: netlify()
 });

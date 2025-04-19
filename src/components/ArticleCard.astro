@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '@components/FormattedDate.astro';
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+<!-- writing/ -->
+<a href={`/writing/${post.slug}/`} class="article-card">
+  <span class="article-card__heading">
+    <span class="article-card__date"><FormattedDate date={post.data.pubDate} /></span>
+    <span class="article-card__link">{post.data.title}</span>
+  </span>
+
+  <span class="article-card__topics">{post.data.topics.join(', ')}</span>
+</a>
+
+<style>
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+
+    @media screen and (min-width: 760px) {
+      gap: var(--space-s-l);
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .article-card__heading {
+    display: flex;
+    gap: var(--space-2xs);
+    flex-direction: column;
+    text-wrap: pretty;
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+      align-items: baseline;
+    }
+  }
+
+  .article-card:hover,
+  .article-card:hover > a {
+    color: var(--color-hover-text);
+  }
+
+  a {
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: var(--font-step-1);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-decoration: dotted;
+  }
+
+  .article-card__topics {
+    font-size: var(--font-step-0);
+    font-style: italic;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .article-card__date {
+    font-size: var(--font-step-0);
+    font-weight: 500;
+  }
+
+  .article-card__link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+  }
+</style>

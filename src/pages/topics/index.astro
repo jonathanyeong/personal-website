@@ -2,13 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import filterPublishedPosts from '../../utilities/filterPublishedPosts';
+import Newsletter from '@components/Newsletter.astro';
+
 
 const posts = filterPublishedPosts(await getCollection('blog'));
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 ---
 
 <BaseLayout>
-	<section class="prose dark:prose-invert prose-text-link">
+	<main class="flow wrapper topic-list">
 		<h1>Topics I write about</h1>
 		<ul>
 			{
@@ -19,5 +21,23 @@ const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 				))
 			}
 		</ul>
-	</section>
+		<Newsletter />
+	</main>
+
 </BaseLayout>
+
+<style>
+	main {
+		--gutter: var(--space-m);
+    padding-top: var(--space-xl);
+	}
+
+	h1 {
+		font-size: var(--font-step-7);
+    font-family: var(--font-hero);
+	}
+
+	li {
+		font-size: var(--font-step-1);
+	}
+</style>

@@ -1,0 +1,107 @@
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080398/4a6cb1fb-207c-45f0-b957-12530e1c9444.woff2") format("woff2"),url("fonts/6080398/9cf72f98-dafd-4b8a-ae89-de91ad1e9c63.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080404/60418191-4098-46b7-99c6-d3a89c7cf073.woff2") format("woff2"),url("fonts/6080404/b57e5656-bd19-43e5-9b1d-0ef0c90330db.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080425/24956663-977c-4d34-b932-dfcd30fd760c.woff2") format("woff2"),url("fonts/6080425/6d628111-6a1c-4841-8452-76889dfe2ca2.woff") format("woff");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080407/e4ac10c9-913b-4dd7-b65a-25667db020bd.woff2") format("woff2"),url("fonts/6080407/6c3cd16b-a28c-45c9-8a09-1e5682202730.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080410/7e44deaa-6a24-44aa-8edb-58257c35b1ee.woff2") format("woff2"),url("fonts/6080410/76078c36-0071-4154-9d61-8abec794fc26.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080413/c215b44e-39cd-4bbf-ac84-7880a134e680.woff2") format("woff2"),url("fonts/6080413/9ee6fc24-6ccc-4bd0-8814-6581c3f452e5.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080416/1f242f0f-bb97-48e8-9c0a-31876e9624ef.woff2") format("woff2"),url("fonts/6080416/a42da96a-1525-4914-b0cc-290fc8d69ce0.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080420/671fbd35-afa7-4696-93cc-b69417939fde.woff2") format("woff2"),url("fonts/6080420/bc60477f-2742-4fb5-b9a2-80af70a3840a.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Sofia Pro";
+  src:url("/fonts/6080422/c0bf2b57-2d71-4a27-9809-4178c248e64e.woff2") format("woff2"),url("fonts/6080422/39623631-8131-46db-ac25-368e7a321d69.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Poppins";
+  src:url("/fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:"Poppins";
+  src:url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  --font-step--2: clamp(0.6944rem, 0.6871rem + 0.0365vw, 0.72rem);
+  --font-step--1: clamp(0.8333rem, 0.8143rem + 0.0952vw, 0.9rem);
+  /* --font-step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem); */
+  --font-step-0: clamp(1rem, 1.06073rem + 0.19646vw, 1.2rem);
+  --font-step-1: clamp(1.2rem, 1.1411rem + 0.2946vw, 1.4063rem);
+  --font-step-2: clamp(1.44rem, 1.3492rem + 0.454vw, 1.7578rem);
+  --font-step-3: clamp(1.728rem, 1.5939rem + 0.6704vw, 2.1973rem);
+  --font-step-4: clamp(2.0736rem, 1.8813rem + 0.9614vw, 2.7466rem);
+  --font-step-5: clamp(2.4883rem, 2.2183rem + 1.3499vw, 3.4332rem);
+  --font-step-6: clamp(2.986rem, 2.613rem + 1.8651vw, 4.2915rem);
+  --font-step-7: clamp(3.5832rem, 3.0743rem + 2.5446vw, 5.3644rem);
+  --font-step-8: clamp(4.2998rem, 3.6125rem + 3.4367vw, 6.7055rem);
+  --font-step-9: clamp(5.1598rem, 4.2392rem + 4.603vw, 8.3819rem);
+  --font-base: Sofia Pro, system-ui, sans-serif;
+  --font-hero: Poppins, Sofia Pro, system-ui, sans-serif;
+}
