@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from "astro-icon";
 import { remarkReadingTime } from './remark-reading-time.mjs';
 import netlify from '@astrojs/netlify';
+import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +19,7 @@ export default defineConfig({
       }
     },
     remarkPlugins: [remarkReadingTime],
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]]
   },
   adapter: netlify()
 });
