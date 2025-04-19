@@ -22,7 +22,7 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
       <div class="article-list__featured">
         <h2>Featured</h2>
         <FeaturedArticleList posts={featuredPosts} />
-        <a class="article-list__view-more" href="/writing">view all writing <Icon name="arrow-right" /></a>
+        <div class="article-list__view-more"><a href="/writing">view all writing <Icon name="arrow-right" /></a></div>
       </div>
       <div class="article-list__topics">
         <h2>Topics</h2>
@@ -62,14 +62,17 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
   }
 
   .article-list__view-more {
-    display: flex;
+    text-align: right;
+  }
+
+  .article-list__view-more > a {
+    display: inline-flex;
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     text-transform: uppercase;
     gap: var(--space-2xs);
     letter-spacing: -0.03em;
-    margin-top: var(--space-m);
   }
 
   [data-icon="arrow-right"] {
