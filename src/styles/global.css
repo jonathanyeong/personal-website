@@ -130,10 +130,11 @@ figcaption {
 }
 
 img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: auto;
-  max-height: 30rem;
+  max-height: 40rem;
+  object-position: top;
   border-radius: 0.5rem;
 }
 
