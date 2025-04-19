@@ -15,8 +15,9 @@ export default defineConfig({
     shikiConfig: {
       themes: {
         dark: 'everforest-dark',
-        light: 'everforest-light'
-      }
+        light: 'everforest-light',
+      },
+      defaultColor: false
     },
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]]

@@ -39,12 +39,13 @@ import OverlayMenu from '@components/OverlayMenu.astro';
       return;
     }
     const preferredTheme = event.matches ? 'dark' : 'light'
+    document.documentElement.style.setProperty('color-scheme', preferredTheme)
     updateIconVisibility(preferredTheme);
   }
 
-
-  const initialThemeIconState = () => {
+  const setInitialThemeState = () => {
     const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
+    document.documentElement.style.setProperty('color-scheme', currentTheme)
     updateIconVisibility(currentTheme);
   }
 
@@ -53,7 +54,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
 
     updateIconVisibility(newTheme);
-    document.body.setAttribute('data-theme', newTheme);
+    document.documentElement.style.setProperty('color-scheme', newTheme)
     localStorage.setItem('theme', newTheme);
   }
 
@@ -75,7 +76,7 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     menuToggle && menuToggle.addEventListener("click", handleMenuClick);
   }
 
-  initialThemeIconState()
+  setInitialThemeState()
   setupEventListeners()
 </script>
 
