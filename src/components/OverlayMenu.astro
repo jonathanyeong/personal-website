@@ -6,7 +6,10 @@ import { Icon } from 'astro-icon/components';
   const closeNav = () => {
     const nav = document.getElementById("myNav");
 
-    nav && (nav.classList.remove('active'));
+    if (nav) {
+      nav.classList.remove('show-nav');
+      nav.classList.add('hide-nav')
+    }
     document.body.classList.remove("no-scroll");
   }
 
@@ -14,7 +17,7 @@ import { Icon } from 'astro-icon/components';
   menuToggle && menuToggle.addEventListener("click", closeNav);
 </script>
 
-<div id="myNav" class="overlay-container">
+<div id="myNav" class="overlay-container hide-nav">
   <div class="overlay wrapper flow">
     <div class="close-row">
       <span class="logo-hidden">
@@ -37,10 +40,6 @@ import { Icon } from 'astro-icon/components';
     display: block;
     position: fixed;
     top: 0;
-    /* This doesn't work because of the transition. It will animate as we resize the page. */
-    /* right: -100vw;  */
-    visibility: hidden;
-    right: -100%;
     height: 100vh;
     width: 100vw;
     background-color: var(--color-overlay-bg);
@@ -48,9 +47,14 @@ import { Icon } from 'astro-icon/components';
     overflow-y: auto;
   }
 
-  .overlay-container.active {
-    visibility: visible;
+  .overlay-container.show-nav {
+    opacity: 1;
     right: 0;
+  }
+
+  .overlay-container.hide-nav {
+    opacity: 0;
+    right: -100%;
   }
 
   .overlay {
@@ -74,8 +78,13 @@ import { Icon } from 'astro-icon/components';
   }
 
   @media ( prefers-reduced-motion: no-preference ) {
-    .overlay-container {
+    .overlay-container.show-nav  {
       transition: right 0.3s ease;
+    }
+
+    .overlay-container.hide-nav {
+      /* Longer opacity to give time for the slide out to finish before transitioning opacity */
+      transition: right 0.3s ease, opacity 1.5s ease;
     }
 
     .menu-items li {
@@ -84,7 +93,7 @@ import { Icon } from 'astro-icon/components';
     }
   }
 
-  .overlay-container.active .menu-items li {
+  .overlay-container.show-nav .menu-items li {
     opacity: 1;
     transform: translateX(0);
   }

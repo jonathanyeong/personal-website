@@ -61,7 +61,10 @@ import OverlayMenu from '@components/OverlayMenu.astro';
   const handleMenuClick = () => {
     const nav = document.getElementById("myNav");
 
-    nav && (nav.classList.add('active'));
+    if (nav) {
+      nav.classList.remove('hide-nav');
+      nav.classList.add('show-nav')
+    }
     document.body.classList.add("no-scroll");
   }
 
