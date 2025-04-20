@@ -1,28 +1,90 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import { Icon } from "astro-icon/components";
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import FeaturedArticleList from '@components/FeaturedArticleList.astro'
+import Newsletter from '@components/Newsletter.astro';
+import TopicList from '@components/TopicList.astro';
+
 import filterPublishedPosts from '../utilities/filterPublishedPosts';
 
 const posts = filterPublishedPosts(await getCollection('blog'));
-
+const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+const featuredPosts = posts.filter(post => post.data.featured === true).slice(0, 5)
 ---
 
 <BaseLayout>
-    <p class="mb-16">
-				Welcome 👋! My name's Jono Yeong, I'm a Staff Software Engineer from Australia currently based in Canada.
-				This blog is a collection of notes on topics that I find interesting and exciting.
-        If you want to stay up to date, subscribe to my <a href="/rss.xml/" class="text-link">RSS</a>.
-    </p>
-
-	<ul class="flex flex-col gap-y-8">
-		{
-			posts.map((post) => (
-				<li class="flex justify-between gap-4">
-					<a href={`/${post.slug}/`} class="text-link">{post.data.title}</a>
-					<FormattedDate date={post.data.pubDate} class="shrink-0" />
-				</li>
-			))
-		}
-	</ul>
+  <main class="flow">
+    <Hero />
+    <div class="article-list wrapper sidebar" data-direction="rtl">
+      <div class="article-list__featured">
+        <h2>Featured</h2>
+        <FeaturedArticleList posts={featuredPosts} />
+        <div class="article-list__view-more"><a href="/writing">view all writing <Icon name="arrow-right" /></a></div>
+      </div>
+      <div class="article-list__topics">
+        <h2>Topics</h2>
+        <TopicList topics={topics} />
+      </div>
+    </div>
+    <Newsletter />
+  </main>
 </BaseLayout>
+
+<style>
+  main {
+    --flow-space: var(--space-xl);
+  }
+
+  .article-list {
+    --gutter: var(--space-m);
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: var(--space-l);
+  }
+
+  a {
+    font-size: var(--font-step-0);
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  a:hover {
+    color: var(--color-hover-text);
+  }
+
+  .article-list__view-more {
+    text-align: right;
+  }
+
+  .article-list__view-more > a {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    gap: var(--space-2xs);
+    letter-spacing: -0.03em;
+  }
+
+  [data-icon="arrow-right"] {
+    transform: translateY(0.1cap);
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform var(--transition-bounce);
+  }
+
+  .article-list__view-more:hover [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
+  }
+</style>

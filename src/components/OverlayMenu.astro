@@ -1,0 +1,138 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<script>
+  const closeNav = () => {
+    const nav = document.getElementById("myNav");
+
+    if (nav) {
+      nav.classList.remove('show-nav');
+      nav.classList.add('hide-nav')
+    }
+    document.body.classList.remove("no-scroll");
+  }
+
+  const menuToggle: HTMLElement | null = document.getElementById("closeNav");
+  menuToggle && menuToggle.addEventListener("click", closeNav);
+</script>
+
+<div id="myNav" class="overlay-container hide-nav">
+  <div class="overlay wrapper flow">
+    <div class="close-row">
+      <span class="logo-hidden">
+        <Icon name="logo2" />
+      </span>
+      <span class="close-icon" id="closeNav"><Icon name="close" /></span>
+    </div>
+    <ul class="menu-items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/about">About</a></li>
+      <!-- <li><a href="/now">Now</a></li> -->
+      <li><a href="/rss.xml/">RSS</a></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .overlay-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-overlay-bg);
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .overlay-container.show-nav {
+    opacity: 1;
+    right: 0;
+  }
+
+  .overlay-container.hide-nav {
+    opacity: 0;
+    right: -100%;
+  }
+
+  .overlay {
+    --gutter: var(--space-m);
+    padding-top: var(--space-s);
+  }
+
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .menu-items li {
+    opacity: 0;
+    transform: translateX(-20px);
+    padding-top: var(--space-m);
+    padding-bottom: var(--space-m);
+    border-bottom: 2px solid var(--color-text);
+  }
+
+  @media ( prefers-reduced-motion: no-preference ) {
+    .overlay-container.show-nav  {
+      transition: right 0.3s ease;
+    }
+
+    .overlay-container.hide-nav {
+      /* Longer opacity to give time for the slide out to finish before transitioning opacity */
+      transition: right 0.3s ease, opacity 1.5s ease;
+    }
+
+    .menu-items li {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition-delay: calc(var(--item-index, 0) * 0.1s + 0.2s);
+    }
+  }
+
+  .overlay-container.show-nav .menu-items li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .menu-items a {
+    text-decoration: none;
+    font-size: var(--font-step-4);
+    color: var(--color-text);
+    transition: color var(--transition-base);
+  }
+
+  .menu-items a:hover {
+    color: light-dark(var(--color-light-text), var(--color-light-accent));
+  }
+
+  .close-icon {
+    cursor: pointer;
+    color: var(--color-text);
+    transition: color var(--transition-base);
+  }
+
+  .close-icon:hover {
+    color: light-dark(var(--color-light-text), var(--color-light-accent));
+  }
+
+  [data-icon] {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  [data-icon="logo2"] {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+  }
+
+  .close-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

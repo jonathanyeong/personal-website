@@ -1,115 +1,208 @@
-@tailwind components;
+@import "./reset.css";
+@import "./spacing.css";
+@import "./typography.css";
+@import "./color.css";
+@import "./transitions.css";
 
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080398/4a6cb1fb-207c-45f0-b957-12530e1c9444.woff2") format("woff2"),url("fonts/6080398/9cf72f98-dafd-4b8a-ae89-de91ad1e9c63.woff") format("woff");
-		font-weight: normal;
-  	font-style: normal;
-}
+@import "./compositions/wrapper.css";
+@import "./compositions/flow.css";
+@import "./compositions/cluster.css";
+@import "./compositions/sidebar.css";
 
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080404/60418191-4098-46b7-99c6-d3a89c7cf073.woff2") format("woff2"),url("fonts/6080404/b57e5656-bd19-43e5-9b1d-0ef0c90330db.woff") format("woff");
-		font-weight: normal;
-  	font-style: italic;
-}
-
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080425/24956663-977c-4d34-b932-dfcd30fd760c.woff2") format("woff2"),url("fonts/6080425/6d628111-6a1c-4841-8452-76889dfe2ca2.woff") format("woff");
-		font-style: normal;
-		font-weight: 900;
+.astro-code,
+.astro-code span {
+  color: light-dark(var(--shiki-light), var(--shiki-dark));
+  background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+  /* Optional, if you also want font styles */
+  font-style: light-dark(var(--shiki-light-font-style), var(--shiki-dark-font-style));
+  font-weight: light-dark(var(--shiki-light-font-weight), var(--shiki-dark-font-weight));
+  text-decoration: light-dark(var(--shiki-light-text-decoration), var(--shiki-dark-text-decoration));
 }
 
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080407/e4ac10c9-913b-4dd7-b65a-25667db020bd.woff2") format("woff2"),url("fonts/6080407/6c3cd16b-a28c-45c9-8a09-1e5682202730.woff") format("woff");
-		font-weight: 600;
-  	font-style: normal;
-}
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080410/7e44deaa-6a24-44aa-8edb-58257c35b1ee.woff2") format("woff2"),url("fonts/6080410/76078c36-0071-4154-9d61-8abec794fc26.woff") format("woff");
-		font-weight: 600;
-  	font-style: italic;
-}
-
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080413/c215b44e-39cd-4bbf-ac84-7880a134e680.woff2") format("woff2"),url("fonts/6080413/9ee6fc24-6ccc-4bd0-8814-6581c3f452e5.woff") format("woff");
-		font-weight: 700;
-  	font-style: normal;
-}
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080416/1f242f0f-bb97-48e8-9c0a-31876e9624ef.woff2") format("woff2"),url("fonts/6080416/a42da96a-1525-4914-b0cc-290fc8d69ce0.woff") format("woff");
-		font-weight: 700;
-  	font-style: italic;
-}
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080420/671fbd35-afa7-4696-93cc-b69417939fde.woff2") format("woff2"),url("fonts/6080420/bc60477f-2742-4fb5-b9a2-80af70a3840a.woff") format("woff");
-		font-weight: 800;
-  	font-style: normal;
-}
-@font-face{
-		font-family:"Sofia Pro";
-		src:url("/fonts/6080422/c0bf2b57-2d71-4a27-9809-4178c248e64e.woff2") format("woff2"),url("fonts/6080422/39623631-8131-46db-ac25-368e7a321d69.woff") format("woff");
-		font-weight: 800;
-  	font-style: italic;
-}
-
-html {
-	visibility: visible;
-	opacity: 1;
-	font-family: Sofia Pro, system-ui, sans-serif;
-}
-
-a:before {
-	content: '';
-	width: 100%;
-	height: 2px;
-	position: absolute;
-	bottom: -3px;
-	opacity: 0;
-	transition: opacity 0.1s ease-in-out;
-}
-
-@keyframes rattle {
-  20% {
-    transform-origin: center;
-    transform: rotate(10deg);
-  }
-  40% {
-    transform-origin: center;
-    transform: rotate(-9deg);
-  }
-  60% {
-    transform-origin: center;
-    transform: rotate(16deg);
-  }
-  80% {
-    transform-origin: center;
-    transform: rotate(-9deg);
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.logo-icon svg {
-    height: inherit;
-    width: inherit;
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-step-0);
+  font-family: var(--font-base);
+  font-size-adjust: from-font;
+  margin: 0;
 }
 
-.logo-icon:hover {
-  animation: rattle 400ms ease-in-out 1;
+body.no-scroll {
+  overflow: hidden;
 }
 
+/* https://gomakethings.com/hidden-content-for-better-a11y/ */
+.screen-reader {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 
-@layer components {
-  .text-link {
-    @apply no-underline font-semibold dark:text-teal-400 text-logo-green before:bg-teal-600 before:dark:bg-teal-300 before:rounded-lg hover:before:opacity-100 hover:dark:text-teal-300 hover:text-teal-600 relative;
-  }
+::selection {
+  color: var(--color-light-text);
+  background: var(--color-selection-bg);
+}
 
-	.prose-text-link {
-		@apply prose-a:no-underline prose-a:font-semibold prose-a:text-logo-green dark:prose-a:text-teal-400 hover:prose-a:text-teal-600 hover:dark:prose-a:text-teal-300 hover:before:prose-a:opacity-100 prose-a:relative before:prose-a:bg-teal-700 before:dark:prose-a:bg-teal-300 before:prose-a:rounded-lg
-	}
+:is(input, button) {
+  font-family: var(--font-base);
+}
+
+:is(h1, h2, h3, h4, h5) {
+  letter-spacing: -0.01em;
+  margin-block-end: var(--space-m);
+  margin-block-start: 0;;
+}
+
+:is(h1, h2, h3, h4, h5) > a {
+  text-decoration: none;
+}
+
+article :is(h1, h2, h3, h4, h5, p) {
+  text-wrap: pretty;
+}
+
+article h1 {
+  font-size: var(--font-step-5);
+}
+
+article h2 {
+  font-size: var(--font-step-4);
+}
+
+article h3 {
+  font-size: var(--font-step-3);
+}
+
+article h4 {
+  font-size: var(--font-step-2);
+}
+
+article h5 {
+  font-size: var(--font-step-1);
+}
+
+article h6 {
+  font-size: var(--font-step-0);
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+figcaption {
+  padding-block-start: 0.5em;
+  font-size: var(--font-step-0);
+  font-style: italic;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 40rem;
+  object-position: top;
+  border-radius: 0.5rem;
+}
+
+blockquote {
+  border: 0.1em dotted var(--color-hover-text);
+  border-radius: var(--space-3xs);
+  box-shadow: 0.4em 0.4em 0 0 var(--color-about-bg);
+  margin: 0;
+  margin-block-start: var(--space-m);
+  margin-block-end: var(--space-m);
+  padding: var(--space-m) var(--space-l);
+  font-size: var(--font-step-1);
+  font-style: italic;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+pre {
+  position: relative;
+  padding: var(--space-l) var(--space-s);
+  border-radius: var(--space-3xs);
+}
+
+pre:has(code) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+code {
+  /* TODO: Move these colours into a variable. Comes from evergreen theme */
+  background: light-dark(#fdf6e3, #2d353b);
+  color: light-dark(#5c6a72, #d3c6aa);
+  padding: 0.2rem;
+  border-radius: var(--space-3xs);
+}
+
+a {
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4rem;
+  text-decoration-style: dotted;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-hover-text);
+}
+
+[role='list'][class],
+[role='tablist'][class] {
+  margin-block: 0;
+  padding: 0;
+}
+
+/* article ul {
+  padding-left: var(--space-l);
+}
+
+article li {
+  margin-bottom: var(--space-xs);
+  list-style: initial;
+} */
+
+.copy-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: light-dark(var(--color-dark-bg), var(--color-light-bg));;
+  color: light-dark(var(--color-light-text), var(--color-dark-text));
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-step--1);
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity var(--transition-bounce);
+}
+
+.copy-code:hover {
+  opacity: 0.8;
 }

@@ -1,0 +1,36 @@
+:root {
+  color-scheme: light dark;
+
+  --color-dark-bg: #182520;
+  --color-light-bg: #FEFDFB;
+  --color-dark-text: #111110;
+  --color-light-text: #FAFAFA;
+  --color-dark-accent: #597b46;
+  --color-green-2: #3D562F;
+  --color-green-1: #30453E;
+  --color-light-accent: #A3E0CA;
+  --color-logo-light: #BBB791;
+  --color-logo-dark: #A3E0CA;
+  --color-gray-0: #DEDED8;
+  --color-gray-1: #B6B6B1;
+  --color-gray-3: #6C6C68;
+  --color-selection-bg: #4a695e;
+  --color-about-bg-light: hsla(54deg, 49%, 79%, 20%);
+  --color-about-bg-dark: hsla(159deg, 17%, 35%, 20%);
+  --color-hero-bg-light: #F9F7EC;
+  --color-hero-bg-dark: #22332C;
+  --color-dark-text-opacity: hsla(60deg, 3%, 6%, 20%);
+  --color-light-text-opacity: hsla(0deg, 0%, 98%, 20%);
+  --color-overlay-light: #bbb791;
+  --color-overlay-dark: #4a695e;
+
+  --color-text: light-dark(var(--color-dark-text), var(--color-light-text));
+  --color-bg: light-dark(var(--color-light-bg), var(--color-dark-bg));
+  --color-hover-text: light-dark(var(--color-dark-accent), var(--color-light-accent));
+  --color-about-bg: light-dark(var(--color-about-bg-light), var(--color-about-bg-dark));
+  --color-text-opacity: light-dark(var(--color-dark-text-opacity), var(--color-light-text-opacity));
+  --color-hero-bg: light-dark(var(--color-hero-bg-light), var(--color-hero-bg-dark));
+  --color-hero-text: light-dark(var(--color-gray-3), var(--color-gray-0));
+  --color-hero-higlight: light-dark(var(--color-green-1), var(--color-logo-dark));
+  --color-overlay-bg: light-dark(var(--color-overlay-light), var(--color-overlay-dark));
+}

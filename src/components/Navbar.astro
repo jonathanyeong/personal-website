@@ -1,0 +1,275 @@
+---
+import { Icon } from 'astro-icon/components';
+import OverlayMenu from '@components/OverlayMenu.astro';
+
+---
+
+<script>
+  import { animate, stagger } from 'animejs';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animate('.icon', {
+      opacity: [0, 1],
+      translateY: ['1rem', 0],
+      duration: 600,
+      delay: stagger(50),
+    });
+  });
+
+
+  const preferredColorScheme = (() => {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  const updateIconVisibility = (theme: string) => {
+    const sunIcon = document.querySelector('[data-icon="sun"]');
+    const moonIcon = document.querySelector('[data-icon="moon"]');
+
+    if (theme === 'dark') {
+      sunIcon?.classList.remove('display-icon');
+      moonIcon?.classList.add('display-icon');
+    } else {
+      moonIcon?.classList.remove('display-icon');
+      sunIcon?.classList.add('display-icon');
+    }
+  }
+
+  const handleColorSchemeChange = (event: MediaQueryListEvent) => {
+    if (localStorage.getItem('theme')) {
+      return;
+    }
+    const preferredTheme = event.matches ? 'dark' : 'light'
+    document.documentElement.style.setProperty('color-scheme', preferredTheme)
+    updateIconVisibility(preferredTheme);
+  }
+
+  const setInitialThemeState = () => {
+    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
+    document.documentElement.style.setProperty('color-scheme', currentTheme)
+    updateIconVisibility(currentTheme);
+  }
+
+  const handleToggleClick = () => {
+    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+    updateIconVisibility(newTheme);
+    document.documentElement.style.setProperty('color-scheme', newTheme)
+    localStorage.setItem('theme', newTheme);
+  }
+
+  const handleMenuClick = () => {
+    const nav = document.getElementById("myNav");
+
+    if (nav) {
+      nav.classList.remove('hide-nav');
+      nav.classList.add('show-nav')
+    }
+    document.body.classList.add("no-scroll");
+  }
+
+  const setupEventListeners = () => {
+    const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    colorSchemeMediaQuery.addEventListener('change', handleColorSchemeChange)
+
+    const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
+    themeToggle && themeToggle.addEventListener("click", handleToggleClick);
+
+    const menuToggle: HTMLElement | null = document.getElementById("openMenu");
+    menuToggle && menuToggle.addEventListener("click", handleMenuClick);
+  }
+
+  setInitialThemeState()
+  setupEventListeners()
+</script>
+
+<header class="wrapper">
+  <div class="repel">
+    <div class="nav-container">
+      <a href="/">
+        <span class="screen-reader">JY Logo</span>
+        <Icon name="logo2" />
+      </a>
+      <nav class="nav">
+        <ul class="cluster nav-list" role="list">
+          <li><a href="/writing">Writing</a></li>
+          <li><a href="/about">About</a></li>
+          <!-- <li><a href="/now">Now</a></li> -->
+          <li><a href="https://newsletter.jonathanyeong.com/" class="newsletter-link" target="_blank">Newsletter <Icon name="external-link" /></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="icons-container">
+      <ul class="cluster" role="list">
+        <li class="icon"><a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a></li>
+        <li class="icon"><a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a></li>
+        <li class="icon"><a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a></li>
+        <li class="icon">
+          <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
+            <Icon name="sun" />
+            <Icon name="moon" />
+          </button>
+        </li>
+      </ul>
+      <span class="hamburger-nav-icon" id="openMenu"><Icon name="menu" /></span>
+    </div>
+  </div>
+  <OverlayMenu />
+</header>
+
+<style>
+  header {
+    --gutter: var(--space-m);
+
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
+  }
+
+  /* TODO: Move this in global class if I reuse it */
+  .repel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: var(--repel-vertical-alignment, center);
+    gap: var(--gutter, var(--space-m));
+  }
+
+  .menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  .nav {
+    display: none;
+
+    @media screen and (min-width: 760px) {
+      display: block;
+    }
+  }
+
+  .nav-container,
+  .icons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+
+  .nav-list {
+    margin: 0;
+    /* Visual styling - magic number by eye */
+    transform: translateY(-0.5ex)
+  }
+
+  .nav-list a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+    text-decoration-color: color-mix(in srgb, var(--color-text) 0%, transparent);
+    transition: text-decoration-color var(--transition-base);
+  }
+
+  /* TODO: This should be moved to a utility */
+  .nav-list a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    text-decoration-style: dotted;
+    text-decoration-color: color-mix(in srgb, var(--color-text) 100%, transparent);
+  }
+
+  .hamburger-nav-icon {
+    display: block;
+
+    @media screen and (min-width: 760px) {
+      display: none;
+    }
+  }
+
+  button {
+    opacity: 1;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    color: var(--color-text);
+    transition: color var(--transition-movement);
+  }
+
+  button:hover {
+    color: var(--color-hover-text);
+  }
+
+  [data-icon] {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  [data-icon="youtube"] {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  [data-icon="logo2"] {
+    width: 2rem;
+    height: 2rem;
+    transform: scale(1);
+    transition: transform var(--transition-bounce);
+  }
+
+  [data-icon="logo2"]:hover {
+    transform: scale(1.1);
+  }
+
+  [data-icon="sun"],
+  [data-icon="moon"] {
+    display: none;
+  }
+
+  [data-icon="sun"].display-icon,
+  [data-icon="moon"].display-icon {
+    display: block;
+  }
+
+  [data-icon="logo2"] {
+    color: light-dark(var(--color-logo-light), var(--color-logo-dark));
+  }
+
+  [data-icon="menu"] {
+    cursor: pointer;
+    opacity: 1;
+    transition: color var(--transition-base);
+    color: var(--color-text);
+  }
+
+  [data-icon="menu"]:hover {
+    color: var(--color-hover-text);
+  }
+
+  .newsletter-link {
+    display: inline-flex;
+    gap: var(--space-3xs);
+    align-items: center;
+  }
+
+  .newsletter-link:hover [data-icon="external-link"] {
+    display: inline-block;
+  }
+
+  .newsletter-link [data-icon="external-link"] {
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(0.08cap);
+  }
+
+  .icon {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+</style>

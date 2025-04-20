@@ -1,7 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Navbar from '@components/Navbar.astro';
+import Footer from '@components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 const { title, description, pubDate } = Astro.props;
 
@@ -9,11 +9,13 @@ const headTitle = title || SITE_TITLE;
 const headDescription = description || SITE_DESCRIPTION;
 const headPubDate = pubDate || new Date().toISOString();
 ---
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
-		<link
+  <head>
+    <link rel="preload" href="/fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
+    <link
                   rel="alternate"
                   type="application/rss+xml"
                   title={SITE_TITLE}
@@ -21,12 +23,19 @@ const headPubDate = pubDate || new Date().toISOString();
                 />
 
 
-	</head>
-	<body class="flex flex-col h-screen max-w-prose px-4 lg:px-0 dark:bg-slate-800 bg-slate-50 mx-auto text-lg">
-		<Header />
-		<main class="flex-grow dark:text-slate-200">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
 </html>
+
+<style>
+  body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr); /* This is the key addition */
+  }
+</style>

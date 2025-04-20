@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+<div class="article-card flow">
+  <span class="article-card__title">
+    <a href={`/writing/${post.slug}/`}>
+      {post.data.title}
+    </a>
+  </span>
+  <p>
+    {post.data.description}
+  </p>
+  <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
+</div>
+
+<style>
+  .article-card {
+    --flow-space: var(--space-s);
+
+    font-size: var(--font-step-0);
+    padding-bottom: var(--space-m);
+    border-bottom: 1px solid var(--color-gray-0);
+  }
+
+  .article-card__title,
+  .article-card__read-more {
+    display: block;
+  }
+
+  .article-card__title {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-xs-m);
+    align-items: start;
+
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .article-card__title a {
+    text-wrap: wrap;
+  }
+
+  a {
+    font-size: var(--font-step-1);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  a:hover {
+    color: var(--color-hover-text);
+  }
+
+  .article-card__read-more {
+    display: flex;
+    font-size: var(--font-step-0);
+    text-transform: uppercase;
+    align-items: center;
+    gap: var(--space-2xs);
+    letter-spacing: 0;
+  }
+
+  [data-icon="arrow-right"] {
+    transform: translateY(0.1cap);
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform var(--transition-bounce);
+  }
+
+  .article-card__read-more:hover [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
+  }
+
+  .article-card:has(.article-card__title a:hover) .article-card__read-more {
+    color: var(--color-hover-text);
+  }
+
+  .article-card:has(.article-card__title a:hover) [data-icon="arrow-right"] {
+    transform: translateY(0.1cap) translateX(0.2rem);
+  }
+
+  .article-card:has(.article-card__read-more:hover) .article-card__title a {
+    color: var(--color-hover-text);
+  }
+</style>

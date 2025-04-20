@@ -1,0 +1,7 @@
+:root {
+  --transition-base: 200ms ease;
+  --transition-movement: 200ms linear;
+  --transition-bounce: 250ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+  --transition-in: 300ms ease-in;
+  --transition-out: 300ms ease-out;
+}
