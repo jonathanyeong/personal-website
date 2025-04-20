@@ -34,13 +34,15 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
 </BaseLayout>
 
 <style>
+  main {
+    --flow-space: var(--space-xl);
+  }
+
   .article-list {
     --gutter: var(--space-m);
-    margin-top: var(--space-3xl);
   }
 
   h2 {
-    font-size: var(--font-step-3);
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: -0.03em;
