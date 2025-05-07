@@ -2,7 +2,213 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import profilePic from "@assets/profile_pic_2.jpeg";
+import indieSleeping from "@assets/indiesleeping.jpeg";
 ---
+
+<script>
+   type Point = {
+    x: number;
+    y: number;
+  };
+
+  type DotAction = {
+    type: 'dot';
+    point: Point;
+    size: number;
+    color: string;
+  };
+
+  type LineAction = {
+    type: 'line';
+    from: Point;
+    to: Point;
+    width: number;
+    color: string;
+  };
+
+  type DrawingAction = DotAction | LineAction;
+
+  type CanvasState = {
+    canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
+    image: HTMLImageElement;
+    drawingActions: DrawingAction[];
+    isDrawing: boolean;
+    prevPoint: Point | null;
+    dpr: number,
+    config: {
+      lineWidth: number;
+      lineColor: string;
+      dotSize: number;
+    };
+  };
+
+  const drawDot = (state: CanvasState, point: Point, size: number, color: string) => {
+    const { ctx } = state;
+
+    ctx.beginPath();
+    ctx.fillStyle = color;
+    ctx.fillRect(point.x, point.y, size, size);
+    ctx.closePath();
+  }
+
+  // Draw a line on the canvas
+  const drawLine = (state: CanvasState, from: Point, to: Point, width: number, color: string) => {
+    const { ctx } = state;
+
+    ctx.beginPath();
+    ctx.moveTo(from.x, from.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = width;
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  const getCanvasCoordinates = (e: MouseEvent, canvas: HTMLCanvasElement, dpr: number) : Point => {
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+      x: Math.round((e.clientX - rect.left) * (canvas.width / rect.width / dpr)),
+      y: Math.round((e.clientY - rect.top) * (canvas.height / rect.height / dpr))
+    };
+  }
+
+  const handleMouseDown = (e: MouseEvent, state: CanvasState) => {
+    const { canvas, config, dpr } = state;
+    state.isDrawing = true;
+
+    const point = getCanvasCoordinates(e, canvas, dpr);
+    state.prevPoint = point;
+
+    // Draw and record a dot
+    const dotAction: DotAction = {
+      type: 'dot',
+      point,
+      size: config.dotSize,
+      color: config.lineColor
+    };
+
+    state.drawingActions.push(dotAction);
+    drawDot(state, point, config.dotSize, config.lineColor);
+  }
+
+  // Mouse move event handler
+  const handleMouseMove = (e: MouseEvent, state: CanvasState) => {
+    if (!state.isDrawing || !state.prevPoint) return;
+
+    const { canvas, config, dpr } = state;
+    const currentPoint = getCanvasCoordinates(e, canvas, dpr);
+
+    // Draw and record a line
+    const lineAction: LineAction = {
+      type: 'line',
+      from: state.prevPoint,
+      to: currentPoint,
+      width: config.lineWidth,
+      color: config.lineColor
+    };
+
+    state.drawingActions.push(lineAction);
+    drawLine(state, state.prevPoint, currentPoint, config.lineWidth, config.lineColor);
+
+    // Update the previous point
+    state.prevPoint = currentPoint;
+  }
+
+  // Mouse up event handler
+  const handleMouseUp = (state: CanvasState) => {
+    state.isDrawing = false;
+    state.prevPoint = null;
+  }
+
+  const setupEventListeners = (state: CanvasState) => {
+    const { canvas } = state;
+
+    canvas.addEventListener("mousedown", (e) => handleMouseDown(e, state), false);
+    canvas.addEventListener("mousemove", (e) => handleMouseMove(e, state), false);
+    canvas.addEventListener("mouseup", () => handleMouseUp(state), false);
+    canvas.addEventListener("mouseout", () => handleMouseUp(state), false);
+  }
+
+  const redrawCanvas = (state: CanvasState) => {
+    const { ctx, canvas, image, drawingActions, dpr } = state;
+
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the background image
+    ctx.drawImage(
+      image,
+      0,
+      0,
+      canvas.width / dpr,
+      (canvas.height / dpr) * 1.2 // 1.2 is a magic number because the image is not perfectly square
+    );
+
+    // Redraw all drawing actions
+    drawingActions.forEach(action => {
+      if (action.type === 'dot') {
+        drawDot(state, action.point, action.size, action.color);
+      } else if (action.type === 'line') {
+        drawLine(state, action.from, action.to, action.width, action.color);
+      }
+    });
+  }
+
+  const resizeCanvas = (state: CanvasState) => {
+    // Resizing the canvas for higher pixel density screens.
+    const { canvas, ctx } = state;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    // Reset on resize in case the pixel density is different
+    state.dpr = dpr
+    redrawCanvas(state);
+  }
+
+  const initializeCanvasWithImage = (state: CanvasState) => {
+    resizeCanvas(state);
+    setupEventListeners(state);
+
+    // Set up resize handling
+    window.addEventListener('resize', () => resizeCanvas(state));
+  }
+
+  const setupCanvas = () => {
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const imageElement = document.getElementById('myImage') as HTMLImageElement;
+    if (!canvas || !imageElement) {
+      console.error("Canvas or image element not found");
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.error("Could not get canvas context");
+      return;
+    }
+
+    const state: CanvasState = {
+      canvas,
+      ctx,
+      image: imageElement,
+      drawingActions: [],
+      isDrawing: false,
+      prevPoint: null,
+      dpr: window.devicePixelRatio || 1,
+      config: {
+        lineWidth: 3,
+        lineColor: "coral",
+        dotSize: 3
+      }
+    };
+    initializeCanvasWithImage(state);
+  }
+
+  setupCanvas()
+</script>
 
 <BaseLayout>
   <main class="wrapper">
@@ -33,10 +239,29 @@ import profilePic from "@assets/profile_pic_2.jpeg";
       <div class="about__profile-pic">
         <Image src={profilePic} alt="Jono Yeong's face. I'm smiling and wearing a hat, with a grey-blue t-shirt." />
       </div>
+    </div>
+    <h2>Playground</h2>
+    <canvas id="canvas"></canvas>
+    <!-- We can't set display none because chrome won't fetch the image -->
+    <div style="visibility:hidden; position:absolute; width:1px; height:1px; overflow:hidden;">
+      <Image src={indieSleeping} alt="Jono Yeong's face. I'm smiling and wearing a hat, with a grey-blue t-shirt." id="myImage" />
+    </div>
   </main>
 </BaseLayout>
 
 <style>
+  h2 {
+    margin-top: var(--space-xl);
+  }
+  canvas {
+    margin-top: var(--space-m);
+
+    width: 400px;
+    height: 400px;
+    border: 2px solid var(--color-dark-accent);
+    border-radius: var(--space-2xs);
+  }
+
   main {
     --gutter: var(--space-m);
     margin-top: var(--space-xl);
