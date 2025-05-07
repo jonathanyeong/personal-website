@@ -249,7 +249,11 @@ import indieSleeping from "@assets/indiesleeping.jpeg";
         dotSize: 3
       }
     };
-    initializeCanvasWithImage(state);
+    if (imageElement.complete) {
+      initializeCanvasWithImage(state);
+    } else {
+      imageElement.onload = () => initializeCanvasWithImage(state);
+    }
   }
 
   setupCanvas()
