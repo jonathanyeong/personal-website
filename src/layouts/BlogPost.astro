@@ -2,8 +2,9 @@
 import type { CollectionEntry } from 'astro:content';
 import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from '@components/FormattedDate.astro';
 import Newsletter from '@components/Newsletter.astro';
+import Comments from '@components/Comments.astro';
 
 type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
@@ -73,6 +74,7 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
       <slot />
     </article>
+    <Comments />
     <Newsletter />
 </BaseLayout>
 
