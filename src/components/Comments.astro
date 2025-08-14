@@ -8,6 +8,7 @@
 	  Like this post on Bluesky to see your face on this page
   </a>
   <ul data-bsky-likes class="post__likesList"></ul>
+  <ul data-bsky-comments class="post__commentsList"></ul>
 </section>
 
 <script>
@@ -18,11 +19,13 @@
   const container = document.querySelector("[data-bsky-container]");
   const likesContainer = document.querySelector("[data-bsky-likes]");
   const likesCount = document.querySelector("[data-bsky-likes-count]");
+  const commentsContainer = document.querySelector("[data-bsky-comments]");
 
   const myDid = "did:plc:sypvcjg7jtlw2ivzumlcxto5";
   const bskyAPI = "https://public.api.bsky.app/xrpc/";
   const getLikesURL = `${bskyAPI}app.bsky.feed.getLikes?limit=${LIMIT}&uri=`;
   const getPostURL = `${bskyAPI}app.bsky.feed.getPosts?uris=`;
+  const bskyPostComments = `${bskyAPI}app.bsky.feed.getPostThread?depth=1`;
 
   function drawHowManyMore(postLikesCount, likesActorLength) {
     if (postLikesCount > LIMIT) {
@@ -57,19 +60,50 @@
     drawHowManyMore(postLikesCount, likesActors.length);
   }
 
+  function drawComments(comments) {
+    for (const comment of comments) {
+      const commentEl = document.createElement("li");
+      commentEl.classList.add("post__comment");
+
+      commentEl.innerHTML = `
+        <a
+          href="https://bsky.app/profile/${comment.post.author.handle}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="${comment.post.author.avatar.replace("avatar", "avatar_thumbnail")}"
+            alt="${comment.post.author.displayName}"
+          />
+        </a>
+        <div>
+          <strong>${comment.post.author.displayName}</strong>
+          <p>${comment.post.record.text}</p>
+        </div>
+      `
+      commentsContainer?.appendChild(commentEl)
+    }
+  }
+
   if (bskyPostId !== "null") {
+    // https://lionsmane.us-east.host.bsky.network/xrpc/app.bsky.feed.getPostThread?uri=at://jonathanyeong.com/app.bsky.feed.post/3lnbfato4i22d&depth=10
+    // https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?depth=1&at://did:plc:sypvcjg7jtlw2ivzumlcxto5/app.bsky.feed.post/3lnbfato4i22d
     const postUri = `at://${myDid}/app.bsky.feed.post/${bskyPostId}`;
     try {
       const bskyPost = await fetch(getPostURL + postUri);
       const bskyPostLikes = await fetch(getLikesURL + postUri);
+      const bskyComments = await fetch(bskyPostComments + "&uri=" + postUri)
       const postData = await bskyPost.json();
       const likesData = await bskyPostLikes.json();
-
+      const commentsData = await bskyComments.json();
       const totalLikesCount = postData.posts[0].likeCount;
 
       if (likesData.likes.length > 0) {
         likesCount.textContent = totalLikesCount;
         drawLikes(likesData.likes, totalLikesCount);
+      }
+      if (commentsData.thread.replies.length > 0) {
+        drawComments(commentsData.thread.replies)
       }
     } catch (error) {
       container.remove();
