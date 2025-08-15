@@ -73,7 +73,7 @@ const bskyPostId = "3lnbfato4i22d"
     </p>
 
     <slot />
-    <hr />
+    <hr class="blogPost__divider" />
     <Comments bskyPostId={bskyPostId} />
   </article>
   <Newsletter />
@@ -84,7 +84,7 @@ const bskyPostId = "3lnbfato4i22d"
     --gutter: var(--space-m);
     --wrapper-max-width: 70ch;
 
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-xl);
   }
 
   .title {
@@ -115,6 +115,13 @@ const bskyPostId = "3lnbfato4i22d"
     gap: var(--space-2xs);
     opacity: 1;
   }
+
+  .blogPost__divider {
+    border: 1px solid var(--color-text-opacity);
+    margin-block-end: var(--space-l);
+    margin-block-start: var(--space-l);
+  }
+
   /* Revisit when I implement table of contents */
   /* article {
     @media screen and (min-width: 940px) {
