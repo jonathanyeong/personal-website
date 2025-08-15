@@ -1,14 +1,17 @@
 <meta data-bsky-post-id="3lnbfato4i22d" />
 
 <section class="post__likes" data-bsky-container>
-  <h3 class="post__likesTitle">
+  <h4 class="post__likesTitle">
     🦋 <span data-bsky-likes-count></span> likes on Bluesky
-  </h3>
+  </h4>
   <a class="post__likesCta" href="https://bsky.app/profile/jonathanyeong.com/post/3lnbfato4i22d" target="_blank">
-	  Like this post on Bluesky to see your face on this page
+	  Like this post on Bluesky to see your face here!
   </a>
   <ul data-bsky-likes class="post__likesList"></ul>
-  <ul data-bsky-comments class="post__commentsList"></ul>
+  <h4 class="post__commentsTitle">
+    Comments
+  </h4>
+  <ul data-bsky-comments class="post__commentsList flow"></ul>
 </section>
 
 <script>
@@ -60,34 +63,35 @@
     drawHowManyMore(postLikesCount, likesActors.length);
   }
 
+  function atUriToBlueskyUrl(atUri, authorHandle) {
+    const postId = atUri.split('/').pop();
+    return `https://bsky.app/profile/${authorHandle}/post/${postId}`;
+  }
+
   function drawComments(comments) {
     for (const comment of comments) {
       const commentEl = document.createElement("li");
       commentEl.classList.add("post__comment");
-
+      console.log(comment)
+      const postUrl = atUriToBlueskyUrl(comment.post.uri, comment.post.author.handle)
       commentEl.innerHTML = `
-        <a
-          href="https://bsky.app/profile/${comment.post.author.handle}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div class="post__comment__title">
           <img
+            class="post__comment__avatar"
             src="${comment.post.author.avatar.replace("avatar", "avatar_thumbnail")}"
             alt="${comment.post.author.displayName}"
           />
-        </a>
-        <div>
-          <strong>${comment.post.author.displayName}</strong>
-          <p>${comment.post.record.text}</p>
+          <span class="post__comment__titleAuthor">${comment.post.author.displayName}</span>
+          <span class="post__comment__titleHandle">@${comment.post.author.handle}</span>
         </div>
+        <p class="post__comment__body">${comment.post.record.text}</p>
+        <a class="post__comment__viewCommentLink" href="${postUrl}" target="_blank">View on Bluesky</a>
       `
       commentsContainer?.appendChild(commentEl)
     }
   }
 
   if (bskyPostId !== "null") {
-    // https://lionsmane.us-east.host.bsky.network/xrpc/app.bsky.feed.getPostThread?uri=at://jonathanyeong.com/app.bsky.feed.post/3lnbfato4i22d&depth=10
-    // https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?depth=1&at://did:plc:sypvcjg7jtlw2ivzumlcxto5/app.bsky.feed.post/3lnbfato4i22d
     const postUri = `at://${myDid}/app.bsky.feed.post/${bskyPostId}`;
     try {
       const bskyPost = await fetch(getPostURL + postUri);
@@ -110,3 +114,78 @@
     }
   }
 </script>
+
+<style is:global>
+  .post__like__avatar,
+  .post__comments__avatar {
+    border-radius: 100%;
+  }
+
+  img.post__like__avatar,
+  img.post__comments__avatar {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .post__likesList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .post__like {
+    width: 3rem;
+    aspect-ratio: 1/1;
+    margin-right: -1rem;
+    filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 2px 2px);
+  }
+
+  .post__commentsList {
+    --flow-space: var(--space-2xs);
+    list-style: none;
+    padding: 0;
+  }
+
+  .post__comment {
+    border-radius: 1rem;
+    background-color: var(--color-hero-bg);
+    padding: var(--space-m) var(--space-s);
+  }
+
+  .post__comment__title {
+    align-items: end;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-xs);
+  }
+
+  .post__comment__avatar {
+    max-width: var(--space-m);
+    border-radius: 100%;
+  }
+
+  .post__comment__titleHandle {
+    color: var(--color-hero-text);
+  }
+
+  .post__comment__body {
+    margin-bottom: var(--space-xs);
+  }
+
+  .post__comment__viewCommentLink {
+    font-size: 1.1rem;
+  }
+
+  .post__comment__titleAuthor {
+    font-weight: 700;
+  }
+
+  .post__likesTitle,
+  .post__commentsTitle {
+    margin-block-end: var(--space-s);
+  }
+</style>

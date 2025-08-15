@@ -61,21 +61,22 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
 <BaseLayout title={title} description={description} pubDate={pubDate.toISOString()}>
   <article class="wrapper flow">
-      <h1 class="title">
-          {title}
-      </h1>
-      <p class="metadata">
-          <FormattedDate date={displayDate} /> <Icon name="minus" /> {
-              topics.map((topic: string) => (
-                  <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
-              ))
-          }
-      </p>
+    <h1 class="title">
+        {title}
+    </h1>
+    <p class="metadata">
+        <FormattedDate date={displayDate} /> <Icon name="minus" /> {
+            topics.map((topic: string) => (
+                <a class="text-link" href={`/topics/${topic}/`}>#{topic.toLowerCase()}</a>
+            ))
+        }
+    </p>
 
-      <slot />
-    </article>
+    <slot />
+    <hr />
     <Comments />
-    <Newsletter />
+  </article>
+  <Newsletter />
 </BaseLayout>
 
 <style>
