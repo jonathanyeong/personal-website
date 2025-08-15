@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 import Newsletter from '@components/Newsletter.astro';
-import Comments from '@components/Comments.astro';
+import BlueskyPostReactions from '@components/BlueskyPostReactions.astro';
 
 type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
@@ -73,7 +73,7 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
     <slot />
     <hr class="blogPost__divider" />
-    {bskyPostId && <Comments bskyPostId={bskyPostId} />}
+    {bskyPostId && <BlueskyPostReactions bskyPostId={bskyPostId} />}
   </article>
   <Newsletter />
 </BaseLayout>
