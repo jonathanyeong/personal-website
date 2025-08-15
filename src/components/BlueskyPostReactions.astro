@@ -74,18 +74,29 @@ const { bskyPostId } = Astro.props;
 
   function drawComments(comments: any[]) {
     for (const comment of comments) {
+      console.log(comment)
       const commentEl = document.createElement("li");
       commentEl.classList.add("post__comment");
       const postUrl = atUriToBlueskyUrl(comment.post.uri, comment.post.author.handle)
+      const commentDateString = comment.post.record.createdAt;
+      const commentDate = new Date(commentDateString);
+      const formattedCommentDate = commentDate.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
       commentEl.innerHTML = `
         <div class="post__comment__title">
-          <img
-            class="post__comment__avatar"
-            src="${comment.post.author.avatar.replace("avatar", "avatar_thumbnail")}"
-            alt="${comment.post.author.displayName}"
-          />
-          <span class="post__comment__titleAuthor">${comment.post.author.displayName}</span>
-          <span class="post__comment__titleHandle">@${comment.post.author.handle}</span>
+          <div class="post__comment__titleLeft">
+            <img
+              class="post__comment__avatar"
+              src="${comment.post.author.avatar.replace("avatar", "avatar_thumbnail")}"
+              alt="${comment.post.author.displayName}"
+            />
+            <span class="post__comment__titleAuthor">${comment.post.author.displayName}</span>
+            <span class="post__comment__titleHandle">@${comment.post.author.handle}</span>
+          </div>
+          <span class="post__comment__titleDate">${formattedCommentDate}</span>
         </div>
         <p class="post__comment__body">${comment.post.record.text}</p>
         <a class="post__comment__viewCommentLink" href="${postUrl}" target="_blank">View on Bluesky</a>
@@ -165,11 +176,21 @@ const { bskyPostId } = Astro.props;
   }
 
   .post__comment__title {
-    align-items: end;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     gap: var(--space-2xs);
     margin-bottom: var(--space-xs);
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .post__comment__titleLeft {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: var(--space-2xs);
+    align-items: end;
   }
 
   .post__comment__avatar {
@@ -177,8 +198,14 @@ const { bskyPostId } = Astro.props;
     border-radius: 100%;
   }
 
-  .post__comment__titleHandle {
+  .post__comment__titleHandle,
+  .post__comment__titleDate {
     color: var(--color-hero-text);
+  }
+
+  .post__comment__titleDate {
+    font-size: 1rem;
+    font-style: italic;
   }
 
   .post__comment__body {
@@ -200,6 +227,5 @@ const { bskyPostId } = Astro.props;
 
   .post__noComment {
     font-style: italic;
-
   }
 </style>
