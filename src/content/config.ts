@@ -21,7 +21,8 @@ const blog = defineCollection({
 		topics: z
 			.array(z.string())
 			.optional()
-			.default([])
+			.default([]),
+		bskyPostId: z.string().optional()
 	}),
 });
 
