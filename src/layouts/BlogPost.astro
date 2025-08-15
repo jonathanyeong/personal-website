@@ -16,7 +16,7 @@ const showUpdatedDate = () => {
 }
 
 const displayDate = showUpdatedDate() ? updatedDate : pubDate
-
+const bskyPostId = "3lnbfato4i22d"
 ---
 
 <script>
@@ -74,7 +74,7 @@ const displayDate = showUpdatedDate() ? updatedDate : pubDate
 
     <slot />
     <hr />
-    <Comments />
+    <Comments bskyPostId={bskyPostId} />
   </article>
   <Newsletter />
 </BaseLayout>

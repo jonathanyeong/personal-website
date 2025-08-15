@@ -1,10 +1,14 @@
-<meta data-bsky-post-id="3lnbfato4i22d" />
+---
+const { bskyPostId } = Astro.props;
+---
+
+<meta data-bsky-post-id={bskyPostId} />
 
 <section class="post__likes" data-bsky-container>
   <h4 class="post__likesTitle">
     🦋 <span data-bsky-likes-count></span> likes on Bluesky
   </h4>
-  <a class="post__likesCta" href="https://bsky.app/profile/jonathanyeong.com/post/3lnbfato4i22d" target="_blank">
+  <a class="post__likesCta" href=`https://bsky.app/profile/jonathanyeong.com/post/${bskyPostId}` target="_blank">
 	  Like this post on Bluesky to see your face here!
   </a>
   <ul data-bsky-likes class="post__likesList"></ul>
@@ -137,9 +141,9 @@
   }
 
   .post__like {
-    width: 3rem;
+    width: 3.5rem;
     aspect-ratio: 1/1;
-    margin-right: -1rem;
+    margin-right: -0.5rem;
     filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 2px 2px);
   }
 
