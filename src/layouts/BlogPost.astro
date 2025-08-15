@@ -8,7 +8,7 @@ import Comments from '@components/Comments.astro';
 
 type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
 
-const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead, bskyPostId } = Astro.props;
 
 
 const showUpdatedDate = () => {
@@ -16,7 +16,6 @@ const showUpdatedDate = () => {
 }
 
 const displayDate = showUpdatedDate() ? updatedDate : pubDate
-const bskyPostId = "3lnbfato4i22d"
 ---
 
 <script>
@@ -74,7 +73,7 @@ const bskyPostId = "3lnbfato4i22d"
 
     <slot />
     <hr class="blogPost__divider" />
-    <Comments bskyPostId={bskyPostId} />
+    {bskyPostId && <Comments bskyPostId={bskyPostId} />}
   </article>
   <Newsletter />
 </BaseLayout>
