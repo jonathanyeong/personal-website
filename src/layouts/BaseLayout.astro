@@ -3,11 +3,14 @@ import BaseHead from '@components/BaseHead.astro';
 import Navbar from '@components/Navbar.astro';
 import Footer from '@components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { VisualEditing } from "@sanity/astro/visual-editing";
 const { title, description, pubDate } = Astro.props;
 
 const headTitle = title || SITE_TITLE;
 const headDescription = description || SITE_DESCRIPTION;
 const headPubDate = pubDate || new Date().toISOString();
+const visualEditingEnabled =
+  import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == "true";
 ---
 
 <!DOCTYPE html>
@@ -28,6 +31,7 @@ const headPubDate = pubDate || new Date().toISOString();
     <Navbar />
     <slot />
     <Footer />
+    <VisualEditing enabled={visualEditingEnabled} />
   </body>
 </html>
 

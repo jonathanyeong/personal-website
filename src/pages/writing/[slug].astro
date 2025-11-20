@@ -2,6 +2,7 @@
 import type { SanityDocument } from "@sanity/client";
 import { loadQuery } from "../../sanity/lib/load-query";
 import PortableText from "../../components/PortableText.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const { data: posts } = await loadQuery<SanityDocument[]>({
@@ -19,11 +20,13 @@ export async function getStaticPaths() {
 
 const { params } = Astro;
 
-const { data: post } = await loadQuery<{ title: string; body: any[] }>({
+const { data: post } = await loadQuery<{ title: string; body: any[], publishedAt: Date }>({
   query: `*[_type == "post" && slug.current == $slug][0]`,
   params,
 });
 ---
 
-<h1>A post about {post.title}</h1>
-<PortableText portableText={post.body} />
+<BaseLayout title={post.title} description={post.body}>
+	<h1>A post about {post.title}</h1>
+	<PortableText portableText={post.body} />
+</BaseLayout>

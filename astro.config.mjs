@@ -20,7 +20,10 @@ export default defineConfig({
       dataset: 'blog-posts',
       useCdn: false, // See note on using the CDN
       apiVersion: "2025-11-19", // insert the current date to access the latest version of the API
-      studioBasePath: '/studio' // If you want to access the Studio on a route
+      studioBasePath: '/studio', // If you want to access the Studio on a route
+      stega: {
+        studioUrl: "/studio",
+      },
     }),
     react()],
   markdown: {
