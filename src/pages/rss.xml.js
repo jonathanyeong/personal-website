@@ -25,7 +25,7 @@ export async function GET(context) {
 		items: posts.map((post) => {
 			let content;
 			if (post.collection === 'ghostCmsPosts') {
-				content = post.excerpt || '';
+				content = post.description || '';
 			} else {
 				content = sanitizeHtml(parser.render(post.body || ''));
 			}
