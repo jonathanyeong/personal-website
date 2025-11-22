@@ -25,7 +25,6 @@ export async function GET(context) {
 		items: posts.map((post) => {
 			let content;
 
-			// Ghost posts have HTML in rendered.html, while markdown posts have body
 			if (post.rendered?.html) {
 				content = sanitizeHtml(post.rendered.html);
 			} else if (post.body) {
