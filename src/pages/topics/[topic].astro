@@ -26,7 +26,7 @@ const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includ
     <ul class="article-list flow">
       {
         postsInTopic.map((post) => {
-          const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
+          const slug = post.id;
           return (
             <li class="article-list__item">
               <a href={`/writing/${slug}/`}>{post.data.title}</a>

@@ -41,11 +41,10 @@ export function ghostPostLoader(): Loader {
 
 
         for (const post of allPosts) {
-          const id = post.id
+          const id = post.slug
           const bskyPostId = extractBskyPostId(post.codeinjection_foot || '');
           // Transformation done here to match the schema of our md blog collection.
           const rawData = {
-            slug: post.slug,
             title: post.title,
             description: post.custom_excerpt || post.excerpt || '',
             pubDate: post.published_at ?  new Date(post.published_at): undefined,

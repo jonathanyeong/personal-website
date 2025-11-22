@@ -23,7 +23,7 @@ export async function GET(context) {
 		description: SITE_DESCRIPTION,
 		site: context.site,
 		items: posts.map((post) => {
-			const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
+			const slug = post.id
 
 			let content;
 			if (post.collection === 'ghostCmsPosts') {

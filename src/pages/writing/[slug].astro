@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 	}));
 
 	const ghostPaths = ghostPosts.map((post) => ({
-		params: { slug: post.data.slug }, // We could use generateId I think
+		params: { slug: post.id },
 		props: post,
 	}));
 	return [...blogPaths, ...ghostPaths];

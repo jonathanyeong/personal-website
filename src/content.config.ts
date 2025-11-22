@@ -31,7 +31,6 @@ const blog = defineCollection({
 const ghostCmsPosts = defineCollection({
   loader: ghostPostLoader(),
 	schema: z.object({
-    slug: z.string(),
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
