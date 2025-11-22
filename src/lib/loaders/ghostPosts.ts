@@ -1,5 +1,5 @@
 import type { Loader, LoaderContext } from 'astro/loaders';
-import { ghostClient } from '../lib/ghost';
+import { ghostClient } from '@lib/api/ghost';
 
 
 function extractBskyPostId(codeInjection: string): string | undefined {

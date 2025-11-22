@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { ghostPostLoader } from './loaders/ghost';
+import { ghostPostLoader } from '@lib/loaders/ghostPosts';
 
 const blog = defineCollection({
   loader: glob({ pattern: "*.md", base: "src/content/blog" }),
