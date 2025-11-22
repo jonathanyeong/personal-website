@@ -24,15 +24,10 @@ export async function GET(context) {
 		site: context.site,
 		items: posts.map((post) => {
 			let content;
-			if (post.collection === 'ghostCmsPosts') {
-				content = post.description || '';
-			} else {
-				content = sanitizeHtml(parser.render(post.body || ''));
-			}
 
 			return {
 				link: `/writing/${post.id}/`,
-				content: content + RSS_ONLY_MESSAGE,
+				content: sanitizeHtml(parser.render(post.body || '')) + RSS_ONLY_MESSAGE,
 				...post.data,
 			};
 		}),
