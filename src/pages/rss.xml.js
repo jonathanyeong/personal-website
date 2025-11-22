@@ -16,19 +16,13 @@ const RSS_ONLY_MESSAGE = `
 `;
 
 export async function GET(context) {
-	const allPosts = await getAllPosts();
-
-	const sortedPosts = allPosts.sort((a, b) => {
-		const dateA = a.data.pubDate?.getTime() ?? 0;
-		const dateB = b.data.pubDate?.getTime() ?? 0;
-		return dateB - dateA;
-	});
+	const posts = await getAllPosts();
 
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
-		items: sortedPosts.map((post) => {
+		items: posts.map((post) => {
 			const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
 
 			let content;

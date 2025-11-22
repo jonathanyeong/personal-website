@@ -6,13 +6,7 @@ import TopicList from '@components/TopicList.astro';
 
 import getAllPosts, { type BlogPost } from '@utilities/getAllPosts';
 
-const allPosts = await getAllPosts();
-
-const posts = allPosts.sort((a, b) => {
-  const dateA = a.data.pubDate?.getTime() ?? 0;
-  const dateB = b.data.pubDate?.getTime() ?? 0;
-  return dateB - dateA;
-});
+const posts = await getAllPosts();
 
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 const groupedPosts: Record<string, BlogPost[]> = posts.reduce((acc, post) => {

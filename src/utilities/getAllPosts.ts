@@ -8,5 +8,11 @@ export default async function getAllPosts(): Promise<BlogPost[]> {
   const blogPosts = filterPublishedPosts(await getCollection('blog'));
   const ghostPosts = await getCollection('ghostCmsPosts');
 
-  return [...blogPosts, ...ghostPosts];
+  const allPosts = [...blogPosts, ...ghostPosts];
+
+  return allPosts.sort((a, b) => {
+    const dateA = a.data.pubDate?.getTime() ?? 0;
+    const dateB = b.data.pubDate?.getTime() ?? 0;
+    return dateB - dateA;
+  });
 }
