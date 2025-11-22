@@ -6,9 +6,11 @@ import Newsletter from '@components/Newsletter.astro'
 import filterPublishedPosts from '@utilities/filterPublishedPosts';
 
 export async function getStaticPaths() {
-  const posts = filterPublishedPosts(await getCollection('blog'));
+  const blogPosts = filterPublishedPosts(await getCollection('blog'));
+  const ghostPosts = await getCollection('ghostCmsPosts');
+  const allPosts = [...blogPosts, ...ghostPosts];
 
-  const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+  const topics = [...new Set(allPosts.flatMap((post) => post.data.topics))];
 	return topics.map((topic) => ({
 		params: { topic }
 	}));
@@ -16,8 +18,11 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.params;
 
-const postsInTopic = filterPublishedPosts(await getCollection('blog')).
-    filter((post) => (topic && post.data.topics.includes(topic)));
+const blogPosts = filterPublishedPosts(await getCollection('blog'));
+const ghostPosts = await getCollection('ghostCmsPosts');
+const allPosts = [...blogPosts, ...ghostPosts];
+
+const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includes(topic)));
 ---
 
 <BaseLayout>
@@ -25,12 +30,15 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
     <h1>#{topic.toLowerCase()}</h1>
     <ul class="article-list flow">
       {
-        postsInTopic.map((post) => (
-          <li class="article-list__item">
-            <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
-            <FormattedDate date={post.data.pubDate} />
-          </li>
-        ))
+        postsInTopic.map((post) => {
+          const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
+          return (
+            <li class="article-list__item">
+              <a href={`/writing/${slug}/`}>{post.data.title}</a>
+              <FormattedDate date={post.data.pubDate} />
+            </li>
+          );
+        })
       }
     </ul>
   </main>

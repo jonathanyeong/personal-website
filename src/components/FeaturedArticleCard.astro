@@ -3,21 +3,22 @@ import type { CollectionEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
 }
 
 const { post } = Astro.props;
+const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
 ---
 <div class="article-card flow">
   <span class="article-card__title">
-    <a href={`/writing/${post.slug}/`}>
+    <a href={`/writing/${slug}/`}>
       {post.data.title}
     </a>
   </span>
   <p>
     {post.data.description}
   </p>
-  <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
+  <a href={`/writing/${slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
 </div>
 
 <style>

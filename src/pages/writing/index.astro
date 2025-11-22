@@ -11,8 +11,6 @@ import filterPublishedPosts from '@utilities/filterPublishedPosts';
 
 const blogPosts = filterPublishedPosts(await getCollection('blog'));
 const ghostPosts = await getCollection('ghostCmsPosts');
-console.log("ALJSLDJALSJDJKLASDKLJAKLSJDLKAJSDLJK")
-console.log(ghostPosts)
 
 const allPosts: (CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>)[] = [
   ...blogPosts,
