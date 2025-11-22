@@ -1,14 +1,14 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import FormattedDate from '@components/FormattedDate.astro';
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: BlogPost;
 }
 
 const { post } = Astro.props;
 ---
 <!-- writing/ -->
-<a href={`/writing/${post.slug}/`} class="article-card">
+<a href={`/writing/${post.id}/`} class="article-card">
   <span class="article-card__heading">
     <span class="article-card__date"><FormattedDate date={post.data.pubDate} /></span>
     <span class="article-card__link">{post.data.title}</span>
@@ -19,7 +19,7 @@ const { post } = Astro.props;
 
 <style>
   .article-card {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     gap: var(--space-2xs);
 

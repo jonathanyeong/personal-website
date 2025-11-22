@@ -1,9 +1,8 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
-import filterPublishedPosts from '../utilities/filterPublishedPosts';
+import getAllPosts from '../utilities/getAllPosts';
 const parser = new MarkdownIt();
 
 const RSS_ONLY_MESSAGE = `
@@ -17,17 +16,29 @@ const RSS_ONLY_MESSAGE = `
 `;
 
 export async function GET(context) {
-	const posts = filterPublishedPosts(await getCollection('blog'));
+	const posts = await getAllPosts();
 
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
-		items: posts.map((post) => ({
-			link: `/${post.slug}/`,
-			content: sanitizeHtml(parser.render(post.body)) + RSS_ONLY_MESSAGE,
-			...post.data,
-		})),
+		items: posts.map((post) => {
+			let content;
+
+			if (post.rendered?.html) {
+				content = sanitizeHtml(post.rendered.html);
+			} else if (post.body) {
+				content = sanitizeHtml(parser.render(post.body));
+			} else {
+				content = '';
+			}
+
+			return {
+				link: `/writing/${post.id}/`,
+				content: content + RSS_ONLY_MESSAGE,
+				...post.data,
+			};
+		}),
 		stylesheet: '/rss/styles.xsl',
 	});
 }

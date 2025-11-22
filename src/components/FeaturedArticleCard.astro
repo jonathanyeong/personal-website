@@ -1,23 +1,23 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: BlogPost;
 }
 
 const { post } = Astro.props;
 ---
 <div class="article-card flow">
   <span class="article-card__title">
-    <a href={`/writing/${post.slug}/`}>
+    <a href={`/writing/${post.id}/`}>
       {post.data.title}
     </a>
   </span>
   <p>
     {post.data.description}
   </p>
-  <a href={`/writing/${post.slug}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
+  <a href={`/writing/${post.id}/`} class="article-card__read-more">Read More <span class="screen-reader">about {post.data.title}</span> <Icon name="arrow-right" /></a>
 </div>
 
 <style>

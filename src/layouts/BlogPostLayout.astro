@@ -1,12 +1,12 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import { Icon } from "astro-icon/components";
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 import Newsletter from '@components/Newsletter.astro';
 import BlueskyPostReactions from '@components/BlueskyPostReactions.astro';
 
-type Props = CollectionEntry<'blog'>['data']  & {minutesRead: string};
+type Props = BlogPost['data']  & {minutesRead: string};
 
 const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead, bskyPostId } = Astro.props;
 

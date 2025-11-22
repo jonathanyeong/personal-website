@@ -1,14 +1,13 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
 import Newsletter from '@components/Newsletter.astro'
-import filterPublishedPosts from '@utilities/filterPublishedPosts';
+import getAllPosts from '@utilities/getAllPosts';
 
 export async function getStaticPaths() {
-  const posts = filterPublishedPosts(await getCollection('blog'));
+  const allPosts = await getAllPosts();
 
-  const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+  const topics = [...new Set(allPosts.flatMap((post) => post.data.topics))];
 	return topics.map((topic) => ({
 		params: { topic }
 	}));
@@ -16,8 +15,9 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.params;
 
-const postsInTopic = filterPublishedPosts(await getCollection('blog')).
-    filter((post) => (topic && post.data.topics.includes(topic)));
+const allPosts = await getAllPosts();
+
+const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includes(topic)));
 ---
 
 <BaseLayout>
@@ -27,7 +27,7 @@ const postsInTopic = filterPublishedPosts(await getCollection('blog')).
       {
         postsInTopic.map((post) => (
           <li class="article-list__item">
-            <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
+            <a href={`/writing/${post.id}/`}>{post.data.title}</a>
             <FormattedDate date={post.data.pubDate} />
           </li>
         ))
