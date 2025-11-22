@@ -17,17 +17,40 @@ const RSS_ONLY_MESSAGE = `
 `;
 
 export async function GET(context) {
-	const posts = filterPublishedPosts(await getCollection('blog'));
+	const blogPosts = filterPublishedPosts(await getCollection('blog'));
+	const ghostPosts = await getCollection('ghostCmsPosts');
+
+	const allPosts = [
+		...blogPosts,
+		...ghostPosts
+	];
+
+	const sortedPosts = allPosts.sort((a, b) => {
+		const dateA = a.data.pubDate?.getTime() ?? 0;
+		const dateB = b.data.pubDate?.getTime() ?? 0;
+		return dateB - dateA;
+	});
 
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
-		items: posts.map((post) => ({
-			link: `/${post.slug}/`,
-			content: sanitizeHtml(parser.render(post.body)) + RSS_ONLY_MESSAGE,
-			...post.data,
-		})),
+		items: sortedPosts.map((post) => {
+			const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
+
+			let content;
+			if (post.collection === 'ghostCmsPosts') {
+				content = post.rendered?.html || '';
+			} else {
+				content = sanitizeHtml(parser.render(post.body || ''));
+			}
+
+			return {
+				link: `/writing/${slug}/`,
+				content: content + RSS_ONLY_MESSAGE,
+				...post.data,
+			};
+		}),
 		stylesheet: '/rss/styles.xsl',
 	});
 }
