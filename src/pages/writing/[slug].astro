@@ -2,20 +2,14 @@
 import type { BlogPost } from '@utilities/getAllPosts';
 import { getCollection, render } from 'astro:content';
 import BlogPostLayout from '@layouts/BlogPostLayout.astro';
+import getAllPosts from '@utilities/getAllPosts';
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	const ghostPosts = await getCollection('ghostCmsPosts');
+	const posts = await getAllPosts();
 
-	const blogPaths = posts.map((post) => ({
+	return posts.map((post) => ({
 		params: { slug: post.id },
 		props: post,
 	}));
-
-	const ghostPaths = ghostPosts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
-	return [...blogPaths, ...ghostPaths];
 }
 type Props = BlogPost;
 const post = Astro.props;

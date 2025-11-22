@@ -23,17 +23,15 @@ export async function GET(context) {
 		description: SITE_DESCRIPTION,
 		site: context.site,
 		items: posts.map((post) => {
-			const slug = post.id
-
 			let content;
 			if (post.collection === 'ghostCmsPosts') {
-				content = post.rendered?.html || '';
+				content = post.excerpt || '';
 			} else {
 				content = sanitizeHtml(parser.render(post.body || ''));
 			}
 
 			return {
-				link: `/writing/${slug}/`,
+				link: `/writing/${post.id}/`,
 				content: content + RSS_ONLY_MESSAGE,
 				...post.data,
 			};

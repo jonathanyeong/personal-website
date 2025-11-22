@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import { Icon } from "astro-icon/components";
+import getAllPosts from '@utilities/getAllPosts';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
@@ -8,12 +8,9 @@ import FeaturedArticleList from '@components/FeaturedArticleList.astro'
 import Newsletter from '@components/Newsletter.astro';
 import TopicList from '@components/TopicList.astro';
 
-import filterPublishedPosts from '../utilities/filterPublishedPosts';
-
-const posts = filterPublishedPosts(await getCollection('blog'));
+const posts = await getAllPosts();
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 const featuredPosts = posts.filter(post => post.data.featured === true).slice(0, 5)
-// TODO: Handle featured ghost posts in the future.
 ---
 
 <BaseLayout>

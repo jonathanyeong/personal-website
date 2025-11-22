@@ -25,15 +25,12 @@ const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includ
     <h1>#{topic.toLowerCase()}</h1>
     <ul class="article-list flow">
       {
-        postsInTopic.map((post) => {
-          const slug = post.id;
-          return (
-            <li class="article-list__item">
-              <a href={`/writing/${slug}/`}>{post.data.title}</a>
-              <FormattedDate date={post.data.pubDate} />
-            </li>
-          );
-        })
+        postsInTopic.map((post) => (
+          <li class="article-list__item">
+            <a href={`/writing/${post.id}/`}>{post.data.title}</a>
+            <FormattedDate date={post.data.pubDate} />
+          </li>
+        ))
       }
     </ul>
   </main>
