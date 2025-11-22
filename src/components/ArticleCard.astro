@@ -2,13 +2,14 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
 }
 
 const { post } = Astro.props;
+const slug = post.collection === 'ghostCmsPosts' ? post.data.slug : post.id;
 ---
 <!-- writing/ -->
-<a href={`/writing/${post.slug}/`} class="article-card">
+<a href={`/writing/${slug}/`} class="article-card">
   <span class="article-card__heading">
     <span class="article-card__date"><FormattedDate date={post.data.pubDate} /></span>
     <span class="article-card__link">{post.data.title}</span>

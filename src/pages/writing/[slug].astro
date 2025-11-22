@@ -1,48 +1,33 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import { ghostClient } from '../../lib/ghost';
+import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 export async function getStaticPaths() {
-	// const posts = await getCollection('blog');
-	// return posts.map((post) => ({
-	// 	params: { slug: post.slug },
-	// 	props: post,
-	// }));
-	const posts = await ghostClient.posts
-		.browse({
-				limit: 'all',
-		})
-		.catch((err) => {
-				console.error(err);
-		});
+	const posts = await getCollection('blog');
+	const ghostPosts = await getCollection('ghostCmsPosts');
 
-	return posts?.map((post) => {
-        return {
-            params: {
-                slug: post.slug,
-            },
-            props: {
-                post: post,
-            },
-        };
-    });
+	const blogPaths = posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+
+	const ghostPaths = ghostPosts.map((post) => ({
+		params: { slug: post.data.slug }, // We could use generateId I think
+		props: post,
+	}));
+	return [...blogPaths, ...ghostPaths];
 }
-const { post } = Astro.props;
-// type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
+const post = Astro.props;
 
-// const post = Astro.props;
-// const { Content, remarkPluginFrontmatter } = await post.render();
-// const postData = { minutesRead: remarkPluginFrontmatter.minutesRead, ...post.data }
+const { Content, remarkPluginFrontmatter } = await render(post);
+
+const minutesRead = post.collection === 'blog' ? remarkPluginFrontmatter?.minutesRead : post.data.readingTime
+
+const postData = { minutesRead, ...post.data }
 
 ---
-<!--
+
 <BlogPost {...postData}>
 	<Content />
-</BlogPost> -->
-
-
-<h1>{post.title}</h1>
-<p>{post.reading_time} min read</p>
-
-<Fragment set:html={post.html} />
+</BlogPost>
