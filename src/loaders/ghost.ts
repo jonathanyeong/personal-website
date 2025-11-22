@@ -1,6 +1,12 @@
 import type { Loader, LoaderContext } from 'astro/loaders';
 import { ghostClient } from '../lib/ghost';
 
+
+function extractBskyPostId(codeInjection: string): string | undefined {
+  const match = codeInjection.match(/<!--\s*METADATA:\s*bskyPostId=([a-zA-Z0-9]+)\s*-->/);
+  return match?.[1];
+}
+
 export function ghostPostLoader(): Loader {
   return {
     name: 'ghostcms-posts',
@@ -36,6 +42,7 @@ export function ghostPostLoader(): Loader {
 
         for (const post of allPosts) {
           const id = post.id
+          const bskyPostId = extractBskyPostId(post.codeinjection_foot || '');
           // Transformation done here to match the schema of our md blog collection.
           const rawData = {
             slug: post.slug,
@@ -46,8 +53,9 @@ export function ghostPostLoader(): Loader {
             heroImage: post.feature_image || undefined,
             draft: false, // Ghost posts are published by default
             featured: post.featured || false,
-            topics: post.tags?.map(tag => tag.name) || [], // I don't know if this will work
+            topics: post.tags?.map(tag => tag.name) || [],
             readingTime: post.reading_time,
+            bskyPostId,
           };
 
           const parsedData = await parseData({

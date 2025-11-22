@@ -74,7 +74,6 @@ const { bskyPostId } = Astro.props;
 
   function drawComments(comments: any[]) {
     for (const comment of comments) {
-      console.log(comment)
       const commentEl = document.createElement("li");
       commentEl.classList.add("post__comment");
       const postUrl = atUriToBlueskyUrl(comment.post.uri, comment.post.author.handle)
