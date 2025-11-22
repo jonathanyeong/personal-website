@@ -1,14 +1,11 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 import FormattedDate from '@components/FormattedDate.astro';
 import Newsletter from '@components/Newsletter.astro'
-import filterPublishedPosts from '@utilities/filterPublishedPosts';
+import getAllPosts from '@utilities/getAllPosts';
 
 export async function getStaticPaths() {
-  const blogPosts = filterPublishedPosts(await getCollection('blog'));
-  const ghostPosts = await getCollection('ghostCmsPosts');
-  const allPosts = [...blogPosts, ...ghostPosts];
+  const allPosts = await getAllPosts();
 
   const topics = [...new Set(allPosts.flatMap((post) => post.data.topics))];
 	return topics.map((topic) => ({
@@ -18,9 +15,7 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.params;
 
-const blogPosts = filterPublishedPosts(await getCollection('blog'));
-const ghostPosts = await getCollection('ghostCmsPosts');
-const allPosts = [...blogPosts, ...ghostPosts];
+const allPosts = await getAllPosts();
 
 const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includes(topic)));
 ---

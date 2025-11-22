@@ -1,21 +1,12 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ArticleList from '@components/ArticleList.astro'
 import Newsletter from '@components/Newsletter.astro';
 import TopicList from '@components/TopicList.astro';
 
-import filterPublishedPosts from '@utilities/filterPublishedPosts';
+import getAllPosts, { type BlogPost } from '@utilities/getAllPosts';
 
-const blogPosts = filterPublishedPosts(await getCollection('blog'));
-const ghostPosts = await getCollection('ghostCmsPosts');
-
-const allPosts: (CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>)[] = [
-  ...blogPosts,
-  ...ghostPosts
-];
+const allPosts = await getAllPosts();
 
 const posts = allPosts.sort((a, b) => {
   const dateA = a.data.pubDate?.getTime() ?? 0;
@@ -24,7 +15,7 @@ const posts = allPosts.sort((a, b) => {
 });
 
 const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
-const groupedPosts: Record<string, (CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>)[]> = posts.reduce((acc, post) => {
+const groupedPosts: Record<string, BlogPost[]> = posts.reduce((acc, post) => {
   const year = post.data.pubDate?.getFullYear() ?? new Date().getFullYear();
 
   if (!acc[year]) {
@@ -33,7 +24,7 @@ const groupedPosts: Record<string, (CollectionEntry<'blog'> | CollectionEntry<'g
 
   acc[year].push(post);
   return acc;
-}, {} as Record<string, (CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>)[]>);
+}, {} as Record<string, BlogPost[]>);
 
 const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parseInt(a));
 

@@ -1,9 +1,8 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
-import filterPublishedPosts from '../utilities/filterPublishedPosts';
+import getAllPosts from '../utilities/getAllPosts';
 const parser = new MarkdownIt();
 
 const RSS_ONLY_MESSAGE = `
@@ -17,13 +16,7 @@ const RSS_ONLY_MESSAGE = `
 `;
 
 export async function GET(context) {
-	const blogPosts = filterPublishedPosts(await getCollection('blog'));
-	const ghostPosts = await getCollection('ghostCmsPosts');
-
-	const allPosts = [
-		...blogPosts,
-		...ghostPosts
-	];
+	const allPosts = await getAllPosts();
 
 	const sortedPosts = allPosts.sort((a, b) => {
 		const dateA = a.data.pubDate?.getTime() ?? 0;
