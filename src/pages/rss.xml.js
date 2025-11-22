@@ -25,9 +25,18 @@ export async function GET(context) {
 		items: posts.map((post) => {
 			let content;
 
+			// Ghost posts have HTML in rendered.html, while markdown posts have body
+			if (post.rendered?.html) {
+				content = sanitizeHtml(post.rendered.html);
+			} else if (post.body) {
+				content = sanitizeHtml(parser.render(post.body));
+			} else {
+				content = '';
+			}
+
 			return {
 				link: `/writing/${post.id}/`,
-				content: sanitizeHtml(parser.render(post.body || '')) + RSS_ONLY_MESSAGE,
+				content: content + RSS_ONLY_MESSAGE,
 				...post.data,
 			};
 		}),
