@@ -1,7 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import { getCollection, render } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import BlogPostLayout from '@layouts/BlogPostLayout.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	const ghostPosts = await getCollection('ghostCmsPosts');
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 	}));
 	return [...blogPaths, ...ghostPaths];
 }
-type Props = CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
+type Props = BlogPost;
 const post = Astro.props;
 
 const { Content, remarkPluginFrontmatter } = await render(post);
@@ -28,6 +28,6 @@ const postData = { minutesRead, ...post.data }
 
 ---
 
-<BlogPost {...postData}>
+<BlogPostLayout {...postData}>
 	<Content />
-</BlogPost>
+</BlogPostLayout>

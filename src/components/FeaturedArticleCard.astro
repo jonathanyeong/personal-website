@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  post: CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
+  post: BlogPost;
 }
 
 const { post } = Astro.props;

@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { BlogPost } from '@utilities/getAllPosts';
 import FormattedDate from '@components/FormattedDate.astro';
 interface Props {
-  post: CollectionEntry<'blog'> | CollectionEntry<'ghostCmsPosts'>;
+  post: BlogPost;
 }
 
 const { post } = Astro.props;
