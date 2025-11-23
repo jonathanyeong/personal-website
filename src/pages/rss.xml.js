@@ -18,6 +18,13 @@ const RSS_ONLY_MESSAGE = `
 export async function GET(context) {
 	const posts = await getAllPosts();
 
+	const sanitizeOptions = {
+		allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
+		allowedAttributes: {
+			...sanitizeHtml.defaults.allowedAttributes
+		},
+	};
+
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
@@ -26,9 +33,9 @@ export async function GET(context) {
 			let content;
 
 			if (post.rendered?.html) {
-				content = sanitizeHtml(post.rendered.html);
+				content = sanitizeHtml(post.rendered.html, sanitizeOptions);
 			} else if (post.body) {
-				content = sanitizeHtml(parser.render(post.body));
+				content = sanitizeHtml(parser.render(post.body), sanitizeOptions);
 			} else {
 				content = '';
 			}
