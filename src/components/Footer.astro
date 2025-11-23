@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import WebringBadge from "astro-webrings/badge";
 
 const today = new Date();
 ---
@@ -30,6 +31,7 @@ const today = new Date();
       <Icon name="logo2" />
     </a>
     <span class="footer__copyright-text">&copy; {today.getFullYear()} Jonathan Yeong</span>
+    <WebringBadge site="jonathan-yeong" ring="built-with-astro" />
   </div>
 </footer>
 
