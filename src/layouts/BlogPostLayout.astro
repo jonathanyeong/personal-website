@@ -8,7 +8,7 @@ import BlueskyPostReactions from '@components/BlueskyPostReactions.astro';
 
 type Props = BlogPost['data']  & {minutesRead: string};
 
-const { title, description, pubDate, updatedDate, heroImage, topics, minutesRead, bskyPostId } = Astro.props;
+const { title, description, pubDate, updatedDate, topics, bskyPostId } = Astro.props;
 
 
 const showUpdatedDate = () => {
