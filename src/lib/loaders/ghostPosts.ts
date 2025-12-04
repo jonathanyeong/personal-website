@@ -27,7 +27,8 @@ export function ghostPostLoader(): Loader {
           const posts = await ghostClient.posts.browse({
             limit: 100,
             page: page,
-            include: ['tags']
+            include: ['tags'],
+            filter: 'tag:-hash-newsletter'
           });
 
           allPosts.push(...posts);
