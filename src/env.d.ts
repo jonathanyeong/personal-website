@@ -2,4 +2,5 @@
 /// <reference types="astro/client-image" />
 interface ImportMetaEnv {
   readonly CONTENT_API_KEY: string;
+  readonly GHOST_ADMIN_API_KEY: string;
 }
