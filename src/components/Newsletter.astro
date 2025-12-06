@@ -47,17 +47,31 @@
     <p id="messageText">Success! Check your email to confirm!</p>
   </div>
   <form id="newsletterForm" class="newsletter__form">
-    <label for="email" class="screen-reader">Email address</label>
-    <input
-          type="email"
-          id="email"
-          placeholder="Enter your email"
-          class="newsletter__form-input"
-          name="email"
-          required
-          aria-required="true"
-          autocomplete="off"
-        >
+    <fieldset class="newsletter__form-group">
+      <label for="name" class="screen-reader">First Name</label>
+      <input
+            type="text"
+            id="name"
+            placeholder="Your first name"
+            class="newsletter__form-input"
+            name="name"
+            required
+            aria-required="true"
+            autocomplete="off"
+          >
+
+      <label for="email" class="screen-reader">Email address</label>
+      <input
+            type="email"
+            id="email"
+            placeholder="Your email address"
+            class="newsletter__form-input"
+            name="email"
+            required
+            aria-required="true"
+            autocomplete="off"
+          >
+    </fieldset>
     <button type="submit" class="newsletter__form-submit">Subscribe</button>
   </form>
   <p class="newsletter__guarantee">No spam. Unsubscribe anytime.</p>
@@ -106,11 +120,19 @@
     gap: var(--space-3xs);
   }
 
-  .newsletter__form-input {
-    flex-basis: 0;
+  .newsletter__form-group {
+    border: none;
+    padding: 0;
     flex-grow: 999;
     min-width: 50%;
-    padding-left: var(--space-2xs);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs);
+  }
+
+  .newsletter__form-input {
+    flex: 1;
+    padding: var(--space-2xs);
     border-radius: var(--space-3xs);
     border: 2px solid var(--color-gray-0);
     background-color: var(--color-light-text);
