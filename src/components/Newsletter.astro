@@ -8,8 +8,9 @@
     try {
       const formData = new FormData(formElement);
       const email = formData.get("email")
-      if (!email) {
-        console.log("No email was entered")
+      const name = formData.get("name")
+      if (!email || !name) {
+        console.log("Name and email are required")
         return;
       }
 
