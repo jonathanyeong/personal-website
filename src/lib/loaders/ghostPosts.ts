@@ -2,9 +2,9 @@ import type { Loader, LoaderContext } from 'astro/loaders';
 import { ghostClient } from '@lib/api/ghost';
 import { unified } from 'unified';
 import rehypeParse from 'rehype-parse';
-import rehypePrettyCode, { type Theme } from 'rehype-pretty-code';
+import rehypeShiki from '@shikijs/rehype'
 import rehypeStringify from 'rehype-stringify';
-import { shikiThemes } from '../../../shiki.config.mjs';
+import { shikiThemes, shikiDefaultColor } from '../../../shiki.config.mjs';
 
 function extractBskyPostId(codeInjection: string): string | undefined {
   const match = codeInjection.match(/<!--\s*METADATA:\s*bskyPostId=([a-zA-Z0-9]+)\s*-->/);
@@ -97,10 +97,11 @@ async function highlightGhostCode(html: string): Promise<string> {
   try {
     const result = await unified()
       .use(rehypeParse, { fragment: true })
-      .use(rehypePrettyCode, {
-        theme: shikiThemes as Record<string, Theme>,
-        keepBackground: true,
-        defaultLang: 'plaintext',
+      .use(rehypeShiki, {
+        themes: shikiThemes,
+        defaultLanguage: 'plaintext',
+        inline: 'tailing-curly-colon',
+        defaultColor: shikiDefaultColor
       })
       .use(rehypeStringify)
       .process(html);

@@ -12,22 +12,12 @@
 /* Astro markdown code blocks */
 .astro-code,
 .astro-code span {
-  color: light-dark(var(--shiki-light), var(--shiki-dark));
-  background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+  color: light-dark(var(--shiki-light), var(--shiki-dark)) !important;
+  background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg)) !important;
   /* Optional, if you also want font styles */
-  font-style: light-dark(var(--shiki-light-font-style), var(--shiki-dark-font-style));
-  font-weight: light-dark(var(--shiki-light-font-weight), var(--shiki-dark-font-weight));
-  text-decoration: light-dark(var(--shiki-light-text-decoration), var(--shiki-dark-text-decoration));
-}
-
-/* Ghost content code blocks (via rehype-pretty-code) */
-[data-rehype-pretty-code-figure] pre,
-[data-rehype-pretty-code-figure] code span {
-  color: light-dark(var(--shiki-light), var(--shiki-dark));
-  background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
-  font-style: light-dark(var(--shiki-light-font-style), var(--shiki-dark-font-style));
-  font-weight: light-dark(var(--shiki-light-font-weight), var(--shiki-dark-font-weight));
-  text-decoration: light-dark(var(--shiki-light-text-decoration), var(--shiki-dark-text-decoration));
+  font-style: light-dark(var(--shiki-light-font-style), var(--shiki-dark-font-style)) !important;
+  font-weight: light-dark(var(--shiki-light-font-weight), var(--shiki-dark-font-weight)) !important;
+  text-decoration: light-dark(var(--shiki-light-text-decoration), var(--shiki-dark-text-decoration)) !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
