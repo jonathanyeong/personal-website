@@ -3,4 +3,4 @@ export const shikiThemes = {
   light: 'everforest-light',
 };
 
-export const shikiDefaultColor = "light-dark()";
+export const shikiDefaultColor = 'light-dark()';

@@ -44,7 +44,6 @@ export function ghostPostLoader(): Loader {
 
         logger.info(`Loaded ${allPosts.length} posts from Ghost`);
 
-
         for (const post of allPosts) {
           const id = post.slug
           const bskyPostId = extractBskyPostId(post.codeinjection_foot || '');
@@ -52,7 +51,7 @@ export function ghostPostLoader(): Loader {
           const rawData = {
             title: post.title,
             description: post.custom_excerpt || post.excerpt || '',
-            pubDate: post.published_at ?  new Date(post.published_at): undefined,
+            pubDate: post.published_at ? new Date(post.published_at): undefined,
             updatedDate: post.updated_at ? new Date(post.updated_at) : undefined,
             heroImage: post.feature_image || undefined,
             draft: false, // Ghost posts are published by default

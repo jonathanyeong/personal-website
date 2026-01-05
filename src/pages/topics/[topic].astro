@@ -1,23 +1,22 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import FormattedDate from '@components/FormattedDate.astro';
-import Newsletter from '@components/Newsletter.astro'
-import getAllPosts from '@utilities/getAllPosts';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import Newsletter from "@components/Newsletter.astro";
+import getTopicsWithPosts from "@utilities/getTopics";
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPosts();
-
-  const topics = [...new Set(allPosts.flatMap((post) => post.data.topics))];
-	return topics.map((topic) => ({
-		params: { topic }
-	}));
+  const topicsWithPosts = await getTopicsWithPosts();
+  return topicsWithPosts.map((t) => ({
+    params: { topic: t.topic },
+  }));
 }
 
 const { topic } = Astro.params;
 
-const allPosts = await getAllPosts();
+const topicsWithPosts = await getTopicsWithPosts();
 
-const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includes(topic)));
+const postsInTopic =
+  topicsWithPosts.find((t) => t.topic === topic)?.posts ?? [];
 ---
 
 <BaseLayout>
@@ -35,7 +34,6 @@ const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includ
     </ul>
   </main>
   <Newsletter />
-
 </BaseLayout>
 
 <style>
@@ -46,10 +44,10 @@ const postsInTopic = allPosts.filter((post) => (topic && post.data.topics.includ
   }
 
   h1 {
-		font-size: var(--font-step-7);
+    font-size: var(--font-step-7);
     font-family: var(--font-hero);
     margin-bottom: var(--space-xl);
-	}
+  }
 
   .article-list {
     --flow-space: var(--space-l);

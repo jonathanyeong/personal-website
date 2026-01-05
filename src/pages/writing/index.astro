@@ -5,10 +5,12 @@ import Newsletter from '@components/Newsletter.astro';
 import TopicList from '@components/TopicList.astro';
 
 import getAllPosts, { type BlogPost } from '@utilities/getAllPosts';
+import getTopicsWithPosts from "@utilities/getTopics";
 
 const posts = await getAllPosts();
+const topicsWithPosts = await getTopicsWithPosts();
 
-const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+const topics = topicsWithPosts.map((t) => t.topic);
 const groupedPosts: Record<string, BlogPost[]> = posts.reduce((acc, post) => {
   const year = post.data.pubDate?.getFullYear() ?? new Date().getFullYear();
 

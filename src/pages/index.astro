@@ -1,16 +1,21 @@
 ---
 import { Icon } from "astro-icon/components";
-import getAllPosts from '@utilities/getAllPosts';
+import getAllPosts from "@utilities/getAllPosts";
+import getTopicsWithPosts from "@utilities/getTopics";
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '@components/Hero.astro';
-import FeaturedArticleList from '@components/FeaturedArticleList.astro'
-import Newsletter from '@components/Newsletter.astro';
-import TopicList from '@components/TopicList.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import FeaturedArticleList from "@components/FeaturedArticleList.astro";
+import Newsletter from "@components/Newsletter.astro";
+import TopicList from "@components/TopicList.astro";
 
 const posts = await getAllPosts();
-const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
-const featuredPosts = posts.filter(post => post.data.featured === true).slice(0, 5)
+const topicsWithPosts = await getTopicsWithPosts();
+
+const topics = topicsWithPosts.map((t) => t.topic);
+const featuredPosts = posts
+  .filter((post) => post.data.featured === true)
+  .slice(0, 5);
 ---
 
 <BaseLayout>
@@ -20,7 +25,9 @@ const featuredPosts = posts.filter(post => post.data.featured === true).slice(0,
       <div class="article-list__featured">
         <h2>Featured</h2>
         <FeaturedArticleList posts={featuredPosts} />
-        <div class="article-list__view-more"><a href="/writing">view all writing <Icon name="arrow-right" /></a></div>
+        <div class="article-list__view-more">
+          <a href="/writing">view all writing <Icon name="arrow-right" /></a>
+        </div>
       </div>
       <div class="article-list__topics">
         <h2>Topics</h2>

@@ -1,12 +1,11 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import filterPublishedPosts from '../../utilities/filterPublishedPosts';
-import Newsletter from '@components/Newsletter.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import getTopicsWithPosts from "@utilities/getTopics";
+import Newsletter from "@components/Newsletter.astro";
 
+const topicsWithPosts = await getTopicsWithPosts();
 
-const posts = filterPublishedPosts(await getCollection('blog'));
-const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
+const topics = topicsWithPosts.map((t) => t.topic);
 ---
 
 <BaseLayout>
@@ -16,25 +15,26 @@ const topics = [...new Set(posts.flatMap((post) => post.data.topics))];
 			{
 				topics.map((topic) => (
 					<li>
-						<a href={`/topics/${topic}/`}>{topic}</a>
+						<a href={`/topics/${topic}/`}>
+							{topic.charAt(0).toUpperCase() + topic.slice(1)}
+						</a>
 					</li>
 				))
 			}
 		</ul>
 		<Newsletter />
 	</main>
-
 </BaseLayout>
 
 <style>
 	main {
 		--gutter: var(--space-m);
-    padding-top: var(--space-xl);
+		padding-top: var(--space-xl);
 	}
 
 	h1 {
 		font-size: var(--font-step-7);
-    font-family: var(--font-hero);
+		font-family: var(--font-hero);
 	}
 
 	li {
