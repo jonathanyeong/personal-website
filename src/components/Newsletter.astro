@@ -1,81 +1,53 @@
-<script>
-  const formElement = document.getElementById('newsletterForm') as HTMLFormElement;
-  const successMessage = document.getElementById('successMessage');
-
-  formElement.onsubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const formData = new FormData(formElement);
-      const email = formData.get("email")
-      const name = formData.get("name")
-      if (!email || !name) {
-        console.log("Name and email are required")
-        return;
-      }
-
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-      if (result.message) {
-        successMessage && successMessage.classList.remove('hidden');
-        const messageText = document.getElementById('messageText');
-        if (messageText) {
-          messageText.textContent = result.message || "Success! Check your email to confirm!";
-        }
-
-        formElement.reset();
-
-        setTimeout(() => {
-          successMessage && successMessage.classList.add('hidden');
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-</script>
-
-
 <div class="newsletter__container wrapper">
   <p class="newsletter__subtitle">Want to stay connected?</p>
   <h1>Subscribe to my newsletter</h1>
-  <p>Weekly, bite-sized,  practical tips and insights that have meaningfully improved how I code, design, and write.</p>
+  <p>
+    Weekly, bite-sized, practical tips and insights that have meaningfully
+    improved how I code, design, and write.
+  </p>
   <div id="successMessage" class="newsletter__success hidden">
     <p id="messageText">Success! Check your email to confirm!</p>
   </div>
-  <form id="newsletterForm" class="newsletter__form">
+  <form
+    id="newsletterForm"
+    class="newsletter__form"
+    action="https://buttondown.com/api/emails/embed-subscribe/jonoyeong"
+    target="_blank"
+    method="post"
+  >
     <fieldset class="newsletter__form-group">
       <label for="name" class="screen-reader">First Name</label>
       <input
-            type="text"
-            id="name"
-            placeholder="Your first name"
-            class="newsletter__form-input"
-            name="name"
-            required
-            aria-required="true"
-            autocomplete="off"
-          >
+        type="text"
+        id="first-name"
+        placeholder="Your first name"
+        class="newsletter__form-input"
+        name="metadata__first-name"
+        required
+        aria-required="true"
+        autocomplete="off"
+      />
 
       <label for="email" class="screen-reader">Email address</label>
       <input
-            type="email"
-            id="email"
-            placeholder="Your email address"
-            class="newsletter__form-input"
-            name="email"
-            required
-            aria-required="true"
-            autocomplete="off"
-          >
+        type="email"
+        id="email"
+        placeholder="Your email address"
+        class="newsletter__form-input"
+        name="email"
+        required
+        aria-required="true"
+        autocomplete="off"
+      />
     </fieldset>
     <button type="submit" class="newsletter__form-submit">Subscribe</button>
   </form>
   <p class="newsletter__guarantee">No spam. Unsubscribe anytime.</p>
+  <p class="newsletter__guarantee">
+    <a href="https://buttondown.com/refer/jonoyeong" target="_blank">
+      Powered by Buttondown.
+    </a>
+  </p>
 </div>
 
 <style>
@@ -91,7 +63,9 @@
     margin-top: 0;
   }
 
-  p, h1, form {
+  p,
+  h1,
+  form {
     margin-bottom: var(--space-s);
   }
 
