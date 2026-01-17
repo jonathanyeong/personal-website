@@ -1,3 +1,15 @@
+<script>
+  const form = document.getElementById(
+    "newsletterForm",
+  ) as HTMLFormElement | null;
+  form?.addEventListener("submit", () => {
+    // timeout needed to allow buttondown embed to receive form data
+    setTimeout(() => {
+      form.reset();
+    }, 0);
+  });
+</script>
+
 <div class="newsletter__container wrapper">
   <p class="newsletter__subtitle">Want to stay connected?</p>
   <h1>Subscribe to my newsletter</h1>
