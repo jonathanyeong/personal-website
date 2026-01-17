@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout noindex="true">
+  <main class="wrapper">
+    <h1>Thanks for subscribing to my newsletter!</h1>
+    <p>
+      I'll be releasing issues every other Wednesday with what's currently on my
+      mind, updates on things I built, posts I wrote, and stuff that inspires me
+    </p>
+    <p>
+      If you're want to read some previous issues, check out <a
+        href="https://buttondown.com/jonoyeong/archive/"
+        target="_blank">the archive</a
+      >.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    max-width: 80ch;
+  }
+
+  main {
+    --gutter: var(--space-m);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: var(--font-step-4);
+    font-family: var(--font-hero);
+    margin-bottom: var(--space-xl);
+  }
+
+  p {
+    font-size: var(--font-step-1);
+    margin-bottom: var(--space-l);
+  }
+</style>

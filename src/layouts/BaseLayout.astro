@@ -1,28 +1,38 @@
 ---
-import BaseHead from '@components/BaseHead.astro';
-import Navbar from '@components/Navbar.astro';
-import Footer from '@components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-const { title, description, pubDate } = Astro.props;
+import BaseHead from "@components/BaseHead.astro";
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+const { title, description, pubDate, noindex } = Astro.props;
 
 const headTitle = title || SITE_TITLE;
 const headDescription = description || SITE_DESCRIPTION;
 const headPubDate = pubDate || new Date().toISOString();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <link rel="preload" href="/fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
-    <BaseHead title={headTitle} description={headDescription} pubDate={headPubDate} />
     <link
-                  rel="alternate"
-                  type="application/rss+xml"
-                  title={SITE_TITLE}
-                  href={new URL("rss.xml", Astro.site)}
-                />
+      rel="preload"
+      href="/fonts/Poppins-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <BaseHead
+      title={headTitle}
+      description={headDescription}
+      pubDate={headPubDate}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={new URL("rss.xml", Astro.site)}
+    />
 
-
+    {noindex && <meta name="robots" content="noindex" />}
   </head>
   <body>
     <Navbar />
