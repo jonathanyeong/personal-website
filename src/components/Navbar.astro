@@ -1,86 +1,91 @@
 ---
-import { Icon } from 'astro-icon/components';
-import OverlayMenu from '@components/OverlayMenu.astro';
-
+import { Icon } from "astro-icon/components";
+import OverlayMenu from "@components/OverlayMenu.astro";
 ---
 
 <script>
-  import { animate, stagger } from 'animejs';
+  import { animate, stagger } from "animejs";
 
-  document.addEventListener('DOMContentLoaded', () => {
-    animate('.icon', {
+  document.addEventListener("DOMContentLoaded", () => {
+    animate(".icon", {
       opacity: [0, 1],
-      translateY: ['1rem', 0],
+      translateY: ["1rem", 0],
       duration: 600,
       delay: stagger(50),
     });
   });
 
-
-  const preferredColorScheme = (() => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
+  const preferredColorScheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
 
   const updateIconVisibility = (theme: string) => {
     const sunIcon = document.querySelector('[data-icon="sun"]');
     const moonIcon = document.querySelector('[data-icon="moon"]');
 
-    if (theme === 'dark') {
-      sunIcon?.classList.remove('display-icon');
-      moonIcon?.classList.add('display-icon');
+    if (theme === "dark") {
+      sunIcon?.classList.remove("display-icon");
+      moonIcon?.classList.add("display-icon");
     } else {
-      moonIcon?.classList.remove('display-icon');
-      sunIcon?.classList.add('display-icon');
+      moonIcon?.classList.remove("display-icon");
+      sunIcon?.classList.add("display-icon");
     }
-  }
+  };
 
   const handleColorSchemeChange = (event: MediaQueryListEvent) => {
-    if (localStorage.getItem('theme')) {
+    if (localStorage.getItem("theme")) {
       return;
     }
-    const preferredTheme = event.matches ? 'dark' : 'light'
-    document.documentElement.style.setProperty('color-scheme', preferredTheme)
+    const preferredTheme = event.matches ? "dark" : "light";
+    document.documentElement.style.setProperty("color-scheme", preferredTheme);
     updateIconVisibility(preferredTheme);
-  }
+  };
 
   const setInitialThemeState = () => {
-    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
-    document.documentElement.style.setProperty('color-scheme', currentTheme)
+    const currentTheme =
+      localStorage.getItem("theme") || preferredColorScheme();
+    document.documentElement.style.setProperty("color-scheme", currentTheme);
     updateIconVisibility(currentTheme);
-  }
+  };
 
   const handleToggleClick = () => {
-    const currentTheme = localStorage.getItem('theme') || preferredColorScheme()
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    const currentTheme =
+      localStorage.getItem("theme") || preferredColorScheme();
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
 
     updateIconVisibility(newTheme);
-    document.documentElement.style.setProperty('color-scheme', newTheme)
-    localStorage.setItem('theme', newTheme);
-  }
+    document.documentElement.style.setProperty("color-scheme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 
   const handleMenuClick = () => {
     const nav = document.getElementById("myNav");
 
     if (nav) {
-      nav.classList.remove('hide-nav');
-      nav.classList.add('show-nav')
+      nav.classList.remove("hide-nav");
+      nav.classList.add("show-nav");
     }
     document.body.classList.add("no-scroll");
-  }
+  };
 
   const setupEventListeners = () => {
-    const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    colorSchemeMediaQuery.addEventListener('change', handleColorSchemeChange)
+    const colorSchemeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    );
+    colorSchemeMediaQuery.addEventListener("change", handleColorSchemeChange);
 
-    const themeToggle: HTMLElement | null = document.getElementById("themeToggle");
+    const themeToggle: HTMLElement | null =
+      document.getElementById("themeToggle");
     themeToggle && themeToggle.addEventListener("click", handleToggleClick);
 
     const menuToggle: HTMLElement | null = document.getElementById("openMenu");
     menuToggle && menuToggle.addEventListener("click", handleMenuClick);
-  }
+  };
 
-  setInitialThemeState()
-  setupEventListeners()
+  setInitialThemeState();
+  setupEventListeners();
 </script>
 
 <header class="wrapper">
@@ -95,18 +100,45 @@ import OverlayMenu from '@components/OverlayMenu.astro';
           <li><a href="/writing">Writing</a></li>
           <li><a href="/about">About</a></li>
           <!-- <li><a href="/now">Now</a></li> -->
-          <li><a href="https://newsletter.jonathanyeong.com/" class="newsletter-link" target="_blank">Newsletter <Icon name="external-link" /></a></li>
+          <li>
+            <a
+              href="https://buttondown.com/jonoyeong/archive/"
+              class="newsletter-link"
+              target="_blank">Newsletter <Icon name="external-link" /></a>
+          </li>
         </ul>
       </nav>
     </div>
 
     <div class="icons-container">
       <ul class="cluster" role="list">
-        <li class="icon"><a href="https://bsky.app/profile/jonathanyeong.com" rel="noopener noreferrer" target="_blank" aria-label="Bluesky icon"><Icon name="bluesky" /></a></li>
-        <li class="icon"><a href="https://github.com/jonathanyeong" rel="noopener noreferrer" target="_blank" aria-label="Github icon"><Icon name="github" /></a></li>
-        <li class="icon"><a href="https://www.youtube.com/@JonathanYeong" rel="noopener noreferrer" target="_blank" aria-label="Youtube icon"><Icon name="youtube" /></a></li>
         <li class="icon">
-          <button id="themeToggle" aria-label="Toggle Light/Dark Theme" type="button">
+          <a
+            href="https://bsky.app/profile/jonathanyeong.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="Bluesky icon"><Icon name="bluesky" /></a>
+        </li>
+        <li class="icon">
+          <a
+            href="https://github.com/jonathanyeong"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="Github icon"><Icon name="github" /></a>
+        </li>
+        <li class="icon">
+          <a
+            href="https://www.youtube.com/@JonathanYeong"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="Youtube icon"><Icon name="youtube" /></a>
+        </li>
+        <li class="icon">
+          <button
+            id="themeToggle"
+            aria-label="Toggle Light/Dark Theme"
+            type="button"
+          >
             <Icon name="sun" />
             <Icon name="moon" />
           </button>
@@ -158,11 +190,10 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     gap: var(--space-s);
   }
 
-
   .nav-list {
     margin: 0;
     /* Visual styling - magic number by eye */
-    transform: translateY(-0.5ex)
+    transform: translateY(-0.5ex);
   }
 
   .nav-list a {
@@ -170,7 +201,11 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
     text-decoration-style: dotted;
-    text-decoration-color: color-mix(in srgb, var(--color-text) 0%, transparent);
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--color-text) 0%,
+      transparent
+    );
     transition: text-decoration-color var(--transition-base);
   }
 
@@ -180,7 +215,11 @@ import OverlayMenu from '@components/OverlayMenu.astro';
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
     text-decoration-style: dotted;
-    text-decoration-color: color-mix(in srgb, var(--color-text) 100%, transparent);
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--color-text) 100%,
+      transparent
+    );
   }
 
   .hamburger-nav-icon {
