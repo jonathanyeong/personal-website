@@ -59,13 +59,6 @@ export function ghostPostLoader(): Loader {
 
         let cutoffDate = new Date();
         for (const post of allPosts) {
-          if (extractBskyPostId(post.codeinjection_foot || "")) {
-            // We can early exit here for these reasons:
-            // - Posts are ordered by publishedAt DESC
-            // - I've added codeinjection_foot to my posts before implementing bsky auto-discovery
-            // As soon extractBskyPostId returns a value then I know I've hit the posts where I've already added a bsky postId
-            break;
-          }
           const publishedAt = post.published_at
             ? new Date(post.published_at)
             : undefined;
