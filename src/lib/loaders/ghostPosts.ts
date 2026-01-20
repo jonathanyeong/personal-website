@@ -59,6 +59,9 @@ export function ghostPostLoader(): Loader {
 
         let cutoffDate = new Date();
         for (const post of allPosts) {
+          if (extractBskyPostId(post.codeinjection_foot || "")) {
+            continue;
+          }
           const publishedAt = post.published_at
             ? new Date(post.published_at)
             : undefined;
@@ -104,6 +107,9 @@ export function ghostPostLoader(): Loader {
               logger.warn(`URI for bskypost is undefined: ${bskyPost.uri}`);
               continue;
             }
+            logger.info(
+              `Setting bskyPostMap ${bskyPost.links[0]} with bskyPostId ${bskyPostId}`,
+            );
             bskyPostMap.set(bskyPost.links[0], {
               createdAt: bskyPost.createdAt,
               bskyPostId,
@@ -119,8 +125,8 @@ export function ghostPostLoader(): Loader {
           let bskyPostId = extractBskyPostId(post.codeinjection_foot || "");
           if (!bskyPostId) {
             const bskyPost = bskyPostMap.get(post.slug);
-            logger.info(`post.slug: ${post.slug} bskyPost: ${bskyPost}`);
             if (bskyPost) {
+              logger.info(`Auto-discovered bskyPostId for ${post.slug}`);
               bskyPostId = bskyPost.bskyPostId;
             }
           }
