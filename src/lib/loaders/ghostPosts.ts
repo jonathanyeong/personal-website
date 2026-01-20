@@ -110,7 +110,7 @@ export function ghostPostLoader(): Loader {
             logger.info(
               `Setting bskyPostMap ${bskyPost.links[0]} with bskyPostId ${bskyPostId}`,
             );
-            bskyPostMap.set(bskyPost.links[0], {
+            bskyPostMap.set(slug, {
               createdAt: bskyPost.createdAt,
               bskyPostId,
             });
@@ -124,10 +124,13 @@ export function ghostPostLoader(): Loader {
           const id = post.slug;
           let bskyPostId = extractBskyPostId(post.codeinjection_foot || "");
           if (!bskyPostId) {
+            logger.info("No bskyPostId from Ghost fetch, from bskyPostMap");
             const bskyPost = bskyPostMap.get(post.slug);
             if (bskyPost) {
               logger.info(`Auto-discovered bskyPostId for ${post.slug}`);
               bskyPostId = bskyPost.bskyPostId;
+            } else {
+              logger.info("Post not found in the map!");
             }
           }
           // Transformation done here to match the schema of our md blog collection.
