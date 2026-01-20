@@ -265,18 +265,15 @@ function createBlueskyFeedIterator(
           }
         }
 
-        if (
-          !links.some((link) =>
-            link.startsWith(site || "https://jonathanyeong.com"),
-          )
-        ) {
-          continue;
-        }
-        if (links.length > 0) {
+        const filteredLinks = links.filter((link) =>
+          link.startsWith(site || "https://jonathanyeong.com"),
+        );
+
+        if (filteredLinks.length > 0) {
           posts.push({
             uri: post.uri,
             createdAt: record.createdAt as string,
-            links,
+            links: filteredLinks,
           });
         }
       }
