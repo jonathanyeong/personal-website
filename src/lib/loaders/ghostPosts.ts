@@ -110,6 +110,9 @@ export function ghostPostLoader(): Loader {
             });
           }
         }
+        logger.info(
+          `Loaded bskyPostMap with ${bskyPostMap.size} number of entries`,
+        );
 
         for (const post of allPosts) {
           const id = post.slug;
