@@ -2,31 +2,17 @@
 const { bskyPostId } = Astro.props;
 ---
 
-<meta data-bsky-post-id={bskyPostId} />
+<meta data-bsky-post-id={bskyPostId || ''} />
 
 <section class="post__likes" data-bsky-container>
-  <h4 class="post__likesTitle">
-    🦋 <span data-bsky-likes-count></span> likes on Bluesky
-  </h4>
-  <ul data-bsky-likes class="post__likesList"></ul>
-  <h4 class="post__commentsTitle">
-    Comments
-  </h4>
-  <ul data-bsky-comments class="post__commentsList flow"></ul>
-  <a class="post__likesCta" href=`https://bsky.app/profile/jonathanyeong.com/post/${bskyPostId}` target="_blank">
-	  Like this post or add your comment on Bluesky
-  </a>
 </section>
 
 <script>
   const LIMIT = 55;
 
   const bskyPostIdElement = document.querySelector("[data-bsky-post-id]") as HTMLElement;
-  const bskyPostId: string | undefined = bskyPostIdElement.dataset.bskyPostId;
+  let bskyPostId: string | undefined = bskyPostIdElement.dataset?.bskyPostId;
   const container = document.querySelector("[data-bsky-container]") as HTMLElement;
-  const likesContainer = document.querySelector("[data-bsky-likes]") as HTMLElement;
-  const likesCount = document.querySelector("[data-bsky-likes-count]") as HTMLElement;
-  const commentsContainer = document.querySelector("[data-bsky-comments]") as HTMLElement;
 
   const myDid = "did:plc:sypvcjg7jtlw2ivzumlcxto5";
   const bskyAPI = "https://public.api.bsky.app/xrpc/";
@@ -34,17 +20,17 @@ const { bskyPostId } = Astro.props;
   const getPostURL = `${bskyAPI}app.bsky.feed.getPosts?uris=`;
   const bskyPostComments = `${bskyAPI}app.bsky.feed.getPostThread?depth=1`;
 
-  function drawHowManyMore(postLikesCount: number, likesActorLength: number) {
+  function drawHowManyMore(postLikesCount: number, likesActorLength: number, element: HTMLUListElement) {
     if (postLikesCount > LIMIT) {
       const likesMore = document.createElement("li");
       likesMore.classList.add("post__like");
       likesMore.classList.add("post__like--howManyMore");
       likesMore.innerText = `+${postLikesCount - likesActorLength}`;
-      likesContainer.appendChild(likesMore);
+      element.appendChild(likesMore);
     }
   }
 
-  function drawLikes(likesActors: any[], postLikesCount: number) {
+  function drawLikes(likesActors: any[], postLikesCount: number, element: HTMLUListElement) {
     for (const like of likesActors) {
       const likeEl = document.createElement("li");
       likeEl.classList.add("post__like");
@@ -61,10 +47,10 @@ const { bskyPostId } = Astro.props;
           <span aria-label="${like.actor.displayName}">@</span>
         `;
       }
-      likesContainer.appendChild(likeEl);
+      element.appendChild(likeEl);
     }
 
-    drawHowManyMore(postLikesCount, likesActors.length);
+    drawHowManyMore(postLikesCount, likesActors.length, element);
   }
 
   function atUriToBlueskyUrl(atUri: string, authorHandle: string) {
@@ -72,7 +58,7 @@ const { bskyPostId } = Astro.props;
     return `https://bsky.app/profile/${authorHandle}/post/${postId}`;
   }
 
-  function drawComments(comments: any[]) {
+  function drawComments(comments: any[], element: HTMLUListElement) {
     for (const comment of comments) {
       const commentEl = document.createElement("li");
       commentEl.classList.add("post__comment");
@@ -100,8 +86,19 @@ const { bskyPostId } = Astro.props;
         <p class="post__comment__body">${comment.post.record.text}</p>
         <a class="post__comment__viewCommentLink" href="${postUrl}" target="_blank">View on Bluesky</a>
       `
-      commentsContainer.appendChild(commentEl)
+      element.appendChild(commentEl)
     }
+  }
+
+  if (!bskyPostId) {
+    const collection = 'app.bsky.feed.post'
+    const recordPath = 'embed.external.uri'
+    const subject = window.location.href
+    const source = encodeURIComponent(`${collection}:${recordPath}`)
+    let urlToCall = `https://constellation.microcosm.blue/xrpc/blue.microcosm.links.getBacklinks?subject=${encodeURIComponent(subject)}&source=${source}&limit=1&reverse=true&did=${myDid}`
+    const res = await fetch(urlToCall, { headers: { Accept: 'application/json' }})
+    const resData = await res.json()
+    bskyPostId = resData.records[0]?.rkey
   }
 
   if (bskyPostId && bskyPostId !== "") {
@@ -113,19 +110,46 @@ const { bskyPostId } = Astro.props;
       const postData = await bskyPost.json();
       const likesData = await bskyPostLikes.json();
       const commentsData = await bskyComments.json();
+
       const totalLikesCount = postData.posts[0].likeCount;
-      likesCount.textContent = totalLikesCount;
-      if (likesData.likes.length > 0) {
-        drawLikes(likesData.likes, totalLikesCount);
+      if (totalLikesCount > 0 && likesData.likes.length > 0) {
+        const h4 = document.createElement('h4')
+        h4.classList.add('post__likesTitle')
+        h4.innerText = `🦋 ${totalLikesCount} likes on Bluesky`
+        container.appendChild(h4)
+
+        const ul = document.createElement('ul')
+        ul.classList.add('post__likesList')
+
+        drawLikes(likesData.likes, totalLikesCount, ul);
+
+        container.appendChild(ul)
       }
+
+      const commentTitle = document.createElement('h4')
+      commentTitle.classList.add('post__commentsTitle')
+      commentTitle.innerText = 'Comments'
+
+      container.appendChild(commentTitle)
+      const commentsContainer = document.createElement('ul')
+      commentsContainer.classList.add('post__commentsList', 'flow')
       if (commentsData.thread.replies.length > 0) {
-        drawComments(commentsData.thread.replies)
+        drawComments(commentsData.thread.replies, commentsContainer)
       } else {
         const commentEl = document.createElement("li");
         commentEl.classList.add("post__noComment");
         commentEl.innerHTML = `No comments yet! Be the first to add one.`
         commentsContainer.appendChild(commentEl)
       }
+
+      container.appendChild(commentsContainer)
+
+      const likeLink = document.createElement('a')
+      likeLink.classList.add('post__likesCta')
+      likeLink.href = `https://bsky.app/profile/jonathanyeong.com/post/${bskyPostId}`
+      likeLink.target = '_blank'
+      likeLink.innerText = 'Like this post or add your comment on Bluesky'
+      container.appendChild(likeLink)
     } catch (error) {
       container.remove();
     }
